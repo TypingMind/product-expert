@@ -1,6 +1,6 @@
-<PRODUCT_KNOWLDEGE_MAP lastUpdated="2025-02-24T03:49:02.792Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-02-24T03:49:02.792Z">
 
-This document contains publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
+This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
 <PRODUCT_OVERVIEW>
 ## 1. Overview
@@ -3307,4 +3307,4 @@ TypingMind now offers a publicly accessible product knowledge map in a structure
 </LLMS_TXT_FEATURE>
 
 
-</PRODUCT_KNOWLDEGE_MAP>
+</PRODUCT_KNOWLEDGE_MAP>
