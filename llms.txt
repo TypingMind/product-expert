@@ -3211,6 +3211,8 @@ and more.
         - Seamless integration with SetApp ecosystem
 </PLATFORM_DETAILS_AND_UPDATES>
 
+
+
 <OTHER_TECHNICAL_INFO>
 ### Other Technical Details
 
@@ -3267,5 +3269,40 @@ and more.
         - Search Queries: Test with simple queries first
         - CORS Handling: Use recommended endpoints
 </OTHER_TECHNICAL_INFO>
+
+<LLMS_TXT_FEATURE>
+
+## Public Product Knowledge Map (llms.txt)
+
+TypingMind now offers a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs).
+
+**URL:** `www.typingmind.com/llms.txt`
+
+**Purpose:**
+
+- **LLM-Based Chatbot Development:** Enables developers to build LLM-based chatbots that possess comprehensive knowledge of TypingMind's features and functionalities.
+- **User Education:** Provides users with a readily available resource to learn more about TypingMind's capabilities as needed.
+
+**Content Characteristics:**
+
+- **Publicly Available Information:** Contains only information that is already publicly accessible on TypingMind's website and documentation.
+- **LLM-Readable Format:** Structured text format optimized for ingestion and understanding by LLMs.
+- **Continuously Updated:** The knowledge map will be updated over time to reflect the product's growth and evolution.
+
+**Use Cases:**
+
+- **Training AI Chatbots:** Use the content of `llms.txt` to train AI chatbots to answer user questions about TypingMind, troubleshoot issues, and provide guidance.
+- **Enhancing Documentation:** Integrate information from `llms.txt` into existing documentation to ensure accuracy and completeness.
+- **Automating Support:** Utilize `llms.txt` to automate support processes by enabling AI agents to access a comprehensive knowledge base.
+
+**Structure and Formatting:**
+
+- The `llms.txt` file is structured using a custom markup language.
+- Sections are delineated by tags (e.g., `<OVERVIEW>`, `<MAIN_INTERFACE>`).
+- Key information is presented in a clear and concise manner, utilizing headings, bullet points, and bold text.
+- Last Updated Attribute: The product knowledge map comes with the attribute `lastUpdated="2025-02-24T03:49:02.792Z"` for every product knowledge map to indicate when was the last time it was updated.
+
+</LLMS_TXT_FEATURE>
+
 
 </PRODUCT_KNOWLDEGE_MAP>
