@@ -1,6 +1,8 @@
 <PRODUCT_KNOWLDEGE_MAP lastUpdated="2025-02-24T03:49:02.792Z">
 
-<OVERVIEW>
+This document contains publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
+
+<PRODUCT_OVERVIEW>
 ## 1. Overview
 
 **Product Name:** TypingMind
@@ -171,7 +173,7 @@ There is also a "TypingMind for Teams" option for building custom AI chat portal
 
 - **Data stored locally by default**: Your data remains securely stored on your device. There's no training conducted on your chats.
 - **Optional Cloud Sync & Backup**: Allow your data sync across multiple devices and prevent unexpected data loss. Activation is fully optional.
-</OVERVIEW>
+</PRODUCT_OVERVIEW>
 
 <MAIN_INTERFACE>
 ### 1. Overall Layout
