@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-02-24T03:49:02.792Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-02-25T02:52:35.810Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -3306,5 +3306,43 @@ TypingMind now offers a publicly accessible product knowledge map in a structure
 
 </LLMS_TXT_FEATURE>
 
+<THINKING_MODE_FEATURE>
+
+## Thinking Mode Feature
+
+The Thinking Mode feature in TypingMind enhances the user experience by providing visibility into the AI's processing steps as it formulates a response. This feature is model-specific, available only with certain AI models that are designed to output their reasoning process.
+
+### Key Functionality
+
+- **Visual Indication of AI Reasoning:** When enabled, Thinking Mode displays an intermediate "thinking" bubble above the AI's final response, revealing the AI's thought process in a human-readable format.
+- **Toggle Functionality:** The Thinking Mode can be toggled on or off during the conversation, allowing users to control whether or not they see the AI's reasoning steps.
+
+### Accessing and Activating Thinking Mode
+
+1. **Model Compatibility:** Thinking Mode is only available for specific AI models that support this feature (e.g., Claude 3.7 Sonnet). When using models such as GPT-4 Turbo, the "Toggle thinking mode" icon will disappear.
+2. **Locate the "Toggle thinking mode" Button:** In the chat input area, find the icon that represents the Thinking Mode. The icon typically depicts a light bulb.
+3. **Click the "Toggle thinking mode" Button:** Click this button to toggle the Thinking Mode on or off.
+
+### Visual Indicators
+
+1. "Thinking" label at the bottom
+    - Below the input box, the "toggle thinking mode" button's label will change from "Toggle thinking mode" to `Think` (with a light blue background).
+2. Thinking Bubble
+    - Before the AI generates the response, there will be a bubble displaying the number of seconds for AI to start thinking.
+    - The "thinking" bubble is displayed above the final response.
+    - The time shows for how long the AI agent thought.
+    - The bubble also has a dropdown icon that, when clicked, displays a full explanation about the process and reasoning.
+3. Models Support
+    - Currently, Claude 3.7 Sonnet is the only AI Model that supports this function.
+
+### Use Case Example
+
+1. User: "Hello"
+2. With Thinking Mode enabled, before the AI sends the regular response, the AI will generate a block:
+    - Thought for 1 seconds
+    - The user has just sent a simple greeting "hello". There's no specific request that requires the use of any tools at this point. I should respond with a friendly greeting and perhaps let them know what I can help with.
+    - And the next block: "Hello! I'm an AI assistant ready to help you today. How can I assist you?"
+
+</THINKING_MODE_FEATURE>
 
 </PRODUCT_KNOWLEDGE_MAP>
