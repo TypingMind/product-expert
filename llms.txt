@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-02-25T02:52:35.810Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-04-04T02:52:35.810Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -2104,6 +2104,8 @@ The Knowledge Base (KB) via Personal License works at <ADMIN_PANEL_KNOWLEDGE_BAS
     - **A:** No, you do not need to enable Search Knowledge Base plugin. The KB search is triggered automatically/natively by the AI when needed. 
 - **Q: Do I need to link KB data to an AI Agent to use it?**
     - **A:** No, you can use the KB directly in chats with any AI models. Linking to AI Agents is optional, primarily used to restrict an agent's access to specific tagged documents.
+- **Q: Why doesn't my chat show source references?**
+    - **A:** As of now, the source reference only available for OpenAI or Claude models that support plugins. We will improve this soon.
 
 </KNOWLEDGE_BASE_FEATURE>
 
