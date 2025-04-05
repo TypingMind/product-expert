@@ -2053,13 +2053,13 @@ The Knowledge Base interface is designed to be user-friendly and provides a clea
 
 ### Using the Knowledge Base in Chats (Native Integration)
 
-- **Automatic Retrieval:** For all AI models, TypingMind automatically queries the Knowledge Base when the conversation suggests information might be present in the uploaded data. You *do not* need to explicitly enable a plugin or mention the KB.
+- **Automatic Retrieval:** For all AI models, when you enable Search KB, TypingMind automatically queries the Knowledge Base when the conversation suggests information might be present in the uploaded data. You *do not* need to explicitly enable a plugin or mention the KB.
 - **Triggering:** When the AI determines it needs information from the KB, it will:
     - Display an intermediate message like "Using Search Knowledge Base" with the inferred search query
     - Indicate the specific source document(s) being accessed (only available for AI models with plugins supported).
     - Then, provide the final response incorporating the retrieved information.
-- **Compatibility:** This native integration works directly in standard chats with compatible base models, not just with pre-configured AI Agents.
-- **"Toggle Knowledge Base" Button:**
+- **Compatibility:** This native integration works directly in standard chats with all models. 
+- **"Toggle Knowledge Base" Button to enable search KB:**
     - **Location:** Appears below the message input field as toggle button
     - **Tooltip:** Hovering over the button displays "Toggle Knowledge Base".
     - **Function:** Allows the user to enable/disable the automatic KB retrieval for the current chat session. Clicking it toggles the KB access on/off for turning on/off KB
@@ -2099,11 +2099,9 @@ The Knowledge Base (KB) via Personal License works at <ADMIN_PANEL_KNOWLEDGE_BAS
 - **Q: Are connections to external sources (Google Drive, Box, Notion, etc.) planned?**
     - **A:** Yes, integrations with these services are planned for future releases.
 - **Q: Is this system the same as the one used in the TypingMind Team (Custom) version?**
-    - **A:** It's largely the same, but the Team version may have additional processing logic and optimizations for team-specific contexts.
-- **Q: Do I need to enable the "Search Knowledge Base" plugin?**
-    - **A:** No, you do not need to enable Search Knowledge Base plugin. The KB search is triggered automatically/natively by the AI when needed. 
+    - **A:** It's largely the same, but the Team version may have additional processing logic and optimizations for team-specific contexts. 
 - **Q: Do I need to link KB data to an AI Agent to use it?**
-    - **A:** No, you can use the KB directly in chats with any AI models. Linking to AI Agents is optional, primarily used to restrict an agent's access to specific tagged documents.
+    - **A:** No, you can use the KB directly in chats with any AI models as long as you enable the Search KB button within the message area. Linking to AI Agents is optional, primarily used to restrict an agent's access to specific tagged documents.
 - **Q: Why doesn't my chat show source references?**
     - **A:** As of now, the source reference only available for OpenAI or Claude models that support plugins. We will improve this soon.
 
@@ -3996,7 +3994,7 @@ Clicking on a plugin reveals its specific settings panel:
 
 ### Important Considerations
 
-- All plugins are now run on server side to ensure maximum security.
+- All plugins are run on server side to ensure maximum security.
 - You can allow your users to add their own settings for plugins, but they will not see your plugin source on the chat interface
 
 ### Plugin References
@@ -6463,8 +6461,7 @@ Displays interactive line charts visualizing trends over time for key metrics.
 
 ### Token Estimation Algorithm
 
-- **Enhanced Accuracy:** The token estimation algorithm in the Team version has been upgraded to provide more accurate and transparent usage metrics.
-- **API-Returned Data:** As long as the AI provider's API (e.g., OpenAI, Anthropic) returns the actual token count used for a specific request, TypingMind will display this *exact* count in the analytics. This is the most accurate representation of usage.
+- **API-Returned Data:** As long as the AI provider's API (e.g., OpenAI, Anthropic) returns the actual token count used for a specific request, TypingMind will display this *exact* count in the analytics. 
 - **Internal Estimation Fallback:** For models or API configurations where the provider *does not* return the token count in the API response, TypingMind will use its *internal estimation* algorithm. While generally reliable, estimations may differ slightly from the provider's final billing count.
 - **Transparency:** This approach ensures that whenever possible, the analytics reflect the precise token counts reported directly by the AI provider, increasing transparency for cost management.
 
