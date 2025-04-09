@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-02-25T02:52:35.810Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-04-04T02:52:35.810Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -1986,9 +1986,8 @@ This section delves into the technical aspects of creating the plugin, providing
 
 <KNOWLEDGE_BASE_FEATURE>
 
-The Knowledge Base feature in TypingMind allows users to upload and connect their own data sources, enabling the AI to answer questions and generate responses based on the provided information. It leverages a retrieval-augmented generation (RAG) approach, retrieving relevant pieces of information from the knowledge base based on the user's query.
+The Knowledge Base (KB) feature in TypingMind allows users to upload and connect their own data sources, enabling the AI to answer questions and generate responses based on the provided information. It leverages a retrieval-augmented generation (RAG) approach, retrieving relevant pieces of information from the knowledge base based on the user's query.
 
-This KB feature is working mostly the same as TypingMind Team version but the Team version may have additional processing logic and optimizations for team-specific contexts.
 ### Accessing the Knowledge Base
 
 1. **Locate the "KB" Tab:** In the left workspace bar, find the KB tab.
@@ -2052,12 +2051,24 @@ The Knowledge Base interface is designed to be user-friendly and provides a clea
         - User can click on “Only allow access to some knowledge based on training tags” to assign training data tags, which allow agents to access to data with those training tags.
 5. **Save Changes:** Save the AI Agent configuration to apply the Knowledge Base access settings.
 
-### Using the Knowledge Base in Chats (with AI Agents)
+### Using the Knowledge Base in Chats (Native Integration)
 
-1. Go to Plugins store
-2. Install and  Enable the "Search Knowledge Base" plugin if it is not enabled by default.
-3. **Start a Chat with a Configured AI Agent:** Initiate a chat session with an AI Agent that has been granted access to the Knowledge Base.
-4. **Ask Questions:** Ask questions related to the content of the connected data sources. The AI Agent will automatically utilize the Knowledge Base to provide informed responses.
+- **Automatic Retrieval:** For all AI models, when you enable Search KB, TypingMind automatically queries the Knowledge Base when the conversation suggests information might be present in the uploaded data. You *do not* need to explicitly enable a plugin or mention the KB.
+- **Triggering:** When the AI determines it needs information from the KB, it will:
+    - Display an intermediate message like "Using Search Knowledge Base" with the inferred search query
+    - Indicate the specific source document(s) being accessed (only available for AI models with plugins supported).
+    - Then, provide the final response incorporating the retrieved information.
+- **Compatibility:** This native integration works directly in standard chats with all models. 
+- **"Toggle Knowledge Base" Button to enable search KB:**
+    - **Location:** Appears below the message input field as toggle button
+    - **Tooltip:** Hovering over the button displays "Toggle Knowledge Base".
+    - **Function:** Allows the user to enable/disable the automatic KB retrieval for the current chat session. Clicking it toggles the KB access on/off for turning on/off KB
+
+### Using the Knowledge Base in Chats or AI Agents
+
+1. Enable the "Search Knowledge Base" button within message area
+2. **Start a Chat with a Configured AI Agent:** Initiate a chat session with an AI Agent that has been granted access to the Knowledge Base.
+3. **Ask Questions:** Ask questions related to the content of the connected data sources. The AI Agent will automatically utilize the Knowledge Base to provide informed responses.
 
 ### How Knowledge Base works
 
@@ -2088,7 +2099,11 @@ The Knowledge Base (KB) via Personal License works at <ADMIN_PANEL_KNOWLEDGE_BAS
 - **Q: Are connections to external sources (Google Drive, Box, Notion, etc.) planned?**
     - **A:** Yes, integrations with these services are planned for future releases.
 - **Q: Is this system the same as the one used in the TypingMind Team (Custom) version?**
-    - **A:** It's largely the same, but the Team version may have additional processing logic and optimizations for team-specific contexts.
+    - **A:** It's largely the same, but the Team version may have additional processing logic and optimizations for team-specific contexts. 
+- **Q: Do I need to link KB data to an AI Agent to use it?**
+    - **A:** No, you can use the KB directly in chats with any AI models as long as you enable the Search KB button within the message area. Linking to AI Agents is optional, primarily used to restrict an agent's access to specific tagged documents.
+- **Q: Why doesn't my chat show source references?**
+    - **A:** As of now, the source reference only available for OpenAI or Claude models that support plugins. We will improve this soon.
 
 </KNOWLEDGE_BASE_FEATURE>
 
@@ -3895,111 +3910,92 @@ Click **Save** on the top right corner of the app to save all AI Agent settings.
 
 <ADMIN_PANEL_PLUGINS>
 
-The Admin Panel in TypingMind for Teams provides comprehensive control over Plugins within the team's workspace. This includes managing access, configuring default settings, and ensuring optimal plugin usage across the organization.
+The Admin Panel in TypingMind for Teams provides comprehensive control over Plugins within the team's workspace. This includes managing plugin availability, configuring default settings (like API keys), and determining whether plugins use centrally managed admin settings or require users to provide their own settings. This ensures security, consistency, and optimal plugin usage across the organization.
 
 ### Accessing the Plugin Management Interface
 
 1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Plugins" Icon:** In the left sidebar of the Admin Panel, click on the "Plugins" icon. This will open the Plugin Management interface.
+2. **Locate the "Plugins" :** In the left sidebar of the Admin Panel, click on the "Plugins" menu. This will open the Plugin Management interface.
 
 ### Plugin Management Interface Overview
 
-The Plugin Management interface is designed to provide a clear overview of installed plugins and facilitate easy configuration. The interface generally consists of the following elements:
+The Plugin Management interface provides tools for installing, configuring, and managing plugins available to the team.
 
 - **Page Title:** Plugins
-- **Page Description:** Create and manage plugins access for...
-- **Show plugins manager UI and controls to users**
-- **Purpose:**
-This toggle will hide all plugin related UI and controls from the user. The plugins will still be available to the AI if they are configured to be turned on by default for the user or enabled via AI agent settings.
-- Functionality:
-    - If Enabled- Plugins can be enabled by users.
-    - If Disabled- Plugins cannot be enabled by user, rather can only be enabled by AI agent settings.
-- **Need help creating plugins?** Read Developer Documentation
-- **"Browse Plugins" Button:** Navigates to the Plugin Store to discover and install new plugins.
-- **"Create New Plugin" Button:** Opens the plugin creation interface to build custom plugins.
-- **"Import" Button:** Opens the import plugin interface to add plugins from a URL or file.
-- **Plugin List:** A scrollable list showing key configurations of installed plugins and their enable status.
-    - Includes the name of the plugin such as `Image Search`, it shows `Client Side` near to the plugin's name which indicates how the function is performed.
-- **List Order:** Displayed on a grid format.
-- **Plugin Status Indicator:** To the right of each plugin will show a color coded circle such as Green, Yellow and Red.
-- Green: The plugin is active, enabled and doesn't have any issues
-- Yellow: The plugin requires additional settings to be configured. This could include providing an API Key, or setting up an external service
-- Red: The plugin has a issue.
+- **Page Description:** Create and manage plugins access for your users.
+- **"Show plugins manager UI and controls to users" Toggle:**
+    - **Purpose:** Controls whether end-users can see the plugin management interface and enable/disable plugins themselves.
+    - **Enabled State:** Users can view the plugin list and toggle plugins on/off for their chats.
+    - **Disabled State:** Hides all plugin-related UI and controls from the user. Plugins will still be available to the AI *if* they are configured by the admin to be "Turn on for all users by default" or if they are enabled specifically within an AI Agent's settings.
+- **"Need help creating plugins?" Link:** Directs to the [Developer Documentation.](https://docs.typingmind.com/plugins/build-a-typingmind-plugin)
+- **Action Buttons:**
+    - **"Browse Plugins" (Blue):** Navigates to the Plugin Store to discover and install new plugins.
+    - **"Create New Plugin" (Green):** Opens the interface to build custom plugins.
+    - **"Import" (Orange/Yellow):** Opens the interface to import plugins from a URL or file.
+- **Plugin List:** Displays installed plugins. Each entry shows:
+    - **Plugin Icon & Name:** (e.g., Web Search, Perplexity Search, Market News).
+    - **Plugin Function Name:** (e.g., `get_web_search_results`, `search_via_perplexity`).
+    - **Execution Setting Label (Optional):** A yellow label "Use user-provided settings" appears if the plugin is configured to require users to provide their own settings.
+    - **Status Indicator:** A colored dot (typically green if active and configured, yellow/red if setup is needed or there's an issue).
+- **Clicking a Plugin:** Selecting a plugin from the list opens its detailed configuration panel.
 
 ### Individual Plugin Configuration
 
-Clicking on a plugin in the list will display its configuration options.
+Clicking on a plugin reveals its specific settings panel:
 
-- **Plugin Enable/Disable Toggle:** Allows admins to globally enable or disable the plugin for all users.
-- **Turn on for all users by default** Toggle. The toggle will enable for all users by default.
-- **Run this plugin on Client side:** If enabled, users will need to provide their own settings (e.g., API keys) for this plugin before using it. Plugin will be marked Client Side plugin as a yellow label next to the plugin name.
-- **Hide plugin usage in user conversation** Hides the "Using plugin..." message in chat.
-- **Plugin settings:** there are some plugins that require settings to get it to work. The plugin settings may possibly include: API keys, ID, or other customizable options. Refer to <PLUGINS_FEATURE_DEEP_DIVE> to get more information about Plugins and Plugin setups.
+- **Top Action Buttons:**
+    - **"Duplicate" (Blue):** Creates a copy of the plugin configuration.
+    - **"Edit" (Blue):** Opens the plugin editor interface (similar to "Create New Plugin").
+    - **"Remove" (Red):** Deletes the plugin from the workspace (with confirmation).
+- **Enable Toggle:**
+    - **Function:** Globally enables or disables the plugin for the *entire* workspace. If disabled here, the plugin cannot be used at all, even if turned on by default or enabled in an AI Agent.
+    - **Input Type:** Toggle switch.
+- **Turn on for all users by default Toggle:**
+    - **Function:** If enabled, this plugin will be active by default in all user chats (unless the user manually disables it, *if* the "Show plugins manager UI..." toggle is enabled).
+    - **Input Type:** Toggle switch.
+- **Hide plugin usage in user conversation Toggle:**
+    - **Function:** If enabled, the intermediate "Using plugin..." message will not be displayed in the chat when the AI utilizes this plugin. The results will still appear, but the explicit notification of plugin use is hidden.
+    - **Input Type:** Toggle switch.
+- **Run this plugin with user's own settings Toggle:**
+    - **Purpose:** Determines whether the plugin uses the settings (like API keys) provided by the administrator in this panel, or if it requires each user to provide their own settings in their individual TypingMind interface.
+    - **Input Type:** Toggle switch.
+    - **Disabled State (Default - Uses Admin-Provided Settings):**
+        - The plugin relies on the API keys or other settings configured by the administrator in the "Plugin Settings Section" below.
+        - Execution typically happens server-side for security and consistency.
+        - User credentials (API keys, etc.) are *not* exposed to the end-user.
+        - This is generally the preferred mode for team environments, as admins manage credentials centrally.
+    - **Enabled State (Requires User-Provided Settings):**
+        - The plugin configuration fields (like API keys) in the *admin panel* are hidden or disabled for this plugin.
+        - A yellow label "Use user-provided settings" appears next to the plugin name in the main list.
+        - **End-users will be required** to go to their own plugin settings interface (if the plugin manager UI is shown to them) and enter their *personal* API keys or credentials for this specific plugin before they can use it.
+        - Plugin execution might happen in the user's browser (client-side) depending on the plugin's implementation, especially for plugins requiring user-specific authentication or interaction.
+        - **Use Case:** Useful when you want individual users to utilize their own personal API keys/accounts for certain services, potentially for tracking individual usage or costs on external platforms, or for plugins designed to run locally in the browser.
+    - **"Learn more" Link:** Provides additional documentation about this setting.
+- **Plugin Settings Section (Conditional):**
+    - **Visibility:** This section (containing fields for API keys, IDs, etc.) is typically visible and editable only when the plugin is configured to use **Admin-Provided Settings** (i.e., "Run this plugin with user's own settings" is OFF).
+    - **Content:** Contains the specific configuration fields required by the plugin (e.g., "Search Engine ID," "Search Engine API Key" for Web Search; "Alpha Vantage API Key" for Market News). Admins enter the *centralized* credentials here.
+    - **"Save" Button:** Saves the entered settings for admin-provided configuration.
+- **Plugin Description/Usage Section:** Provides information about the plugin's purpose, how it works, any API key requirements, and example usage prompts.
 
-### Server Plugins vs. Client Plugins in TypingMind
+### Admin-Provided vs. User-Provided Settings Summary
 
-Server Plugins are a feature in the **Team version** of TypingMind: **TypingMind Custom**.
+- **Admin-Provided Settings (Default):**
+    - Admin configures API keys/settings centrally in the Admin Panel.
+    - the plugin sends HTTP requests to external servers, these requests are sent from the TypingMind server, keeping them hidden from the user.
+    - Credentials hidden from users.
+    - Simpler for users (no setup needed).
+    - Recommended for most team scenarios.
+- **User-Provided Settings (Optional):**
+    - Enabled via "Run this plugin with user's own settings" toggle.
+    - Admin *does not* provide central API keys for this plugin in the Admin Panel.
+    - Users *must* provide their own API keys/settings in their own interface.
+    - Execution might occur in the user's browser depending on the plugin.
+    - Users will not see your plugin source on the chat interface
 
-In **TypingMind Custom**, plugins are categorized into two types:
+### Important Considerations
 
-- **Server Plugins**: Run on the **server side**.
-- **Client Plugins**: Run on the **user’s browser**.
-
-**1. Server Plugins**
-
-- Run on the server side and are hidden from the user.
-- The user cannot see the plugin's code, API keys, credentials, or data—only the plugin's output is shown.
-- The AI decides when to use the plugin based on its functionality and the conversation context.
-
-**2. Client Plugins**
-
-- Run locally in the user's browser.
-- The user must provide the necessary plugin settings (API keys, credentials, configurations, etc.).
-- The user can view the source code of client plugins.
-
-Server Plugins can only run HTTP Actions.
-
-By default, all plugins on [TypingMind.com](https://www.typingmind.com/) (Personal License version) are Client Plugins.
-
-### Running a Plugin on the Server Side
-
-**How It Works**
-
-- The user cannot see the plugin's code, API keys, credentials, or data—only the plugin’s output is displayed.
-- If the plugin sends HTTP requests to external servers, these requests are sent from the TypingMind server, keeping them hidden from the user.
-
-### **When to Use It**
-
-- By default, all plugins run on the server side if they have an HTTP Action implementation.
-- Running a plugin on the server side is more convenient for users since no setup is required.
-
-### Running a Plugin on the Client Side
-
-**How It Works**
-
-- The plugin runs in the user’s browser.
-- If the plugin has a JavaScript implementation, the code is executed in a sandboxed browser environment on the user’s device.
-- If the plugin sends HTTP requests to external servers, these requests are sent directly from the user’s browser, which may require handling CORS issues.
-- The user must provide all necessary plugin settings, such as API keys.
-
-### **When to Use It**
-
-- Use it if the plugin is designed to run on the client, such as rendering interactive charts or executing JavaScript.
-- Use it when you want users to have the flexibility to use their own API keys in some plugins.
-
-### Notes
-
-There are some plugins on the Plugin store that needs to run as Client-side plugin such as:  Slack Webhook Message Notifier, Web Page Reader, Market News, Render Chart, Mermaid Diagram, Interactive Canvas, etc.
-
-If you disable “Run this plugin on the client side” for these plugins then you will see a message indicating that **“The plugin can only run on the client side. If you want to run this plugin on the server, please update the plugin with an HTTP Action then try again.”**
-
-### FAQ
-
-**Q: Can I make a plugin run both on the server side and the client side?**
-
-No, but you can duplicate a plugin and assign one to run on the server and the other on the client.
-
-However, note that this may cause users to see two plugins with the same name, which can be confusing.
+- All plugins are run on server side to ensure maximum security.
+- You can allow your users to add their own settings for plugins, but they will not see your plugin source on the chat interface
 
 ### Plugin References
 
@@ -4347,10 +4343,15 @@ The interface is a scrollable list of toggles for each features.
     - **Enabled State:** users can use pre-defined prompts, access the prompt library and save created prompts to it
     - **Disabled State:** users can not use any prompt
 - **Output Settings:**
-    - **Description**: Allows users to adjust output settings (output language, tone, writing style, format)
-    - **Input Type:** Toggle switch
-    - **Enabled State:** users can change tone, language, format when they make a prompt
-    - **Disabled State:** users can not change these
+    - **Function:** Provides granular control over the characteristics of the AI's response.
+    - **How it works:** Output settings are used to customize the output of the AI. These settings are applied during generation and are **no longer appended** to the user's visible message content. This keeps the message input clean and easy to modify later.
+    - **Output Format:** Dictates the structure (Default, Concise, Step-by-step, Extreme Detail, ELIS5, Essay, Report, Summary, Table, etc.).
+    - **Tone:** Influences expression (Default, Authoritative, Clinical, Cold, Confident, Cynical, Empathetic, Formal, Friendly, Humorous, etc.).
+    - **Writing Style:** Determines stylistic qualities (Default, Academic, Analytical, Conversational, Creative, Critical, Descriptive, Journalistic, Narrative, Persuasive, etc.).
+    - **Language:** Sets the AI's response language (Default, English, Español, Français, Deutsch, etc.).
+    - **"Reset to default" Button:** Resets all output settings in the dialog to their default values.
+    - **"Done" Button (Blue):** Applies the selected output settings and closes the dialog.
+    - **Active Settings Indicator:** When non-default Output Settings are active, an **orange dot** appears on the "Search / Commands / Output Settings" button in the message input area, visually indicating that custom output parameters are in effect.
 - **AI Agents:**
     - **Description**: Allows users to use AI Agents
     - **Input Type:** Toggle switch
@@ -6457,6 +6458,12 @@ Displays interactive line charts visualizing trends over time for key metrics.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **AI Agent:** The name of the AI Agent (e.g., "Marketing Assistant," "Content Writer").
         - **Messages:** The total number of messages associated with that AI Agent.
+
+### Token Estimation Algorithm
+
+- **API-Returned Data:** As long as the AI provider's API (e.g., OpenAI, Anthropic) returns the actual token count used for a specific request, TypingMind will display this *exact* count in the analytics. 
+- **Internal Estimation Fallback:** For models or API configurations where the provider *does not* return the token count in the API response, TypingMind will use its *internal estimation* algorithm. While generally reliable, estimations may differ slightly from the provider's final billing count.
+- **Transparency:** This approach ensures that whenever possible, the analytics reflect the precise token counts reported directly by the AI provider, increasing transparency for cost management.
 
 ### Exporting your data
 
