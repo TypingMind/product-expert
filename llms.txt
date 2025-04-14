@@ -367,6 +367,87 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
         - **New Chat:** (Duplicate entry - likely for redundancy or quick access). Same function as the "New Chat" button.
 </CHAT_FEATURES_OVERVIEW>
 
+<MULTI_AI_RESPONSE_FEATURE>
+
+## Multi AI Response Feature
+
+The Multi AI Response feature allows users to send a single prompt to multiple selected AI models simultaneously and view their responses side-by-side within the chat interface. This enables direct comparison of different models' outputs for the same input, helping users choose the best response or understand the variations in model capabilities.
+
+### Activating Multi-Model Mode
+
+1. **Access Model Selection:** Click on the currently selected model's name/icon in the top bar of the chat interface. This opens the model selection dropdown/panel.
+2. **Enable Multi-Model Selection:** Locate the model(s) you wish to add to the current chat session from the list. Hover over the "+" (plus) icon located to the right of the desired model's name. A tooltip appears with the text "Activate multi-model".
+3. **Add Models:** Click the "+" icon for each additional model you want to include.
+    - Each time a model is added via the "+" icon, the model selection panel closes automatically.
+    - The top bar of the chat interface updates immediately to display the icons of *all* currently selected models. The icons are displayed horizontally next to each other.
+    - The context message count (e.g., "+3") remains visible next to the model icons.
+
+### Managing Selected Models in Multi-Model Mode
+
+1. **View Selected Models:** Click on the area in the top bar where the selected model icons are displayed. This re-opens the model selection panel.
+2. **Selected Models List:** The top section of the panel now lists the models currently active for the multi-response session.
+    - Each selected model is displayed with its icon and name.
+    - An "x" (cross) icon appears to the right of each selected model's name.
+3. **Removing Models:** Click the "x" icon next to a model's name to remove it from the multi-response session for the *current chat*.
+    - The model is immediately removed from the selected list at the top of the panel.
+    - The top bar display updates instantly to remove the icon of the deselected model.
+    - Removing the second-to-last model reverts the interface back to single-model mode.
+
+### Multi-Response Chat Interface
+
+When a user sends a prompt while multiple models are selected:
+
+1. **User Prompt Display:** The user's prompt is displayed at the top of the main chat area as usual.
+2. **"Select primary response" Section:** Below the user's prompt, a dedicated section appears for managing the multiple responses:
+    - **Label:** The text "Select primary response" is displayed.
+    - **Dropdown Arrow:** A small dropdown arrow appears next to the label, although its functionality isn't demonstrated in the video clip, it might offer additional options or filtering in the future.
+    - **Model Icons:** Icons representing all the selected models for this session are displayed horizontally below the label.
+3. **Response Containers:** Below the model icons, the chat area splits into separate containers or cards, one for each selected model.
+    - **Layout:** The cards are arranged horizontally or vertically depending on screen space. In the video, they appear horizontally.
+    - **Card Content (Initial State):**
+        - **Model Identification:** Each card clearly displays the icon and name of the corresponding AI model (e.g., "GPT-4o", "Claude 3.7 Sonnet").
+        - **Loading Indicator:** Initially, each card shows a loading state, typically indicated by:
+            - A subtle spinning or pulsing animation (represented by radio button style animation in the video).
+            - The text "Assistant is thinking...".
+    - **Card Content (Completed State - Success):**
+        - Once a model finishes generating its response, the loading indicator disappears.
+        - The AI's generated text response is displayed within the card.
+        - If the model supports "Thinking Mode" (like Claude 3.7 Sonnet in the video), the thinking process bubble may appear *within* the card before the final response.
+    - **Card Content (Completed State - Error):**
+        - If a model encounters an error (e.g., API key issue, quota exceeded, provider rejection), the card displays an error message instead of a response.
+        - The error message is typically displayed in red text for visibility.
+        - Example Error: "Sorry, the provider of this model has rejected your request (Message: Gemini 2.5 Pro Preview doesn't have a free quota tier...)"
+4. **Simultaneous Generation:** All selected models process the prompt and generate their responses concurrently. The cards update independently as each model finishes.
+
+### Interacting with Response Cards
+
+Once responses (or errors) are displayed in the cards:
+
+1. **Hover Actions:** Hovering the mouse cursor over a specific response card reveals action icons in the top-right corner of that card:
+    - **Set as Primary Response (✓):** A checkmark icon. Hovering over it displays the tooltip "Set as primary response".
+    - **Delete Response (🗑️):** A trash can icon. Hovering over it likely displays a tooltip like "Delete response" or "Remove response".
+2. **Selecting the Primary Response:**
+    - Click the checkmark (✓) icon on the card containing the response you want to keep as the main answer in the chat flow.
+    - **Interface Collapse:** Upon clicking the checkmark, the multi-response view (with all the separate cards) collapses.
+    - **Chat View Update:** The chat interface returns to the standard single-response view, displaying only:
+        - The user's original prompt.
+        - The AI response *from the card that was selected as primary*.
+3. **Deleting a Response:**
+    - Click the trash can (🗑️) icon on a card to remove that specific model's response from the current multi-response view.
+    - This does *not* select a primary response; it simply dismisses that particular card.
+
+### Considerations
+
+- **Token Consumption:** Using multiple models for a single prompt will consume tokens for *each* model, potentially increasing API costs significantly compared to using a single model.
+- **Error Handling:** Individual model errors are displayed within their respective cards and do not necessarily prevent other models from responding successfully.
+
+### Notes
+
+- In case of multi-model response, in the chat info popup, context length is the length of the selected primary response, the total token spent is combined tokens from all models.
+- You can not edit / pin / use canvas in multi responses mode.
+
+</MULTI_AI_RESPONSE_FEATURE>
+
 <SIDEBAR_FEATURES>
 ### Sidebar Features
 
@@ -2079,6 +2160,8 @@ The Knowledge Base (KB) via Personal License works at <ADMIN_PANEL_KNOWLEDGE_BAS
 - **AI Agent Access Only:** Initially, Knowledge Base access is *only* available through configured AI Agents, *not* directly in standard chats with base models.
 - **Document Count Limit:** The number of documents that can be added to the Knowledge Base is limited by the number of characters allowed, not the document count.
 
+Note: The limitations for KB feature on License version will be different with the limitations for Knowledge Base for Team version. To be specific, the KB feature on license version is tied to your cloud plan, you can upgrade your cloud plan to upgrade KB storage. The Knowledge Base via Admin Panel from Team version is limited to 1M training characters by default, to upgrade, you will purchase a new subscription at $10 per 1M training characters/month 
+
 ### Frequently Asked Questions (FAQs)
 
 - **Q: What are the underlying embedding models and techniques?**
@@ -3079,8 +3162,8 @@ The "Chat Info" dialog provides information about the prompt caching status in t
     answer: `TypingMind uses the same underlying model as OpenAI's default chat app. For the same prompt, it can produce different responses each time. The default chat app by OpenAI may also have some initial prompt settings that are different from TypingMind. If you don't get the response you expects, try "Re-generate Response" or tweaking the prompt.`,
   },
   {
-    question: `Can I self-host it?`,
-    answer: `Yes. After you make a purchase, go to https://www.typingmind.com/self-host-guide to download the static web app and the instruction how to deploy it on your own server. Note that you will only receive the compiled code of the app, the full source code is not available because the app is not open-source. You can deploy the app anywhere without having to update any code or settings.`,
+    question: `Can I self-host the app?`,
+    answer: `Yes. After you purchase a license, please go to https://www.typingmind.com/self-host-guide to download the static web app and the instruction how to deploy it on your own server. Note that you will only receive the compiled code of the app, the full source code is not available because the app is not open-source. You can deploy the app anywhere without having to update any code or settings.`,
   },
   {
     question: `Do I have access to the full source code if I want to self-host?`,
@@ -5407,6 +5490,8 @@ The main "Users" interface displays a list of all users associated with the team
         - **"Add Users" Button (Blue):** Adds the entered users to the chat portal.
         - **"Cancel" Button:** Closes the dialog without adding any users.
 
+Note: To update the email address of an invited user, you will need to remove the current user email and re-invite them using the new email address. Please remind users to export their data as a backup before removal, and then re-import the data into the new account once it's set up.
+
 ### Buying More Seats
 
 1. **Click the "Buy More Seats" Button:** This opens the "Buy More Seats" dialog.
@@ -6749,7 +6834,7 @@ The Billing interface is organized to provide a clear overview of the current su
     - **Affiliate Program:**
         - Status: Temporarily paused
         - Effective Date: January 1, 2025
-        - Note: Only reseller program for TypingMind Custom remains active
+        - Note: Only reseller program for TypingMind Custom remains active and can be joined at https://custom.typingmind.com/reseller
     
     - **Discord Community:**
         - Status: Discontinued
