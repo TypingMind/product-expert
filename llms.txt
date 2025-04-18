@@ -6827,6 +6827,727 @@ The Billing interface is organized to provide a clear overview of the current su
     - Update users on feature implementation status
 </RECENT_COMMON_TECHNICAL_ISSUES_FOR_SUPPORT>
 
+<RESELLER_PROGRAM>
+
+TypingMind Reseller Program is designed for partners who want to bring TypingMind's AI platform to businesses in their local markets.
+
+### 1. Program Overview
+
+- **Goal:** To collaborate with Resell Partners to implement TypingMind as the technical platform for businesses, enabling them to leverage generative AI.
+- **Target:** Businesses, especially in local markets with less exposure to generative AI technologies.
+- **Product Applied:** TypingMind Team version at ****https://custom.typingmind.com/
+- **Global Presence:** TypingMind has successful reseller partners in various countries, including Germany, Canada, and Thailand.
+
+**Note:** As of now, there’s no option to resell TypingMind License version at [typingmind.com](http://typingmind.com), Resellers need to use TypingMind Team version at [custom.typingmind.com](https://custom.typingmind.com/) to resell the app.
+
+### 2. Why Partner with TypingMind?
+
+- **Industry Leader:** Leading provider of internal AI chat portals for businesses, trusted by 18,824+ customers.
+- **Support All Top AI Models:** Integrates with GPT-4 (OpenAI), Claude (Anthropic), Gemini (Google), and other open-source or custom models via compatible APIs.
+- **Private and Secure:** Built with advanced security protocols (SOC 2 Certified, GDPR Compliant) to protect customer data.
+- **Brandable, Customizable, Scalable:** Adaptable for various use cases, businesses, and industries. Offers white-labeling options.
+- **Profitable & Flexible Pricing:** Commission structure designed for partner profitability.
+- **Flexible Hosting & Deployment:** Options include cloud hosting (US/EU servers) or self-hosting on customer infrastructure.
+
+### 3. Reseller Benefits
+
+- **Earn Profits, No Maximum Cap!** Grow your business by earning profits for each new customer acquired.
+- **Partner Recognition (Optional):** Inclusion in the reseller directory and authorization with partner badges.
+- **Access To Free Demo Chat Instance:** Receive a demo chat instance with 50 user seats available for FREE to support marketing and sales efforts.
+    - This free demo instance provides access for 50 users. Among them, 3 are permanent seats with Admin privileges. The remaining 47 are temporary seats that can access the app interface for up to 14 days. After that, their access to the demo chat workspace will expire.
+- **Dedicated Partner Support:** Access to dedicated support for technical and product inquiries.
+
+### 4. Ideal Reseller Profile
+
+Resellers are expected to have:
+
+- **Local Market Expertise:** Experience and access to local businesses.
+- **AI Technical Understanding:** Knowledge of generative AI, prompt engineering, AI agents, RAG, plugins, API integration, etc.
+- **TypingMind Product Knowledge:** A good understanding of the TypingMind system and its features.
+- **Value-Added Service Capability:** Ability to offer services beyond the platform, such as:
+    - AI consulting, training, and workshops.
+    - Helping businesses apply generative AI to specific domains/workflows.
+    - Building custom prompt and AI agent libraries.
+    - Assisting with internal data integration for RAG.
+    - Educating employees on using TypingMind for daily tasks.
+- **Passion for AI:** Enthusiasm for AI and its potential to benefit local businesses.
+
+### 5. How the Program Works (Process)
+
+1. **Research & Apply:** Understand TypingMind and the Reseller Program, then apply if it's a good fit.
+2. **Initial Contact:** Engage with the TypingMind team for mutual understanding.
+3. **Agree on Terms:** Finalize workflow, pricing, payment terms, and other specifics.
+4. **Get Reseller License and Access to Demo account:** Get a Reseller License and access to demo instances for sales/marketing.
+5. **Customer Onboarding:** Onboard new customers to the TypingMind platform.
+6. **Payment:** once customers commit to pay:
+    - Set up a separate chat instance so they can have long-term access
+    - Charge them via your own payment system with custom pricing. Then add them to the chat instance.
+7. **Ongoing Support:** Maintain contact with customers for support and feedback (depending on the agreed structure).
+
+### 6. Target Customers
+
+- **Preferred Profiles:**
+    - Businesses of all sizes (SMBs to enterprises).
+    - Universities or educational institutions.
+- **Other Customer Types:** Proposals for other customer groups should be discussed with TypingMind first.
+
+### 7. Roles and Definitions
+
+- **Software Platform Provider:** TypingMind (Devuap LLC) - Builds and maintains the technical platform, handles data, security, and updates. Referred to as "technical partner" or "software manufacturer."
+- **Reseller/Agency:** The partner (You) - Implements TypingMind locally, provides value-added services (consulting, training).
+- **Customers:** Paying entities (Companies, Universities) - Purchase the product and services.
+- **End-users:** Employees/Students - Use the TypingMind platform daily.
+- **Admin Users:** Elected end-users with access to the TypingMind Admin Panel - Manage members, customize the instance, create shared content (prompts, agents), connect data, etc.
+
+### 8. Marketing Materials
+
+Resellers can utilize official TypingMind marketing resources:
+
+- **Main Marketing Page:** https://custom.typingmind.com/
+- **Documentation:** https://docs.typingmind.com/
+- **Blog:** https://blog.typingmind.com/
+- **YouTube:** https://www.youtube.com/@TypingMind
+
+### 10. AI Provider Relationship
+
+- **TypingMind Role:** TypingMind is an interface, *not* an AI provider. It connects to external AI services.
+- **Customer Responsibility:** Customers must choose their own AI provider(s) (e.g., OpenAI, Anthropic, Google) and pay for AI usage directly via API keys.
+- **Compatibility:** TypingMind supports connection to multiple AI providers simultaneously and any AI model with a compatible API.
+
+### 11. User Documentation
+
+- **Primary Resource:** All user documentation is hosted online at https://docs.typingmind.com/.
+- **Accessibility:** Links to guides are embedded within the TypingMind product.
+- **Custom Guides:** TypingMind does not provide custom-hosted guides. Resellers can add custom URLs to their documents within the Admin Panel if they wish to host separate guides.
+
+### 12. Partnership Structure Options
+
+The partnership structure is flexible. Key factors to agree upon:
+
+- **12.1 Resell Type:**
+    - **Seat Resell:** Reseller creates one instance under their brand and sells individual seat licenses. Customers access only the end-user interface.
+    - **Instance Resell:** Reseller creates a private instance for each customer, granting them Admin Panel access for customization.
+- **12.2 Branding:**
+    - **Option 1 – Branded Instance:** Reseller advertises TypingMind under their brand, disclosing TypingMind as the technical partner. Admin panel shows a badge like "TypingMind - Licensed by [Your Brand Name]".
+    - **Option 2 – Unbranded Instance:** Reseller advertises TypingMind as provided by TypingMind, distributed by the reseller.
+- **12.3 Customer Support:**
+    - **Option 1 – Included (Branded):** Reseller provides basic support (billing, general questions). TypingMind assists with technical issues/bugs/features via a private channel.
+    - **Option 2 – Not Included (Unbranded):** Customers contact TypingMind support directly.
+- **12.4 AI Providers and API Cost:**
+    - **Option 1 – Reseller Pay:** Reseller uses their own API keys and pays AI providers. Requires accounts with OpenAI, Anthropic, Google AI, etc.
+    - **Option 2 – Customer Pay:** Reseller helps setup; customer uses their own API keys and pays AI providers directly.
+- **12.5 Deployment:**
+    - **Cloud Host (Recommended):** Hosted in TypingMind's secure US (Virginia) or EU (Frankfurt) data centers. Offers convenience and seamless updates.
+    - **Self-host on Customer's Infrastructure:** Deployed on the customer's servers. Requires a technical team for setup/maintenance. Has more limitations (See: https://custom.typingmind.com/self-host).
+    - **Self-host on Reseller's Infrastructure:** Reseller hosts TypingMind privately. Reseller is responsible for hosting, data protection, setup, and maintenance. Requires a technical team.
+- **12.6 Payment:**
+    - **Standard Model:** Reseller buys licenses from TypingMind and resells at a markup based on added value. Customers pay the reseller directly.
+    - **Alternative Structures:** Open to discussion based on specific situations.
+- **12.7 Product Content (Prompts, Agents, Data):**
+    - **Option 1 – Customer Create:** Customer creates their own content using TypingMind documentation.
+    - **Option 2 – Reseller Create:** Reseller provides AI consulting, understands customer workflows, proposes suitable content, and offers training.
+- **12.8 Partnership Structure Examples:**
+    - **Example 1:** Both Seat & Instance Resell, Branded, Included Support, Reseller Pays API Costs, Cloud Host, Reseller Creates Content.
+    - **Example 2:** Seat Resell, Branded, Included Support, Customer Pays API Costs, Self-host on Reseller Infra, Customer Creates Content.
+
+### 13. Handling Feature Requests
+
+- **Process:** Forward all customer feature requests and feedback to TypingMind.
+- **Evaluation:** TypingMind evaluates requests for inclusion in the roadmap.
+- **Roadmap:** Public roadmap available at https://typingmind.com/ideas (Private roadmap also exists).
+- **ETA:** Do not promise specific ETAs for requested features.
+
+### 14. Communication Guidelines
+
+- **Honesty:** Advise customers truthfully about generative AI capabilities and practical use cases.
+- **Feature Requests:** Discuss feature requests with TypingMind before making commitments to customers.
+- **Clarity:** Ensure customers understand the terms of service, privacy policy, and what they are purchasing.
+- **Consultation:** Discuss any doubts regarding the product with TypingMind.
+
+### 15. Region of Operation
+
+- **Designated Location:** Resellers are only allowed to approach customers within their agreed-upon geographic location.
+- **Competition:** This policy avoids unnecessary competition in markets where TypingMind already has a presence.
+- **Exclusivity:** Potential for exclusive agreements based on partnership performance over time.
+
+### 16. Intellectual Property
+
+- **User Content:** All content created within TypingMind (prompts, AI agents, uploaded training data) belongs to the creator. TypingMind does not claim copyright.
+- **TypingMind Usage:** TypingMind retains the right to use the content solely for the purpose of providing the service.
+
+### 17. How to Sign Up
+
+- **Signup Link:** Apply for the Reseller Program at https://custom.typingmind.com/reseller-signup
+
+### 18. Further Questions
+
+- **Contact:** For additional questions about the Reseller Program, contact [support@typingmind.com](mailto:support@typingmind.com).
+
+### 19. Reseller Program Q&A
+
+- **Q: Is it possible for my customers to purchase directly on the TypingMind app with my custom pricing?**
+    - **A:** As of now, this is not directly supported. Resellers need to build their own payment system to handle customer payments based on their custom pricing and packages. User management (adding purchased seats/users to the TypingMind instance) can then be automated using the TypingMind API integration (<ADMIN_PANEL_API_INTEGRATION>).
+- **Q: How is pricing determined for my customers?**
+    - **A:** Resellers have the freedom to set the final price for their customers. This price should reflect the value of the TypingMind platform combined with any additional consulting services, training, or custom content provided by the reseller. TypingMind charges the reseller based on the Public Price listed on the official website (https://custom.typingmind.com/).
+- **Q: What hosting options are available for my customers?**
+    - **A:** TypingMind offers flexibility. You can choose:
+        - **Cloud Hosting:** Hosted on TypingMind's secure infrastructure in the US (Virginia) or EU (Frankfurt). Recommended for ease of use and seamless updates.
+        - **Self-Hosting:** Deployed on the customer's own infrastructure or the reseller's infrastructure. Requires technical expertise for setup and maintenance. (See Deployment section 12.5 for more details).
+- **Q: Are there volume discounts available for resellers?**
+    - **A:** Yes, TypingMind offers volume discounts for purchasing a large number of user seats to support large-scale deployments and reseller growth. For specific discount tiers and details, please contact TypingMind support at [support@typingmind.com](mailto:support@typingmind.com) with the expected number of users you plan to purchase.
+- **Q: How is customer support handled in the reseller model?**
+    - **A:** The reseller's team is responsible for providing **Tier 1 support**. This includes handling basic inquiries such as general product questions, billing/payment issues related to the reseller's package, and initial troubleshooting. TypingMind provides **Tier 2 support** for more complex technical issues, bugs, or advanced product questions escalated by the reseller. The specific support structure can be further defined in the partnership agreement (See Customer Support section 12.3).
+
+### 20. Reseller Monetization Strategies
+
+Leverage TypingMind's platform by adding value through these strategies:
+
+1. **Combine with Consulting:** Bundle TypingMind access with your existing professional services (marketing, business consulting, etc.). Charge standard rates plus a fee for the customized TypingMind instance and support.
+2. **Sell Custom AI Solutions:** Develop and sell access (subscriptions) to specialized AI Agents, prompts, or plugins that automate tasks or solve specific industry problems (e.g., financial analysis, e-commerce descriptions).
+3. **Launch Training Courses:** Create courses teaching AI skills (writing, coding, marketing) using TypingMind as the hands-on tool. Charge for the course, including TypingMind access.
+4. **Offer White-Label Solutions:** Rebrand and customize TypingMind for clients who want a ready-made, branded AI tool without in-house development. Charge setup/customization fees plus recurring fees for support/maintenance.
+5. **Provide AI Chatbot Services:** Build and manage AI-powered customer service chatbots for businesses using TypingMind. Offer as a subscription service, potentially priced per user or volume.
+6. **Create Membership Communities:** Build a paid community offering exclusive access to a customized TypingMind instance, unique AI tools, and other resources (webinars, forums) for a recurring membership fee (potentially tiered).
+
+</RESELLER_PROGRAM>
+
+<COMPANY_POLICY>
+
+<PRIVACY_POLICY_TYPINGMIND_LICENSE>
+## Privacy Policy for [TypingMind.com](http://typingmind.com/) (License Version)
+
+This section details how user data is handled for the [TypingMind.com](http://typingmind.com/) static chat application, covering both free and paid users, as well as related services like TypingMind Cloud and the Setapp integration.
+
+### 1. Data Handling for Free Users
+
+- **Local Storage:** All user data, including API keys, chat history, and messages, is stored locally within the user's browser using Local Storage and IndexedDB technologies.
+- **Static Website Architecture:** [TypingMind.com](http://typingmind.com/) operates as a static website. There is no backend server collecting user data directly from the app interface.
+- **Direct API Communication (OpenAI):** When a message is sent using an OpenAI model, the application sends the request directly from the user's browser to the OpenAI API endpoints.
+    - **Security:** Communication uses the secure HTTPS protocol.
+    - **Privacy:** No intermediary server intercepts or logs these requests or responses.
+- **Proxied Communication (Anthropic):**
+    - **Reason:** Anthropic's API does not permit direct requests from web browsers due to CORS (Cross-Origin Resource Sharing) policies.
+    - **Process:** Requests to Anthropic models are routed through a TypingMind proxy server.
+    - **Privacy Commitment:** This proxy server *does not* log or store any data from the requests. Its sole function is to forward the request securely to Anthropic's servers.
+    - **Self-Proxy Option:** For maximum privacy, users can configure their own proxy server for Anthropic models via: Settings → Advanced Settings → Anthropic Chat Completions Endpoint.
+- **No External JavaScript:** The application strictly avoids running external JavaScript code to maintain control and security.
+
+### 2. Data Handling for Paid Users (License Holders)
+
+The privacy policy for paid users includes all points mentioned for free users, with the following additions related to licensing:
+
+- **License Purchase Data:** When purchasing a license key, TypingMind stores the user's email address and the associated license key in its database.
+    - **Purpose:** This information is used solely for delivering the license key and verifying its authenticity when activated within the TypingMind application.
+- **License Verification Process:** When a user enters a license key to unlock premium features, [TypingMind.com](http://typingmind.com/) sends a request from the user's browser to a dedicated TypingMind License Server.
+    - **Purpose:** This request verifies the license key's validity and retrieves basic owner information (like the associated email) to display within the app for confirmation.
+- **Update Notifications:** Paid users may receive email notifications about new application versions, features, and updates.
+    - **Opt-Out:** Users can unsubscribe from these notification emails at any time.
+
+### 3. Third-Party Services Used
+
+[TypingMind.com](http://typingmind.com/) utilizes the following third-party services:
+
+- [**Vercel.com](http://vercel.com/):** Hosts the static website infrastructure.
+- **Vercel Analytics (by [Vercel.com](http://vercel.com/)):** Collects anonymous usage analytics (e.g., daily visitor counts).
+    - **Scope:** Data collection is limited to the [TypingMind.com](http://typingmind.com/) website and *does not* apply to self-hosted versions.
+- **Sentry (by [Sentry.io](http://sentry.io/)):** Collects anonymous crash logs and error reports.
+    - **Purpose:** Helps identify and fix bugs to improve application stability.
+- [**LemonSqueezy.com](http://lemonsqueezy.com/):** Processes payments for premium features and license keys.
+    - **Data Handling:** TypingMind *does not* store any user payment data (credit card numbers, etc.). Payment processing is handled entirely by Lemon Squeezy.
+
+### 4. TypingMind Cloud (Optional Service)
+
+TypingMind Cloud is an optional, opt-in service providing features like sharing conversations via public links, cross-device chat synchronization, and data backup.
+
+- **Opt-In Requirement:** Cloud features are only activated when a user explicitly chooses to use Share/Sync/Backup features and selects "TypingMind Cloud" as the provider. Users must explicitly agree to use the service.
+- **Alternative Options:** Using TypingMind Cloud is not mandatory; users can utilize other methods or services for sharing and syncing data.
+- **Data Storage (Sharing):** When sharing chats, plugins, or AI agents via a TypingMind Cloud link:
+    - The specific data being shared is stored on TypingMind Cloud servers.
+    - A secret, publicly accessible link is generated.
+    - Search engine indexing of these links is actively prevented.
+    - Only the shared items are stored; no API keys, license keys, or other private chats are uploaded.
+- **Data Storage (Sync & Backup):** If Cloud Sync & Backup is enabled:
+    - **Data Stored:** All chats, prompts, messages, AI agents, and bookmarks are stored on TypingMind Cloud servers.
+    - **Security:** Communication with the server uses HTTPS encryption. Data is stored securely in cloud databases (provided by AWS) and is encrypted at rest.
+- **Cookie Usage (Sync & Backup):** If Cloud Sync & Backup is enabled, a cookie is used to maintain the user's logged-in state for seamless synchronization.
+    - **Expiration:** The login cookie expires after 30 days of inactivity (no sync activity).
+
+### 5. TypingMind via Setapp
+
+This section applies specifically to users accessing TypingMind through the Setapp platform (https://setapp.com/apps/typingmind).
+
+- **Application Version:** The Setapp version is identical to the standard [TypingMind.com](http://typingmind.com/) application.
+- **Included Model (Setapp GPT-3.5):**
+    - **Benefit:** Setapp subscribers get free access to a GPT-3.5 model, displayed as "Setapp (GPT-3.5)" within the app.
+    - **No API Key Needed:** Users do not need their own OpenAI API key to use this specific model.
+    - **Proxy Mechanism:** Requests using the "Setapp (GPT-3.5)" model are proxied through TypingMind's and Setapp's servers.
+        - **Purpose:** The proxy secures the underlying API key used by Setapp and implements rate limiting for security and abuse prevention.
+        - **Data Logging:** TypingMind *does not* log or store chat data processed through this proxy.
+        - **Setapp Policy:** Users should refer to Setapp's own privacy policy for details on how Setapp handles data for this model.
+- **Other Models (Non-Setapp):** When using any model *other* than "Setapp (GPT-3.5)," requests are sent directly from the user's local device to the respective AI provider (OpenAI, Anthropic, etc.) without TypingMind or Setapp proxy servers involved (following the standard data handling procedures described in sections 1 & 2).
+
+### 6. General Policies
+
+- **Commitment to Privacy:** User privacy is a priority for [TypingMind.com](http://typingmind.com/).
+- **Data Collection:** Personal information is requested only when necessary to provide a service. Collection is fair, lawful, and transparent, with clear communication about purpose and usage.
+- **Data Retention:** Information is retained only as long as needed to provide the requested service.
+- **Data Protection:** Commercially acceptable security measures are employed to protect stored data against loss, theft, unauthorized access, disclosure, copying, use, or modification.
+- **Data Sharing:** Personally identifying information is not shared publicly or with third parties, except when required by law.
+- **External Links:** [TypingMind.com](http://typingmind.com/) may link to external sites not operated by TypingMind. TypingMind has no control over and assumes no responsibility for the content or privacy practices of these external sites.
+- **User Choice:** Users are free to refuse requests for personal information, understanding that this may limit access to certain services.
+- **Acceptance:** Continued use of the website is considered acceptance of these privacy practices.
+- **Contact:** Questions about data handling can be directed to the TypingMind support team.
+- **Effective Date:** This policy is effective as of June 30, 2023.
+
+</PRIVACY_POLICY_TYPINGMIND_LICENSE>
+
+<PRIVACY_POLICY_TYPINGMIND_TEAM>
+
+We at TypingMind (“we”, “us”, “our”) value your privacy and are committed to protecting your Personal Data, which is a responsibility that we take very seriously.
+
+This Privacy Policy explains how TypingMind may use the Personal Data we collect when you visit our website [custom.typingmind.com](http://custom.typingmind.com/) and other sites we own and operate (“Website”), inquire about our products, or use our product (“product” or “TypingMind”). It also explains how we comply with EU legislation related to personal data protection (EU General Data Protection “GDPR”) and what your rights are under this legal framework.
+
+**Data Controller:** Devuap LLC is the data controller of the services offered through this website. Our registered office is at Ste 1200, 1309 Coffeen Avenue, 82801 Sheridan, United States.
+
+### 1. What type of Personal Data do we collect from you?
+
+Personal Data means any information relating to you which allows us to identify you, either directly from that data or because we combine that information with other data about you.
+
+When you use our Website, including to create an account with us and purchase products from us, or we interact with you in relation to our products and services, or subscribe to our marketing communications, you may provide us with your Personal Data, or we may obtain Personal Data about you.
+
+We may process the following Personal Data:
+
+- **Contact details and personal identifiers:** such as your name, email address, billing address, name of your chat instance, username;
+- **Purchase data:** data on the products you have asked us to provide to you, such as date and time of purchase, customer number, purchase number, invoice number, tax identification number;
+- **Records of your interactions with us:** such as any inquiries, information about purchases, questions you have, or content of any other interactions with us;
+- **Internet information:** including your use of and movements through our Website, the date and time of your visit or use of our Website, passwords, personal identification numbers, IP addresses, geolocation, usernames, device information such as type of browser, operating system, platform, and search engine used and other IT system identifying information.
+- **Professional data:** such as the company where you work
+- **Account data:** such as your OpenAI API and Anthropic API key;
+- **Your marketing preferences:** so that we know whether and how we should contact you.
+
+You can stop receiving our marketing communications at any time, free of charge, through the methods displayed as part of any communication such as the unsubscribe link in our emails. Or further information on this please see the section below on Direct Marketing.
+
+### 2. Where do we collect your Personal Data from?
+
+We will collect Personal Data from several sources. These include the following:
+
+- **Directly from you:** when you use our Website, purchase our products, create an account, contact us by email or communicate with us directly in some other way.
+- **Our website:** provides us with information about how you use it and the devices that you use to connect to our Website. Like many other Websites, we use so-called “cookies”. Cookies are small text files that are stored on your device (laptop, tablet, smartphone, etc.) when you visit our Website.
+    - **Strictly Necessary Cookies:** We only use strictly necessary cookies. Necessary cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. Essential cookies will be provided by us. These types of cookies are always enabled. You may disable these by changing your browser settings, but this may affect the functionality of our website. We process your Personal Data through strictly necessary cookies as it is necessary for the functionality and security of our website. It helps us prevent fraud, detect and mitigate potential security threats. This processing is based on our legitimate interest.
+
+### 3. Why do we collect your Personal Data and on what legal basis?
+
+We process your Personal Data for several main purposes, each with a specific legal basis:
+
+- **Providing our website:** To ensure our website functions correctly, we process your IP address, browser type, device ID, and geolocation based on our legitimate interest.
+- **Improving security and monitoring:** For website security, bug tracking, and security monitoring, we process your IP address, visit timestamps, and device information based on our legitimate interest in securing our systems.
+- **Invoicing and payment:** To invoice you and receive payments, we process your name, email address, billing address, customer number, invoice number, tax ID, and other payment data. This is necessary to fulfill our contract with you.
+- **Account creation and management:** To create and manage your account, we process your name, email address, and chat instance name. This is necessary to fulfil our contract with you.
+- **Marketing relevant products:** To inform you about products potentially of interest, we process your name, email address, and marketing preferences based on our legitimate interest. If legitimate interest is not applicable, we will obtain your consent.
+- **Newsletters:** To send you newsletters, we process your name, email address, and marketing preferences, but only if you have given us your explicit consent.
+- **Handling inquiries:** To deal with your inquiries and communications, we process your name and email address. This is necessary to fulfil our contract with you.
+- **Legal and regulatory compliance:** To comply with legal and regulatory requirements, we process contact details, invoice numbers, and tax identification numbers based on our legal obligations.
+- **Record keeping:** To store records relating to you and our business operations, we process all the personal data we collect. This serves multiple bases: managing and fulfilling our contract with you, complying with legal/regulatory obligations, and pursuing our legitimate interest in maintaining proper records.
+
+Some of your Personal Data may be required due to legal, contractual, or other obligations. Failure to provide this data may impact our ability to fulfil our contract with you or comply with relevant legal obligations. For other Personal Data, whilst you may not be under an obligation to provide it to us, if you do not provide it, we may not be able to properly perform our services for you. Without your Personal Data, you may be unable to complete purchases or register an account on our Website.
+
+Providing Personal Data for marketing and newsletters is optional. Refusal to provide this data has no negative consequences but means that we cannot offer personalised marketing messages. If you gave us your consent for marketing purposes, you can revoke your consent or object the processing at any time by utilizing the following website: https://prighter.com/q/18105413056 or by following the information in section “Contact Information”.
+
+### 4. Who we share your Personal Data with?
+
+In order to operate our Website and provide you with the products you have ordered we may need to share your Personal Data with third parties. This includes sharing your Personal Data companies engaged by us to manage our relationship with you and provide you the services described above.
+
+We may share your personal data with the following recipients:
+
+- **Sub-contractors:** such as our service technology providers, cloud service providers, payment service providers, and other sub-contractors.
+
+We do not disclose Personal Data to anyone else except as set out above unless we have your consent, or we are legally obliged to do so. These recipients will only process your Personal Data to perform tasks and duties on our behalf and in compliance with this Privacy Policy and governing data protection laws.
+
+Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites and cannot accept responsibility or liability for their respective privacy policies.
+
+### 5. Direct Marketing
+
+From time to time, we may contact you by email with information about products they believe you may be interested in.
+
+Marketing emails and newsletters will only be sent to you based on the preferences you set when you tell us that you wish to receive marketing related messages or when you have purchased similar products from us previously.
+
+You can opt out any time if you do not wish to receive any marketing messages by clicking on the unsubscribe link in any marketing email you receive to unsubscribe from future marketing communications.
+
+### 6. International data transfers
+
+In the course of our operations, it may be necessary to transfer your Personal Data to recipients located outside the European Union (EU), European Economic Area (EEA). These transfers may be to our service providers who are located in regions with differing data protection laws than those in your country. When transferring your Personal Data internationally we implement appropriate safeguards to ensure the security and confidentiality of your data. These safeguards may include for example Standard Contractual Clauses (SCCs) approved by the European Commission or applicable supervisory authority.
+
+### 7. How long do we keep Personal Data for?
+
+Generally, we will retain your Personal Data for as long as we need it for the purposes for which it was collected. The duration for which we retain your Personal Data will differ depending on the type of information and the reason why we collected it from you. However, in some cases Personal Data may be retained on a long-term basis: for example, Personal Data that we need to retain for legal purposes will normally be retained in accordance with usual commercial practice and regulatory requirements.
+
+In addition, we may be allowed to retain Personal Data whenever you have given consent to such processing (e.g. subscription to our newsletter), as long as such consent is not withdrawn.
+
+### 8. Data security
+
+We take the security of your information very seriously and only handle Personal Data as permitted by data protection regulations. We use a variety of technical and organizational measures to help protect your Personal Data from unauthorized access, disclosure, modification, loss or destruction in accordance with applicable data protection laws. When handling Personal Data, our employees are obliged to comply with the regulations of the EU GDPR.
+
+### 9. Your rights in relation to your Personal Data
+
+You have the following rights in relation to your Personal Data under GDPR:
+
+- **Right of Access:** you have the right to be informed about how we are using your Personal Data and the right to access that data that we hold about you.
+- **Right to Erasure or "Right to be Forgotten":** you have the right to ask us to delete your Personal Data provided that there are no valid grounds for us to keep it, for example we may have to keep some or all of the Personal Data to comply with legal obligation or in respect of any legal claims.
+- **Right to Data Portability:** you have the right to receive the Personal Data you have provided to us in a digital format or in certain circumstances and where technically feasible the right to ask us to transmit the data to another organization.
+- **Right of Rectification:** you have the right to ask us to amend the Personal Data that we hold about you where believe it is inaccurate or incomplete.
+- **Right to Object:** in certain circumstances, you have the right to object to the processing of your Personal Data and to ask us to block, erase and restrict our use of your personal data.
+- **Automated Decision Making:** we may process your Personal Data by solely automated means (without human intervention), including for profiling. Where such processing may have a legal or similarly significant effect on you, you have the right not to remain subject to any decisions based on such automatic processing, except as otherwise provided by law. You have the right to understand when and how automated decisions are made about you, and the factors involved and you have the right to challenge these decisions, request human intervention, express your point of view, and seek a review of the decision.
+- **Right to Withdraw Consent or Right of Opposition:** if you have provided your consent to the collection, processing and transfer of your personal data, you have the right to fully or partly withdraw your consent. Once we have received notification that you have withdrawn your consent, we will no longer process your information for the purpose(s) to which you originally consented unless there is another legal ground for the processing.
+- **Right of Limitation:** you have the right to request the limitation of the Processing of your Personal Data, in the form of: (i) suspension of Processing or (ii) limitation of the scope of Processing to certain categories of Personal Data or purposes of Processing.
+- **Right to complain:** you have the right to complain to the supervisory authority, in addition to us.
+
+The period for handling a request is 30 days unless it is a particularly complex request.
+
+Once our specified retention period has expires we shall delete the relevant Personal Data. Therefore, the right to access, the right to erasure, the right to rectification and the right to data portability cannot be enforced after the expiration of such retention period.
+
+### 10. Processing data in relation to children
+
+Our services are not intended for and shall not be used by individuals under the age of 16. TypingMind does not knowingly collect Personal Data from persons under 16 or allow them to register. If it comes to our attention that we have collected or processed Personal Data from such a person, we may delete this information without notice. If you have reason to believe that this has occurred, please contact us using the following link: https://prighter.com/q/18105413056
+
+### 11. Changes to our data protection provisions
+
+We may need to make changes to this Privacy Policy to ensure that it complies with current legal requirements or to implement changes to the services detailed in the Privacy Policy, e.g., when introducing new services and products. In this case, your future visits to our Website will be subject to the updated Privacy Policy.
+
+### 12. Contact Information
+
+If you have any questions or comments about this Privacy Policy, the ways in which we collect and use your Personal Data, or your choices and rights regarding such use please do not hesitate to contact us by:
+
+- **Email:** [support@devuap.com](mailto:support@devuap.com)
+- **Post:** Ste 1200, 1309 Coffeen Avenue, 82801 Sheridan, United States
+
+**Data Subject Requests from EU Data Subjects according to the GDPR:**
+
+We value your Data Subject Rights under EU GDPR and have therefore appointed Prighter as representative according to Art 27 EU GDPR. We provide you with an easy way to submit a privacy related request like a request to access or erase your personal data by visiting: https://app.prighter.com/portal/18105413056
+
+**Last Updated:** 20 December 2024
+
+</PRIVACY_POLICY_TYPINGMIND_TEAM>
+
+<TERMS_OF_SERVICE_TYPINGMIND_LICENSE>
+
+## Terms of Service for [TypingMind.com](http://typingmind.com/) & Self-host Static App
+
+This section outlines the terms and conditions governing the use of [TypingMind.com](http://typingmind.com/) (the web application) and the self-hosted static app version, specifically for users who have purchased a license key.
+
+### 1. License Grant and Scope
+
+- **Lifetime License:** Your purchased license key grants you a lifetime license to use [TypingMind.com](http://typingmind.com/) and the self-hosted static app. The license does not expire.
+- **Usage:** The license allows you to use the software as long as you wish.
+- **Future Updates:**
+    - By default, all future upgrades and new features for [TypingMind.com](http://typingmind.com/) are provided free of charge to license holders.
+    - However, TypingMind reserves the right to potentially offer significant future upgrades as separate purchases if deemed reasonable.
+- **Self-Hosting:**
+    - License holders can download a self-hostable version of the static app.
+    - This allows users to host the application on their own servers, ensuring continued access even if [TypingMind.com](http://typingmind.com/) ceases operations.
+    - The self-hosted app works independently and requires no backend server from TypingMind.
+
+### 2. License Key Usage and Restrictions
+
+- **No Sharing:** You are strictly prohibited from sharing your license key with anyone else.
+- **Device Limit:**
+    - Each license key can be actively used on a maximum of **5 devices** simultaneously. This limit is generally sufficient for a single user.
+    - A "device" is counted based on each instance where the license key is entered and chat history is stored for continuous use (e.g., Chrome on a laptop is one device, Safari on a phone is another). Using different browsers on the same machine counts as separate devices.
+- **Managing Devices:**
+    - If you reach the 5-device limit and need to use the license on a new device, you must first unlink the license key from a previous device using the License Manager. Access to the previous device is not required to unlink it.
+    - This limit exists to prevent license abuse and piracy.
+- **Adding More Devices:** If you need to use the license on more than 5 devices concurrently, you must either purchase additional license keys or buy additional seats for your existing license key.
+
+### 3. Refund Policy
+
+- **14-Day Guarantee:** All purchases are refundable within 14 days of the purchase date, no questions asked.
+- **Requesting a Refund:** If unsatisfied, contact TypingMind support within the 14-day period to request a refund.
+
+### 4. Service Availability and Feature Changes
+
+- **Feature Modifications:** [TypingMind.com](http://typingmind.com/)'s features may change over time. This includes adding or removing features, changing the features available in free/paid plans, or potentially open source some parts or all of the app source code. Such changes do not qualify for refunds outside the initial 14-day period (unless your purchase is still within the 14-day refund period).
+- **Service Uptime:** While TypingMind strives to maintain service availability for [TypingMind.com](http://typingmind.com/), uptime is not guaranteed. Events like natural disasters, changes in ownership, dependency outages, or other uncontrollable factors may impact service. No refunds will be provided for service unavailability outside the 14-day refund period.
+- **Self-Hosting Option:** Users concerned about service availability can utilize the self-hosting option for full control.
+
+### 5. Legal Information
+
+- **Legal Entity:** [TypingMind.com](http://typingmind.com/) is a product of Devuap LLC.
+- **Registered Address:** Ste 1200, 1309 Coffeen Avenue, Sheridan, WY, Sheridan, US, 82801.
+
+### 6. Terms Specific to TypingMind Cloud (for License Users)
+
+TypingMind Cloud is an **optional, opt-in service** available to [TypingMind.com](http://typingmind.com/) users for sharing, syncing, and backing up chat data.
+
+- **Activation:** TypingMind Cloud is only used when you explicitly select it for Share/Sync/Backup features and agree to its terms.
+- **Free Tier:** A free tier is available, offering **10 MB** of data storage per user.
+    - License key holders automatically qualify for this 10 MB free storage limit.
+- **Availability & Data Integrity:** Service availability is not guaranteed, and TypingMind does not guarantee data will never be lost. Users are encouraged to maintain their own backups.
+- **Paid Upgrades:** Users can purchase subscriptions to increase their cloud storage limit beyond the free 10 MB. Pricing details are available within the app.
+- **Bandwidth Policy:** A fair use bandwidth policy applies (typically 10GB/month per 100MB storage). Contact support if higher bandwidth is needed.
+- **Not Mandatory:** Using TypingMind Cloud is optional; other sharing/syncing methods can be used.
+- **Self-Host Integration:** Users of the self-hosted app can still *choose* to use TypingMind Cloud for sync/backup. If selected, data will be sent to `cloud.typingmind.com`. The TypingMind Cloud *service itself* is not part of the self-host download.
+
+### 7. General Terms and Conditions (Applies to [TypingMind.com](http://typingmind.com/) & Self-host App)
+
+1. **Introduction:** By using [typingmind.com](http://typingmind.com/), you accept these terms and conditions.
+2. **Agreement:** This Agreement begins when you first use the [typingmind.com](http://typingmind.com/) application.
+3. **Premium Features:** A purchased license key unlocks premium features detailed on the pricing page.
+4. **Product Updates:** By using [typingmind.com](http://typingmind.com/), you agree to receive important product updates via email (linked to your payment or registration email). You can unsubscribe anytime.
+5. **Disclaimer:** [TypingMind.com](http://typingmind.com/) is provided "as is." It's not warranted that it will meet all requirements or be error-free. All implied warranties are excluded to the extent permitted by law. This doesn't affect statutory rights.
+6. **Warranties and Limitation of Liability:** TypingMind provides no warranties regarding the software's quality or fitness for purpose. TypingMind is not liable for indirect, special, or consequential losses, damages, costs, or claims (including loss of profit, data corruption, business interruption) arising from the service, except where liability cannot be excluded by law. Liability is limited to the amount actually paid by the user for the services or software. Users release TypingMind from obligations or claims exceeding this limit. Liability limitations do not apply in cases of fraudulent representation. Delays or failures due to causes beyond reasonable control do not constitute a breach of contract.
+7. **Governing Law:** This Agreement is governed by the laws of Wyoming, United States.
+8. **Relationship:** No joint venture, partnership, employment, or agency relationship exists between the user and [TypingMind.com](http://typingmind.com/). Users agree not to represent themselves as agents or employees of [TypingMind.com](http://typingmind.com/).
+9. **Last Updated:** December 5, 2024.
+
+</TERMS_OF_SERVICE_TYPINGMIND_LICENSE>
+
+<TERMS_OF_SERVICE_TYPINGMIND_TEAM>
+
+## Terms of Service for TypingMind for Teams
+
+This section outlines the terms and conditions governing the use of the TypingMind for Teams service (accessed via [custom.typingmind.com](http://custom.typingmind.com/) or a custom domain) and the associated self-hosted instances.
+
+**(Note: For the License Version/Personal Use terms, see `<TERMS_OF_SERVICE_TYPINGMIND_LICENSE>`)**
+
+TypingMind Team is a software as a service that allows you to create an AI chat portal for your team.
+
+Glossary: "The product" means the TypingMind Custom product; "Chat Instance" means the AI Chat interface you created when using the product. "You”/”the admin" the people who create a new chat instance and have the permission to config and customize the chat instance; "Your users" means the people who uses the Chat instance, sending messages and use the chat features on your chat instance, this could be your teammate, your users, your community members, etc.
+
+# **For Cloud-hosted instances**
+
+- All purchases are non-refundable. If you don’t want to be charged, please cancel your subscription within the 14-days free trial.
+- The subscription fee for the hosted version is fixed and includes access for 5 users. Additional users can be added at a set one-time licensing fee per user. For the most current pricing, please contact sales or visit [**https://custom.typingmind.com/pricing**](https://custom.typingmind.com/pricing).
+- Upon subscribing to TypingMind Custom, including the Early Access version, your account will be immediately charged for the first month. Subsequent charges will occur on the same day of each following month.
+- By becoming a subscriber of TypingMind Custom, including the Early Access version, you acknowledge that you are acquiring the product in its present form. You understand the product is under continuous development and its features may change. Furthermore, there may be bugs or errors, and you agree to report such issues to us.
+- Once users are added to your chat instance via the Admin Panel, they can use the interface as they would on [**TypingMind.com**](http://typingmind.com/). Every user will have individual chat history, custom prompts, AI characters, and bookmarks stored on their device. Users can log into your chat instance from any device they want.
+- The product is designed for a finite number of user seats. If you need to accommodate more users, you will need to purchase additional user seat licenses. One seat is available for only one user (person), this person can use the product on multiple devices. You are not allowed to share a seat with multiple people.
+- Advertised upcoming features or items on our product roadmap may not necessarily be included in the final product. Early subscribers acknowledging that they benefit from a discounted price, accept the product as-is.
+- As we add more features and services, we anticipate a rise in the product's price. Generally, price changes will only affect new customers, while current customers will continue with their initial subscription price. However, there may be circumstances where a price change is necessary for all customers.
+- We aim to maintain a 24/7 uptime of the hosted version of the product, although 100% availability cannot be guaranteed. In the event of scheduled downtime for maintenance or the like, we will attempt to notify you in advance.
+
+# **For Self-hosted instances**
+
+- All purchases are final and not refundable, unless specified in the custom contract we have with you.
+- You will be provided with the source code and/or installation package for self-hosting the TypingMind Custom at your own servers or infrastructure.
+- Upon purchase, you will receive a self-host "Instance Key". This key is required during the setup process and will be used to validate your purchase. An Instance Key can be used on exactly one self-host instance. An "instance" is defined as one setup of the self-host software, this means one chat interface, with the same set of configurations: name, tagline, logo, prompt library, and other data associated with the chat interface. You can buy multiple instance keys to setup multiple chat instances on your infrastructure.
+- You will be responsible for setting up, managing, and maintaining your own hosting environment. This includes, but is not limited to, installing and updating software, monitoring server performance, handling backups, and managing server security.
+- While we provide the option for self-hosting, we do not provide free technical support for server setup or maintenance. However, we offer a separate support package for customers needing help with their server setup and maintenance.
+- Payment for the self-hosted version of the product is required in advance and covers a minimum term of one year from the date of purchase. After this one-year period, you have the option to renew your subscription to continue receiving updates and support. If you choose not to renew, you may continue using the latest version of the product that you have indefinitely, but you will not receive further updates or support from us after your subscription ends.
+- For self-hosted instances, we offer standard customer and technical support through our official support channel at [**support@typingmind.com**](mailto:support@typingmind.com). This includes basic help with installation, configuration, troubleshooting, and product related questions. If you require a higher level of support and SLA/SLO , we offer premium support packages that can be purchased separately.
+- The source code or installation package that you receive for self-hosting the AI chat instance is exclusively for your use and should not be shared, sold, modified, or distributed to third parties without our prior consent.
+- Just like with the hosted version, the product is sold as-is and may still be in continuous development. By purchasing a self-hosted license you understand and accept that all features of the product may change in the future and the product may contain bugs and errors.
+- The product is designed for a finite number of user seats. If you need to accommodate more users, you will need to purchase additional user seat licenses. One seat is available for only one user (person), this person can use the product on multiple devices. You are not allowed to share a seat with multiple people.
+- The self-hosted versions of TypingMind Custom rely on external services, such as OpenAI API and Anthropic API, for some of their functionalities. While we strive to ensure the seamless integration of these services, we do not control these third-party services, and hence, cannot guarantee their availability or functionality. We provide no warranty or assurance regarding the uninterrupted service of external dependencies. In case of any disruptions, your experience with the self-hosted versions of TypingMind Custom may be affected. It's suggested to monitor the status of these third-party services independently and adjust your usage of the product accordingly.
+- **Update Responsibility**: You, as the self-hosted user, are responsible for updating the software with new patches or versions released by us. We are not liable for issues arising from the use of outdated versions.
+- **Indemnification**: You agree to indemnify, defend, and hold harmless TypingMind Custom and its licensees, affiliates, officers, employees, and agents from and against any claims, liabilities, damages, judgments, losses, costs, expenses, or fees, including reasonable attorneys' fees, arising out of or relating to your use or misuse of the software or any violation of these terms.
+- **Alteration and Modification**: Any unauthorized alterations, modifications, or use of the software beyond its intended purpose, including hacking or misuse, negates our responsibility for any damage, loss, or legal complications that may arise as a result.
+- **Reverse Engineering and Source Code Usage**: You agree not to attempt to reverse engineer the software or exploit the provided source code in any manner not explicitly allowed by these terms.
+- **Security**: You, as a self-hosting user, are solely responsible for securing the self-hosted instance of TypingMind Custom, protecting the stored data, and ensuring compliance with applicable privacy laws.
+- **Licensing Restrictions**: The self-hosted software should only be used in accordance with these terms and its recommended usage. Any sublicensing, resale, or redistribution of the software is prohibited unless explicitly agreed upon by us in writing.
+
+# **General terms**
+
+- **Privacy Policy**: By using our product, you agree to our Privacy Policy, which outlines how we collect, store, use, and protect your information. You can view our Privacy Policy at [**https://custom.typingmind.com/privacy**](https://custom.typingmind.com/privacy).
+- **Intellectual Property**: All intellectual property rights of the TypingMind Custom software, its design, logos, text, graphics, and all software compilations and underlying source code shall remain our property. Users are not permitted to use or reproduce our trademarks, logos or brand names without our prior written consent.
+- **Intellectual Property of User Generated Content**: You retain all ownership rights to the content generated by you on our platform. By using our product, you grant TypingMind Custom a non-exclusive, worldwide, royalty-free right to use, copy, store, transmit, distribute, display, and make derivative works of this content, solely to the extent and for the purpose of providing the product and services to you and your users. We do not claim any ownership rights to your content and will not use your content for any purpose other than as described above without your prior consent.
+- **User Obligations**: As a user, you agree to use our product lawfully and not to use it for any illicit activities. You also agree not to try and disrupt or manipulate our product, or to harm other users.
+- **Termination**: We reserve the right to suspend or terminate your access to the service in case of any breach of these terms.
+- **Modification of Terms**: We reserve the right to alter these terms of service at our discretion. We will notify you of any major changes, and your continued use of our service after such modifications will constitute your acceptance of the modified terms.
+- **Product usage:** By using [**typingmind.com**](http://typingmind.com/), you agree to receive important product updates from [**TypingMind.com**](http://typingmind.com/) via the email linked with your payment account or the email you used to register your account. You can opt-out of this product updates anytime by clicking to the "Unsubscribe" link at the bottom of each email. We only send important product updates.
+- **Disclaimer:** It is not warranted that [**typingmind.com**](http://typingmind.com/) will meet your requirements or that its operation will be uninterrupted or error free. All express and implied warranties or conditions not stated in this Agreement (including without limitation, loss of profits, loss or corruption of data, business interruption or loss of contracts), so far as such exclusion or disclaimer is permitted under the applicable law are excluded and expressly disclaimed. This Agreement does not affect your statutory rights.
+- **Warranties and Limitation of Liability:** [**typingmind.com**](http://typingmind.com/) does not give any warranty, guarantee or other term as to the quality, fitness for purpose or otherwise of the software. [**typingmind.com**](http://typingmind.com/) shall not be liable to you by reason of any representation (unless fraudulent), or any implied warranty, condition or other term, or any duty at common law, for any loss of profit or any indirect, special or consequential loss, damage, costs, expenses or other claims (whether caused by [**typingmind.com**](http://typingmind.com/)'s negligence or the negligence of its servants or agents or otherwise) which arise out of or in connection with the provision of any goods or services by [**typingmind.com**](http://typingmind.com/). [**typingmind.com**](http://typingmind.com/) shall not be liable or deemed to be in breach of contract by reason of any delay in performing, or failure to perform, any of its obligations if the delay or failure was due to any cause beyond its reasonable control. Notwithstanding contrary clauses in this Agreement, in the event that [**typingmind.com**](http://typingmind.com/) are deemed liable to you for breach of this Agreement, you agree that [**typingmind.com**](http://typingmind.com/)'s liability is limited to the amount actually paid by you for your services or software, which amount calculated in reliance upon this clause. You hereby release [**typingmind.com**](http://typingmind.com/) from any and all obligations, liabilities and claims in excess of this limitation.
+- **General Terms and Law:** This Agreement is governed by the laws of Wyoming, United States. You acknowledge that no joint venture, partnership, employment, or agency relationship exists between you and [**typingmind.com**](http://typingmind.com/) as a result of your use of these services. You agree not to hold yourself out as a representative, agent or employee of [**typingmind.com**](http://typingmind.com/). You agree that [**typingmind.com**](http://typingmind.com/) will not be liable by reason of any representation, act or omission to act by you.
+
+Last Updated: 11 Jun 2023
+
+</TERMS_OF_SERVICE_TYPINGMIND_TEAM>
+
+<GDPR_STATEMENT>
+We take our responsibility to protect the data of our customers very seriously. Europe’s General Data Protection Regulation (GDPR) came into effect on 25 May 2018. This broad reaching regulation is designed to ensure the privacy, security, and confidentiality of data.
+
+## **Terms of Service**
+
+Please refer to our [Terms of Service](https://custom.typingmind.com/terms-of-service) to learn more about our responsibilities towards our users and their data, and reiterate our commitment towards transparency of our practices.
+
+## **Privacy Policy**
+
+We have clearly outlined in our Privacy Policy the ways we collect, use, process and share personal information. Our Privacy Policy outlines how you can exercise your rights to any personal data that you share with us, and we will always respect your choice to receive or opt-out from communications with us. More details can be found in our [Privacy Policy](https://custom.typingmind.com/privacy).
+
+You can always submit a request to us to review, edit, or delete your Personal Information please contact us by submitting an support ticket if you are a current user.
+
+## **Data Processing Agreement**
+
+You can read the Data Processing Agreement [here](https://custom.typingmind.com/data-processing-agreement).
+
+</GDPR_STATEMENT>
+
+<DATA_PROCESSING_AGREEMENT_TEAM_VERSION>
+
+### Data Processing Agreement (DPA) for TypingMind for Teams
+
+For customers requiring a formal agreement outlining the processing of personal data in compliance with regulations like GDPR, TypingMind provides a Data Processing Agreement (DPA).
+
+**View the DPA here:** [https://custom.typingmind.com/data-processing-agreement](https://custom.typingmind.com/data-processing-agreement)
+
+This agreement details the roles, responsibilities, and technical and organizational measures related to the processing of personal data within the TypingMind for Teams service.
+
+</DATA_PROCESSING_AGREEMENT_TEAM_VERSION>
+
+<DATA_USAGE_MODEL_TRAINING_POLICY>
+
+## Data Usage and Model Training Policy
+
+**TypingMind's Core Policy:**
+
+- **All conversations processed through the TypingMind system (both the licensed personal version and the Team version) are treated as strictly confidential and are never used by TypingMind for training any AI models.**
+
+**Provider-Specific Policies:**
+
+TypingMind primarily provides the interface and management system for interacting with various external AI Service Providers. Therefore, the specific policies regarding data usage and model training for your conversations also depend heavily on the AI provider(s) you choose to use via TypingMind.
+
+Below is a summary of the policies for the major AI providers commonly used with TypingMind. **It is crucial to consult the official privacy policies of each provider for the most accurate and up-to-date information.**
+
+### 1. OpenAI (Models like GPT-4, GPT-3.5)
+
+- **No Training on API Data:** OpenAI explicitly states that data submitted through their API is **not** used to train their models.
+- **Data Retention for Abuse Monitoring:** OpenAI retains API inputs and outputs for up to **30 days**. This retention is solely for identifying potential abuse and ensuring service operation.
+- **Data Deletion:** After 30 days, the data is deleted unless OpenAI is legally required to retain it for a longer period.
+- **Human Review:** Data might be reviewed by authorized OpenAI employees strictly for abuse monitoring or legal compliance purposes, but **not** for training models.
+- **Further Details:** [OpenAI Enterprise Privacy Policy](https://openai.com/enterprise-privacy/)
+
+### 2. Anthropic (Claude Models)
+
+- **No Training on API Data (Default):** Anthropic does **not** use data submitted via the Claude API for training their models, unless there is a specific agreement in place with the customer stating otherwise.
+- **Data Retention:** Anthropic retains API data on their backend systems for up to **30 days**, unless a different retention period is contractually agreed upon.
+- **Further Details:**
+    - [Claude API Privacy and Legal Help Center](https://support.anthropic.com/en/collections/4078534-privacy-legal)
+    - [Anthropic Privacy Policy](https://www.anthropic.com/legal/privacy)
+
+### 3. Google (Gemini Models)
+
+- **Paid Services:** For **paid** Google AI services (like those typically accessed via API keys integrated into TypingMind), Google **does not** use your prompts or responses for model training.
+- **Unpaid Services:** For **unpaid** Google AI services (like free tiers or consumer products), Google *may* use submitted data to improve their products and services, including machine learning technologies.
+- **Human Review:** For quality improvement, human reviewers *may* read, annotate, and process API inputs and outputs. Google states that privacy protections are implemented to disconnect this data from your Google Account and other identifiers before human review occurs.
+- **Caching:** Google may cache inputs and outputs for Gemini models for up to **24 hours** to speed up responses to subsequent, similar prompts from the *same customer*.
+- **Further Details:**
+    - [Google AI/ML Generative Language API Additional Terms of Service](https://ai.google.dev/gemini-api/terms)
+    - [Vertex AI / Gemini API FAQ (See Data Governance sections)](https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/multimodal-faqs)
+
+### Important Note for Other Providers:
+
+ If you connect TypingMind to any other AI Service Provider (including custom models, open-source models run locally or via other platforms), you must consult the specific privacy notice and data usage policy of that provider. TypingMind acts solely as the platform for interaction; the data handling practices of the underlying AI model provider are paramount.
+
+<DATA_PRIVACY_AND_SECURITY_REPORT>
+
+## Data Privacy and Security
+
+TypingMind places a high priority on data privacy and security for its users, particularly within the TypingMind Team offering.
+
+### 1. Compliance and Certifications
+
+- **SOC 2 Type 2 Certified:** Demonstrates commitment to security, availability, processing integrity, confidentiality, and privacy.
+- **GDPR Compliant:** Adheres to the General Data Protection Regulation for users in the European Union.
+- **HIPAA Compliant:** Meets the requirements of the Health Insurance Portability and Accountability Act for handling protected health information (relevant for specific use cases).
+- **Trust Center:** Comprehensive security-related documents and information are available at TypingMind's Trust Center: https://trust.typingmind.com/
+
+### 2. TypingMind Team Overview
+
+- **Core Purpose:** Provides a secure and private interface for teams to interact with AI models like ChatGPT, Claude, Gemini, etc.
+- **Workflow:**
+    1. **Setup:** Admins create a new team chat instance with custom branding.
+    2. **Connect:** Connect the instance to preferred AI service providers using API keys.
+    3. **Customize:** Tailor the instance (custom domain, prompts, plugins, etc.).
+    4. **Share:** Distribute the chat interface internally to the team.
+    5. **Usage:** Team members utilize the AI via the secure interface.
+
+### 3. Deployment Options: Cloud-host vs. Self-host
+
+- **Cloud-host:**
+    - **Platform:** Hosted on TypingMind's managed cloud infrastructure via [https://custom.typingmind.com](https://custom.typingmind.com/).
+    - **Data Centers:** Options available in the US (US West) and EU (Frankfurt) to meet data residency needs.
+- **Self-host:**
+    - **Platform:** Allows teams to run the TypingMind Team software entirely on their own servers.
+    - **Control:** Provides maximum control over the infrastructure and data environment.
+    - **More Information:** Detailed self-hosting information available at https://docs.typingmind.com/typingmind-custom/getting-started/self-host-deployment-guide.
+
+### 4. Key Definitions
+
+- **Chat Instance:** A distinct, isolated environment for a single team. Contains all team-specific data: members, chats, prompts, plugins, preferences, themes, etc. Multiple instances can be created.
+- **Admin Users:** Individuals who create, configure, and manage chat instances via the Admin Panel. They invite end users and customize the instance settings (branding, API keys, features). An instance can have multiple admins.
+- **End Users:** Team members invited by admins (or self-registered, if allowed) who use the chat interface for AI interactions. Their access to features is determined by admin configurations.
+- **The System:** Refers specifically to the TypingMind Team software infrastructure (app server, database, etc.).
+- **AI Service (AI Provider):** The third-party service hosting the actual AI model (e.g., OpenAI, Anthropic, Google). TypingMind Team connects to these via API keys provided by the admin.
+- **Knowledge Database:** TypingMind's proprietary system used for processing and managing training data uploaded by the team (e.g., documents). It handles tokenization, chunking, and querying via a vector database to support Retrieval-Augmented Generation (RAG).
+
+### 5. System Architecture (Self-host - Minimal Setup)
+
+- **Core Components:**
+    - **App Server (NodeJS):** Receives and processes user requests and data.
+    - **App Database (MySQL):** Securely stores all instance data (users, chats, prompts, etc.).
+- **Optional Components:** Proxy servers, custom DNS, firewalls, backup systems, load balancers can be added for enhanced security and availability.
+- **Exclusions:** The self-hosted system *does not* include the Large Language Model (LLM) itself. Admins must connect to an external AI Service Provider (like OpenAI, Anthropic) or their own privately hosted LLM.
+
+### 6. Types of Data Processed
+
+- **Email:** Collected during login/invitation for user authentication. Not required if SSO or other external authentication methods are configured.
+- **Chat Messages:** User prompts and AI responses generated during conversations.
+- **Prompts, AI Agents, Plugins:** User-created templates, custom agents, and plugin configurations saved for reuse.
+- **User Preferences:** UI settings like theme (dark/light mode), font size, bookmarks, tags, etc.
+- **Training Data:** Documents (PDF, CSV, DOCX, etc.) uploaded by users or data connected from sources like Notion, Google Drive, GitHub for the Knowledge Base feature.
+
+### 7. Data Flow
+
+### a. Self-host Version (Minimal Setup)
+
+- **Email:** User Input (Login/Invite) → App Server → App Database (Storage).
+- **Chat Messages:** User Input → App Server → AI Service Provider (for processing) → App Server (receives response) → App Database (Storage).
+- **Prompts, AI Agents, Plugins:** User Creation → App Server → App Database (Storage). (May be sent to AI Service Provider when used in a chat).
+- **User Preferences:** User Action → App Server → App Database (Storage).
+- **Training Data:** User Upload/Connection → Knowledge Database (Processing/Chunking) → Knowledge Database (Storage).
+- **Message Processing ("Prepare message" step):** Before sending a user's message to the AI Service Provider, the App Server performs several processing steps:
+    1. **RAG:** Retrieves relevant data chunks from the Knowledge Database based on the chat context.
+    2. **Context Building:** Combines the user message with retrieved data, system prompts, AI Agent instructions, few-shot examples, etc.
+    3. **Prompt Engineering:** Applies proprietary techniques to optimize the prompt for better AI performance and response quality.
+    4. **Sending:** Transmits the final, processed prompt to the designated AI Service Provider.
+
+### b. Cloud-host Version
+
+- **Data Flow:** Identical to the self-host version.
+- **Underlying Services:**
+    - **App Server:** [Vercel.com](http://vercel.com/)
+    - **App Database:** Amazon Web Services (AWS)
+    - **Knowledge Database:** TypingMind In-house System (proprietary)
+    - **Supporting Infrastructure:**
+        - **DNS:** [Cloudflare.com](http://cloudflare.com/)
+        - **Logging:** [Axiom.co](http://axiom.co/)
+
+### 8. Encryption
+
+- **In Transit:** All communication between the user's browser, TypingMind servers (cloud or self-hosted), and external AI Service Providers is encrypted using HTTPS.
+- **At Rest (Self-host):** Disk-level encryption for the App Database is *highly recommended* to protect stored data. Configuration is the responsibility of the self-hosting team.
+- **At Rest (Cloud-host):** Data stored in the App Database (AWS) and Knowledge Database is encrypted at rest using mechanisms provided by the hosting provider (AWS), typically AES encryption.
+- **No End-to-End Encryption (E2EE):** TypingMind does *not* offer E2EE for chat messages. This means that while data is secure during transmission and storage, the TypingMind App Server and the connected AI Service Provider *can* access the content of the messages. This access is necessary for:
+    - Processing messages (RAG, context building).
+    - Sending prompts to the AI Service Provider.
+    - Storing chat history.
+    - Enabling features like chat logs for admins (if enabled).
+
+### 9. External Services Considerations
+
+- **Third-Party Policies:** When using external services (including AI Service Providers or other integrations) in conjunction with TypingMind Team (especially self-hosted), administrators must review the privacy policies and security practices of those external services.
+- **AI Provider Data Usage:**
+    - **OpenAI & Anthropic (via API):** Guarantee that data sent via their official APIs (as used by TypingMind Team) is *not* used for training their models.
+    - **Other Providers:** Always verify the data usage and privacy policies of any other AI provider connected to TypingMind Team.
+- **Azure OpenAI:** Recommended for privacy-sensitive deployments, especially with self-hosting, as it allows deployment within a private network and offers enterprise-grade security features. It integrates seamlessly with TypingMind Team.
+
+### 10. Common Self-host Setups (Conceptual)
+
+- **Setup 1: Self-host with External LLMs:** TypingMind App Server and Database hosted internally, connecting out to external AI providers (OpenAI, Anthropic, etc.).
+- **Setup 2: Self-host with Internal LLMs:** Both TypingMind components *and* the LLM itself are hosted within the organization's private infrastructure.
+
+</DATA_PRIVACY_AND_SECURITY_REPORT>
+
+</COMPANY_POLICY>
+
 <PLATFORM_DETAILS_AND_UPDATES>
 ### Platform Information
 
