@@ -198,6 +198,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
     - **Prompts:** Navigates to the Prompt Library.
     - **Plugins:** Navigates to the Plugin Marketplace/Management.
     - **Models:** Navigates to model management
+    - **KB:** Navigates to Knowledge Base management.
     - **Teams:** Navigates to team management features
     - **Settings:** Navigates to the application settings.
 - **Chat List:** Occupies the majority of the sidebar space. It displays a list of recent chats and chat folders.
@@ -214,157 +215,127 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 ### 3. Main Content Area (Right Side)
 
 - **Top Bar:**
-    - **Back Arrow:** Navigates back to the main chat list.
-    - **AI Model Information:** Displays the currently selected AI model (e.g., "Claude 3.5 Sonnet"). A dropdown menu suggests the ability to switch between models.
-    - **Model Settings:** An icon to configure the current model, and an indicator for the number of messages in context.
-    - **More Options:** Three dots icon, suggesting more menu options.
-- **TypingMind Branding:** The TypingMind logo is prominently displayed.
-- **AI Agents Section:**
-    - **"Your AI agents" Title:** Indicates this section displays the user's configured AI agents.
-    - **Layout Toggle:** Two icons to switch between list and grid view of the AI agents.
-    - **"Edit" and "View all (43)" Links:** Provide options to edit the displayed agents or view all available agents.
-    - **AI Agent Cards:** Displayed in a grid format, each card represents an individual AI agent. Each card includes:
-        - **Icon:** An icon or image associated with the AI agent.
-        - **Title:** The name of the AI agent (e.g., "Cold Email Template", "Pro Coder", "Graphic Designer", "Strategic Market Analyst", "Blog Image Generator").
-        - **Description:** A brief description of the AI agent's purpose or capabilities.
+    - **Back Arrow:** Navigates back to the chat list (only visible when a chat is open).
+    - **Chat-Specific Action Icons (Left to Right):**
+        - **Minimap:** Toggles a minimap view of the conversation. Icon looks like stacked lines or paragraphs.
+        - **Share:** Opens the chat sharing options popup. Icon is a standard share symbol.
+        - **Reset Chat (⌘⇧R):** Clears the current chat history. Icon is often a refresh or circular arrow. Tooltip shows the keyboard shortcut.
+        - **Clear Context (⌘⇧J):** Resets the AI's memory without deleting messages. Icon might be a broom or eraser. Tooltip shows the keyboard shortcut.
+    - **Cost Indicator:** Shows the estimated cost for the current session (e.g., "$0.0016").
+    - **Profile Icon (Top Right):** Displays the current user's profile icon/avatar, likely providing access to profile switching or settings.
+    - **More Actions (Three Dots Icon - Top Right):** --> Opens a dropdown menu containing additional chat-level actions:
+        - **Minimap:** (Duplicate access) Toggles the minimap view.
+        - **Share (⌘S):** (Duplicate access) Opens sharing options. Includes pin/unpin action button (bell icon).
+        - **Reset chat (⌘⇧R):** (Duplicate access) Clears chat history. Includes pin/unpin action button (bell icon).
+        - **Clear context (⌘⇧J):** (Duplicate access) Resets AI memory. Includes pin/unpin action button (bell icon).
+        - **About this chat:** Opens the Chat Info dialog (showing tokens, model, timestamps, etc.). Includes pin/unpin action button (bell icon).
+        - **Pin/Unpin Action Buttons (Bell Icons):** Small bell icons next to each action in the dropdown allow pinning/unpinning these specific actions to/from the main top bar for quicker access.
+- **Chat Message Display Area:** Shows the conversation history between the user and the AI.
+- **Model and Plugin Selection Bar (Above Input Field):**
+    - **Model Selector:** Dropdown to choose the active AI model(s).
+    - **Plugin Selector:** Button/indicator to manage enabled plugins for the chat.
 - **Input Area:**
-    - **"Press "/" to focus input" Placeholder:** Indicates a shortcut to focus the input field.
-    - **Formatting/Action Buttons:** A set of icons offering various formatting and action options:
-        - "@": Mention
-        - Attachment
-        - Document Upload
-        - Edit
-        - Attach File
-        - Microphone (Voice Input)
+    - **Placeholder Text:** Guides user input (e.g., "Press "/" to focus input").
+    - **Input Field:** Where the user types their message. Live token count displayed nearby.
+    - **Input Action Buttons (Below Input Field):** Icons for Quick access (Prompt Library, AI Agents list, Output Settings, Knowledge Base toggle, Thinking Mode Toggle - on the left, on the right, there are Attachment, Voice Input.
+- **Chat Composition Actions (Right of Input Field):**
+    - **New chat:** Button to start a new conversation. Often includes a "+" icon.
+    - **Regenerate:** Button (often blue) to request a new response from the AI for the last user prompt.
 
 ### 4. General Observations
 
-- The UI is visually clean and organized.
-- Icons are used extensively for actions and navigation.
-- The focus is on ease of access to chats and AI agents.
+- The UI maintains a clean, two-column layout.
+- Core chat functionalities (model/plugin selection, input actions) are grouped near the message input area.
+- Chat-level management actions (Share, Reset, Clear Context, Minimap, Info) are now consolidated in the top bar, accessible via direct icons or the "More Actions" menu.
+- The top bar allows customization by pinning/unpinning frequently used actions.
 </MAIN_INTERFACE>
 
 <CHAT_FEATURES_OVERVIEW>
 ### Chat Features
 
-- **Message Input Field:**
-    - **Purpose:** This is the primary area where users compose and input their prompts, questions, or commands to interact with the AI model.
-    - **Placeholder Text:** "Press "/" to focus input" - Informs the user about a keyboard shortcut to quickly focus on the input field, improving efficiency.
-    - **Live Token Count:** Displayed dynamically as the user types, providing immediate feedback on the length and complexity of the input, which can be helpful for managing API costs and context window limitations. The token count is displayed as "-[number] tokens".
-    - **Send Button:** The primary action button to submit the composed message to the AI for processing. Appears after typing in the input field.
-    - **Stop Button:** Replaces the "Send" button while the AI is processing a request. Allows the user to interrupt the AI's response generation.
-- **AI Agent Mention (@ Functionality):**
-    - **Activation:** Typing the "@" symbol in the input field triggers the AI Agent mention feature.
-    - **AI Agent Selection:** A popup or dropdown appears, displaying a list of available AI Agents.
-    - **Searchable List:** The AI Agent list typically includes a search bar ("Search AI agents...") to quickly find specific agents by name or function.
-    - **Agent Information:** Each listed AI Agent displays its name (e.g., "Pro Coder", "Graphic Designer") and a brief description of its capabilities, helping users choose the appropriate agent.
-    - **Agent Insertion:** Selecting an AI Agent from the list inserts a special mention tag (e.g.,@[AgentName]) into the input field. This tag signals the AI to utilize the specified agent for the current message.
-- **Formatting/Action Buttons:**
-    - **"@ (Mention AI Agent)":**
-        - **Function:** Allows the user to invoke and integrate a specific AI Agent into the conversation.
-        - **Workflow:** Upon clicking, a searchable list of AI Agents appears, allowing the user to select an agent. The selected agent is then tagged in the input field.
-    - **Search:**
-        - **Function**: Allows user to search for prompt, AI agents, or chats.
-        - **Workflow**: Upon clicking, a popup window will show up. The user can type in the search bar and press "Enter" or use mouse to click on the options.
-        - **Options**:
-        - `**Open AI Agents**`
-        - `**Open Prompt Library**`
-        - `**Open Model Settings**`
-        - `**ESC to close**: User can press ESC key to close the search popup`
-        - `**Up/Down Arrow**: User can use up and down arrow to navigate through the options`
-        - `**Enter to select**: User can press "Enter" key to select the options`
-    - **Output Settings:**
-        - **Function:** Provides granular control over the characteristics of the AI's response.
-        - **Output Format:** Dictates the structure and style of the AI's output (e.g., "Default", "Concise", "Step-by-step", "Extreme Detail", "ELIS5", "Essay", "Report", "Summary", "Table", "FAQ", "Listicle", "Interview", "Review", "News", "Opinion", "Tutorial", "Case Study").
-        - **Tone:** Influences the emotional and attitudinal expression in the AI's response (e.g., "Default", "Authoritative", "Clinical", "Cold", "Confident", "Cynical", "Emotional", "Empathetic", "Formal", "Friendly", "Humorous", "Informal", "Ironic", "Optimistic", "Pessimistic", "Sarcastic", "Serious").
-        - **Writing Style:** Determines the stylistic qualities of the AI's writing (e.g., "Default", "Academic", "Analytical", "Argumentative", "Conversational", "Creative", "Critical", "Descriptive", "Epigrammatic", "Epistolary", "Expository", "Impassioned", "Journalistic", "Lyric", "Narrative", "Objective", "Persuasive", "Poetic", "Satirical", "Scientific", "Subjective").
-        - **Language:** Sets the language in which the AI will respond (e.g., "Default", "English", "Español", "Français", "Deutsch", "Italiano", "Português", "Polski").
-        - **Reset to Default Button:** Resets all output settings to their default values.
-    - **Attachment:**
-        - **Function:** Enables users to attach files (e.g., images, documents) to the chat for the AI to analyze or use as context.
-        - **File Selection:** Opens a standard file dialog, allowing the user to browse and select files from their local device.
-        - **Supported File Types:** Depends on the enabled plugins and the AI model's capabilities. Common types include PDF, DOCX, TXT, JPG, PNG.
-        - **Cancel button**: Cancels the file selection process
-    - **Microphone (Voice Input):**
-        - **Function:** Initiates voice input, allowing users to dictate their messages instead of typing.
-        - **Audio Input Popup:** Displays a popup window to configure the voice input settings.
-            - **Speech-to-Text Provider:**
-                - **Web API (Free):** Leverages the browser's built-in speech recognition API.
-                - **OpenAI Whisper:** Utilizes OpenAI's Whisper model for transcription. May require an OpenAI API key.
-                    - **OpenAI Whisper Prompt:** Allows you to input the prompt for OpenAI Whisper API
-                - **Groq Whisper:** Employs Groq's Whisper service for potentially faster and more efficient transcription. Requires a Groq API key.
-                    - **Groq API Key (Register Here)**: The input to the Groq API Key with a link to register.
-                    - **Check Key**: Check the Groq API Key
-                    - **Whisper Model:** Offers a choice of Whisper models (e.g., "Whisper large-v3", "Distil-Whisper English") to balance accuracy and speed.
-                    - **Groq Whisper Prompt**: Allows you to input the prompt for Groq Whisper API
-                - **Azure Whisper:** Integrates with Azure's Cognitive Services for speech-to-text conversion. Requires an Azure API endpoint and key.
-                    - **Azure Whisper API Endpoint**: The input for Azure Whisper API Endpoint with a link for instruction.
-                    - **Azure Whisper API Key**: The input for Azure Whisper API Key with a link for instruction.
-                    - **How to get one**: A link that lead to instruction page
-                - **Auto start recording when open:** Automatically begins recording as soon as the Audio Input popup appears.
-                - **Auto send the message after speaking:** Automatically submits the transcribed text as a message once the user stops speaking.
-                - **Finish Button:** Completes the voice input process and (if "Auto send" is disabled) prepares the transcribed text for sending.
-                - **Cancel Button:** Cancels the voice input process.
-            - **Audio Input Feedback:** The popup typically displays a visual representation of the audio input level and a "Listening..." indicator.
-- **Message Display (User and AI):**
-    - **Visual Distinction:** User messages and AI responses are visually separated using distinct speech bubble styles, avatars, or background colors.
-    - **Avatars:** User and AI Agents are represented by avatars, providing visual cues for identifying the message source.
-    - **Timestamps:** Timestamps (e.g., "11:28", "1m", "48m") indicate when each message was sent, maintaining chronological context.
-- **Message Actions:**
-    - **Access:** Message actions are typically revealed by hovering the mouse cursor over a specific message.
-    - **Edit (User Messages Only):**
-        - **Function:** Allows the user to modify the content of their own messages.
-        - **Workflow:** Clicking the "Edit" icon transforms the message into an editable text field.
-        - **Update Button:** After editing, the user clicks the "Update" button to save the changes.
-        - **Cancel Button:** Cancels the editing process, reverting to the original message content.
-    - **Copy:**
-        - **Function:** Copies the complete text of the message to the clipboard.
-        - **Feedback:** A brief visual confirmation (e.g., "Copied!") is displayed to indicate successful copying.
-    - **More Options (Three Dots Icon):**
-        - **Function:** Provides access to a menu of additional message-specific actions.
-        - **Pin:**
-            - **Function:** Designates a message as important and keeps it readily accessible.
-            - **Pinning Process:** Clicking "Pin" initially highlights the message. A confirmation prompt ("Sure?") may appear to confirm the pinning action.
-            - **Visual Indicator:** A pin icon is displayed on the pinned message.
-        - **Delete:**
-            - **Function:** Removes the message from the chat history.
-            - **Confirmation:** A confirmation prompt may appear to prevent accidental deletion.
-        - **Show raw:** Shows the raw text of the message in code format.
-        - **Play:** Play the message using text-to-speech
-        - **Fork chat from here:**
-            - **Function:** Creates a new chat session, using the selected message as the starting point for a new conversation thread.
-            - **Purpose:** Allows users to explore alternative directions or refine a specific aspect of a previous conversation without altering the original chat history.
-- **Pinned Messages Functionality:**
-    - **Accessibility:** Pinned messages are accessible via the pin icon located in the chat interface.
-    - **Pinned Messages Dialog:**
-        - **Display:** Opens a dialog box listing all messages that have been pinned in the current chat.
-        - **Message Content:** Each pinned message is displayed with its text content.
-        - **Unpin Action:** An "x" icon or similar control allows the user to remove a message from the pinned list.
-- **Chat Actions (Bottom Right - Comprehensive):**
-    - **New Chat:**
+### Top Bar Chat Actions
+
+- **Placement:** Located in the top bar of the main chat area.
+- **Purpose:** Provides quick access to chat-level management and information actions.
+- **Direct Icons (Default):**
+    - **Minimap:**
+        - **Icon:** Stacked lines/paragraphs.
+        - **Function:** Toggles a condensed visual overview of the chat conversation, often displayed in a sidebar or popup, allowing for quick navigation through long chats. Tooltip: "Minimap".
+    - **Share:**
+        - **Icon:** Standard share symbol (e.g., arrow pointing out of a box).
+        - **Function:** Opens the sharing options dialog (Secret Link, Text, JSON, HTML, Print/PDF). Tooltip: "Share (⌘S)".
+    - **Reset Chat:**
+        - **Icon:** Refresh/circular arrow.
+        - **Function:** Clears the entire chat history for the current session. Confirmation might be required. Tooltip: "Reset chat (⌘⇧R)".
+    - **Clear Context:**
+        - **Icon:** Broom or eraser symbol.
+        - **Function:** Resets the AI's contextual memory without deleting the visual chat history. Tooltip: "Clear context (⌘⇧J)".
+- **More Actions Menu (Three Dots Icon):**
+    - **Function:** Opens a dropdown menu containing additional actions and the ability to pin/unpin actions to the main top bar.
+    - **Menu Items:**
+        - **Minimap:** (Duplicate access). Includes a pin/unpin bell icon.
+        - **Share (⌘S):** (Duplicate access). Includes a pin/unpin bell icon.
+        - **Reset chat (⌘⇧R):** (Duplicate access). Includes a pin/unpin bell icon.
+        - **Clear context (⌘⇧J):** (Duplicate access). Includes a pin/unpin bell icon.
+        - **About this chat:**
+            - **Icon:** Information symbol (i) or speech bubble with 'i'.
+            - **Function:** Opens the "Chat Info" dialog which displays details like the model used, total tokens consumed (input/output), estimated cost, creation date, last updated date, message count, and potentially prompt caching status.
+            - Includes a pin/unpin bell icon.
+    - **Pin/Unpin Action Buttons (Bell Icons):**
+        - **Function:** Clicking the bell icon next to an action in the dropdown menu toggles its visibility as a direct icon in the main top bar. Pinned actions appear directly in the top bar; unpinned actions are only accessible via the dropdown.
+
+### Model and Plugin Selection Bar
+
+- **Placement:** Directly above the message input field.
+- **Components:** Model Selector dropdown, Plugin Selector button/indicator.
+- **Functionality:** Select AI model(s), manage enabled plugins for the current chat session. (See previous description for popup details).
+
+### Message Input Field
+
+- **Purpose:** Primary area for composing prompts.
+- **Placeholder Text:** Guides user (e.g., `Type "@" to mention an AI agent`).
+- **Live Token Count:** Dynamically shows token usage for the composed message.
+- **Send/Stop Button:** Submits the message or interrupts AI generation.
+
+### Input Action Buttons (Below Input Field)
+
+- **Prompt Library:** Access pre-saved prompts.
+- **Output Settings:** Control AI response format, tone, style, language.
+- **Attachment:** Upload files (PDF, DOCX, images, etc.).
+- **Microphone (Voice Input):** Dictate messages.
+- **Thinking Mode Toggle (Conditional):** Toggle visibility of AI reasoning steps for supported models.
+
+### AI Agent Mention (@ Functionality)
+
+- **Activation:** Typing "@" in the input field.
+- **Selection:** Popup lists available AI Agents.
+- **Insertion:** Adds agent tag (e.g., `@[Agent Name]`) to use the agent for the message.
+
+### Message Display (User and AI)
+
+- Visually distinct bubbles, avatars, timestamps.
+
+### Message Actions (Hover Actions)
+
+- **Access:** Appear on mouse hover over a message.
+- **Actions:** Edit (user message), Edit in Canvas (AI message), Copy, Play (TTS), More Options (Pin, Delete, Show raw, Fork chat).
+
+### Pinned Messages Functionality
+
+- **Access:** Via a pin icon (likely consolidated in the top bar or its menus).
+- **Dialog:** Lists pinned messages with an option to unpin.
+
+### Chat Composition Actions (Right of Input Field)
+
+- **Placement:** Located to the right of the message input field.
+- **Purpose:** Actions directly related to starting new chats or regenerating the last response.
+- **Components:**
+    - **New chat:**
+        - **Icon:** Often a "+" sign.
         - **Function:** Initiates a completely new and independent chat session.
     - **Regenerate:**
-        - **Function:** Instructs the AI to generate a new response to the user's last message, effectively re-running the prompt.
-    - **Settings:**
-        - **Show Labels:**
-            - **Function:** Toggles the visibility of text labels for the icons in the chat interface.
-            - **Purpose:** Can be helpful for new users to learn the functions of each icon or for those who prefer explicit labeling.
-        - **List More:**
-            - **Function:** Expands the settings menu to reveal a more comprehensive set of options.
-        - **Regenerate:** (Duplicate entry - likely for redundancy or quick access). Same function as the "Regenerate" button.
-        - **Share:**
-            - **Function:** Allows the user to export or share the chat conversation in various formats.
-            - **Sharing Options:**
-                - **Secret Link:** Creates a unique, unlisted URL that can be shared with others to view the chat.
-                - **Text (Markdown):** Exports the chat history as a Markdown-formatted text file.
-                - **JSON:** Exports the chat data as a JSON (JavaScript Object Notation) file, suitable for data analysis, archival, or fine-tuning purposes.
-                - **HTML Webpage:** Exports the chat as a self-contained HTML file that can be opened in a web browser.
-                - **Print / PDF:** Allows the user to print the chat or save it as a PDF document.
-        - **Reset Chat:**
-            - **Function:** Clears the entire chat history, effectively starting a new conversation from scratch within the same chat session.
-        - **Clear Context:**
-            - **Function:** Resets the AI's contextual memory of the conversation, but *without* deleting the chat history. The AI will respond to subsequent messages as if they were the beginning of a new conversation.
-        - **New Chat:** (Duplicate entry - likely for redundancy or quick access). Same function as the "New Chat" button.
+        - **Icon/Button:** Often a prominent blue button.
+        - **Function:** Instructs the AI to generate a new response to the *user's last message*.
 </CHAT_FEATURES_OVERVIEW>
 
 <MULTI_AI_RESPONSE_FEATURE>
@@ -375,22 +346,23 @@ The Multi AI Response feature allows users to send a single prompt to multiple s
 
 ### Activating Multi-Model Mode
 
-1. **Access Model Selection:** Click on the currently selected model's name/icon in the top bar of the chat interface. This opens the model selection dropdown/panel.
-2. **Enable Multi-Model Selection:** Locate the model(s) you wish to add to the current chat session from the list. Hover over the "+" (plus) icon located to the right of the desired model's name. A tooltip appears with the text "Activate multi-model".
+1. **Access Model Selection:** Click on the currently selected model's name/icon in the **Model and Plugin Selection Bar** located *above the message input field*. This opens the model selection popup.
+2. **Enable Multi-Model Selection:** Locate the model(s) you wish to add to the current chat session from the list within the popup. Hover over the "+" (plus) icon located to the right of the desired model's name. A tooltip appears with the text "Activate multi-model".
 3. **Add Models:** Click the "+" icon for each additional model you want to include.
-    - Each time a model is added via the "+" icon, the model selection panel closes automatically.
-    - The top bar of the chat interface updates immediately to display the icons of *all* currently selected models. The icons are displayed horizontally next to each other.
-    - The context message count (e.g., "+3") remains visible next to the model icons.
+    - Each time a model is added via the "+" icon, the model selection popup closes automatically.
+    - The **Model and Plugin Selection Bar** (above the input field) updates immediately to display the icons of *all* currently selected models horizontally.
+    - The top bar of the main chat area also updates to show the icons of the selected models.
+    - The context message count (e.g., "+4") remains visible, likely in the top bar or near the model icons in the selection bar.
 
 ### Managing Selected Models in Multi-Model Mode
 
-1. **View Selected Models:** Click on the area in the top bar where the selected model icons are displayed. This re-opens the model selection panel.
-2. **Selected Models List:** The top section of the panel now lists the models currently active for the multi-response session.
+1. **View Selected Models:** Click on the area in the **Model and Plugin Selection Bar** where the selected model icons are displayed. This re-opens the model selection popup.
+2. **Selected Models List:** The top section of the popup now lists the models currently active for the multi-response session.
     - Each selected model is displayed with its icon and name.
     - An "x" (cross) icon appears to the right of each selected model's name.
-3. **Removing Models:** Click the "x" icon next to a model's name to remove it from the multi-response session for the *current chat*.
-    - The model is immediately removed from the selected list at the top of the panel.
-    - The top bar display updates instantly to remove the icon of the deselected model.
+3. **Removing Models:** Click the "x" icon next to a model's name within the popup to remove it from the multi-response session for the *current chat*.
+    - The model is immediately removed from the selected list at the top of the popup.
+    - The **Model and Plugin Selection Bar** updates instantly to remove the icon of the deselected model. The top bar display also updates.
     - Removing the second-to-last model reverts the interface back to single-model mode.
 
 ### Multi-Response Chat Interface
@@ -400,51 +372,44 @@ When a user sends a prompt while multiple models are selected:
 1. **User Prompt Display:** The user's prompt is displayed at the top of the main chat area as usual.
 2. **"Select primary response" Section:** Below the user's prompt, a dedicated section appears for managing the multiple responses:
     - **Label:** The text "Select primary response" is displayed.
-    - **Dropdown Arrow:** A small dropdown arrow appears next to the label, although its functionality isn't demonstrated in the video clip, it might offer additional options or filtering in the future.
-    - **Model Icons:** Icons representing all the selected models for this session are displayed horizontally below the label.
+    - **Dropdown Arrow:** A small dropdown arrow appears next to the label.
+    - **Model Icons:** Icons representing all the selected models for this session are displayed horizontally below the label. These icons likely correspond to the order of the response cards below.
 3. **Response Containers:** Below the model icons, the chat area splits into separate containers or cards, one for each selected model.
-    - **Layout:** The cards are arranged horizontally or vertically depending on screen space. In the video, they appear horizontally.
+    - **Layout:** The cards are arranged horizontally or vertically depending on screen space.
     - **Card Content (Initial State):**
-        - **Model Identification:** Each card clearly displays the icon and name of the corresponding AI model (e.g., "GPT-4o", "Claude 3.7 Sonnet").
-        - **Loading Indicator:** Initially, each card shows a loading state, typically indicated by:
-            - A subtle spinning or pulsing animation (represented by radio button style animation in the video).
-            - The text "Assistant is thinking...".
+        - **Model Identification:** Each card clearly displays the icon and name of the corresponding AI model (e.g., "GPT-4o", "O3")
+        - **Loading Indicator:** Initially, each card shows a loading state (e.g., "Assistant is thinking...", pulsing animation).
     - **Card Content (Completed State - Success):**
-        - Once a model finishes generating its response, the loading indicator disappears.
+        - The loading indicator disappears.
         - The AI's generated text response is displayed within the card.
-        - If the model supports "Thinking Mode" (like Claude 3.7 Sonnet in the video), the thinking process bubble may appear *within* the card before the final response.
+        - If the model supports Thinking Mode, the thinking bubble may appear *within* the card before the final response.
     - **Card Content (Completed State - Error):**
-        - If a model encounters an error (e.g., API key issue, quota exceeded, provider rejection), the card displays an error message instead of a response.
-        - The error message is typically displayed in red text for visibility.
-        - Example Error: "Sorry, the provider of this model has rejected your request (Message: Gemini 2.5 Pro Preview doesn't have a free quota tier...)"
-4. **Simultaneous Generation:** All selected models process the prompt and generate their responses concurrently. The cards update independently as each model finishes.
+        - An error message is displayed instead of a response (e.g., API key issue, quota exceeded). Error text is often red.
+4. **Simultaneous Generation:** All selected models process the prompt and generate responses concurrently. Cards update independently.
 
 ### Interacting with Response Cards
 
 Once responses (or errors) are displayed in the cards:
 
-1. **Hover Actions:** Hovering the mouse cursor over a specific response card reveals action icons in the top-right corner of that card:
-    - **Set as Primary Response (✓):** A checkmark icon. Hovering over it displays the tooltip "Set as primary response".
-    - **Delete Response (🗑️):** A trash can icon. Hovering over it likely displays a tooltip like "Delete response" or "Remove response".
+1. **Hover Actions:** Hovering over a response card reveals action icons (typically top-right):
+    - **Set as Primary Response (✓):** Checkmark icon. Tooltip: "Set as primary response".
+    - **Delete Response (🗑️):** Trash can icon. Tooltip: "Delete response" or similar.
 2. **Selecting the Primary Response:**
-    - Click the checkmark (✓) icon on the card containing the response you want to keep as the main answer in the chat flow.
-    - **Interface Collapse:** Upon clicking the checkmark, the multi-response view (with all the separate cards) collapses.
-    - **Chat View Update:** The chat interface returns to the standard single-response view, displaying only:
-        - The user's original prompt.
-        - The AI response *from the card that was selected as primary*.
+    - Click the checkmark (✓) on the desired response card.
+    - **Interface Collapse:** The multi-response view collapses.
+    - **Chat View Update:** The chat returns to standard single-response view, showing only the user's prompt and the *selected primary* AI response.
 3. **Deleting a Response:**
-    - Click the trash can (🗑️) icon on a card to remove that specific model's response from the current multi-response view.
-    - This does *not* select a primary response; it simply dismisses that particular card.
+    - Click the trash can (🗑️) on a card to remove that specific model's response from the current multi-response view.
 
 ### Considerations
 
-- **Token Consumption:** Using multiple models for a single prompt will consume tokens for *each* model, potentially increasing API costs significantly compared to using a single model.
-- **Error Handling:** Individual model errors are displayed within their respective cards and do not necessarily prevent other models from responding successfully.
+- **Token Consumption:** Using multiple models consumes tokens for *each* model, increasing costs.
+- **Error Handling:** Individual model errors are contained within their cards.
 
 ### Notes
 
-- In case of multi-model response, in the chat info popup, context length is the length of the selected primary response, the total token spent is combined tokens from all models.
-- You can not edit / pin / use canvas in multi responses mode.
+- **Chat Info:** In multi-model responses, the chat info popup shows context length based on the *selected primary* response, but the total token cost reflects the combined usage of *all* models activated for that prompt.
+- **Feature Limitations:** Editing messages, pinning messages, and using the Canvas Editor might be disabled while in the multi-response view (before a primary response is selected).
 
 </MULTI_AI_RESPONSE_FEATURE>
 
@@ -1795,135 +1760,109 @@ The Prompt Library interface provides a range of actions for managing existing p
 
 ## Using Plugins
 
-TypingMind's plugin system greatly extends the capabilities of AI models by allowing them to access external data sources, perform specialized tasks, and interact with other applications. Here's a detailed guide on how to use plugins within TypingMind:
+TypingMind's plugin system greatly extends the capabilities of AI models by allowing them to access external data sources, perform specialized tasks, and interact with other applications.
 
-### 1. Enabling Plugins
+### 1. Enabling Plugins for a Chat Session
 
-Before you can use a plugin, it needs to be enabled.
+Before you can use a plugin in a specific chat, it needs to be enabled for that session.
 
-#### a. Accessing the Plugin List
+### a. Accessing the Plugin Selection Popup
 
-1.  **Open a Chat:** Start or open an existing chat.
-2.  **Access the Plugin Enable/Disable Modal:** In the chat interface, there are two ways to access the Plugin Enable/Disable Modal:
-    *   Click the tool icon: Click the tool icon next to model dropdown.
-    *   Click the Manage Plugins: At the bottom of the plugin list, there is a "Manage Plugins" option. Click on this to open the `Plugin Manager` modal.
-3.  **Plugin List Display:** The list displays all installed plugins. Each plugin is shown with its name.
+1. **Open a Chat:** Start or open an existing chat session.
+2. **Locate the Plugin Selector:** Find the Plugin Selector button (tool/wrench icon with a count like "+4") located in the **Model and Plugin Selection Bar** *above the message input field*.
+3. **Click the Plugin Selector:** Clicking this button opens the Plugin Selection Popup for the current chat.
 
-#### b. Enabling/Disabling Individual Plugins
-1. **Enable Plugins**: At the top, there is a Enable Plugins option with a toggle.
-2.  **Toggle Switch:** To the right of each plugin's name is a toggle switch.
-    *   **Enabled State:** When the toggle is switched to the right (typically displayed with a blue color or checkmark), the plugin is enabled and available for use in the current chat.
-    *   **Disabled State:** When the toggle is switched to the left (typically displayed in gray), the plugin is disabled and will not be used in the current chat.
-3.  **Click to Toggle:** Click the toggle switch to change the plugin's state. The change is immediate. A brief visual cue (e.g., a checkmark or transition animation) may indicate the status change.
-4.  **Confirm Status:** Verify that the toggle switch is in the desired position to confirm the plugin's status.
-5.  **Plugins number**: On top of the popup shows the number of plugins enabled
+### b. Enabling/Disabling Individual Plugins in the Popup
 
-### 2. Using Plugins in a Chat
+1. **Plugin List Display:** The popup displays a searchable list of all installed plugins.
+2. **Toggle Switch:** To the right of each plugin's name is a toggle switch.
+    - **Enabled State:** Toggle switched right (blue/filled). The plugin is active for *this chat session*.
+    - **Disabled State:** Toggle switched left (gray/outlined). The plugin is inactive for *this chat session*.
+3. **Click to Toggle:** Click the toggle switch to enable or disable a specific plugin for the current chat. The change is immediate.
+4. **Master Toggle:** Use the "Enable plugins" toggle at the bottom of the popup to quickly enable or disable *all* plugins for the session.
+5. **Close Popup:** Close the popup when finished. The Plugin Selector button (above the input field) will update its count indicator (e.g., "+3", "+5") to reflect the number of currently enabled plugins for the session.
 
-Once a plugin is enabled, you can use it by including specific instructions or keywords in your prompts.
+### 2. Using Enabled Plugins in a Chat
 
-#### a. Prompting for Plugin Use
+Once one or more plugins are enabled for the chat session, you can invoke them:
 
-1.  **Compose a Prompt:** In the message input field, type a prompt that clearly instructs the AI to use the desired plugin.
-    *   **Clear Instructions:** The prompt should explicitly mention the plugin's name or the task you want it to perform.
-        *   Example (Web Search): "What is the current gold price today?"
-        *   Example (DALL-E 3): "Generate a picture of a cat"
-2.  **Triggering the Plugin:** When the AI processes your prompt, it will recognize the instruction to use the plugin and attempt to execute it.
-3.  **Plugin Execution:**
-    *   The AI may first respond with a message indicating that it will use the plugin. For example, "I'll search for the current gold price information."
-    *   The plugin will then run in the background, retrieving data or performing the requested task.
-    *   A "Plugin is running" message show.
-4.  **Displaying Results:** The plugin's results will be displayed in the chat, typically formatted for easy readability.
-    *   Example (Web Search): The search results might be displayed as a list of links with titles and snippets.
-    *   Example (DALL-E 3): The generated image will be displayed directly in the chat.
+### a. Prompting for Plugin Use
 
-#### b. Plugin Specific Interfaces
+1. **Compose a Prompt:** Type a prompt instructing the AI to use the plugin or perform a task that requires the plugin's capability.
+    - **Explicit:** "Use Web Search to find the current gold price."
+    - **Implicit:** "What is the current gold price today?" (The AI may decide to use the Web Search plugin if it recognizes the need for real-time data).
+2. **Send the Prompt:** Submit your message.
+3. **Plugin Execution:**
+    - The AI recognizes the need for the plugin.
+    - It might indicate it's using the plugin (e.g., "Using Web Search...").
+    - The plugin runs in the background. A "Plugin is running" message might appear.
+4. **Displaying Results:** The plugin's output (search results, generated images, calculated values, etc.) is integrated into the AI's response and displayed in the chat.
 
-Some plugins may offer additional interfaces for advanced configurations.
+### b. Plugin Specific Interfaces (e.g., Interactive Canvas)
 
-### 3. Advanced Plugin Management
-The Plugin management can be accessed by clicking the `Manage Plugins` on the plugin selection page. This popup brings the user to the Plugins Tab page, which includes detailed configurations and functionalities.
+- Some plugins, like "Interactive Canvas," render their output directly as interactive elements within the chat or in the Artifact Panel. Users might need to click "Show content" initially.
 
-#### a. Accessing the Plugin List
+### 3. Advanced Plugin Management (Main Settings)
 
-1.  **Navigate to the "Plugins" Section:** In the left sidebar, click on the "Plugins" icon. This will open the Plugins Management interface.
+For installing, uninstalling, and configuring plugin-wide settings (like API keys).
 
-#### b. Plugin Interface Overview
+### a. Accessing the Main Plugin Management Interface
 
-The Plugin Interface consists of the following key elements:
-- **Page title:** The title should be in a prominent font, clearly indicating the page's purpose, such as "Plugins".
-- **Page Description:** A concise description of the plugins' functionality may be displayed below the title, such as "Extends the capabilities of the AI with custom functions and workflows."
-- **"Plugin Store" Button:** A button navigate to the Plugin Store. The plugin store shows a list of plugins available to install, filter by categories.
-- **"Select multiple plugins" Button:** A button to allow the user to select multiple plugins at once.
-- **Search Bar:** A text input field allows users to quickly find specific plugin by name or keyword.
-- **"Create Plugin" Button:** A button navigates to the Create Plugin page, which contains the detailed configurations for a new plugin. The new plugin will be added to the list.
-- **"Import" Button:** A button navigates to the Import Plugin page, which contains the detailed configurations for importing a plugin.
-- **Plugin List (Installed):** A list of plugins that have already been installed. User can choose one to configure.
-- **Plugin Configuration:** When a plugin is selected from the installed list, the Plugin Configuration page will show.
-- **Plugin List (Available):** A list of plugins that are ready to be installed. User can click to install or view details.
-- **Grid/List mode Toggle:** A switch to allow user to view with list mode or grid mode.
+1. **Navigate to the "Plugins" Section:** In the main left sidebar of the application, click on the "Plugins" icon.
 
-#### c. Plugin Configuration
-The Plugin Configuration includes several sections and button to let the user configure.
-- **Plugin Name:** The name of the plugin.
-- **"Edit" Button:** A button navigate to the Create Plugin page, which contains the detailed configurations for a plugin. User can edit the plugin's settings.
-- **"Uninstall" Button:** A button to uninstall the plugin. It trigger the double confirmation (`Sure?`, and `Click again to confirm`)
-- **Enable/Disable:** A toggle switch to enable/disable the plugin.
-- **Plugin Configurations Tabs**:
-    -   **Overview:** Provides a brief description of the plugin's purpose, usage instructions, and any required API keys or settings.
-    -   **Settings:** Allows you to configure specific settings for the plugin, such as API keys, search engine IDs, or image sizes.
-    -   **Spec:** Displays the plugin's specification, which defines the functions and parameters that the plugin exposes to the AI model. This is typically displayed in JSON format.
-    -   **Source:** Displays the source code of the plugin. This is useful for advanced users who want to understand how the plugin works or customize its behavior.
+### b. Plugin Interface Overview (Main Settings)
 
-### 4. Web Search Plugin Example
+- **Page Title:** "Plugins"
+- **Description:** "Extends the capabilities of the AI..."
+- **Action Buttons:** "Plugin Store", "Select multiple plugins", "Create Plugin", "Import".
+- **Search Bar:** Search installed and available plugins.
+- **Plugin Lists:** Displays "Installed" and "Available" plugins.
+- **Layout Toggle:** Grid/List view switch.
 
-Here's a detailed example of how to use the Web Search plugin:
+### c. Individual Plugin Configuration (Main Settings)
 
-#### a. Enabling the Plugin
+- Clicking a plugin in the list opens its detailed configuration page.
+- **Tabs:**
+    - **Overview:** Description, usage examples.
+    - **Settings:** Configure plugin-specific settings (API keys, default parameters). *This is where you enter keys needed globally for the plugin*.
+    - **Spec:** Technical specification (JSON).
+    - **Source:** Plugin source code (if available).
+- **Actions:** Edit, Uninstall, Enable/Disable (globally).
 
-1.  **Access the Plugin List:** Follow the steps above to access the plugin list (using the tool icon on the chat page or the Plugin section on the sidebar).
-2.  **Locate Web Search:** Find the "Web Search" plugin in the list.
-3.  **Enable Web Search:** Click the toggle switch to enable the plugin.
+### 4. Web Search Plugin Example (Revisited with UI Change Context)
 
-#### b. Configuring the Plugin
+1. **Installation & Global Setup:**
+    - Go to main "Plugins" settings (via left sidebar).
+    - Find/Install "Web Search".
+    - Click on "Web Search" in the list.
+    - Go to the "Settings" tab.
+    - Enter your Google Custom Search Engine ID and API Key.
+    - Click "Save". *This configures the plugin globally.*
+2. **Enabling for a Chat Session:**
+    - Open a chat.
+    - Click the Plugin Selector button (tool icon `+N`) *above the input field*.
+    - Find "Web Search" in the popup list.
+    - Ensure its toggle switch is ON (blue).
+    - Close the popup.
+3. **Using in Chat:**
+    - Type prompt: "What's the weather in London?"
+    - Send.
+    - The AI, seeing the prompt and that Web Search is enabled *for this session*, will use the globally configured API keys to perform the search and provide the results.
 
-1.  **Click "Web Search" in the Plugin List:** After enabling, click the "Web Search" plugin in the list to configure it.
-2.  **Go to "Settings" Tab:** Click the "Settings" tab in the plugin's configuration panel.
-3.  **Enter API Keys:**
-    *   **Search Engine ID:** Enter your Google Custom Search Engine ID.
-    *   **Search Engine API Key:** Enter your Google Custom Search API Key.
-    *   **Instructions:** If you don't have these keys, click the "instructions here" link.
-    * **Save**: Click `Save` button after configuring API Keys
+### 5. Interactive Canvas Example
 
-#### c. Using the Plugin in a Chat
-
-1.  **Compose a Prompt:** In the message input field, type a prompt that instructs the AI to use Web Search.
-    *   Example: "What is the current gold price today?"
-2.  **Send the Prompt:** Click the "Send" button to send the prompt to the AI.
-3.  **View Results:** The AI will use the Web Search plugin to search the internet for the current gold price and display the results in the chat.
-    *   The results might include a list of links with titles and snippets from various websites.
-
-#### d. Other usage
-
-Another way, user can use the Web Search plugin is not to mention the plugin, but let the AI engine to decide whether to use the plugin or not.
-For example, user asks "What is the name of CEO of Apple?".
-When the AI engine doesn't know it, and this question needs online data source, it will automatically use the Web Search plugin to search for answer.
-
-### 5. Interactive Canvas
-
-The Interactive Canvas plugin allows the AI to generate interactive HTML content directly within the chat interface. Here's how to use it:
-
-1.  **Enabling the Plugin:** Follow the general plugin enabling steps.
-2.  **Prompt the AI:** Type a prompt that requests the AI to generate content.
-3.  **Interactive canvas content**:
-    *   After generation process, the content will be rendered as interactive canvas.
-    *   It shows an Interactive content to let the user know what's happening.
-    *   The user can also check the `Always show interactive content from this plugin without asking`.
-    *   Clicking the "Show content" button allows the interactive content shows.
-4.  **Preview mode**: Click on Preview mode to see the interactive content.
-5.  **Code mode**: Click on Code mode to see the HTML code rendered.
-6.  **Code copy**: Clicking the icon next to `Code` to copy the rendered HTML code.
-7.  **Open in separate window**: Click the icon to render the content in another window.
+1. **Installation & Global Setup:**
+    - Go to main "Plugins" settings.
+    - Find/Install "Interactive Canvas". (No API keys needed).
+2. **Enabling for a Chat Session:**
+    - Open a chat.
+    - Click the Plugin Selector button *above the input field*.
+    - Ensure the "Interactive Canvas" toggle is ON.
+    - Close the popup.
+3. **Using in Chat:**
+    - Type prompt: "Render a simple tic-tac-toe game".
+    - Send.
+    - The AI uses the plugin. The interactive canvas output appears in the chat (potentially requiring a "Show content" click) and/or in the Artifact Panel.
 
 ## Important Considerations
 - **Plugin Compatibility:** Ensure that the plugins you enable are compatible with the selected AI model. Some plugins may only work with specific models or API types.
@@ -3611,6 +3550,11 @@ The Models interface is designed for easy management of available AI models:
         - **Input Type:** Toggle switch.
         - **Enabled State:** The "Default Model" dropdown menu is displayed, allowing the administrator to select a default model.
         - **Disabled State:** Users can switch between available models.
+    - **Allow multi-model chats**        
+        - **Purpose:** allow users to select multiple models at once and use them in the same chat.
+        - **Input Type:** Toggle switch.
+        - **Enabled State:** users can use multiple models in a conversation in parallel
+        - **Disabled State:** users can't use multiple models in a conversation in parallel
     - **Default Model:**
         - **Purpose:** Sets the default AI model that will be used when "Enforce Default Model" is enabled.
         - **Input Type:** Dropdown menu.
@@ -4556,6 +4500,11 @@ The interface is a scrollable list of toggles for each features.
     - **Advanced Setting**:
         - **Model For Title Generation:** A dropdown options: `Auto`, `GPT-4o Search Preview`, `GPT-4o Mini Search Preview`, `GPT-3`, `03 Mini`, `01`, `01 Mini`, `ChatGPT-4o`, `ChatGPT-4o Mini`, `GPT-4 (2024-08-06)`, `GPT-4o Mini (2024-08-06)`.
         - **Instruction**: The text area to input instruction for title generation. The initial text inside is `What would be a short and relevant title for this chat? You must strictly answer with only the title, no other text is allowed.`.
+- **Allow temporary chats**
+    - **Description**: Allow user to use temporary chats - Temporary chats are not saved to the users account and the system database
+    - **Input type**: Toggle switch
+    - **Enabled State:** Users can use temporary chat
+    - **Disabled State:** Users can not use temporary chat
 
 ### How it functions
 
@@ -7013,7 +6962,7 @@ Leverage TypingMind's platform by adding value through these strategies:
 
 <COMPANY_POLICY>
 
-<PRIVACY_POLICY_TYPINGMIND_LICENSE>
+<PRIVACY_POLICY_LICENSE_VERSION>
 ## Privacy Policy for [TypingMind.com](http://typingmind.com/) (License Version)
 
 This section details how user data is handled for the [TypingMind.com](http://typingmind.com/) static chat application, covering both free and paid users, as well as related services like TypingMind Cloud and the Setapp integration.
@@ -7054,8 +7003,10 @@ The privacy policy for paid users includes all points mentioned for free users, 
     - **Purpose:** Helps identify and fix bugs to improve application stability.
 - [**LemonSqueezy.com](http://lemonsqueezy.com/):** Processes payments for premium features and license keys.
     - **Data Handling:** TypingMind *does not* store any user payment data (credit card numbers, etc.). Payment processing is handled entirely by Lemon Squeezy.
+- **Stripe:** Processes payments for premium features and license keys.
+    - **Data Handling:** TypingMind *does not* store any user payment data (credit card numbers, etc.). Payment processing is handled entirely by Stripe.
 
-### 4. TypingMind Cloud (Optional Service)
+### 4. TypingMind Cloud 
 
 TypingMind Cloud is an optional, opt-in service providing features like sharing conversations via public links, cross-device chat synchronization, and data backup.
 
@@ -7099,9 +7050,9 @@ This section applies specifically to users accessing TypingMind through the Seta
 - **Contact:** Questions about data handling can be directed to the TypingMind support team.
 - **Effective Date:** This policy is effective as of June 30, 2023.
 
-</PRIVACY_POLICY_TYPINGMIND_LICENSE>
+</PRIVACY_POLICY_LICENSE_VERSION>
 
-<PRIVACY_POLICY_TYPINGMIND_TEAM>
+<PRIVACY_POLICY_TEAM_VERSION>
 
 We at TypingMind (“we”, “us”, “our”) value your privacy and are committed to protecting your Personal Data, which is a responsibility that we take very seriously.
 
@@ -7226,7 +7177,7 @@ We value your Data Subject Rights under EU GDPR and have therefore appointed Pri
 
 **Last Updated:** 20 December 2024
 
-</PRIVACY_POLICY_TYPINGMIND_TEAM>
+</PRIVACY_POLICY_TEAM_VERSION>
 
 <TERMS_OF_SERVICE_TYPINGMIND_LICENSE>
 
@@ -7298,9 +7249,9 @@ TypingMind Cloud is an **optional, opt-in service** available to [TypingMind.com
 8. **Relationship:** No joint venture, partnership, employment, or agency relationship exists between the user and [TypingMind.com](http://typingmind.com/). Users agree not to represent themselves as agents or employees of [TypingMind.com](http://typingmind.com/).
 9. **Last Updated:** December 5, 2024.
 
-</TERMS_OF_SERVICE_TYPINGMIND_LICENSE>
+</TERMS_OF_SERVICE_LICENSE_VERSION>
 
-<TERMS_OF_SERVICE_TYPINGMIND_TEAM>
+<TERMS_OF_SERVICE_TEAM_VERSION>
 
 ## Terms of Service for TypingMind for Teams
 
@@ -7359,7 +7310,7 @@ Glossary: "The product" means the TypingMind Custom product; "Chat Instance" mea
 
 Last Updated: 11 Jun 2023
 
-</TERMS_OF_SERVICE_TYPINGMIND_TEAM>
+</TERMS_OF_SERVICE_TEAM_VERSION>
 
 <GDPR_STATEMENT>
 We take our responsibility to protect the data of our customers very seriously. Europe’s General Data Protection Regulation (GDPR) came into effect on 25 May 2018. This broad reaching regulation is designed to ensure the privacy, security, and confidentiality of data.
@@ -7435,6 +7386,8 @@ Below is a summary of the policies for the major AI providers commonly used with
 ### Important Note for Other Providers:
 
  If you connect TypingMind to any other AI Service Provider (including custom models, open-source models run locally or via other platforms), you must consult the specific privacy notice and data usage policy of that provider. TypingMind acts solely as the platform for interaction; the data handling practices of the underlying AI model provider are paramount.
+
+</DATA_USAGE_MODEL_TRAINING_POLICY>
 
 <DATA_PRIVACY_AND_SECURITY_REPORT>
 
@@ -7571,7 +7524,6 @@ TypingMind places a high priority on data privacy and security for its users, pa
         - Requires Setapp account credentials
         - Seamless integration with SetApp ecosystem
 </PLATFORM_DETAILS_AND_UPDATES>
-
 
 
 <OTHER_TECHNICAL_INFO>
