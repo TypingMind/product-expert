@@ -7610,8 +7610,8 @@ This section covers how to set up and use MCP within the standard TypingMind Lic
 ### Accessing MCP Setup
 
 1. **Navigate to Settings:** Click the "Settings" icon (gear/cogwheel) in the left sidebar.
-2. **Go to Advanced Settings:** Within the Settings menu, select "Advanced Settings".
-3. **Select Model Context Protocol:** Click on the "Model Context Protocol" option. This opens the initial MCP setup screen.
+2. **Select Model Context Protocol:** Within the Settings menu, under the "Advanced Settings". Click on the "Model Context Protocol" option. This opens the initial MCP setup screen.
+3. Click on Set up MCP Connector
 
 ### Choosing MCP Server Location
 
@@ -7645,7 +7645,7 @@ If the "This Device" option is selected:
     - **Structure:** The JSON object should have a top-level key named `"mcpServers"`. The value of this key is another object where each key is the desired *name* of the MCP server (this name will appear in TypingMind), and the value is an object specifying the `command` and `args` needed to run that server.
     - **Example JSON (Memory & Puppeteer Servers):**
         
-        ```json
+        ```
         {
           "mcpServers": {
             "memory": {
@@ -7667,7 +7667,7 @@ If the "This Device" option is selected:
         
         ```
         
-4. **Saving:** After pasting or typing the JSON configuration, save the changes (likely via a "Save" button within the interface).
+4. **Saving:** After pasting or typing the JSON configuration, save the changes via a "Save" button within the interface).
 
 ### Using MCP Tools (License Version)
 
@@ -7697,7 +7697,7 @@ This section covers how MCP is implemented and managed within the TypingMind for
     - Paste the JSON defining the *single* MCP server this plugin represents (similar structure to the `mcpServers` value in the License version, but defining only one server per plugin).
     - **Example JSON for a "Memory" Plugin:**
         
-        ```json
+        ```
         {
           "command": "npx",
           "args": [
@@ -7718,7 +7718,7 @@ For the MCP plugin to function in the Teams version, it needs connection details
 1. **Deploy MCP Connector:** The administrator must deploy the open-source MCP Connector (at https://github.com/TypingMind/typingmind-mcp) on a server accessible to the TypingMind Team instance. This can be a private internal server or a cloud server.
 2. **Run Connector Command:** Start the connector using the command:
     
-    ```bash
+    ```
     npx @typingmind/mcp-connector <auth-token>
     
     ```
@@ -7815,14 +7815,14 @@ This phase involves installing the necessary software prerequisites on your macO
 - **Action:**
     1. In your **Terminal**, run the command:
         
-        ```bash
+        ```
         brew install mkcert
         
         ```
         
     2. **(Optional but Recommended):** If you use Firefox or other applications that might rely on the Network Security Services (NSS) shared database, install `nss` as well:
         
-        ```bash
+        ```
         brew install nss
         
         ```
@@ -7835,7 +7835,7 @@ This phase involves installing the necessary software prerequisites on your macO
     1. **Install the Local CA:** Run the following command in your **Terminal**. This only needs to be done once per machine. It might ask for your password again.
     You should see output confirming the local CA was installed into system and potentially browser trust stores.
         
-        ```bash
+        ```
         mkcert -install
         
         ```
@@ -7843,7 +7843,7 @@ This phase involves installing the necessary software prerequisites on your macO
     2. **Generate Certificate Files:** Ensure your Terminal's current directory is where you want the certificate files to be saved (e.g., your home directory or a dedicated project folder). Run the command:
     This command will create two files in your current directory:
         
-        ```bash
+        ```
         mkcert localhost
         
         ```
