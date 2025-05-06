@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-04-04T02:52:35.810Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-05-05T14:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -56,6 +56,7 @@ Here's an in-depth look at TypingMind's features:
     - **Export:** Export chat data in various formats (e.g., text, JSON) for analysis or archival.
     - **Pin Favorite Chats:** Pin important chats for quick access.
     - **Edit & Fork Conversations:** Edit existing conversation or fork it to create a new one.
+    - **Create a new chat thread** When you regenerate or edit a message, the app preserves the original conversation along with the new prompt and response, creating a separate thread for each version. You can easily switch back and forth among versions, view each message thread independently, and continue the conversation based on any version you choose.
 - **AI Agents, Prompt Library:**
     - Provides a collection of pre-built AI agents designed for specific tasks or domains.
     - Includes a library of community-contributed prompts that can be used to guide the AI's responses.
@@ -123,6 +124,7 @@ Here's an in-depth look at TypingMind's features:
 **Chat Management:**
 
 - **Edit & Fork Conversations:** Modify existing conversations or create new ones based on previous interactions.
+- **Create a new chat thread**  When you regenerate or edit a message, the app preserves the original conversation along with the new prompt and response, creating a separate thread for each version. You can easily switch back and forth among versions, view each message thread independently, and continue the conversation based on any version you choose.
 - **Pin Favorite Chats:** Keep important conversations easily accessible.
 - **Migrate from OpenAI ChatGPT:** Import your chat history from OpenAI.
 
@@ -337,6 +339,89 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
         - **Icon/Button:** Often a prominent blue button.
         - **Function:** Instructs the AI to generate a new response to the *user's last message*.
 </CHAT_FEATURES_OVERVIEW>
+
+<CHAT_THREAD_FEATURE>
+
+## Chat Thread Feature
+
+**1. Definition and Purpose:**
+
+The Chat Thread feature allows users to view, switch between, and continue chatting with multiple different *versions* or *branches* of a conversation *within the same chat session*. It is designed to handle variations created when a user edits their own message or regenerates an AI's response, preserving the history of these changes without creating separate chat entries in the sidebar.
+
+**2. Core Functionality:**
+
+- **Non-Destructive Editing/Regeneration:** When a user edits their message and sends the replacement, or when they regenerate an AI's response, the system automatically saves this new interaction as a *new version* or *thread* branching off from the point of change.
+- **Preservation of Originals:** The original message (user or AI) and the subsequent conversation flow are preserved as a distinct thread.
+- **In-Chat Navigation:** Users can navigate between these different versions directly within the chat interface using dedicated controls that appear below the modified message.
+- **Context Preservation:** Each thread maintains the conversation history *up to the point* where the edit or regeneration occurred. Subsequent messages within a specific thread build upon that thread's unique history.
+- **Independent Continuation:** Users can select any version/thread and continue the conversation from that point. New messages will be added to the currently selected thread.
+
+**3. Key Use Cases & Benefits:**
+
+- **Preserve Ideas:** Never lose previous prompts or AI responses when iterating or refining.
+- **Explore Different Directions:** Test various prompts, tones, or instructions stemming from the same conversational point without creating multiple separate chats.
+- **Compare Versions Easily:** Quickly switch between edited prompts or regenerated AI responses to see how changes impact the output.
+- **Flexible Continuation:** Choose the most promising branch or version to continue the conversation from.
+- **Better Organization:** Keep related explorations and variations contained within a single chat session, reducing clutter in the chat list compared to forking.
+- **Specific Scenarios:** Useful for content writing (drafting variations), problem-solving (testing approaches), coding (comparing generated snippets), learning (seeing how rephrasing affects AI), and decision-making (comparing brainstormed options).
+
+**4. How to Use Chat Threads:**
+
+**a. Triggering a New Thread - Edit a user message:**
+1.  **Hover:** Place the mouse cursor over a previous *user* message bubble.
+2.  **Click Edit Icon:** Click the "Edit" icon (pencil symbol) that appears in the message actions.
+3.  **Modify Prompt:** The original message text appears in the input area below the chat. Edit the prompt as desired.
+4.  **Click Replace:** Click the "Replace" button (which acts as the send button in edit mode).
+5.  **New Thread Created:** The edited user message appears in the chat history. A version indicator (e.g., `< 2/2 >`) and navigation arrows (`←`, `→`) appear directly *below* this edited user message. The AI will then generate a response based on this *new* edited prompt, forming the start of the new thread.
+
+**b. Triggering a New Thread - regenerate AI response:**
+1.  **Hover:** Place the mouse cursor over a previous *AI* message bubble.
+2.  **Click Regenerate Icon:** Click the "Regenerate" icon (circular arrow) that appears in the message actions OR click the main "Regenerate" button located next to the chat input area (this regenerates the *last* AI response).
+3.  **New Thread Created:** The AI generates a new response. A version indicator (e.g., `< 2/2 >`) and navigation arrows (`←`, `→`) appear directly *below* this regenerated *AI message*. The previous AI response becomes version 1, and the new one becomes version 2.
+
+**c. Navigating Between Threads/Versions:**
+1.  **Locate Controls:** Find the version indicator (`< X/Y >`) and navigation arrows (`←`, `→`) below the message that was edited or regenerated.
+2.  **Click Arrows:**
+-   Click the left arrow (`←`) to view the *previous* version/thread.
+-   Click the right arrow (`→`) to view the *next* version/thread.
+3.  **Dynamic Update:** As you navigate, the chat display updates dynamically to show the selected version of the message and the subsequent messages *belonging to that specific thread*.
+
+**d. Continuing a Conversation on a Specific Thread:**
+1.  **Navigate:** Use the arrows to select the desired version/thread.
+2.  **Type New Message:** Enter your next prompt in the main chat input area.
+3.  **Send:** Send the message.
+4.  **Branch Continuation:** The new user message and subsequent AI responses will be appended to the *currently selected thread*.
+
+**5. User Interface Elements:**
+
+- **Version Indicator:** Displayed as `< X/Y >` below the edited/regenerated message, where `X` is the current version number and `Y` is the total number of versions for that specific message point.
+- **Navigation Arrows:** Left (`←`) and Right (`→`) arrow icons flanking the version indicator, used for switching between versions.
+
+**6. Comparison: Chat Thread vs. Fork Chat:**
+
+- **Chat Thread:**
+    - **Scope:** Creates variations *within the same chat session*.
+    - **Trigger:** Implicitly created by *editing* a user message or *regenerating* an AI response.
+    - **Structure:** Creates parallel branches linked to a specific message point. Navigated via inline controls (`←`/`→`).
+    - **Outcome:** Keeps related iterations and explorations tightly coupled within one chat window. Ideal for refining prompts/responses or exploring minor variations. Non-destructive.
+    - **Sidebar:** Does *not* create a new entry in the sidebar chat list.
+- **Fork Chat:**
+    - **Scope:** Creates a completely *new, independent chat session*.
+    - **Trigger:** Explicitly triggered by the user selecting the "Fork Chat" action on a specific message (user or AI).
+    - **Structure:** Duplicates the entire conversation history *up to the point of forking* into a separate chat.
+    - **Outcome:** Creates a distinct copy of the conversation for taking it in a significantly different direction, preserving a snapshot, or creating a clean starting point based on a previous state.
+    - **Sidebar:** Creates a *new chat entry* in the sidebar list.
+
+**7. FAQs (Based on provided text):**
+
+- **Q: Does editing delete the original message?**
+    - **A:** No. Editing creates a new version/thread while preserving the original.
+- **Q: Can I continue conversations from different versions?**
+    - **A:** Yes. Each version acts as an independent starting point for continuing the conversation.
+- **Q: How many versions can I have?**
+    - **A:** There isn't a strict limit imposed by the feature itself for most users. However, very old or inactive branches *might* be subject to archiving in the future depending on system implementation (this needs confirmation on exact behavior).
+
+</CHAT_THREAD_FEATURE>
 
 <MULTI_AI_RESPONSE_FEATURE>
 
@@ -7507,6 +7592,342 @@ TypingMind places a high priority on data privacy and security for its users, pa
 </DATA_PRIVACY_AND_SECURITY_REPORT>
 
 </COMPANY_POLICY>
+
+<MODEL_CONTEXT_PROTOCOL>
+
+## Model Context Protocol (MCP) Feature
+
+Model Context Protocol (MCP) is an open standard protocol, initially created by Anthropic, designed to standardize how applications (like TypingMind) provide context to Large Language Models (LLMs) by allowing them to connect with external tools and services (MCP Servers).
+
+Along with build a custom plugin on TypingMind, you can also use MCP servers for quicker connections with external tools.
+
+Some available MCP Servers: https://github.com/modelcontextprotocol/servers
+
+### MCP in TypingMind License Version
+
+This section covers how to set up and use MCP within the standard TypingMind License version ([typingmind.com](http://typingmind.com/)).
+
+### Accessing MCP Setup
+
+1. **Navigate to Settings:** Click the "Settings" icon (gear/cogwheel) in the left sidebar.
+2. **Select Model Context Protocol:** Within the Settings menu, under the "Advanced Settings". Click on the "Model Context Protocol" option. This opens the initial MCP setup screen.
+3. Click on Set up MCP Connector
+
+### Choosing MCP Server Location
+
+- **Initial Setup Screen:** The first screen prompts the user to choose where the MCP servers will run.
+    - **Option 1: This Device:** Runs the necessary MCP Connector and servers directly on the user's local machine where TypingMind is being used.
+    - **Option 2: Private Remote Server:** Allows connecting to an MCP Connector running on a separate, private remote server.
+- **Selection:** Choose the preferred method and click the "Next" button.
+
+### Running MCP Connector on "This Device"
+
+If the "This Device" option is selected:
+
+1. **Command Display:** TypingMind displays a command that needs to be run in the user's terminal.
+    - **Command Format:** `npx @typingmind/mcp-connector <auth-token>`
+    - **Auth Token:** TypingMind initially generates a unique `<auth-token>` for the user. Users can replace this generated token with their own custom, secure token if desired. It's crucial to keep this token secret.
+2. **Execution Environment:**
+    - Open the Terminal app (macOS) or Windows Terminal (Windows).
+    - Paste and run the displayed command.
+3. **Prerequisites:**
+    - **NodeJS:** The user's device must have NodeJS version 18 or higher installed.
+    - **Same Device:** The command *must* be executed on the *same physical device* where the TypingMind app (web version or PWA) is currently running.
+4. **Connection Attempt:** Once the command is running in the terminal, TypingMind will automatically attempt to connect to the local MCP Connector.
+5. **Success Confirmation:** Upon successful connection, a confirmation message (e.g., "Connected!") is displayed within the TypingMind MCP settings screen.
+6. **Get Started:** Click the "Get Started" button to proceed to the server configuration.
+
+### Adding MCP Servers (License Version)
+
+1. **Access Server Configuration:** After successfully connecting to the MCP Connector, the interface for adding MCP servers becomes available.
+2. **"Edit Servers" Button:** Click the "Edit Servers" button.
+3. **JSON Configuration:** A text input area appears, expecting a JSON object to define the MCP servers to be managed by the connector.
+    - **Structure:** The JSON object should have a top-level key named `"mcpServers"`. The value of this key is another object where each key is the desired *name* of the MCP server (this name will appear in TypingMind), and the value is an object specifying the `command` and `args` needed to run that server.
+    - **Example JSON (Memory & Puppeteer Servers):**
+        
+        ```
+        {
+          "mcpServers": {
+            "memory": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "@modelcontextprotocol/server-memory"
+              ]
+            },
+            "puppeteer": {
+              "command": "npx",
+              "args": [
+                "-y",
+                "@modelcontextprotocol/server-puppeteer"
+              ]
+            }
+          }
+        }
+        
+        ```
+        
+4. **Saving:** After pasting or typing the JSON configuration, save the changes via a "Save" button within the interface).
+
+### Using MCP Tools (License Version)
+
+- **Appearance:** Once MCP servers are successfully added and running via the connector, they appear as available **Plugins** within TypingMind.
+- **Location:** Find the added MCP tools listed on the main "Plugins" page (accessed via the Plugins icon in the left sidebar).
+- **Usage:**
+    - Enable the desired MCP tool (plugin) for a specific chat session via the Plugin Selector popup above the message input field.
+    - Use the tool directly in prompts (e.g., "Use the memory tool to save this note...").
+    - Assign the MCP tool as a skill to specific AI Agents in the AI Agent configuration settings.
+
+### MCP in TypingMind Teams Version
+
+This section covers how MCP is implemented and managed within the TypingMind for Teams environment (Admin Panel).
+
+### Setup Method: Implemented as Plugins
+
+- In the Teams version, MCP integrations are set up and managed **as individual Plugins** within the Admin Panel. Each MCP server corresponds to a separate plugin configuration.
+
+### Creating an MCP Plugin
+
+1. **Navigate to Admin Panel:** Log in to the TypingMind for Teams Admin account.
+2. **Go to Plugins:** In the left sidebar, navigate to "Plugins".
+3. **Create New Plugin:** Click the "Create New Plugin" button.
+4. **Select Implementation Type:** In the plugin creation form, scroll down to the "Implementation" section.
+5. **Choose "Model Context Protocol":** Select "Model Context Protocol" from the Implementation dropdown menu.
+6. **Configure Server JSON:** A text input field will appear, specifically for the MCP server configuration JSON.
+    - Paste the JSON defining the *single* MCP server this plugin represents (similar structure to the `mcpServers` value in the License version, but defining only one server per plugin).
+    - **Example JSON for a "Memory" Plugin:**
+        
+        ```
+        {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@modelcontextprotocol/server-memory"
+          ]
+        }
+        
+        ```
+        
+    - **Variables:** Admins can utilize available plugin variables (like User ID) and authentication configurations within this JSON if the specific MCP server supports them.
+7. **Save Plugin:** Save the newly created MCP plugin.
+
+### Connecting the MCP Plugin to the Connector
+
+For the MCP plugin to function in the Teams version, it needs connection details for the MCP Connector instance.
+
+1. **Deploy MCP Connector:** The administrator must deploy the open-source MCP Connector (at https://github.com/TypingMind/typingmind-mcp) on a server accessible to the TypingMind Team instance. This can be a private internal server or a cloud server.
+2. **Run Connector Command:** Start the connector using the command:
+    
+    ```
+    npx @typingmind/mcp-connector <auth-token>
+    
+    ```
+    
+    - Replace `<auth-token>` with a secure, unique authentication token chosen by the administrator.
+3. **Obtain Connector Details:**
+    - **Connector URL:** The URL where the connector is running will be displayed in the terminal/console output after starting the connector. It typically looks like `https://your-server-domain.com:port`. Copy this URL.
+    - **Auth Token:** This is the `<auth-token>` used when starting the connector.
+4. **Configure Plugin Settings (Admin Panel):**
+    - Go back to the Admin Panel -> Plugins.
+    - Click on the newly created MCP plugin to edit its settings.
+    - Find the specific fields for MCP connection (these fields appear when "Model Context Protocol" is the implementation type).
+    - **Connector URL:** Paste the copied Connector URL here.
+    - **Auth Token:** Paste the Auth Token used to run the connector here.
+5. **Save Plugin Settings:** Save the changes to the plugin configuration.
+
+### End-User Experience (Teams Version)
+
+- Once configured and enabled by the admin, the MCP plugin appears in the user's plugin list just like any other standard plugin.
+- End-users can enable and use the MCP tool within their chats without needing to know the underlying connection details.
+
+### How MCP Integration Works in TypingMind
+
+- **MCP Connector Role:** TypingMind utilizes the `@typingmind/mcp-connector` (open-source tool) as an intermediary to run and manage MCP servers.
+- **Centralized Management:** The Connector allows multiple MCP servers to be managed from a single point.
+- **Deployment Flexibility:**
+    - **License Version:** Can run locally on the user's device *or* connect to a remote connector.
+    - **Teams Version:** Requires the connector to be deployed on a server (typically private/remote) accessible by the TypingMind Team instance.
+- **Isolation:** Running the connector on a remote server can provide an isolated environment, which is beneficial if MCP servers need access to specific data or resources without directly accessing the user's local device (unless specifically required by a tool, e.g., a file system tool).
+- **Architecture Diagram:**
+    - **User Interface (TypingMind App/Instance):** The user interacts here.
+    - **MCP Connector:** Receives requests from TypingMind. Manages the lifecycle (start/stop) of individual MCP servers based on the JSON configuration. Runs on the user's device or a remote server.
+    - **MCP Servers (e.g., Memory, Puppeteer):** Individual processes/services that perform specific tasks (saving notes, interacting with web pages). They communicate with the MCP Connector.
+
+### Frequently Asked Questions (MCP)
+
+- **Q: What is Model Context Protocol (MCP)?**
+    - **A:** MCP is an open protocol, initiated by Anthropic, that standardizes how applications provide context to LLMs by allowing connections to external tools and services. Learn more at: http://modelcontextprotocol.io/
+- **Q: What is MCP Connector and why do I need it?**
+    - **A:** MCP Connector (`@typingmind/mcp-connector`) is an open-source tool from TypingMind that helps run and manage multiple MCP servers in one place. It acts as the necessary bridge between the TypingMind application and the actual MCP servers, allowing flexibility in where the servers are run (locally or remotely).
+- **Q: Is MCP Connector free?**
+    - **A:** Yes, the MCP Connector software itself is free and open-source (source code available on GitHub). Running it on your own computer incurs no direct cost. If you choose to deploy it on a private remote server, you will only need to pay for the hosting costs of that server.
+- **Q: How do I customize the icon and the tool name of the MCP tools?**
+    - **A:** To customize the appearance (icon, name, description) of an MCP tool within TypingMind, you must create it as a **Plugin**. Go to Plugins → Create new Plugin, select "Model Context Protocol" under Implementation, configure the specific MCP server's JSON, and then set the desired Name, Icon URL, and Overview in the standard plugin fields.
+- **Q: I'm using TypingMind for Teams, do I still need the MCP Connector?**
+    - **A:** Yes. Currently, for the Teams version, administrators need to run the MCP Connector on their own private server. This is often necessary because MCP servers might need access to specific organizational data or resources located on that server. TypingMind plans to potentially offer a dedicated, hosted MCP Connector for each Teams account in the future for use cases that don't require local data access.
+- **Q: Where do I run the MCP Connector?**
+    - **A:** It can be run on any system or server that has **NodeJS (version 18+)** installed. Depending on the specific MCP *servers* you intend to use (e.g., Puppeteer, Docker-based tools), additional dependencies might be required on the machine running the connector. Always check the documentation for the specific MCP servers you plan to use for their system requirements.
+- **Q: Where do I get the Auth Token for MCP Connector?**
+    - **A:** You generate your own Auth Token. It can be any unique string of characters (e.g., a long random string).
+        - **License Version:** TypingMind generates an initial token during setup, but you can replace it with your own in the MCP settings.
+        - **Teams Version:** You define the token when you run the `npx @typingmind/mcp-connector <auth-token>` command on your server, and then you enter that *same* token into the MCP Plugin configuration in the Admin Panel.
+    - **Security:** It is crucial to keep your Auth Token secure, as it authenticates the connection between TypingMind and your MCP Connector.
+
+</MODEL_CONTEXT_PROTOCOL>
+
+<MCP_HTTPS_SETUP_GUIDE>
+
+## MCP Local HTTPS Setup Guide (for Connection Issues)
+
+This guide details how to set up the TypingMind Model Context Protocol (MCP) connector to run securely over HTTPS on a local machine. This is often necessary to resolve connection issues encountered with certain browsers like Safari or with the mac app, which may require secure connections (HTTPS) even for `localhost`.
+
+### Phase 1: Environment Setup
+
+This phase involves installing the necessary software prerequisites on your macOS machine.
+
+### Step 1: Set up Node.js
+
+- **Purpose:** Node.js is required to run the MCP connector.
+- **Action:**
+    1. Visit the official Node.js website: https://nodejs.org/en
+    2. Download the recommended **LTS (Long-Term Support)** version for macOS.
+    3. Run the downloaded `.pkg` installer and follow the on-screen prompts to complete the installation.
+- **Verification:**
+    1. Open the **Terminal** application (Applications > Utilities > Terminal).
+    2. Type the command `node -v` and press Enter.
+    3. You should see the installed version number displayed (e.g., `v20.12.2`). If you see an error, Node.js was not installed correctly.
+
+### Step 2: Install Homebrew
+
+- **Purpose:** Homebrew is a package manager for macOS that simplifies installing other necessary tools like `mkcert`.
+- **Action:**
+    1. Visit the Homebrew website: https://brew.sh/
+    2. Copy the installation command displayed prominently on the homepage (it usually starts with `/bin/bash -c "$(curl..."`). **Ensure you copy the latest command directly from the website.**
+    3. Paste the copied command into your **Terminal** window and press Enter.
+    4. Follow any on-screen instructions carefully. You might be prompted to enter your macOS user password (typing will not show characters, this is normal). Homebrew might also instruct you to run additional commands to add it to your system's PATH – follow these instructions if prompted.
+- **Verification:**
+    1. Once the installation finishes, type the command `brew --version` in the Terminal and press Enter.
+    2. You should see the installed Homebrew version number.
+
+### Step 3: Install mkcert
+
+- **Purpose:** `mkcert` is a tool used to create locally-trusted TLS certificates for development purposes.
+- **Action:**
+    1. In your **Terminal**, run the command:
+        
+        ```
+        brew install mkcert
+        
+        ```
+        
+    2. **(Optional but Recommended):** If you use Firefox or other applications that might rely on the Network Security Services (NSS) shared database, install `nss` as well:
+        
+        ```
+        brew install nss
+        
+        ```
+        
+
+### Step 4: Create and Install Local Certificate Authority (CA) & Generate Certificate
+
+- **Purpose:** This step creates a local Certificate Authority (CA) that your system and browsers will trust, and then generates a specific certificate for `localhost` signed by that CA.
+- **Action:**
+    1. **Install the Local CA:** Run the following command in your **Terminal**. This only needs to be done once per machine. It might ask for your password again.
+    You should see output confirming the local CA was installed into system and potentially browser trust stores.
+        
+        ```
+        mkcert -install
+        
+        ```
+        
+    2. **Generate Certificate Files:** Ensure your Terminal's current directory is where you want the certificate files to be saved (e.g., your home directory or a dedicated project folder). Run the command:
+    This command will create two files in your current directory:
+        
+        ```
+        mkcert localhost
+        
+        ```
+        
+        - `localhost.pem`: The public certificate file.
+        - `localhost-key.pem`: The private key file (keep this secure).
+        You should see confirmation messages in the Terminal.
+    3. **Keep Terminal Open:** Do not close this Terminal window yet, and remember the directory where these `.pem` files were created.
+
+### Phase 2: Running and Connecting the MCP Connector with HTTPS
+
+This phase involves configuring TypingMind to connect to the MCP connector running locally over the secure HTTPS connection you just set up.
+
+### Step 5: MCP Setup in TypingMind
+
+1. Open the TypingMind application.
+2. Navigate to **Settings** (gear icon in the left sidebar).
+3. Go to **Advanced Settings** > **Model Context Protocol**.
+4. Click the **Setup MCP Connector** button.
+5. In the "Setup MCP Connector" dialog, select the **Remote Server** option. *Yes, select "Remote Server" even though you are running it locally - this allows you to specify the HTTPS URL.*
+6. Click **Next**.
+
+### Step 6: Prepare and Run the MCP Server Command
+
+1. **View Default Command (DO NOT RUN YET):** TypingMind will display a default command like:*Note down the specific `[auth_token]` displayed in your app.*
+    
+    ```
+    PORT=8080 npx @typingmind/mcp [auth_token]
+    
+    ```
+    
+2. **Modify Command for HTTPS:**
+    - Ensure your **Terminal** window is still open and its current directory is the one containing the `localhost.pem` and `localhost-key.pem` files created in Step 4.
+    - Construct the modified command by prefixing it with environment variables pointing to your certificate files:
+        
+        ```
+        CERTFILE=./localhost.pem KEYFILE=./localhost-key.pem PORT=8080 npx @typingmind/mcp [auth_token]
+        
+        ```
+        
+    - **Replace `[auth_token]`** with the actual authentication token shown in the TypingMind setup window (Step 6.1).
+    - **Explanation:**
+        - `CERTFILE=./localhost.pem`: Tells the connector where to find the certificate file.
+        - `KEYFILE=./localhost-key.pem`: Tells the connector where to find the private key file.
+        - `PORT=8080`: Specifies the port for the HTTPS server (you can change this if 8080 is in use, but make sure to use the same port in TypingMind configuration).
+3. **Run the Modified Command:** Press Enter in the Terminal to execute the full, modified command.
+4. **Expected Output:** You should see output indicating the server is running, similar to:*(The IP `0.0.0.0` means it's listening on all available network interfaces on your machine, which is typical).*
+    
+    ```
+    ✓ MCP runner server running on <https://0.0.0.0:8080>
+    
+    ```
+    
+5. **Keep Terminal Running:** This Terminal window *must remain open* with the connector running for TypingMind to connect and use MCP features. If you close it, the connection will break.
+
+### Step 7: Configure and Connect TypingMind
+
+1. Go back to the TypingMind "Setup MCP Connector" window (where you selected "Remote Server").
+2. **Server URL:** In the "Server URL" field, enter:*(Use the same port number as in your Terminal command if you changed it from 8080).*
+    
+    ```
+    <https://localhost:8080>
+    
+    ```
+    
+3. **Authentication Token:** Ensure the "Authentication Token" field still contains the correct token that matches the one used in your Terminal command.
+4. Click the **Connect** button.
+
+### Step 8: Finalize Setup
+
+1. **Connection Confirmation:** TypingMind should display a success message, such as:
+    
+    ```
+    ✓ Connected to remote server!
+    
+    ```
+    
+2. Click **Get started**.
+3. The MCP settings screen will now show the connected URL (`https://localhost:8080`) and status. You can optionally click "Click to check" again to re-verify the connection.
+4. Click **Done**.
+
+Your TypingMind application is now successfully connected to the MCP connector running locally over a secure HTTPS connection. You can proceed to add MCP servers (as described in `<MODEL_CONTEXT_PROTOCOL_FEATURE>`) and use MCP-powered features. Remember to keep the Terminal window with the connector running in the background while using TypingMind.
+
+</MCP_HTTPS_SETUP_GUIDE>
 
 <PLATFORM_DETAILS_AND_UPDATES>
 ### Platform Information
