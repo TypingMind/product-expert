@@ -219,7 +219,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 - **Top Bar:**
     - **Back Arrow:** Navigates back to the chat list (only visible when a chat is open).
     - **Chat-Specific Action Icons (Left to Right):**
-        - **Minimap:** Toggles a minimap view of the conversation. Icon looks like stacked lines or paragraphs.
+        - **Minimap:** Toggles a minimap view of the conversation. Icon looks like search icon. This also allows you to search a specific message within a chat.
         - **Share:** Opens the chat sharing options popup. Icon is a standard share symbol.
         - **Reset Chat (⌘⇧R):** Clears the current chat history. Icon is often a refresh or circular arrow. Tooltip shows the keyboard shortcut.
         - **Clear Context (⌘⇧J):** Resets the AI's memory without deleting messages. Icon might be a broom or eraser. Tooltip shows the keyboard shortcut.
@@ -653,7 +653,7 @@ The "Cloud Sync & Backup" settings dialog provides an overview of the account's 
     - **"Manage" Dropdown:** A dropdown menu labeled "Manage" provides access to cloud storage management options. Clicking on it, there are options:
         - `Cloud Data`: Open a popup to manage cloud data
         - `Shared Links`: Open a popup to manage shared links
-    - **Storage Limit:** Indicates the total cloud storage limit available to the account (e.g., "Limit: 10 MB (Free)").
+    - **Storage Limit:** Indicates the total cloud storage limit available to the account (e.g., "Limit: 50 MB (Free)").
 - **"Select What You Want to Sync" Section:**
     - **Section Header:** A collapsible section labeled "Select what you want to sync" that allows users to selectively enable or disable the synchronization of specific data types.
     - **Data Type List:** A list of checkboxes representing different data types that can be synchronized:
@@ -675,8 +675,8 @@ The "Cloud Sync & Backup" settings dialog provides an overview of the account's 
 - **"Storage Upgrade" Section:**
     - **Section Header:** A collapsible section labeled "Storage upgrade" that provides options for increasing the cloud storage limit.
     - **Storage Upgrade Options:** A display with multiple plans for the user to select. User can choose:
-        - 1GB for $10 billed every month
-        - 5GB for $20 billed every month
+        - 1 GB Plans: $10/month or $50/year (save 58%) — includes 1 GB fast sync storage and 1,000,000 KB character limit.
+        - 5 GB Plans: $20/month or $100/year (save 58%) — includes 5 GB fast sync storage and 5,000,000 KB character limit.
     - **Checkout**: After selecting plan, the user will be navigated to the Stripe payment page to fill in payment.
 - **1GB Storage**: Shows the current plan that user is using, with a green `Active` status. User can click on `Manage Subscription` to change the settings.
 
@@ -772,6 +772,15 @@ The "Shared Links" dialog is structured to guide users through the process of ma
     - Action
         - **`Delete` Button:** Clicking this button will delete the shared links. A prompt window shows up for double confirmation, with content such as `Sure?`, `Click again to confirm`
 - **Close button:** To close the popup.
+
+FAQs:
+
+Q: Can I use the app without cloud sync?
+A: Yes, absolutely. By default, all your TypingMind data is stored locally in your browser—no login or cloud sync is required.
+
+If you choose to log in and enable TypingMind Cloud Sync, your data will be securely backed up to TypingCloud, allowing you to sync seamlessly across multiple devices.
+
+Cloud sync is entirely optional and designed to be flexible. To support the ongoing server costs, there is a free cloud storage limit per account. If you need more storage, you can upgrade at any time. Otherwise, you’re free to log out of cloud sync—your app will continue to work as usual, with all data stored locally.
 
 </CLOUD_SYNC_AND_BACKUP_FEATURES>
 
@@ -959,8 +968,8 @@ This section outlines the process of setting up and using the licensed version o
 - **Popup:** `Choose how your data is stored`
 - **2 options for user to choose:**
     - `Cloud Sync`: Store your data on the cloud and sync between devices
-        - Recommended - 10MB Free
-        - Information: `Automatic Backup/Sync: Your data is securely stored on TypingMind Cloud and automatically synced between devices.`, `Login with email: Easily login to your account on any device using your registered email address.`, `10MB free storage: You have 10MB of free storage. Upgrades are available for more storage. If you exceed this limit, you can still use the app but you won't be able to sync new data.`
+        - Recommended - 50MB Free
+        - Information: `Automatic Backup/Sync: Your data is securely stored on TypingMind Cloud and automatically synced between devices.`, `Login with email: Easily login to your account on any device using your registered email address.`, `50MB free storage: You have 50MB of free storage. Upgrades are available for more storage. If you exceed this limit, you can still use the app but you won't be able to sync new data.`
         - To get started, user need to verify your email by inputing the email and press `Send Code` to receive the code.
         - User will be asked to enter the code here.
         - If don't see the email, user can click on `Alternative Login`.
@@ -1398,6 +1407,7 @@ The following parameters can be adjusted when "Override Global Model Parameters"
     - **Description:** Constrains effort on reasoning for reasoning models. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response.
     - **Default Value:** DEFAULT
     - **Functionality:** A dropdown menu to select the reasoning effort.
+        - None
         - Low
         - Medium
         - High
@@ -1625,6 +1635,12 @@ The AI Agents interface is organized to provide an intuitive overview of availab
     - Upon successful saving, the "New AI Agent" form closes and the new AI Agent appears in the AI Agents interface.
 2. **Click the "Cancel" Button:** To discard the changes and close the "New AI Agent" form without saving, click the "Cancel" button.
     - A confirmation prompt may appear to prevent accidental data loss.
+
+### View AI Agent Edit History
+
+To review past changes made to your AI Agent, click the Version History icon (the circular arrow) located in the top right corner of the Agent editor.
+
+This will open a detailed log showing what edits were made and when. You can easily roll back to any previous version at any time, giving you full control and flexibility over your agent's development.
 
 ### Managing Existing AI Agents
 
@@ -7324,7 +7340,7 @@ TypingMind Cloud is an **optional, opt-in service** available to [TypingMind.com
 - **Free Tier:** A free tier is available, offering **10 MB** of data storage per user.
     - License key holders automatically qualify for this 10 MB free storage limit.
 - **Availability & Data Integrity:** Service availability is not guaranteed, and TypingMind does not guarantee data will never be lost. Users are encouraged to maintain their own backups.
-- **Paid Upgrades:** Users can purchase subscriptions to increase their cloud storage limit beyond the free 10 MB. Pricing details are available within the app.
+- **Paid Upgrades:** Users can purchase subscriptions to increase their cloud storage limit beyond the free 50 MB. Pricing details are available within the app.
 - **Bandwidth Policy:** A fair use bandwidth policy applies (typically 10GB/month per 100MB storage). Contact support if higher bandwidth is needed.
 - **Not Mandatory:** Using TypingMind Cloud is optional; other sharing/syncing methods can be used.
 - **Self-Host Integration:** Users of the self-hosted app can still *choose* to use TypingMind Cloud for sync/backup. If selected, data will be sent to `cloud.typingmind.com`. The TypingMind Cloud *service itself* is not part of the self-host download.
