@@ -1113,7 +1113,11 @@ When "Create Manually" is selected, the dialog displays the following input fiel
     - **Purpose:** Specify the API type that the custom model is compatible with.
     - **Input Type:** Dropdown menu.
     - **Options:**
-        - "OpenAI Compatible API": For models that adhere to the OpenAI API standard.
+        - "OpenAI Chat Completion API": For models that adhere to the OpenAI API standard.
+        - "OpenAI Response API":  OpenAI’s new API for stateful conversations, with built-in tools like web search, image generation, and structured function calling.
+        - "Claude Messages API": For accessing Claude models via Anthropic's native API.
+        - "Claude via Bedrock": For accessing Claude models through Amazon Bedrock.
+        - "Gemini API": For interacting with Google’s Gemini models.
         - More options might appear in the future to support other API standards.
     - **Requirement:** Mandatory.
 - **Icon URL (Optional):**
@@ -1161,6 +1165,11 @@ When "Create Manually" is selected, the dialog displays the following input fiel
     - **Purpose:** Enables real-time streaming of the model's responses.
     - **Input Type:** Toggle switch.
     - **Functionality:** When enabled, TypingMind will receive the model's responses in chunks, displaying them to the user as they are generated. This provides a more interactive and responsive experience.
+    - **Requirement:** Enabled by default.
+- **Supported Parameters:**
+    - **Purpose:** Enables which parameters the custom model suppports. If a model doesn’t support a specific parameter (e.g. temperature, top-p, etc.), any values set in chat will be ignored and not applied - which prevents you from any potential errors during the conversation
+    - **Input Type:** Toggle switch.
+    - **Functionality:** when chatting with the model, any parameters that are disabled will be ignored and not applied in the conversation.
     - **Requirement:** Enabled by default.
 - **Custom Headers:**
     - **Purpose:** Allows users to add custom HTTP headers to the requests sent to the custom model's API endpoint. This is useful for providing authentication tokens, API keys, or other custom information required by the API.
@@ -2152,6 +2161,47 @@ The Knowledge Base interface is designed to be user-friendly and provides a clea
             - Excel (.xlsx, .xls)
             - Word (.docx, .doc)
         - **File Size Limit:** 50MB per file request.
+        
+    - **GitHub:**
+        1. Click on **GitHub** in the ""Add Data Source"" dialog
+        2. Enter your **GitHub Username** and press the setting for setting PAT(Personal Authentication Token)
+        3. Create a New Access Token:
+        4. To create a new token and select repos for syncing user can click on a link to navigate to `Settings`. Then provide a description, set expiration, and repository access.
+        5. Make sure to copy this token, because this token will never show again for security reason. There is a message: Make sure to copy your personal access token now as you will not be able to see this again.
+        6. Back to TypingMind setting form, and paste the personal access token into the ""Personal Access Token"" text field.
+        7. Click the ""Next >"" button (typically located in the bottom-right corner of the form) to save and proceed.
+        8. At the ""Connect to Github"" page, you can select a list of available repositories for synching with the account.
+        9. Select the list of repositories, then click ""Update Repository Selection"" if you want to update the current repo connection,
+
+    - **Notion:**
+        1. Click on **Notion** in the ""Add Data Source"" dialog.
+        2. Authenticate to use this plugin. (Click Authenticate Now to get permission) a popup shows up for authentication.
+        It will redirect the user to Notion's website to authenticate and authorize the integration.
+        3. The popup ""Allow TypingMind to access these pages"".
+            - Select the pages by clicking the checkbox. You can also search in the input field.
+            - There are the content to connect from the personal account of Notion, including:
+                - A search box that says ""Search for pages in name's Notion""
+                - Notion Pages with title will appear where user may select.
+                - After selecting pages, press the ""Allow access"" button. This will close the Notion popup and re-direct to TypingMind settings.
+            - If it is all setup perfectly, refresh the app to see the latest data connection.
+
+    - **Google Drive**
+        Connect to your Google Drive account to sync files and documents.
+        1. Select Add Data Source then select Google Drive
+        2. After select, the page is redirected to an authentication page where you can log into your Google account or select from your current logged-in account.
+        3. Confirm all Google Account Requirements"", the system will need the user to confirm the knowledge base system requires access to your Google Account. 
+        4. After authenticating, you will be directed to a window to select a file you want to connect.
+
+        The selected files need to tick on the check box and click “Select”. 
+
+    - **Web Scraper**
+        1. Click Add data source and Select ""Web Scraping"
+        2. You will need to create a folder for web scrape. Enter the folder name and create.
+        3. Click on Configure button to enter the URL to scrape manually, for example, with "[docs.typingmind.com](http://docs.typingmind.com/)"", the system will indicate if its valid if the font’s color change.
+        4. Select how many Pages that system will scrape.
+        5. After the link has been set, the system will start crawling into the website.
+
+        *A successful check should be like this “The source is processing please wait to the bot to grab it correctly
 
 ### **Add training tags to your files**
 
@@ -2202,14 +2252,13 @@ The Knowledge Base (KB) via Personal License works at <ADMIN_PANEL_KNOWLEDGE_BAS
 
 ### Limitations
 
-- **Initial Supported Data Sources:** File Uploads are the only supported data source *at launch*, but integration with Google Drive, Notion, GitHub, and others are planned.
-- **Supported File Types:** Initially supports text files, PDF, CSV, Excel, and Word documents.
-- **Character Limits:** Knowledge Base access is tied to TypingMind Cloud plans:
-    - **Free accounts:** Up to 100,000 characters.
-    - **1GB plan:** Additional 1,000,000 characters.
-    - **5GB plan:** Additional 5,000,000 characters.
-- **AI Agent Access Only:** Initially, Knowledge Base access is *only* available through configured AI Agents, *not* directly in standard chats with base models.
-- **Document Count Limit:** The number of documents that can be added to the Knowledge Base is limited by the number of characters allowed, not the document count.
+- **Supported Data Sources:** File Uploads, Google Drive, Notion, GitHub, Web Scraping and more to come.
+- **Supported File Types:** For file upload, we initially support text files, PDF, CSV, Excel, and Word documents.
+- **Knowledge Base Limits:** Knowledge Base access is tied to your active TypingMind Cloud plans - which means KB usage is counted as part of your total cloud storage. 
+- **Knowledge Base Access:** Knowledge Base can be accessed through: 
+    1. Standard chats: to activate Knowledge Base, please navigate the "Toggle Knowledge Base" button within the message area to enable Knowledge Base lookup in your conversation.
+    2. Configured AI Agents: assign specific knowledge base to Agent based on training tags - the Agent will be able to access to the knowledge base during the conversation.
+- **Document Count Limit:** The number of documents that can be added to the Knowledge Base is limited by the available space of your cloud storage, not the document count.
 
 Note: The limitations for KB feature on License version will be different with the limitations for Knowledge Base for Team version. To be specific, the KB feature on license version is tied to your cloud plan, you can upgrade your cloud plan to upgrade KB storage. The Knowledge Base via Admin Panel from Team version is limited to 1M training characters by default, to upgrade, you will purchase a new subscription at $10 per 1M training characters/month 
 
@@ -2218,15 +2267,13 @@ Note: The limitations for KB feature on License version will be different with t
 - **Q: What are the underlying embedding models and techniques?**
     - **A:** TypingMind uses a combination of embedding models and chunking techniques, continuously optimized for best retrieval quality. Specific details are not published to allow for ongoing improvements.
 - **Q: How much data can I upload or connect?**
-    - **A:** Limits are based on your TypingMind Cloud plan, measured in *characters* extracted from documents, not file size.
-- **Q: Are connections to external sources (Google Drive, Box, Notion, etc.) planned?**
+    - **A:** Limits are based on your TypingMind Cloud plan, measured in file size. 
+- **Q: Are more connections to external sources (Dropbox, Intercom, etc.) planned?**
     - **A:** Yes, integrations with these services are planned for future releases.
 - **Q: Is this system the same as the one used in the TypingMind Team (Custom) version?**
     - **A:** It's largely the same, but the Team version may have additional processing logic and optimizations for team-specific contexts. 
 - **Q: Do I need to link KB data to an AI Agent to use it?**
     - **A:** No, you can use the KB directly in chats with any AI models as long as you enable the Search KB button within the message area. Linking to AI Agents is optional, primarily used to restrict an agent's access to specific tagged documents.
-- **Q: Why doesn't my chat show source references?**
-    - **A:** As of now, the source reference only available for OpenAI or Claude models that support plugins. We will improve this soon.
 
 </KNOWLEDGE_BASE_FEATURE>
 
@@ -3649,39 +3696,14 @@ The "Models" section in the Admin Dashboard allows Admins to manage which AI mod
 The Models interface is designed for easy management of available AI models:
 
 - **Page Title:** Models
-- **Page Description:** Displays the description "Enable/disable models (GPT-3.5, GPT-4, Claude, etc.)".
-- **Global Settings Options:**
-    - **Show models list and settings:**
-        - **Purpose:** Controls whether users can see the list of available models and access model settings.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** Users can switch between models and configure model settings (if allowed by the "Allow users to customize model parameters" setting).
-        - **Disabled State:** Users can only use the default model and cannot see or change model settings.
-    - **Allow users to customize model parameters:**
-        - **Purpose:** Controls whether users can adjust model parameters such as temperature, max tokens, etc.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** Users can modify model parameters within their individual chat sessions.
-        - **Disabled State:** Users cannot modify model parameters and will use the default settings defined by the administrator.
-    - **Enforce Default Model:**
-        - **Purpose:** Forces all users to use the selected default model and prevents them from switching to other models.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** The "Default Model" dropdown menu is displayed, allowing the administrator to select a default model.
-        - **Disabled State:** Users can switch between available models.
-    - **Allow multi-model chats**        
-        - **Purpose:** allow users to select multiple models at once and use them in the same chat.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** users can use multiple models in a conversation in parallel
-        - **Disabled State:** users can't use multiple models in a conversation in parallel
-    - **Default Model:**
-        - **Purpose:** Sets the default AI model that will be used when "Enforce Default Model" is enabled.
-        - **Input Type:** Dropdown menu.
-        - **Options:** Displays a list of all enabled AI models.
-        - **Functionality:** When "Enforce Default Model" is enabled, the selected model in this dropdown will be the only model available to users.
-- **Search Bar:** A text input field allows users to quickly find specific models by name or keyword, labeled with `Search models...`.
-- **Three dots icon next to search bar**: action buttons that allow users to:
-    - Re-order: drag and drop to re-order the model list
-    - Bulk action: select multiple models for bulk delete.
-- **Tabs Filters**: Select the category of models to display, including `All`, `OpenAI`, `Google`, `Anthropic`, `Custom`.
-- **Model List:** A list of available AI models is displayed.
+- **Page Description:** Displays the description "Manage your models and add custom models".
+- **Model List** tab:
+    - **Search Bar:** A text input field allows users to quickly find specific models by name or keyword, labeled with `Search models...`.
+    - **Three dots icon next to search bar**: action buttons that allow users to:
+        - Re-order: drag and drop to re-order the model list
+        - Bulk action: select multiple models for bulk delete.
+    - **Tabs Filters**: Select the category of models to display, including `All`, `OpenAI`, `Google`, `Anthropic`, `Custom`.
+    - **Model List:** A list of available AI models is displayed.
     - Each model entry includes:
         - **Model Name:** The name of the AI model (e.g., "GPT-4o Search Preview").
         - **Description:** The description, such as "new", "128K".
@@ -3711,6 +3733,33 @@ The Models interface is designed for easy management of available AI models:
             - **Disabled State:** Users who have permission to customize model parameters (controlled by the "Allow users to customize model parameters" global setting) will be able to override these settings.
             - **Current parameters that admins can override**: Context limit, Temperature, Presence Penalty, Frequency Penalty, Top P, Max Tokens, Reasoning Efforts.
     - **Set Default button** on the top right corner that allows you to set the model you are viewing as default model.
+
+- **Global Settings** tab
+    - **Show models list and settings:**
+        - **Purpose:** Controls whether users can see the list of available models and access model settings.
+        - **Input Type:** Toggle switch.
+        - **Enabled State:** Users can switch between models and configure model settings (if allowed by the "Allow users to customize model parameters" setting).
+        - **Disabled State:** Users can only use the default model and cannot see or change model settings.
+    - **Allow users to customize model parameters:**
+        - **Purpose:** Controls whether users can adjust model parameters such as temperature, max tokens, etc.
+        - **Input Type:** Toggle switch.
+        - **Enabled State:** Users can modify model parameters within their individual chat sessions.
+        - **Disabled State:** Users cannot modify model parameters and will use the default settings defined by the administrator.
+    - **Enforce Default Model:**
+        - **Purpose:** Forces all users to use the selected default model and prevents them from switching to other models.
+        - **Input Type:** Toggle switch.
+        - **Enabled State:** The "Default Model" dropdown menu is displayed, allowing the administrator to select a default model.
+        - **Disabled State:** Users can switch between available models.
+    - **Allow multi-model chats**        
+        - **Purpose:** allow users to select multiple models at once and use them in the same chat.
+        - **Input Type:** Toggle switch.
+        - **Enabled State:** users can use multiple models in a conversation in parallel
+        - **Disabled State:** users can't use multiple models in a conversation in parallel
+    - **Default Model:**
+        - **Purpose:** Sets the default AI model that will be used when "Enforce Default Model" is enabled.
+        - **Input Type:** Dropdown menu.
+        - **Options:** Displays a list of all enabled AI models.
+        - **Functionality:** When "Enforce Default Model" is enabled, the selected model in this dropdown will be the only model available to users.
 
 ### Adding Custom Models
 
@@ -6743,7 +6792,64 @@ The Email Reports interface is designed for straightforward configuration of aut
 - **Only `Daily` option:** Currently, only daily reports are available.
 - **Attachments:** Attachments (files, images) are *not* included in the email reports.
 
-</TEAM_VERSION_ADMIN_EMAIL_REPORTS>
+</ADMIN_PANEL_EMAIL_REPORTS>
+
+<ADMIN_PANEL_AUDIT_LOGS>
+
+The "Audit Logs" section within the TypingMind for Teams Admin Panel provides administrators with a comprehensive, chronological record of all actions and changes made within their organization's custom AI chat portal. This feature is crucial for maintaining accountability, tracking configuration changes, troubleshooting issues, ensuring security, and demonstrating compliance.
+
+### Accessing Audit Logs
+
+1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
+2. **Locate the "Reporting" Category:** In the left sidebar, click on the "Reporting" dropdown to expand the category.
+3. **Click the "Audit Logs" Link:** Click on the "Audit Logs" link within the "Reporting" category. This will open the main Audit Logs interface.
+
+### Audit Logs Interface Overview
+
+The Audit Logs interface is designed to present a clear, filterable, and chronological view of all administrative and user-related activities.
+
+- **Page Title:** "Audit Logs" (clearly indicates the page's purpose).
+- **Page Description:** "Track all actions and changes made within your organization" (explains the functionality of the page).
+- **Top Bar Elements:**
+    - **"View Live" Link:** Displays the URL for the team's live chat instance. Clicking this link opens the live chat portal in a new browser tab.
+    - **Profile Settings:** Displays the current admin's profile icon, offering options to manage the account or sign out.
+
+### Audit Log Table
+
+The main section of the interface displays a table of audit log entries, with each row representing a specific action or change. The table includes the following columns:
+
+- **USER:**
+    - Displays the name of the user who performed the action.
+- **ACTION:**
+    - Indicates the type of activity performed. Some common actions:
+        - update: A modification or change was made to an entity.
+        - login: A user successfully logged into the system.
+        - create: A new entity was created.
+        - delete: An entity was removed from the system.
+        - logout: A user logged out of the system.
+- **ENTITY:**
+    - Specifies the particular item or area within TypingMind that was affected by the action. This provides context for the change. Some examples:
+        - Agent name: Indicates an update was made to a specific AI Agent
+        - Plugin name: Indicates an update was made to a plugin
+        - Model limits (under Limits): Indicates changes were made to model usage limits.
+        - Model settings (under Models): Indicates changes were made to general model configurations.
+        - Access mode (under Access & Limits): Indicates modifications to the instance's access mode settings (e.g., Private, Authorized, Public).
+        - Email login (under Login Method): Indicates a user logged in via email.
+        - ngoc@typingmind.com (under Users): Indicates an action related to a specific user account.
+        - Deleted user (under Users): Indicates an action related to a deleted user.
+        - Welcome message (under Portal Settings): Indicates changes to the welcome message displayed on the chat portal.
+- **DATE:**
+    - Displays the exact date and time when the action occurred, including the year and precise time (e.g., "Jul 17, 2025 11:03").
+
+### Functionality and Usage
+
+- **Detailed Tracking:** The audit logs provide granular visibility into every significant action performed by users and administrators within the TypingMind instance.
+- **Accountability:** Admins can easily identify who made what changes and when, fostering accountability across the team.
+- **Troubleshooting:** When unexpected behavior or configuration issues arise, audit logs can be a first point of reference to pinpoint recent changes that might be the cause.
+- **Security Monitoring:** The logs help in monitoring for unauthorized access attempts or suspicious activities, such as repeated login failures or unexpected entity deletions.
+- **Compliance:** For organizations with strict compliance requirements, audit logs serve as an essential record of system activity and configuration changes.
+
+</ADMIN_PANEL_AUDIT_LOGS>
 
 <ADMIN_PANEL_BILLING>
 
@@ -6879,7 +6985,7 @@ The Billing interface is organized to provide a clear overview of the current su
     - Redirect to Bug Report form for unresolved issues
 
 4. **Feature Request Management:**
-    - Direct users to: typingmind.com/ideas
+    - Direct users to: https://feedback.typingmind.com/
     - Maintain record of requested features
     - Update users on feature implementation status
 </RECENT_COMMON_TECHNICAL_ISSUES_FOR_SUPPORT>
