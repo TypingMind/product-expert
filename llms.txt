@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-05-05T14:00:00.000Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-09-16T14:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -2627,7 +2627,7 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 
 Beside Web Search, there are plugins that are using for searching purpose:
 - Web search using Serp API (provide more accurate data with structured data like snippets, ads, etc)
-- Perplexity search
+- Perplexity search using Perplexity API
 
 ### 2. DALL-E 3
 
@@ -2993,6 +2993,63 @@ This plugin returns much more concise results compared to reading the whole web 
     -   Users are advised to **monitor token usage closely** to manage costs.
     -   To enhance token efficiency, users can modify the plugin by adding their own optimized tools for web searches and reading web pages, potentially integrating more selective data extraction methods.
 
+### 21. OpenAI File Search
+
+-   **Description:** This plugin enables your system to search internal training data using the OpenAI File Search tool. It retrieves relevant information from a knowledge base of files you've uploaded.
+-   **How to Use:** When the user asks the AI a question but the AI does not have the answer, the AI will query the training data in your OpenAI vector store to find the answer. Sometimes, you need to ask the AI to specifically search from the training data if the AI does not do it automatically.
+-   **Example Usage:**
+    -   `"Search the training data for details on company leadership."`
+    -   `"Find information on our latest product update (search training data)"`
+-   **Configuration:** To get started with OpenAI File Search, follow the guidelines to set up OpenAI File Search.
+-   **Settings Tab:**
+    -   **API Key (*):** A text input field to enter your OpenAI API key, with a link to `https://platform.openai.com/account/api-keys` for obtaining it.
+    -   **Vector Store ID (*):** A text input field for the Vector Store ID. This ID can be found in `Dashboard` > `Storage` > `Vector stores`. It's explicitly noted that "This vector store must be associated with the API Key you're using." An example ID `vs_67d14b43b02c8191d7f7a15ba8a63d1` is shown.
+    -   **Model:** A text input field to specify the AI model to use. The default is `gpt-4o`.
+    -   **Max Results:** A numeric input field to set "The maximum number of search results to return." The default is `3`.
+-   **Functions tab:** Display `openai_file_search`.
+    -   `name`: `"openai_file_search"`.
+    -   `description`: `"Search the internal training data for relevant information. Use this function when the user's question falls outside of the assistant's immediate knowledge. Provide specific keywords or topics (not complete questions) to retrieve the best search results."`.
+    -   **HTTP Method:** `POST`.
+
+### 22. Web Search (Serp)
+
+-   **Description:** This plugin allows the AI assistant to search for information from the internet in real-time using Google Search (via SerpApi).
+-   **Usage Instructions:** A yellow warning box indicates "Serp API Key needed. Click the Settings tab and enter your Serp API Key. To get your API Key, create a Serp account."
+-   **Example Usage:**
+    -   `"What's the gold price today?"`
+    -   `"How's the weather in SF at the moment?"`
+-   **Settings Tab:**
+    -   **Serp API Key (*):** A text input field to enter the Serp API Key, with a link to `serpapi.com` for signing up.
+-   **Functions tab:** Display `search_via_serpapi`.
+    -   `name`: `"search_via_serpapi"`.
+    -   `description`: `"Search for information from the internet in real-time using Google Search via SerpApi."`.
+
+### 23. Todo List
+
+-   **Description:** A tool to help AI plan and keep track of long-running tasks more efficiently. This tool is most useful when combined with other tools for deep research and reasoning.
+-   **Settings Tab:** No settings.
+-   **Functions tab:** Display `todo_write`.
+    -   `name`: `"todo_write"`.
+    -   `description`: `"A tool to help AI plan and keep track of long-running tasks more efficiently."`.
+
+### 24. Generate Image Grok
+
+-   **Description:** A TypingMind plugin that generates high-quality images using xAI's Grok image generation model.
+-   **Overview:** This plugin integrates xAI's powerful Grok image generation capabilities directly into TypingMind, allowing you to create stunning images from text descriptions with simple natural language commands.
+-   **Get your xAI API Key:** Instructions provided to obtain an API key:
+    -   Visit `https://console.x.ai`.
+    -   Sign up or log in to your xAI account.
+    -   Generate an API key.
+-   **Example Usages:**
+    -   `"Create an image of a cozy coffee shop"`
+    -   `"Generate a picture of a golden retriever"`
+-   **Settings Tab:**
+    -   **xAI API Key (Required) (*):** A text input field to enter the xAI API Key. The text underneath states: "The images will be generated using this xAI API. Get your API key from `https://console.x.ai`".
+    -   **Default Image Count:** A numeric input field (with up/down arrows) for the "Number of images to generate by default (1-4)." The placeholder is `Default Image Count`.
+-   **Functions tab:** Display `generate_image_grok`.
+    -   `name`: `"generate_image_grok"`.
+    -   `description`: `"Generate images using xAI's Grok image generation model based on text descriptions."`.
+
 </PLUGINS_BUILT_IN>
 
 <CHAT_WITH_DOCUMENTS_FEATURE>
@@ -3149,7 +3206,7 @@ The Canvas Editor interface typically consists of the following elements:
         - Toggles to the raw markdown content editor, where user can directly edit the content.
         - It is displayed as a grey button
         - Refer to the Edit Raw Mode section.
-    - **Close button**: On the top right corner, user can press it to close Canvas Editor.
+    - **Close button**: On the top right corner, user can press X to close Canvas Editor.
 - **Text Input Area (Main Content Area):** The main content area displays the text of the selected message in an editable format.
     - **Visual Formatting:** The text is displayed with visual formatting (e.g., headings, bold, italics) to reflect the underlying Markdown or HTML structure.
     - **Direct Editing:** Users can directly edit the text by clicking on it and typing.
@@ -3158,8 +3215,7 @@ The Canvas Editor interface typically consists of the following elements:
 - **"Edit message" Bottom Toolbar**: A bar located at the bottom, it includes quick tools such as:
     - Formatting actions: Users can use `@`, attachment actions, etc.
     - `Edit in canvas` button: User can click on this to re-open the Canvas mode.
-    - `Update` button: After the change, user can click the `Update` button to confirm the update.
-    - `Cancel` button: User can also choose to cancel the action.
+    - `x` button: user can click on this to close canvas editor
 - **Code actions**:
 
 ### Interacting with the Canvas Editor
@@ -3193,8 +3249,7 @@ The Canvas Editor interface typically consists of the following elements:
         - **Download Markdown**: Open a save dialog for user to save.
 - **Applying Changes:**
     - After edit the message, user can click the `Update` or `Cancel` button to apply or discard the changes.
-        - Click `Update` will apply to both editor, and code result.
-        - Click `Cancel` will discard the change.
+        - Click `x` to close the canvas editor.
 
 </CANVAS_EDITOR_FEATURE>
 
