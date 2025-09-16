@@ -1247,8 +1247,8 @@ This section delves into the technical aspects of the "Add Custom Model" feature
     - **Latency:** The latency is dependent on the network connection between the user's browser and your model's server. TypingMind adds minimal overhead to this communication.
     - **Security:** TypingMind relies on your custom model's API endpoint to handle security and authentication. Ensure your endpoint is properly secured with HTTPS and appropriate authentication mechanisms.
 **API Compliance:** TypingMind expects the custom model to adhere to the API specification corresponding to the selected "API Type" (e.g., OpenAI Chat Completions API, OpenAI Responses API, Claude Messages API, Claude via Bedrock, Gemini API). This includes:
-    - **Request Structure:** The specific request structure (e.g., messages format, parameters like `temperature`, `top_p`, `stream`) is dependent on the chosen API Type. For **OpenAI Chat Completions API**, requests typically include a `messages` array with `role` and `content`.
-    - **Response Format:** The expected response format varies by the selected API Type. For **OpenAI Chat Completions API**, responses are typically JSON objects containing a `choices` array with the model's generated `text`.
+    - **Request Structure:** TypingMind sends requests with a structure that matches OpenAI's API, including parameters like `messages` (an array of conversation turns with `role` and `content`), `temperature`, `top_p`, `n`, `stream`, etc.
+    - **Response Format:** TypingMind expects responses to be in the format defined by OpenAI's API, typically a JSON object containing a `choices` array with the model's generated `text`.
     - **Streaming:** If `Support Streaming Output` is enabled, TypingMind expects the API to send Server-Sent Events (SSE) with the `data` field containing JSON chunks of the response.
 - **Custom Headers & Body Parameters:** These features allow you to tailor the requests sent to your custom model's API:
     - **Headers:** Useful for authentication (e.g., `Authorization: Bearer <token>`, `X-API-Key: your_api_key`), content type specification (`Content-Type: application/json`), or custom tracking.
@@ -2012,7 +2012,7 @@ TypingMind features an advanced Plugin Editor that allows users to create, custo
 
 The Plugin Editor is divided into two main panels: the **Configuration Panel** on the left and the **Test & Preview Pane** on the right.
 
-### 1. Configuration Panel
+### 1. Configuration Panel (Left Side)
 
 This panel contains all the fields and settings required to define the plugin's identity, behavior, and functions.
 
@@ -2033,7 +2033,7 @@ This panel contains all the fields and settings required to define the plugin's 
         - The JSON code can be manually edited to customize the plugin's behavior.
         - A warning message is displayed "For quick development and testing of a new plugin. You can also import a plugin from GitHub and modify it before saving it to use. For additional information on the plugin data format and instructions for sharing via GitHub, please refer to this guide."
 
-### 2. Plugin Configuration Block
+#### Plugin Configuration Block
 
 - **Plugin Name*:**
     - **Purpose:** The display name of the plugin.
@@ -2066,7 +2066,7 @@ This panel contains all the fields and settings required to define the plugin's 
     - **Function List:** Displays existing functions for the plugin. Each function is a collapsible item showing its name.
     - **+ Add new function Link:** Adds a new, blank function configuration block to the list.
 
-### 3. Function Configuration Block
+#### Function Configuration Block
 
 When adding or editing a function within the "Plugin Functions" section, a detailed configuration block appears.
 
@@ -2087,6 +2087,7 @@ When adding or editing a function within the "Plugin Functions" section, a detai
 Depending on the implementation option:
     - If `Javascript Code` is selected:
         - **Javascript Code Implementation:** A text editor to input javascript.
+        - **Purpose:** The actual JavaScript code that will be executed when the function is called.
         - When `Test` button is clicked, if the Javascript code is invalid, an error will show.
     - If `HTTP Action` is selected: This section will be displayed.
         - **Available variables:** A small box display variables such as `param1`, `variableName1`, `variableName2`.
@@ -2109,10 +2110,6 @@ Depending on the implementation option:
     - **Purpose:** A JSON string that describes the function to the AI, following the OpenAI function-calling specification. This tells the AI what the function does and what parameters it accepts.
     - **Input Type:** Multi-line text area with JSON syntax highlighting.
     - **Links:** Includes links for "Instructions & Examples here" and "Fill example OpenAI Spec".
-- **JavaScript Code Implementation* (Visible when Implementation is "JavaScript Code"):**
-    - **Purpose:** The actual JavaScript code that will be executed when the function is called.
-    - **Input Type:** Multi-line text area with JavaScript syntax highlighting.
-    - **Link:** "Learn how the code is executed here."
 - **Output Options:**
     - **Purpose:** Controls how the output from the function is handled and presented to the user.
     - **Input Type:** Dropdown menu.
@@ -2122,7 +2119,7 @@ Depending on the implementation option:
         - **Render output as interactive HTML:** The output is rendered as an interactive HTML block (e.g., a form, a game).
         - **Render as TypingMind Cards:** The output is formatted and displayed using a special card format.
 
-### 4. Test & Preview Pane (Right Side)
+### 2. Test & Preview Pane (Right Side)
 
 This interactive pane allows for real-time testing of the plugin without leaving the editor.
 
