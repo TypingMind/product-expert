@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-05-05T14:00:00.000Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-09-16T14:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -703,7 +703,7 @@ The "Cloud Data" dialog is structured to guide users through the configuration p
     - **Clear All Storage Button**: A button that allows the user to clear all storage in the Cloud.
 - **Important note**
     - A warning in a yellow frame: `Deleting your data from the cloud will also delete the corresponding local data. For example, if a chat is deleted from the cloud, it will be deleted from this device and any other devices with Cloud Sync enabled.`
-- **Data type navigation**: With tab navigation bar such as `Files`, `Chats`, `Prompts`, `AI Agents`, `Plugins`
+- **Data type navigation**: With tab navigation bar such as `Files`, `Chats`, `Prompts`, `AI Agents`, `Plugins`, `Restore Deleted Chats` (to restore your deleted chats within 30 days
 - **Data Display Area (Main Content Area):**
     - A list/table that displays all of data associated with selected data type.
     - Each object is represented by a row containing:
@@ -781,6 +781,16 @@ A: Yes, absolutely. By default, all your TypingMind data is stored locally in yo
 If you choose to log in and enable TypingMind Cloud Sync, your data will be securely backed up to TypingCloud, allowing you to sync seamlessly across multiple devices.
 
 Cloud sync is entirely optional and designed to be flexible. To support the ongoing server costs, there is a free cloud storage limit per account. If you need more storage, you can upgrade at any time. Otherwise, you’re free to log out of cloud sync—your app will continue to work as usual, with all data stored locally.
+
+Q: How do you handle syncing if I use the app on multiple devices? 
+A: Normally, the system will sync your latest updates from the device you are currently using. This way, when you switch to another device, the new updates will also sync accordingly.
+
+However, when:
+- You open the same chat on two devices simultaneously
+- You start chatting before the previous session has fully synced
+- Your chat history isn't fully up-to-date across devices
+
+...and syncing conflict might occur. When conflicts occur, our system preserves messages from all devices in the conversation, allowing you to manually review and manage any duplicates or conflicts rather than losing those messages.
 
 </CLOUD_SYNC_AND_BACKUP_FEATURES>
 
@@ -1236,7 +1246,7 @@ This section delves into the technical aspects of the "Add Custom Model" feature
     - **Data Privacy:** Your data (prompts, conversation history) is sent directly to *your* model's endpoint and doesn't pass through TypingMind's servers (unless you are using cloud sync).
     - **Latency:** The latency is dependent on the network connection between the user's browser and your model's server. TypingMind adds minimal overhead to this communication.
     - **Security:** TypingMind relies on your custom model's API endpoint to handle security and authentication. Ensure your endpoint is properly secured with HTTPS and appropriate authentication mechanisms.
-- **`v1/chat/completions` API Compliance:** For "OpenAI Compatible API" models, TypingMind expects the custom model to adhere to OpenAI's `v1/chat/completions` API specification. This includes:
+**API Compliance:** TypingMind expects the custom model to adhere to the API specification corresponding to the selected "API Type" (e.g., OpenAI Chat Completions API, OpenAI Responses API, Claude Messages API, Claude via Bedrock, Gemini API). This includes:
     - **Request Structure:** TypingMind sends requests with a structure that matches OpenAI's API, including parameters like `messages` (an array of conversation turns with `role` and `content`), `temperature`, `top_p`, `n`, `stream`, etc.
     - **Response Format:** TypingMind expects responses to be in the format defined by OpenAI's API, typically a JSON object containing a `choices` array with the model's generated `text`.
     - **Streaming:** If `Support Streaming Output` is enabled, TypingMind expects the API to send Server-Sent Events (SSE) with the `data` field containing JSON chunks of the response.
@@ -1249,7 +1259,7 @@ This section delves into the technical aspects of the "Add Custom Model" feature
 **Q: My custom model is not working. What should I do?**
 
 1. **Verify the Endpoint URL:** Double-check that the endpoint URL is correct and that the API is running and accessible. Use tools like `curl` or `Postman` to test the endpoint directly.
-2. **Check the API Type:** Ensure that you have selected the correct API Type ("OpenAI Compatible API" for OpenAI-like models).
+2. **Check the API Type:** Ensure that you have selected the correct API Type (for example: "OpenAI Compatible API" for OpenAI-like models, or for the new OpenAI Response API, Claude via Bedrock, Gemini API).
 3. **Review Custom Headers & Body Parameters:** Make sure that any custom headers or body parameters are correctly configured. Typos or incorrect values can cause API requests to fail.
 4. **Inspect the Request/Response:** Use your browser's developer tools (Network tab) to inspect the actual requests being sent to your custom model and the responses being returned. Look for any error messages or unexpected data.
 5. **Examine the Model's Logs:** Check your custom model's logs for any errors or exceptions that might be occurring. This can provide valuable insights into what's going wrong.
@@ -1989,98 +1999,151 @@ For installing, uninstalling, and configuring plugin-wide settings (like API key
 
 TypingMind provides a powerful platform for users to create their own plugins, extending the capabilities of the AI models and integrating them with various services and workflows. This section provides a deep dive into the process of creating custom plugins within TypingMind.
 
-### Accessing the Plugin Creation Interface
+TypingMind features an advanced Plugin Editor that allows users to create, customize, and test plugins with multiple functions. This editor provides a comprehensive suite of tools, including a live test and preview environment, to streamline the plugin development process.
 
-1.  **Navigate to the "Plugins" Section:** In the left sidebar, click on the "Plugins" icon. This will open the Plugins Management interface.
-2.  **Click the "Create Plugin" Button:** Located at the top-right corner of the Plugins Management interface, this button initiates the process of creating a new plugin. Clicking it opens the "Create Plugin" dialog.
+### Accessing the Plugin Editor
 
-### "Create Plugin" Dialog Overview
+1. **Navigate to the "Plugins" Section:** In the left sidebar, click on the "Plugins" icon.
+2. **Create or Edit a Plugin:**
+    - **Create New:** Click the "Create plugin" button in the top-right corner.
+    - **Edit Existing:** Find the plugin you wish to edit in the list and click on it. If it is a built-in plugin, you must first click "Duplicate" to create an editable copy, then click "Edit" on the copy.
 
-The "Create Plugin" dialog provides a comprehensive set of options for configuring the plugin's behavior, appearance, and functionality. It includes the following key sections:
+### Plugin Editor Interface Overview
 
-*   **Need help creating plugins?** A link to the developer documentation. When click, it navigates the user to the documentation.
-*   **Interactive Editor / JSON Editor:** Radio buttons to select the method for defining the plugin.
-    *   **Interactive Editor:** Presents a user-friendly form with various input fields and settings for configuring the plugin.
-    *   **JSON Editor:** Allows users to directly edit the plugin's configuration as a JSON string.
-        *   When selected, a text area appears with pre-filled JSON code representing the plugin's structure.
-        *   A `Load from Github` button is displayed.
-            *  When click, a popup shows for user to enter the Github URL, the format is `owner/repo/path/to/file.json`.
-        *   The JSON code can be manually edited to customize the plugin's behavior.
-        *   A warning message is displayed "For quick development and testing of a new plugin. You can also import a plugin from GitHub and modify it before saving it to use. For additional information on the plugin data format and instructions for sharing via GitHub, please refer to this guide."
-*   **Plugin Name:**
-    *   **Purpose:** Assign a name to the plugin for easy identification within TypingMind.
-    *   **Input Type:** Text field.
-    *   **Placeholder Text:** "Plugin Name" is displayed when the field is empty.
-    *   **Recommendation:** "4 words or less." is displayed as guidance.
-    *   **Requirement:** Mandatory. The plugin cannot be created without a name.
-*   **Icon URL:**
-    *   **Purpose:** Provide a URL to an image that will be used as the icon for the plugin within TypingMind.
-    *   **Input Type:** Text field.
-    *   **Requirement:** Optional. If left blank, a default icon will be used.
-    *   **Recommendation:** The text "Recommendation: 128x128" is displayed to the user.
-    *   **Recommendation:** Use a direct link to an image file (e.g., PNG, JPG) for best results.
-*   **Overview (Markdown Supported):**
-    *   **Purpose:** Describe the plugin's functionality and usage to other users. This overview is displayed in the plugin's details page.
-    *   **Input Type:** Text area (multi-line text field).
-    *   **Support markdown:** The editor support the Markdown format for text styling.
-    *   **Requirement:** Optional, but highly recommended.
-*   **OpenAI Function Spec:**
-    *   **Purpose:** Define a JSON string that describes the function of the AI assistant to do when the plugin is used. The structure has to comply with OpenAI function calling specification.
-    *   **Input Type:** Text area (multi-line text field).
-    *   **Requirement:** Mandatory.
-    *   **"Instructions & Examples here" Link:** A hyperlink is provided to direct users to OpenAI documentation and examples.
-*   **User Settings (JSON, Optional):**
-    *   **Purpose:** Define user-specific settings that will be passed to the plugin when it is called.
-    *   **Input Type:** Text area (multi-line text field).
-    *   **Requirement:** Optional.
-    *   **"See Example JSON and instruction here" Link:** A hyperlink is provided to direct users to example JSON snippets and instructions.
-*   **Plugin Context:**
-    *   **Purpose:** Define the advanced instructions to the AI. This works in combination with the plugin's spec function description, you can use this to provide more detailed prompts or add real-time data even before the plugin is run.
-    *   **Requirement:** Optional.
-    *   **"+ Add Context" Button:** This button adds a dynamic context configuration section. See the description from the `MODEL_PARAMETERS_SETTINGS`.
-*   **Authentication:**
-    *   **Purpose:** Define what authentication this plugin use.
-    *   **Input Type:** Dropdown.
-    *   **Options:**
-        *   `None`: No authentication required.
-        *   `API Key`: Required the user to fill in the API Key before using.
-        *   `OAuth 2.0`: Required the user to configure the OAuth 2.0 settings.
-*   **Implementation:**
-    *   **Purpose:** Select the implementation for plugin.
-    *   **Input Type:** Dropdown.
-    *   **Options:**
-        *   `JavaScript Code`: Run Javascript code on the client side.
-        *   `HTTP Action`: Perform an HTTP request.
-*   **Implementation:**
-    Depending on the implementation option:
-    *   If `Javascript Code` is selected:
-        *   **Javascript Code Implementation:** A text editor to input javascript.
-        *   When `Test` button is clicked, if the Javascript code is invalid, an error will show.
-    *   If `HTTP Action` is selected: This section will be displayed.
-        *   **Available variables:** A small box display variables such as `param1`, `variableName1`, `variableName2`.
-        *   **HTTP Method:** A select box to choose HTTP method, such as GET, POST, PUT, DELETE, PATCH.
-        *   **Endpoint URL:** An input box to enter the URL.
-        *   **Add Request Headers**: Click to add more request headers. A JSON code will be shown below.
-        *   **Add Request Body**: Click to add more request body. A JSON code will be shown below.
-        *   **Request Body Format**: If Formdata is selected, the request body JSON will be converted to Formdata. Has two options:
-            *   `JSON`.
-            *   `URL Encoded`.
-        *   **Post-Processing**: Note: Post-Processing only works with JSON responses.
-            *   Processing Engine: Support Jmespath Transform and Handlebars.js Template.
-                *   With `Jmespath Transform`, an Expression text area is displayed.
-                *   With `Handlebars.js Template`, a Template text area is displayed.
-        *   **Add Test Variables**:
-            *   Click to add more test variables. A JSON code will be shown below.
-        *   **Test Request**: A button to run the test.
-*   **Output Options:**
-    *   **Purpose:** Choose the output format, has the AI agent decide on output, output as Markdown, or Interactive HTML.
-    *   **Input Type:** Dropdown.
-    *   **Options:**
-        *   `Give plugin output to the AI`: By default, the plugin's output will be given to the AI and then the AI will decide how to respond to the user.
-        *   `Render plugin output as markdown`: Render the plugin output as markdown.
-        *   `Render plugin output as interactive HTML`: Render the output as an HTML for better viewing.
-*   **Cancel Button:** Discards the changes and closes the dialog.
-*   **Save Button:** Saves the plugin configuration and closes the dialog.
+The Plugin Editor is divided into two main panels: the **Configuration Panel** on the left and the **Test & Preview Pane** on the right.
+
+### 1. Configuration Panel (Left Side)
+
+This panel contains all the fields and settings required to define the plugin's identity, behavior, and functions.
+
+- **Top Action Buttons:**
+    - **Create/Save (Green):** Saves the current plugin configuration.
+    - **Import plugin (Black):** Allows importing a plugin from a Github URL.
+    - **Duplicate (Blue):** Creates an editable copy of the current plugin. This is required before editing built-in plugins.
+    - **Cancel (White/Gray):** Discards any unsaved changes and closes the editor.
+- **Built-in Plugin Notice:**
+    - A message displayed for built-in plugins: "This is a built-in plugin, you can read the details but cannot edit it. If you want to customize it, you can duplicate and then edit the duplicated version."
+- **Interactive Editor / JSON Editor:** Radio buttons to select the method for defining the plugin.
+    - **Need help creating plugins?** A link to the developer documentation. When click, it navigates the user to the documentation.
+    - **Interactive Editor:** Presents a user-friendly form with various input fields and settings for configuring the plugin.
+    - **JSON Editor:** Allows users to directly edit the plugin's configuration as a JSON string.
+        - When selected, a text area appears with pre-filled JSON code representing the plugin's structure.
+        - A `Load from Github` button is displayed.
+            - When click, a popup shows for user to enter the Github URL, the format is `owner/repo/path/to/file.json`.
+        - The JSON code can be manually edited to customize the plugin's behavior.
+        - A warning message is displayed "For quick development and testing of a new plugin. You can also import a plugin from GitHub and modify it before saving it to use. For additional information on the plugin data format and instructions for sharing via GitHub, please refer to this guide."
+
+#### Plugin Configuration Block
+
+- **Plugin Name*:**
+    - **Purpose:** The display name of the plugin.
+    - **Input Type:** Text field.
+    - **Recommendation:** "4 words or less."
+- **Icon URL:**
+    - **Purpose:** A URL pointing to an image to be used as the plugin's icon.
+    - **Input Type:** Text field with "https://" placeholder.
+    - **Recommendation:** "128x128"
+- **Overview (Markdown Supported):**
+    - **Purpose:** A detailed description of what the plugin does, how to use it, and examples. This information is shown to the user.
+    - **Input Type:** Multi-line text area with Markdown support.
+- **User Settings (JSON, Optional):**
+    - **Purpose:** Defines user-specific settings that will be passed to the plugin when it is called (e.g., personal API keys for a service).
+    - **Input Type:** Multi-line text area for valid JSON.
+    - **Link:** "See Example JSON and instruction here."
+- **Plugin Context:**
+    - **Purpose:** Provides additional context and instructions directly to the AI's system prompt *before* the plugin is run. This can be used to add real-time data or more detailed prompts.
+    - **+ Add context Button:** Opens the dynamic context configuration interface (See <MODEL_PARAMETERS_SETTINGS>).
+- **Authentication:**
+    - **Purpose:** Define what authentication this plugin use.
+    - **Input Type:** Dropdown.
+    - **Options:**
+        - `None`: No authentication required.
+        - `API Key`: Required the user to fill in the API Key before using.
+        - `OAuth 2.0`: Required the user to configure the OAuth 2.0 settings.
+- **Plugin Functions:**
+    - **Purpose:** This section allows a single plugin to contain multiple functions.
+    - **Description:** "Define the functions of this plugin. This can be a JavaScript code, HTTP request, or an MCP server. You can create multiple functions for a single plugin."
+    - **Function List:** Displays existing functions for the plugin. Each function is a collapsible item showing its name.
+    - **+ Add new function Link:** Adds a new, blank function configuration block to the list.
+
+#### Function Configuration Block
+
+When adding or editing a function within the "Plugin Functions" section, a detailed configuration block appears.
+
+- **Action Links (Top Right of Block):**
+    - **Collapse:** Minimizes the function block.
+    - **Remove (Red):** Deletes the function block from the plugin.
+- **Function name*:**
+    - **Purpose:** A human-readable name for the specific function.
+    - **Input Type:** Text field.
+- **Implementation*:**
+    - **Purpose:** Defines *how* the function will be executed.
+    - **Input Type:** Dropdown menu.
+    - **Options:**
+        - **JavaScript Code:** The function is implemented as a client-side JavaScript snippet.
+        - **HTTP Action:** The function makes an HTTP request to a specified endpoint.
+        - **Model Context Protocol:** The function interacts with an MCP server.
+- **Implementation:**
+Depending on the implementation option:
+    - If `Javascript Code` is selected:
+        - **Javascript Code Implementation:** A text editor to input javascript.
+        - **Purpose:** The actual JavaScript code that will be executed when the function is called.
+        - When `Test` button is clicked, if the Javascript code is invalid, an error will show.
+    - If `HTTP Action` is selected: This section will be displayed.
+        - **Available variables:** A small box display variables such as `param1`, `variableName1`, `variableName2`.
+        - **HTTP Method:** A select box to choose HTTP method, such as GET, POST, PUT, DELETE, PATCH.
+        - **Endpoint URL:** An input box to enter the URL.
+        - **Add Request Headers**: Click to add more request headers. A JSON code will be shown below.
+        - **Add Request Body**: Click to add more request body. A JSON code will be shown below.
+        - **Request Body Format**: If Formdata is selected, the request body JSON will be converted to Formdata. Has two options:
+            - `JSON`.
+            - `URL Encoded`.
+        - **Post-Processing**: Note: Post-Processing only works with JSON responses.
+            - Processing Engine: Support Jmespath Transform and Handlebars.js Template.
+                - With `Jmespath Transform`, an Expression text area is displayed.
+                - With `Handlebars.js Template`, a Template text area is displayed.
+        - **Add Test Variables**:
+            - Click to add more test variables. A JSON code will be shown below.
+        - **Test Request**: A button to run the test.
+    - If `MCP` is selected: The MCP server config section will be displayed. (View more at <MODEL_CONTEXT_PROTOCOL>)
+- **OpenAI Function Spec*:**
+    - **Purpose:** A JSON string that describes the function to the AI, following the OpenAI function-calling specification. This tells the AI what the function does and what parameters it accepts.
+    - **Input Type:** Multi-line text area with JSON syntax highlighting.
+    - **Links:** Includes links for "Instructions & Examples here" and "Fill example OpenAI Spec".
+- **Output Options:**
+    - **Purpose:** Controls how the output from the function is handled and presented to the user.
+    - **Input Type:** Dropdown menu.
+    - **Options:**
+        - **Give output to the AI (Default):** The raw output is sent back to the AI, which then decides how to formulate a response to the user.
+        - **Render output as markdown:** The output is rendered directly in the chat as Markdown.
+        - **Render output as interactive HTML:** The output is rendered as an interactive HTML block (e.g., a form, a game).
+        - **Render as TypingMind Cards:** The output is formatted and displayed using a special card format.
+
+### 2. Test & Preview Pane (Right Side)
+
+This interactive pane allows for real-time testing of the plugin without leaving the editor.
+
+- **Initial State:** The pane is empty except for a single blue button labeled "Show Plugin Preview".
+- **Active State (After clicking the button):** The pane transforms into a mini chat interface.
+    - **Plugin settings / Debug info:** Collapsible sections for advanced test configuration.
+    - **Enabled Plugins Bar:**
+        - Displays the name of the plugin being tested (e.g., "Interactive Canvas") with a toggle switch.
+        - Displays the AI model being used for the test (e.g., "GPT-4o") in a dropdown selector.
+        - **Clear context icon:** Resets the AI's memory for the test chat.
+        - **Trash icon:** Deletes the test chat history.
+    - **Message Display Area:** Shows the conversation between the user (test prompt) and the AI, including any plugin outputs.
+    - **Message Input Field:** A text box with the placeholder "Enter message..." to type test prompts.
+    - **Send / Regenerate Buttons:** A blue "Send" button to submit the prompt and a "Regenerate" button to get a new response.
+
+### Example Test Workflow:
+
+1. In the **Test & Preview** pane, click "Show Plugin Preview".
+2. In the **Message Input Field**, type a prompt that should trigger a function in your plugin (e.g., "render a simple chart").
+3. Click **Send**.
+4. The **Message Display Area** will show:
+    - Your initial prompt.
+    - The AI's response, which may include the plugin's direct output (like a rendered chart) and a final text summary from the AI (e.g., "I've rendered a simple bar chart for you...").
+5. You can inspect the rendered output, check for errors, and refine your plugin configuration in the left panel based on the results.
 
 ### Create a Plugin: A Deep Dive for Pro Users
 
@@ -2554,11 +2617,14 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Settings Tab:**
     -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
     -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"get_web_search_results"`.
     -   `description`: `"Search for information from the internet using Google Search."`.
     -   The `parameters` consists of properties such as `keyword`, `source` with `type`, and `description`.
--   **Source Code:** The full source code of the javascript to get web search results.
+
+Beside Web Search, there are plugins that are using for searching purpose:
+- Web search using Serp API (provide more accurate data with structured data like snippets, ads, etc)
+- Perplexity search using Perplexity API
 
 ### 2. DALL-E 3
 
@@ -2569,11 +2635,17 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   The overview tab provides one example query: `Generate a picture of a cat`.
 -   **Settings Tab:**
     - No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"image_generation_via_dalle_3"`.
     -   `description`: `"Generate images using DALL-E 3 based on image descriptions. Adhere to guidelines such as English and avoiding specific content."`.
     -   The `parameters` consists of properties such as `prompt`, `quality`, `resolution`, `n`, `size` with `type`, and `description`.
--   **Source Code:** The full source code of the javascript to create images using DALL-E 3.
+
+Other plugins to generate images:
+- GPT Image Editor to generate image using OpenAI API 
+- Generate Image Grok to generate image using Grok API
+- Stable Diffusion v2/v3 to generate image using Stable Diffusion API
+
+For native image generation (without using plugins), please consider using Gemini 2.5 Flash model. 
 
 ### 3. Simple Calculator
 
@@ -2581,12 +2653,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Functionality:** Provides the AI with the ability to perform calculations, ensuring more precise and reliable answers to mathematical queries.
 -   **Configuration:** No API Keys needed
 -   **Settings Tab:** No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"get_calculation_result"`.
     -   `description`: `"Calculate a math expression. For example, "2 + 2" or "2 * 2". The expression must be a valid JavaScript math expression for the calculation."`.
     -   The `parameters` consists of properties such as `expression` with `type`, and `description`.
     -   The overview tab provides two example query: `What is the total of 2 pi?`, and `What is 2*10?`.
--   **Source Code:** The full source code of the javascript to calculate a math expression.
 
 ### 4. Interactive Canvas
 
@@ -2594,12 +2665,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Functionality:** Allows the AI to create dynamic and interactive experiences within the chat interface.
 -   **Configuration:** No API Keys needed
 -   **Settings Tab:** No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"render_interactive_canvas"`.
     -   `description`: `"Render an interactive canvas with HTML source to the user interface. The HTML source can include forms, games, visualizations, or any other interactive content."`.
     -   The `parameters` consists of properties such as `htmlSource`, `canvasWidth`, and `canvasHeight` with `type`, and `description`.
     -   The overview tab provides three example query: `create a form with a text Input and a submit button`, `render a simple tictactoe game`, and `render a smiley face in SVG in the interactive canvas`.
--   **Source Code:** The full source code of the javascript to render an interactive canvas.
 
 ### 5. Render Chart
 
@@ -2607,12 +2677,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Functionality:** Enables the AI to create and display various types of charts based on data provided in the prompt.
 -   **Configuration:** No API Keys needed
 -   **Settings Tab:** No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"render_chart"`.
     -   `description`: `"Generate a Chart.js chart."`.
     -   The `parameters` consists of properties such as `chartType`, `title`, `data`, and `options` with `type`, and `description`.
     -   The overview tab provides two example query: `create a bar chart with the following data: labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], data: [12, 19, 3, 5, 2, 3]`, and `render a pie chart with these categories: ["Electronics", "Fashion", "Home & Garden", "Toys", "Sports"], values: [25, 15, 20, 10, 30]`.
--   **Source Code:** The full source code of the javascript to generate a chart.
 
 ### 6. Perplexity Search
 
@@ -2624,12 +2693,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   **Perplexity API Key (*):** A text input field to enter the Perplexity API Key, with link to Perplexity API key page.
     -   **Model:** A dropdown menu to select the model, with options such as `llama-3.1-sonar-small-128k-online`.
     -   **System Message:** A text input field to set the system message. A recommendation here is `Be precise and concise`.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"search_via_perplexity"`.
     -   `description`: `"Search for information from the internet using Perplexity."`.
     -   The `parameters` consists of properties such as `keyword` with `type`, and `description`.
     -   The overview tab provides two example query: `What's the gold price?`, and `How's the weather at HCMC at the moment?`.
--   **Source Code:** The full source code of the javascript to search via Perplexity.
 
 ### 7. Stable Diffusion v2 Image
 
@@ -2641,12 +2709,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   **StabilityAI API Key (*):** A text input field to enter the StabilityAI API Key, with link to StabilityAI keys page.
     -   **Width of the image (min: 320, max: 1536):** Dropdown menu to select the number from `512` to `1024`.
     -   **Height of the image (min: 320, max: 1536):** Dropdown menu to select the number from `512` to `1024`.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"image_generation_via_stable_diffusion"`.
     -   `description`: `"Generate images using Stable Diffusion based on a text description. Adhere to guidelines such as avoiding specific content."`.
     -   The `parameters` consists of properties such as `prompt`, `width`, and `height` with `type`, and `description`.
     -   The overview tab provides three example query: `Create an image of a majestic lion standing proudly on a cliff overlooking a vast savanna at sunset.`, `Generate a vibrant cyberpunk cityscape illuminated by neon signs and bustling with activity.`, and `Draw a photorealistic portrait of a woman with fiery red hair and emerald green eyes.`.
--   **Source Code:** The full source code of the javascript to generate images using Stable Diffusion.
 
 ### 8. Stable Diffusion v3 Image
 
@@ -2660,12 +2727,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   **Aspect ratio of the generated image:** A dropdown menu to select ratio, such as `1:1`, `4:3`, and `16:9`.
     -   **Model to use for generation:** A dropdown menu to select model, such as `sd3-large`.
     -   **Negative prompt:** A text input field to enter negative prompts, such as `shadow` and `complex`.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"image_generation_via_stable_diffusion_3"`.
     -   `description`: `"Generate images using Stable Diffusion v3 based on a text description. Adhere to guidelines such as avoiding specific content."`.
     -   The `parameters` consists of properties such as `prompt` with `type`, and `description`.
     -   The overview tab provides three example query: `Create an image of a majestic lion standing proudly on a cliff overlooking a vast savanna at sunset.`, `Generate a vibrant cyberpunk cityscape illuminated by neon signs and bustling with activity.`, and `Draw a photorealistic portrait of a woman with fiery red hair and emerald green eyes.`.
--   **Source Code:** The full source code of the javascript to generate images using Stable Diffusion v3.
 
 ### 9. Image Search
 
@@ -2676,12 +2742,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Settings Tab:**
     -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
     -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"search_images_via_google"`.
     -   `description`: `"Search for images from the internet in real-time using Google Search."`.
     -   The `parameters` consists of properties such as `keyword` with `type`, and `description`.
     -   The overview tab provides one example query: `Show me a cute cat picture`.
--   **Source Code:** The full source code of the javascript to search images via Google Search.
 
 ### 10. Web Page Reader
 
@@ -2692,12 +2757,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -Important notes is displayed: `This plugin requires a plugin server to be set up. Learn how to set up a plugin server here (open-source)`. `Long web pages may results in long response and consume more tokens or exceed the maximum context length. This plugin is best used for short articles or blog posts.
 -   **Settings Tab:**
     -  **Plugin Server (*):** A text input field to enter Plugin Server.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"read_web_page_content"`.
     -   `description`: `"Read the content of a web page via its URL."`.
     -   The `parameters` consists of properties such as `url` with `type`, and `description`.
     -   The overview tab provides one example query: `summarise this article https://www.cnbc.com/2024/03/15/ceo-of-top-ocean-freight-carrier-hapag-lloyd-on-global-economy-demand.html`.
--   **Source Code:** The full source code of the javascript to retrieve content from web page via its URL.
 
 ### 11. Market News
 
@@ -2707,12 +2771,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   Requires an Alpha Vantage API key.
 -   **Settings Tab:**
     -   **Alpha Vantage API Key (*):** A text input field to enter the Alpha Vantage API Key, with link to Alpha Vantage API keys page.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"fetch_market_news_sentiment"`.
     -   `description`: `"Fetches market news articles from Alpha Vantage. This plugin automatically displays the fetched news."`.
     -   The `parameters` consists of properties such as `searchMode`, `searchTerms`, `time_from`, `time_to`, `tickers`, and `topics` with `type`, and `description`.
     -   The overview tab provides three example query: `Give me market news about Apple stock`, `Show me the latest news about Bitcoin`, and `Give me news about the IPO and earnings in the finance sector from last week`.
--   **Source Code:** The full source code of the javascript to fetch market news articles from Alpha Vantage.
 
 ### 12. Javascript Interpreter
 
@@ -2720,12 +2783,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Functionality:** Provides Javascript interpreter and run the code in the environment.
 -   **Configuration:** No API Keys needed
 -   **Settings Tab:** No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"execute_javascript"`.
     -   `description`: `"Execute a Javascript code snippet that evaluates to a readable value or a Promise. Use this function with caution."`.
     -   The `parameters` consists of properties such as `code` with `type`, and `description`.
     -   The overview tab provides two example query: `Send a request to the GitHub public API`, and `What is the current time?`.
--   **Source Code:** The full source code of the javascript interpreter.
 
 ### 13. Mermaid Diagram
 
@@ -2733,12 +2795,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Functionality:** Generate diagrams.
 -   **Configuration:** No API Keys needed
 -   **Settings Tab:** No settings.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"render_mermaid_diagram"`.
     -   `description`: `"Generate a diagram using Mermaid.js (version 10.x). This can be used to render various types of diagrams, including Flowchart, Sequence Diagram, Class Diagram, etc."`.
     -   The `parameters` consists of properties such as `title`, and `source` with `type`, and `description`.
     -   The overview tab provides two example query: `render a state diagram of a simple traffic light system`, and `render a sequence diagram of a simple message exchange`.
--   **Source Code:** The full source code of the javascript to render mermaid diagram.
 
 ### 14. Azure AI Search (Cognitive Search)
 
@@ -2752,13 +2813,15 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     -   **Index Name (*):** Find this in "Search managements" -> "Indexes" page in the Azure portal.
     -   **Query Key (*):** Find this in "Settings" -> "Keys" page in the Azure portal.
     -   **API Version:** The field contains the URL for version of API, with a link for Microsoft website.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"query_training_data"`.
     -   `description`: `"Search the internal training data for relevant information. When the user asks you something."`.
     -   The `parameters` consists of properties such as `query` with `type`, and `description`.
     -   The overview tab provides two example query: `search from training data for the latest refund policy`, and `who is the founder of the company (search from training data)`.
 -   **HTTP Action Tab:** The tab shows the POST method.
--   **Source Code:** The full source code of the javascript to query Azure AI Search data.
+
+
+Related plugins: use OpenAI File Search if you want to connect your training data in OpenAI to TypingMind
 
 ### 15. Slack Webhook Message Notifier (OAuth)
 
@@ -2770,11 +2833,10 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Important notes:** You need to enable Slack Webhook URL from Slack.
 -   **Settings Tab:**
     - A text input field to enter the Slack Webhook URL (*).
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"send_message_to_slack_channel_with_webhook"`.
     -   `description`: `"This function sends a message to a Slack channel via an incoming webhook"`.
     -   The `parameters` consists of properties such as `message` with `type`, and `description`.
--   **Source Code:** The full source code of the javascript to send user's message to a Slack channel.
 
 ### 16. Google Calendar (OAuth)
 
@@ -2793,14 +2855,13 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
       -OAuth Client Secret : Get the client secret from your OAuth provider. (A text box here)
       -Click "Save Credentials"
       -Authenticae to use this plugin. (Click Authenticate Now to get permission)
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"get_google_calendar_events"`.
     -   `description`: `"Return the next 10 events in the current user Google's calendar starting from a specific time"`.
     -   The `parameters` consists of properties such as `timeMin` and `timeMax` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the GET method.
--   **Source Code:** The full source code of the javascript to retrieve calendar events.
 
-### 17. Firecrawl Web Page Reader
+### 17. Read Web Page (Firecrawl)
 
 -   **Description:** Retrieves the content of a web page by scraping it using the Firecrawl API.
 -   **Functionality:** Firecrawl Web Page.
@@ -2812,12 +2873,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
      - **Firecrawl API Key (*):** A text input field to enter Firecrawl API Key
       - Select either "only Main Content" or  "Full Webpage Content" from the dropdown.
 -   **Important Notes:** There are rate limits for API requests depending on different pricing plans.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"get_web_page_content_scraped_by_firecrawl"`.
     -   `description`: `"Retrieves the content of a web page by scraping it using the Firecrawl API."`.
     -   The `parameters` consists of properties such as `pageUrl` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
--   **Source Code:** The full source code of the javascript to retrieve web page content.
 
 ### 18. Send email with Zapier
 
@@ -2826,12 +2886,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
 -   **Important Notes:** This plugin requires a webhook URL from Zapier.
 -   **Settings Tab**
     - A text input field to enter Zapier webhooks, name :Webhooks URL (*)
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"send_email_with_zapier"`.
     -   `description`: `"Send an email to a specific email address with title and text content using Zapier webhook."`.
     -   The `parameters` consists of properties such as `email`, `subject`, and `content` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
--   **Source Code:** The full source code of the javascript to send email with Zapier.
 
 ### 19. PowerPoint Generator
 
@@ -2847,12 +2906,11 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
     - **Font Family** (Dropdown. Default: Calibri)
     - **Background Color** ( A textbox here)
     - **How to Deploy Plugins Server on Render**.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"generate_powerpoint_file"`.
     -   `description`: `"Generate a PowerPoint file and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key"`.
     -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
--   **Source Code:** The full source code of the javascript to generate Powerpoint file.
 
 ### 20. Word Generator
 
@@ -2868,12 +2926,126 @@ TypingMind comes with a range of built-in plugins, each designed to extend the c
          -Adding list with bullet points.
          -Adding table of content.
          -Adding page break.
--   **Spec Tab:** The tab displays `name`, `description`, and `parameters`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
     -   `name`: `"generate_word_file"`.
     -   `description`: `"Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key."`.
     -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
--   **Source Code:** The full source code of the javascript to generate word document.
+
+### 19. Extract Web Page (Firecrawl)
+
+-   **Description:**A plugin to extract information from a web page using Firecrawl Extract API.
+
+This plugin returns much more concise results compared to reading the whole web page, saving context limit and help reduce cost.
+-   **Functionality:** Extract Web Page
+-   **Configuration:**
+    - Requires Firecrawl API Key. Set up your Firecrawl API Key and Authenticate:
+      -Firecrawl API requires an API key for access.
+      -Update the plugin's user settings.
+-   **Settings Tab**
+     - **Firecrawl API Key (*):** A text input field to enter Firecrawl API Key
+-   **Important Notes:** There are rate limits for API requests depending on different pricing plans.
+-   **Functions** tab: display the function using for the plugin, click to Edit the plugin to view the full source code in Javascript.
+
+### 20. Deep Research
+- **Description:** The Deep Research plugin is designed to perform comprehensive research on a specific topic, compile a detailed final report, and can optionally draft a research plan, search the web, and read web pages. This plugin is particularly useful for users needing in-depth information synthesis from multiple online sources.
+- **Functionality:**
+    - Conducts web searches using Serp API.
+    - Reads the full content of web pages using Firecrawl API.
+    - Synthesizes information to generate a comprehensive research report.
+- **Configuration:**
+    - Requires API keys from two external services to function:
+        - **Serp API Key:** This key is used for the Web Search tool, enabling the plugin to perform internet searches. Users must sign up at serpapi.com to obtain this key.
+        - **Firecrawl API Key:** This key is used for the Read Web Page tool, allowing the plugin to extract and read content from specified URLs. Users can get their API key from firecrawl.dev/api-keys.
+- **Settings Tab:**
+    - **Serp API Key (*):** A text input field where the user enters their Serp API key. The field is masked for security (e.g., ".*.*.*.*").
+    - **Firecrawl API Key (*):** A text input field where the user enters their Firecrawl API key. This field is also masked for security.
+    - **Research Mode:** A dropdown menu that allows users to select the depth and cost-efficiency of the research process.
+        - **Lightweight Mode (Default):** In this mode, the plugin attempts to extract data from online sources using Firecrawl's extract tool. This saves tokens by reducing the amount of data processed, but may result in reduced data accuracy.
+        - **Comprehensive Mode:** This mode instructs Deep Research to read the full content of relevant web pages. While it offers more accurate results, it can consume a significant number of tokens, especially for long web pages, and may exceed the AI model's context length limit.
+        - **Dynamic Mode:** This mode starts in "Lightweight Mode" by default but can dynamically switch to "Comprehensive Mode" if the AI determines that a more in-depth read of a web page is necessary for a complete answer.
+- **Activation and Usage in Chat:**
+    1. **Enable Plugin:** Ensure the "Deep Research" plugin is enabled in the Plugin settings.
+    2. **Compose Prompt:** The user inputs a detailed research query into the chat interface (e.g., "Investigate how surfacing advanced features gradually (vs. exposing them all upfront) impacts both power users and new users. Example: Salesforce, Notion, or Figma — what happens when "power features" overwhelm new users?").
+    3. **Plugin Execution:** Upon sending the prompt, the plugin is invoked and displays its progressive steps within the chat:
+        - **Research Plan Generation:** The plugin first creates a "Deep Research Research Plan," outlining its strategy to address the query.
+        - **Web Search:** It then performs "Deep Research Search Web" operations, displaying keywords used for searching (e.g., "progressive disclosure software user experience").
+        - **Web Page Reading:** The plugin proceeds to "Deep Research Read Full Web Page" for identified relevant URLs (e.g., articles from nngroup.com, interaction-design.org, ffrankspillers.com). Each URL read is displayed as a separate step.
+    4. **Progress Update:** After completing its research tasks, the plugin provides a "Progress Update" message summarizing its findings and the sources reviewed.
+    5. **Final Report:** The AI then generates a "Research Report" based on the synthesized information.
+- **Example Query:** "Investigate how surfacing advanced features gradually (vs. exposing them all upfront) impacts both power users and new users. Example: Salesforce, Notion, or Figma — what happens when "power features" overwhelm new users?"
+- **Customization:**
+    -   This plugin is customizable. Users can **duplicate this plugin** and integrate their own tools to improve the quality and scope of the final report.
+    -   The plugin's system instructions and prompts are accessible within its source code, allowing for direct modification.
+    -   **Default Tools:** By default, the Deep Research plugin is equipped with three core tools: "Research Plan," "Search Web," and "Read Web Page."
+    -   **Adding Custom Tools:** Depending on specific requirements, users can add more specialized tools. Examples include:
+        -   Reading content from social media (e.g., a tweet).
+        -   Searching internal or private databases.
+        -   Controlling a web browser for complex interactions.
+    -   The TypingMind plugin system supports various implementation methods for custom tools, including JavaScript code, HTTP requests, or Model Context Protocol (MCP).
+    -   **Learn More:** Detailed instructions on developing TypingMind plugins are available at DEVELOP_CUSTOM_PLUGINS.
+-   **Token Usage Considerations:**
+    -   This plugin is designed to use multiple tools across multiple turns of interaction, which can lead to significant token consumption.
+    -   A typical deep research task can run for up to 2 minutes, involving numerous API calls and data processing steps.
+    -   Users are advised to **monitor token usage closely** to manage costs.
+    -   To enhance token efficiency, users can modify the plugin by adding their own optimized tools for web searches and reading web pages, potentially integrating more selective data extraction methods.
+
+### 21. OpenAI File Search
+
+-   **Description:** This plugin enables your system to search internal training data using the OpenAI File Search tool. It retrieves relevant information from a knowledge base of files you've uploaded.
+-   **How to Use:** When the user asks the AI a question but the AI does not have the answer, the AI will query the training data in your OpenAI vector store to find the answer. Sometimes, you need to ask the AI to specifically search from the training data if the AI does not do it automatically.
+-   **Example Usage:**
+    -   `"Search the training data for details on company leadership."`
+    -   `"Find information on our latest product update (search training data)"`
+-   **Configuration:** To get started with OpenAI File Search, follow the guidelines to set up OpenAI File Search.
+-   **Settings Tab:**
+    -   **API Key (*):** A text input field to enter your OpenAI API key, with a link to `https://platform.openai.com/account/api-keys` for obtaining it.
+    -   **Vector Store ID (*):** A text input field for the Vector Store ID. This ID can be found in `Dashboard` > `Storage` > `Vector stores`. It's explicitly noted that "This vector store must be associated with the API Key you're using." An example ID `vs_67d14b43b02c8191d7f7a15ba8a63d1` is shown.
+    -   **Model:** A text input field to specify the AI model to use. The default is `gpt-4o`.
+    -   **Max Results:** A numeric input field to set "The maximum number of search results to return." The default is `3`.
+-   **Functions tab:** Display `openai_file_search`.
+    -   `name`: `"openai_file_search"`.
+    -   `description`: `"Search the internal training data for relevant information. Use this function when the user's question falls outside of the assistant's immediate knowledge. Provide specific keywords or topics (not complete questions) to retrieve the best search results."`.
+    -   **HTTP Method:** `POST`.
+
+### 22. Web Search (Serp)
+
+-   **Description:** This plugin allows the AI assistant to search for information from the internet in real-time using Google Search (via SerpApi).
+-   **Usage Instructions:** A yellow warning box indicates "Serp API Key needed. Click the Settings tab and enter your Serp API Key. To get your API Key, create a Serp account."
+-   **Example Usage:**
+    -   `"What's the gold price today?"`
+    -   `"How's the weather in SF at the moment?"`
+-   **Settings Tab:**
+    -   **Serp API Key (*):** A text input field to enter the Serp API Key, with a link to `serpapi.com` for signing up.
+-   **Functions tab:** Display `search_via_serpapi`.
+    -   `name`: `"search_via_serpapi"`.
+    -   `description`: `"Search for information from the internet in real-time using Google Search via SerpApi."`.
+
+### 23. Todo List
+
+-   **Description:** A tool to help AI plan and keep track of long-running tasks more efficiently. This tool is most useful when combined with other tools for deep research and reasoning.
+-   **Settings Tab:** No settings.
+-   **Functions tab:** Display `todo_write`.
+    -   `name`: `"todo_write"`.
+    -   `description`: `"A tool to help AI plan and keep track of long-running tasks more efficiently."`.
+
+### 24. Generate Image Grok
+
+-   **Description:** A TypingMind plugin that generates high-quality images using xAI's Grok image generation model.
+-   **Overview:** This plugin integrates xAI's powerful Grok image generation capabilities directly into TypingMind, allowing you to create stunning images from text descriptions with simple natural language commands.
+-   **Get your xAI API Key:** Instructions provided to obtain an API key:
+    -   Visit `https://console.x.ai`.
+    -   Sign up or log in to your xAI account.
+    -   Generate an API key.
+-   **Example Usages:**
+    -   `"Create an image of a cozy coffee shop"`
+    -   `"Generate a picture of a golden retriever"`
+-   **Settings Tab:**
+    -   **xAI API Key (Required) (*):** A text input field to enter the xAI API Key. The text underneath states: "The images will be generated using this xAI API. Get your API key from `https://console.x.ai`".
+    -   **Default Image Count:** A numeric input field (with up/down arrows) for the "Number of images to generate by default (1-4)." The placeholder is `Default Image Count`.
+-   **Functions tab:** Display `generate_image_grok`.
+    -   `name`: `"generate_image_grok"`.
+    -   `description`: `"Generate images using xAI's Grok image generation model based on text descriptions."`.
 
 </PLUGINS_BUILT_IN>
 
@@ -3031,7 +3203,7 @@ The Canvas Editor interface typically consists of the following elements:
         - Toggles to the raw markdown content editor, where user can directly edit the content.
         - It is displayed as a grey button
         - Refer to the Edit Raw Mode section.
-    - **Close button**: On the top right corner, user can press it to close Canvas Editor.
+    - **Close button**: On the top right corner, user can press X to close Canvas Editor.
 - **Text Input Area (Main Content Area):** The main content area displays the text of the selected message in an editable format.
     - **Visual Formatting:** The text is displayed with visual formatting (e.g., headings, bold, italics) to reflect the underlying Markdown or HTML structure.
     - **Direct Editing:** Users can directly edit the text by clicking on it and typing.
@@ -3040,8 +3212,7 @@ The Canvas Editor interface typically consists of the following elements:
 - **"Edit message" Bottom Toolbar**: A bar located at the bottom, it includes quick tools such as:
     - Formatting actions: Users can use `@`, attachment actions, etc.
     - `Edit in canvas` button: User can click on this to re-open the Canvas mode.
-    - `Update` button: After the change, user can click the `Update` button to confirm the update.
-    - `Cancel` button: User can also choose to cancel the action.
+    - `x` button: user can click on this to close canvas editor
 - **Code actions**:
 
 ### Interacting with the Canvas Editor
@@ -3075,8 +3246,7 @@ The Canvas Editor interface typically consists of the following elements:
         - **Download Markdown**: Open a save dialog for user to save.
 - **Applying Changes:**
     - After edit the message, user can click the `Update` or `Cancel` button to apply or discard the changes.
-        - Click `Update` will apply to both editor, and code result.
-        - Click `Cancel` will discard the change.
+        - Click `x` to close the canvas editor.
 
 </CANVAS_EDITOR_FEATURE>
 
@@ -4714,15 +4884,17 @@ The interface is a list of theme for administrators to customize.
 
 <ADMIN_PANEL_CUSTOM_CODE>
 
-### Custom Code Section
+### Custom Code Section (DEPRECATED)
+
+Note: For security reasons, this custom code feature is no longer supported for new instances or for users who have never used it before.
 
 The "Custom Code" section in the Admin Panel allows administrators to inject custom HTML, CSS, and JavaScript code into their team chat portal, enabling advanced customization and integration with external services. This provides unparalleled flexibility in tailoring the chat portal's appearance and functionality to meet specific organizational needs.
 
 ### Accessing the Custom Code Section
 
 1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Portal Settings" Category:** In the left sidebar, click on the "Portal Settings" dropdown to expand the category.
-3. **Click the "Custom Code" Link:** Click on the "Custom Code" link within the "Portal Settings" category. This will open the Custom Code settings interface.
+2. **Locate the "Portal Settings" Category:** In the left sidebar, click on the "Portal Settings" dropdown to expand the category and click "Chat Features"
+3. **Find the "Custom Code" :** Click on the "Custom Code" within the "Chat Features" category. This will open the Custom Code settings interface.
 
 ### Custom Code Interface Overview
 
@@ -7759,7 +7931,7 @@ If the "This Device" option is selected:
 5. **Success Confirmation:** Upon successful connection, a confirmation message (e.g., "Connected!") is displayed within the TypingMind MCP settings screen.
 6. **Get Started:** Click the "Get Started" button to proceed to the server configuration.
 
-### Adding MCP Servers (License Version)
+### Setting up MCP Servers for License Version
 
 1. **Access Server Configuration:** After successfully connecting to the MCP Connector, the interface for adding MCP servers becomes available.
 2. **"Edit Servers" Button:** Click the "Edit Servers" button.
@@ -7800,7 +7972,7 @@ If the "This Device" option is selected:
     - Use the tool directly in prompts (e.g., "Use the memory tool to save this note...").
     - Assign the MCP tool as a skill to specific AI Agents in the AI Agent configuration settings.
 
-### MCP in TypingMind Teams Version
+### Setting up MCP in TypingMind Teams Version
 
 This section covers how MCP is implemented and managed within the TypingMind for Teams environment (Admin Panel).
 
