@@ -548,7 +548,7 @@ These icons are located to the right of the Search bar, offering quick access to
 
 - **Create Folder:**
     - **Icon:** A folder icon with a "+" sign.
-    - **Function:** Allows users to create new folders to organize their chats.
+    - **Function:** Allows users to create new folders or folders within folders to organize their chats.
         - Clicking the icon opens a small input field where the user can type the name of the new folder.
         - After entering the name and pressing "Enter" (or clicking a "Save" button), the new folder is created and added to the chat list.
 - **Sort:**
@@ -7889,32 +7889,155 @@ TypingMind places a high priority on data privacy and security for its users, pa
 
 <MODEL_CONTEXT_PROTOCOL>
 
-## Model Context Protocol (MCP) Feature
+## Model Context Protocol (MCP)
 
-Model Context Protocol (MCP) is an open standard protocol, initially created by Anthropic, designed to standardize how applications (like TypingMind) provide context to Large Language Models (LLMs) by allowing them to connect with external tools and services (MCP Servers).
+Model Context Protocol (MCP) is a [**standard protocol](https://modelcontextprotocol.io/)** created by Anthropic to allow LLMs to connect with external tools and services.
 
-Along with build a custom plugin on TypingMind, you can also use MCP servers for quicker connections with external tools.
+TypingMind supports connecting to all MCP servers that follow the standard protocol. You can connect TypingMind to remote MCP servers via streaming HTTP or servers that run locally via a terminal command like `npx`, `uvx`, or Docker.
 
 Some available MCP Servers: https://github.com/modelcontextprotocol/servers
 
-### MCP in TypingMind License Version
+## Setting up MCP for License version
 
-This section covers how to set up and use MCP within the standard TypingMind License version ([typingmind.com](http://typingmind.com/)).
+### 1. Accessing the MCP Connectors Interface
 
-### Accessing MCP Setup
+1. **Navigate to the "Plugins" Section:** In the left sidebar, click the "Plugins" icon.
+2. **Select the "MCP Connectors" Tab:** At the top of the Plugin management interface, click the tab labeled "MCP connectors."
+
+### 2. MCP Connectors Store View
+
+This view serves as the marketplace and management starting point for MCP-compatible tools.
+
+- **Page Title:** "MCP Connectors." (or MCP store for Team version)
+- **Search Bar:** An input field labeled "Search MCP" allows users to find specific connectors.
+- **Connector Cards (Store):** Displays available MCP tools (e.g., Amplitude, Cloudflare Developer Platform, Hugging Face, Linear, Mermaid Chart, [monday.com](http://monday.com/), Netlify, Notion, PayPal, Sentry, Stripe, Intercom, Asana, Atlassian, Canva).
+    - Each card displays the tool's **Icon**, **Name**, **Description** (e.g., "Search, access, and get insights on your..." for Amplitude), and an **"Install"** button.
+    - **Install button:** click on Install button to install the available MCP servers.
+- **"+ Add connector" Button:** A prominent blue button located on the top right. Clicking this initiates the process for manually adding a custom MCP Server URL (see next section).
+
+### 2. Adding a Custom MCP Server URL (via "+ Add connector")
+
+If you don't find the service you need in the MCP store, you can add it manually by clicking **Add custom connector** and filling out the info. Check the documentation from the service provider to get their MCP server URL and relevant info.
+
+Clicking the "+ Add connector" button opens the **"Add Custom MCP Server URL"** modal/page.
+
+- **Title:** "Add Custom MCP Server URL."
+- **Server URL (Required):**
+    - **Purpose:** The external endpoint URL of the custom MCP server being added.
+    - **Requirement:** Mandatory (indicated by a red asterisk ).
+    - **Example:** `https://ai.todoist.net/mcp`.
+- **Connection Name:**
+    - **Purpose:** A human-readable name for the connection that will appear in the installed list.
+- **Description (Markdown supported):**
+    - **Purpose:** A detailed explanation of the MCP connection's functionality.
+- **Icon:**
+    - **Function:** Allows the user to upload a custom image or provide a URL for the connection's icon.
+- **Advanced options (Collapsible Section):** This section manages authentication and network details.
+    - **Custom HTTP headers (Toggle Switch):**
+        - **Purpose:** Adds custom HTTP headers to outgoing requests. Useful for simple API key authentication.
+        - **State:** When enabled, input fields for **"Header name"** (e.g., `Authorization`) and **"Header value"** (e.g., `Bearer [API Key]`) appear.
+        - **Functionality:** The user can click "+ Add Header" to include multiple custom headers.
+    - **OAuth Client (Toggle Switch):**
+        - **Purpose:** Configures OAuth 2.0 credentials for MCP servers requiring this specific authentication flow.
+        - **State:** When enabled, the following fields are displayed/required:
+            - **Workspace Callback URL (Read-only):** Displays the default redirect URI (`https://www.typingmind.com`) that must be configured with the OAuth provider.
+            - **OAuth Client ID:** Text field for entering the Client ID.
+            - **OAuth Client Secret:** Text field for entering the Client Secret.
+- **Action Buttons:** "Cancel" and a prominent blue **"Create Connection"** button.
+
+### 3. Individual Connector Management and Connection Flow
+
+After installation, the connector appears in the "Installed" list in the left sidebar. Clicking on it opens its dedicated management panel.
+
+### A. Connector Status and Selection
+
+- **Enable Toggle:** A toggle switch labeled "Enable [Connector Name]" allows the user to globally enable or disable the connector.
+- **Connection Status/Action Bar:** A status bar displays the connection requirement.
+    - **Initial State (Not Connected):** Displays "Connection Required via Select Connector" with a link to "Select Connector" and a prominent **"Connect"** button (blue).
+
+### B. Selecting the MCP Connector Instance
+
+Clicking the **"Connect"** button opens the **"Select MCP Connector"** modal. This step determines the underlying bridge for communication.
+
+- **Title:** "Select MCP Connector"
+- **Connection Options (Available for License version, with Team version, you can skip this)**
+    - **TypingMind Cloud:**
+        - **Description:** "Built-in free cloud connector provided by TypingMind."
+        - **Status:** Displays "Online" (green).
+        - **User Info:** If logged in, a message confirms the user email and states: "Your MCP requests will be routed through TypingMind Cloud."
+    - **Private MCP Connector:**
+        - **Description:** "Your private MCP connector instance."
+        - **Status:** Displays "Online" (green) if a local/remote private MCP connector is configured and running. Displays “Setup needed” if a local/remote MCP connector is not configured yet.
+        - Refer to section **Adding a Custom MCP Server (via "Settings → Model Context Protocol")** for detail setup guide.
+- **Default Option:** A checkbox is available to "Remember this choice for all future connections."
+- **Action Buttons:** "Cancel" and "Select Connector" (blue).
+
+**Note:** Some connectors that integrate with major third-party services (like Asana, Stripe, Intercom, etc.) may be restricted to only accept connections from approved, pre-registered sources due to the external service's security policies.
+
+- By default, TypingMind will register itself with the MCP server using OAuth 2.0 Dynamic Client Registration Protocol [**RFC7591**](https://datatracker.ietf.org/doc/html/rfc7591)
+- if the service provider doesn't support it, a warning will be displayed (e.g., "Asana requires approval - registration may be needed"). This advises the user that they may need to **register their workspace redirect URL** with the external service's developer/authentication settings.
+- **For available MCP connection, the Redirect URL to Register:**
+    - Main redirect URL: `https://www.typingmind.com/oauth/callback`
+    - Backup redirect URL: `https://www.typingmind.com`
+    
+    These URLs must be added to the approved redirect list in the external service (e.g., Asana's developer console) to allow the OAuth flow to complete successfully. Please refer to their OAuth Documentation for further details.
+    
+- **For Custom MCP Connection**, if the service provider doesn't support it, you can connect using your own OAuth client. Go to Plugins → MCP Store → Add custom connector → Advanced options → OAuth Client.
+
+### C. Authentication Flow (e.g., Notion)
+
+After selecting a connector instance (e.g., TypingMind Cloud or Private), if the external service requires OAuth, the interface updates:
+
+- **Authentication Required Banner:** A yellow banner appears (e.g., "Authentication Required - This connection requires OAuth authentication") with a blue **"Authenticate"** button.
+- **OAuth Process:** Clicking "Authenticate" opens a new browser window to the external service's OAuth provider (e.g., Notion).
+    - The external service lists the permissions the connector seeks.
+    - The user must confirm trust for the redirect URL (`https://www.typingmind.com`) and click "Continue."
+    - Please note that
+- **Success:** A small pop-up confirms "Authentication successful," and the main TypingMind page updates.
+- **Connected Status:** A green banner confirms the connection (e.g., "Connected via TypingMind Cloud - Access ID: ...").
+
+### D. Tools Tab (Management of Functions)
+
+Once successfully connected, a **"Tools"** tab becomes available next to the "Overview" tab.
+
+- **Purpose:** Lists all the specific individual tools (functions) exposed by the MCP server for the AI model to call. This allows the user to individually enable or disable that specific function for the AI to use.
+- *Example:* You might enable jira-search-issue for the whole team but disable jira-delete-issue to prevent accidental data loss by users.
+
+### **E. Multiple connections and OpenID support**
+
+You can have multiple connections to the same MCP servers. This is useful for cases when you want to use multiple accounts of the same service.For example, if you have multiple Notion accounts and want to use both in TypingMind, simply add the Notion connection twice and connect each one with a separate account.
+
+If the service OAuth server supports **OpenID**, TypingMind will display the account information that you are currently connected to.
+
+### **F. Long running sessions and refresh token**
+
+TypingMind will automatically refresh the access token when needed. This only works if the MCP server supports [refresh token flow](https://www.oauth.com/oauth2-servers/making-authenticated-requests/refreshing-an-access-token/); otherwise, you will need to re-connect and reauthenticate after the current access token expires.
+
+TypingMind also manages persistent MCP sessions, which allows working with **stateful MCP servers**.
+
+Sessions in TypingMind are managed **per chat** (and per user in the [Team version](https://custom.typingmind.com)). This means a new MCP session will be created:
+
+- for each user in your workspace (only for [Team version](https://custom.typingmind.com))
+- and for each chat that the user created.
+
+Sessions will be terminated automatically after 5 minutes of inactivity. All of the session logic will be **managed automatically** by TypingMind in the background.
+
+## Adding a Custom MCP Server (via "Settings → Model Context Protocol")
+
+This guide is used when you want to connect the MCP servers that run locally via a terminal command like `npx`, `uvx`, or Docker.
 
 1. **Navigate to Settings:** Click the "Settings" icon (gear/cogwheel) in the left sidebar.
 2. **Select Model Context Protocol:** Within the Settings menu, under the "Advanced Settings". Click on the "Model Context Protocol" option. This opens the initial MCP setup screen.
-3. Click on Set up MCP Connector
+3. Click on **Set up MCP Connector**
 
-### Choosing MCP Server Location
+### 1. Set up your private MCP connector - Choosing MCP Server Location
 
 - **Initial Setup Screen:** The first screen prompts the user to choose where the MCP servers will run.
     - **Option 1: This Device:** Runs the necessary MCP Connector and servers directly on the user's local machine where TypingMind is being used.
     - **Option 2: Private Remote Server:** Allows connecting to an MCP Connector running on a separate, private remote server.
 - **Selection:** Choose the preferred method and click the "Next" button.
 
-### Running MCP Connector on "This Device"
+### 2. Running MCP Connector on "This Device"
 
 If the "This Device" option is selected:
 
@@ -7931,7 +8054,7 @@ If the "This Device" option is selected:
 5. **Success Confirmation:** Upon successful connection, a confirmation message (e.g., "Connected!") is displayed within the TypingMind MCP settings screen.
 6. **Get Started:** Click the "Get Started" button to proceed to the server configuration.
 
-### Setting up MCP Servers for License Version
+### 3. Setting up MCP Servers
 
 1. **Access Server Configuration:** After successfully connecting to the MCP Connector, the interface for adding MCP servers becomes available.
 2. **"Edit Servers" Button:** Click the "Edit Servers" button.
@@ -7958,12 +8081,11 @@ If the "This Device" option is selected:
             }
           }
         }
-        
         ```
         
 4. **Saving:** After pasting or typing the JSON configuration, save the changes via a "Save" button within the interface).
 
-### Using MCP Tools (License Version)
+### 4. Using MCP Tools
 
 - **Appearance:** Once MCP servers are successfully added and running via the connector, they appear as available **Plugins** within TypingMind.
 - **Location:** Find the added MCP tools listed on the main "Plugins" page (accessed via the Plugins icon in the left sidebar).
@@ -7972,22 +8094,164 @@ If the "This Device" option is selected:
     - Use the tool directly in prompts (e.g., "Use the memory tool to save this note...").
     - Assign the MCP tool as a skill to specific AI Agents in the AI Agent configuration settings.
 
-### Setting up MCP in TypingMind Teams Version
+### Frequently Asked Questions (MCP)
 
-This section covers how MCP is implemented and managed within the TypingMind for Teams environment (Admin Panel).
+**Q: What is Model Context Protocol (MCP)?**
 
-### Setup Method: Implemented as Plugins
+**A:** MCP is an open protocol, initiated by Anthropic, that standardizes how applications provide context to LLMs by allowing connections to external tools and services. Learn more at: http://modelcontextprotocol.io/
 
-- In the Teams version, MCP integrations are set up and managed **as individual Plugins** within the Admin Panel. Each MCP server corresponds to a separate plugin configuration.
+**Q: What is MCP Connector and why do I need it?**
 
-### Creating an MCP Plugin
+**A:** MCP Connector (`@typingmind/mcp-connector`) is an open-source tool from TypingMind that helps run and manage multiple MCP servers in one place. It acts as the necessary bridge between the TypingMind application and the actual MCP servers, allowing flexibility in where the servers are run (locally or remotely).
 
-1. **Navigate to Admin Panel:** Log in to the TypingMind for Teams Admin account.
-2. **Go to Plugins:** In the left sidebar, navigate to "Plugins".
-3. **Create New Plugin:** Click the "Create New Plugin" button.
-4. **Select Implementation Type:** In the plugin creation form, scroll down to the "Implementation" section.
-5. **Choose "Model Context Protocol":** Select "Model Context Protocol" from the Implementation dropdown menu.
-6. **Configure Server JSON:** A text input field will appear, specifically for the MCP server configuration JSON.
+**Q: Do I need to install software or run terminal commands to use MCP?**
+
+**A:** **Not necessarily.**
+
+- **TypingMind Cloud (Easiest):** For popular online services (like Notion, Slack, or Asana), you can use the built-in "TypingMind Cloud" connector. This requires no local setup—just click and connect.
+- **Private MCP Connector (Advanced):** You only need to run the connector software (in your terminal) if you want to connect to **local files** on your computer, internal private servers, or if you prefer to keep all data traffic strictly within your own network.
+
+**Q: Is MCP Connector free?**
+
+**A:** Yes, the MCP Connector software itself is free and open-source (source code available on GitHub). Running it on your own computer incurs no direct cost. If you choose to deploy it on a private remote server, you will only need to pay for the hosting costs of that server.
+
+**Q: How do I customize the icon and the tool name of the MCP tools?**
+
+**A:** To customize the appearance (icon, name, description) of an MCP tool within TypingMind, you must connect it as a custom connection or create it as a **Plugin**. 
+
+**Q: I'm using TypingMind for Teams, do I still need the MCP Connector?**
+
+**A:** No, by default you do not need to the MCP connector. However, if administrators need to run the MCP Connector on their own private server, you can do that by setting MCP servers as custom plugin.
+
+**Q: Why I’m failing to connect with some MCP servers and saw the error: "The target MCP server has rejected the connection"?**
+
+**A:** By default, TypingMind will register itself with the MCP server using the **OAuth 2.0 Dynamic Client Registration Protocol ([RFC7591](https://www.google.com/url?sa=E&q=https%3A%2F%2Fdatatracker.ietf.org%2Fdoc%2Fhtml%2Frfc7591))**. If you cannot connect, it usually means the target server has rejected this dynamic registration. You will need to manually add TypingMind to the allowed redirect URLs on the external service. Or if you are using custom connection, please enable OAuth Client and add your OAuth Client following the guide shown on the app.
+
+**Q: Where do I run the Private MCP Connector?**
+
+**A:** It can be run on any system or server that has **NodeJS (version 18+)** installed. Depending on the specific MCP *servers* you intend to use (e.g., Puppeteer, Docker-based tools), additional dependencies might be required on the machine running the connector. Always check the documentation for the specific MCP servers you plan to use for their system requirements.
+
+**Q: Where do I get the Auth Token for MCP Connector?**
+
+**A:** You generate your own Auth Token. It can be any unique string of characters (e.g., a long random string).
+
+- **License Version:** TypingMind generates an initial token during setup, but you can replace it with your own in the MCP settings.
+- **Teams Version:** You define the token when you run the `npx @typingmind/mcp-connector <auth-token>` command on your server, and then you enter that *same* token into the MCP Plugin configuration in the Admin Panel.
+- **Security:** It is crucial to keep your Auth Token secure, as it authenticates the connection between TypingMind and your MCP Connector.
+
+</MODEL_CONTEXT_PROTOCOL>
+
+<ADMIN_PANEL_MODEL_CONTEXT_PROTOCOL>
+
+The setup process for Team version is almost the same as the license version. 
+
+## Setting up MCP for Team version
+
+### 1. Accessing the MCP Connection interface
+
+1. **Navigate to the "Plugins" Section** in the admin panel
+2. **Select the "MCP Store":** At the top of the Plugin management interface, click the button labeled "MCP store."
+
+### 2. MCP Store View
+
+This view serves as the marketplace and management starting point for MCP-compatible tools.
+
+- **Popup Title:** "MCP Connectors."
+- **Search Bar:** An input field labeled "Search MCP" allows users to find specific connectors.
+- **Connector Cards (Store):** Displays available MCP tools (e.g., Amplitude, Cloudflare Developer Platform, Hugging Face, Linear, Mermaid Chart, [monday.com](http://monday.com/), Netlify, Notion, PayPal, Sentry, Stripe, Intercom, Asana, Atlassian, Canva).
+    - Each card displays the tool's **Icon**, **Name**, **Description** (e.g., "Search, access, and get insights on your..." for Amplitude), and an **"Install"** button.
+- **Install button:** click on Install button to install the available MCP servers.
+- **"+ Add connector" Button:** A prominent blue button located on the top right. Clicking this initiates the process for manually adding a custom MCP Server URL (see next section).
+
+### 3. Adding a Custom MCP Server URL (via "+ Add connector")
+
+If you don't find the service you need in the MCP store, you can add it manually by clicking **Add custom connector** and filling out the info. Check the documentation from the service provider to get their MCP server URL and relevant info.
+
+Clicking the "+ Add connector" button opens the **"Add Custom MCP Server URL"** modal/page.
+
+- **Title:** "Add Custom MCP Server URL."
+- **Server URL (Required):**
+    - **Purpose:** The external endpoint URL of the custom MCP server being added.
+    - **Requirement:** Mandatory (indicated by a red asterisk ).
+    - **Example:** `https://ai.todoist.net/mcp`.
+- **Connection Name:**
+    - **Purpose:** A human-readable name for the connection that will appear in the installed list.
+- **Description (Markdown supported):**
+    - **Purpose:** A detailed explanation of the MCP connection's functionality.
+- **Icon:**
+    - **Function:** Allows the user to upload a custom image or provide a URL for the connection's icon.
+- **Advanced options (Collapsible Section):** This section manages authentication and network details.
+    - **Custom HTTP headers (Toggle Switch):**
+        - **Purpose:** Adds custom HTTP headers to outgoing requests. Useful for simple API key authentication.
+        - **State:** When enabled, input fields for **"Header name"** (e.g., `Authorization`) and **"Header value"** (e.g., `Bearer [API Key]`) appear.
+        - **Functionality:** The user can click "+ Add Header" to include multiple custom headers.
+    - **OAuth Client (Toggle Switch):**
+        - **Purpose:** Configures OAuth 2.0 credentials for MCP servers requiring this specific authentication flow.
+        - **State:** When enabled, the following fields are displayed/required:
+            - **Workspace Callback URL (Read-only):** Displays the default redirect URI (`https://www.typingmind.com`) that must be configured with the OAuth provider.
+            - **OAuth Client ID:** Text field for entering the Client ID.
+            - **OAuth Client Secret:** Text field for entering the Client Secret.
+- **Action Buttons:** "Cancel" and a prominent blue **"Create Connection"** button.
+
+### 4. Individual Connector Management and Connection Flow
+
+After installation, the connector appears in the "Installed" list in the Plugin list. Clicking on it opens its dedicated management panel.
+
+### A. Connect with your MCP server
+
+- **Enable Toggle:** A toggle switch labeled "Enable [Connector Name]" allows the user to globally enable or disable the connector.
+- **Connection Status/Action Bar:** A status bar displays the connection requirement.
+    - **Initial State (Not Connected):** Displays "Connection Required via Select Connector" with a link to "Select Connector" and a prominent **"Connect"** button (blue).
+- Clicking the **"Connect"** button to connect with the MCP server.
+
+**Can not connect?** Some connectors that integrate with major third-party services (like Asana, Stripe, Intercom, etc.) may be restricted to only accept connections from approved, pre-registered sources due to the external service's security policies.
+
+- By default, TypingMind will register itself with the MCP server using OAuth 2.0 Dynamic Client Registration Protocol [**RFC7591**](https://datatracker.ietf.org/doc/html/rfc7591)
+- if the service provider doesn't support it, a warning will be displayed (e.g., "Asana requires approval - registration may be needed"). This advises the user that they may need to **register their workspace redirect URL** with the external service's developer/authentication settings.
+- **For available MCP connection, the Redirect URL to Register:**
+    - Example redirect URL: `https://{your-workspace-url}/oauth/callback`
+    
+    The URL must be added to the approved redirect list in the external service (e.g., Asana's developer console) to allow the OAuth flow to complete successfully. Please refer to their OAuth Documentation for further details.
+    
+- **For Custom MCP Connection**, if the service provider doesn't support it, you can connect using your own OAuth client. Go to Plugins → MCP Store → Add custom connector → Advanced options → enable OAuth Client.
+
+### B. Authentication Flow (e.g., Notion)
+
+After connecting successfully, if the external service requires OAuth, the interface updates:
+
+- **Authentication Required Banner:** A yellow banner appears (e.g., "Authentication Required - This connection requires OAuth authentication") with a blue **"Authenticate"** button.
+- **OAuth Process:** Clicking "Authenticate" opens a new browser window to the external service's OAuth provider (e.g., Notion).
+    - The external service lists the permissions the connector seeks.
+    - The user must confirm trust for the redirect URL (`https://www.yourdomainname.typingcloud.com`) and click "Continue."
+- **Success:** A small pop-up confirms "Authentication successful," and the main TypingMind page updates.
+- **Connected Status:** A green banner confirms the connection (e.g., "Connected").
+
+### C. Tools Tab (Management of Functions)
+
+Once successfully connected, a **"Tools"** section becomes available right below:
+
+- **Purpose:** Lists all the specific individual tools (functions) exposed by the MCP server for the AI model to call. This allows the user to individually enable or disable that specific function for the AI to use.
+- *Example:* You might enable jira-search-issue for the whole team but disable jira-delete-issue to prevent accidental data loss by users.
+
+### D. Use your connected MCP server
+
+Your connected MCP server works as a plugin so you can:
+
+- Enable/Disable for your user needs
+- Assign them to different AI Agents
+
+## Set up MCP server as custom plugin
+
+Set up MCP servers as a custom plugin when:
+
+- You cannot use the **Add Custom Connector** option because your MCP servers do not have a server URL to connect to,
+- or you want to connect with your own private MCP connector using your remote server.
+
+### 1. Setup Method:
+
+- Go to Admin Panel → Plugins → Click on the three-dots icon → Create new plugin
+- Fill necessary information when building a custom plugin, scroll down to the Function section, click on New function → Select Implementation Type as **Model context protocol.**
+- **Configure Server JSON:** A text input field will appear, specifically for the MCP server configuration JSON.
     - Paste the JSON defining the *single* MCP server this plugin represents (similar structure to the `mcpServers` value in the License version, but defining only one server per plugin).
     - **Example JSON for a "Memory" Plugin:**
         
@@ -7999,13 +8263,12 @@ This section covers how MCP is implemented and managed within the TypingMind for
             "@modelcontextprotocol/server-memory"
           ]
         }
-        
         ```
         
     - **Variables:** Admins can utilize available plugin variables (like User ID) and authentication configurations within this JSON if the specific MCP server supports them.
-7. **Save Plugin:** Save the newly created MCP plugin.
+- **Save Plugin:** Save the newly created MCP plugin.
 
-### Connecting the MCP Plugin to the Connector
+### 2. Connecting the MCP Plugin to the Connector
 
 For the MCP plugin to function in the Teams version, it needs connection details for the MCP Connector instance.
 
@@ -8014,7 +8277,6 @@ For the MCP plugin to function in the Teams version, it needs connection details
     
     ```
     npx @typingmind/mcp-connector <auth-token>
-    
     ```
     
     - Replace `<auth-token>` with a secure, unique authentication token chosen by the administrator.
@@ -8029,45 +8291,12 @@ For the MCP plugin to function in the Teams version, it needs connection details
     - **Auth Token:** Paste the Auth Token used to run the connector here.
 5. **Save Plugin Settings:** Save the changes to the plugin configuration.
 
-### End-User Experience (Teams Version)
+### 3. End-User Experience
 
 - Once configured and enabled by the admin, the MCP plugin appears in the user's plugin list just like any other standard plugin.
 - End-users can enable and use the MCP tool within their chats without needing to know the underlying connection details.
 
-### How MCP Integration Works in TypingMind
-
-- **MCP Connector Role:** TypingMind utilizes the `@typingmind/mcp-connector` (open-source tool) as an intermediary to run and manage MCP servers.
-- **Centralized Management:** The Connector allows multiple MCP servers to be managed from a single point.
-- **Deployment Flexibility:**
-    - **License Version:** Can run locally on the user's device *or* connect to a remote connector.
-    - **Teams Version:** Requires the connector to be deployed on a server (typically private/remote) accessible by the TypingMind Team instance.
-- **Isolation:** Running the connector on a remote server can provide an isolated environment, which is beneficial if MCP servers need access to specific data or resources without directly accessing the user's local device (unless specifically required by a tool, e.g., a file system tool).
-- **Architecture Diagram:**
-    - **User Interface (TypingMind App/Instance):** The user interacts here.
-    - **MCP Connector:** Receives requests from TypingMind. Manages the lifecycle (start/stop) of individual MCP servers based on the JSON configuration. Runs on the user's device or a remote server.
-    - **MCP Servers (e.g., Memory, Puppeteer):** Individual processes/services that perform specific tasks (saving notes, interacting with web pages). They communicate with the MCP Connector.
-
-### Frequently Asked Questions (MCP)
-
-- **Q: What is Model Context Protocol (MCP)?**
-    - **A:** MCP is an open protocol, initiated by Anthropic, that standardizes how applications provide context to LLMs by allowing connections to external tools and services. Learn more at: http://modelcontextprotocol.io/
-- **Q: What is MCP Connector and why do I need it?**
-    - **A:** MCP Connector (`@typingmind/mcp-connector`) is an open-source tool from TypingMind that helps run and manage multiple MCP servers in one place. It acts as the necessary bridge between the TypingMind application and the actual MCP servers, allowing flexibility in where the servers are run (locally or remotely).
-- **Q: Is MCP Connector free?**
-    - **A:** Yes, the MCP Connector software itself is free and open-source (source code available on GitHub). Running it on your own computer incurs no direct cost. If you choose to deploy it on a private remote server, you will only need to pay for the hosting costs of that server.
-- **Q: How do I customize the icon and the tool name of the MCP tools?**
-    - **A:** To customize the appearance (icon, name, description) of an MCP tool within TypingMind, you must create it as a **Plugin**. Go to Plugins → Create new Plugin, select "Model Context Protocol" under Implementation, configure the specific MCP server's JSON, and then set the desired Name, Icon URL, and Overview in the standard plugin fields.
-- **Q: I'm using TypingMind for Teams, do I still need the MCP Connector?**
-    - **A:** Yes. Currently, for the Teams version, administrators need to run the MCP Connector on their own private server. This is often necessary because MCP servers might need access to specific organizational data or resources located on that server. TypingMind plans to potentially offer a dedicated, hosted MCP Connector for each Teams account in the future for use cases that don't require local data access.
-- **Q: Where do I run the MCP Connector?**
-    - **A:** It can be run on any system or server that has **NodeJS (version 18+)** installed. Depending on the specific MCP *servers* you intend to use (e.g., Puppeteer, Docker-based tools), additional dependencies might be required on the machine running the connector. Always check the documentation for the specific MCP servers you plan to use for their system requirements.
-- **Q: Where do I get the Auth Token for MCP Connector?**
-    - **A:** You generate your own Auth Token. It can be any unique string of characters (e.g., a long random string).
-        - **License Version:** TypingMind generates an initial token during setup, but you can replace it with your own in the MCP settings.
-        - **Teams Version:** You define the token when you run the `npx @typingmind/mcp-connector <auth-token>` command on your server, and then you enter that *same* token into the MCP Plugin configuration in the Admin Panel.
-    - **Security:** It is crucial to keep your Auth Token secure, as it authenticates the connection between TypingMind and your MCP Connector.
-
-</MODEL_CONTEXT_PROTOCOL>
+</ADMIN_PANEL_MODEL_CONTEXT_PROTOCOL>
 
 <MCP_HTTPS_SETUP_GUIDE>
 
@@ -8219,7 +8448,7 @@ This phase involves configuring TypingMind to connect to the MCP connector runni
 3. The MCP settings screen will now show the connected URL (`https://localhost:8080`) and status. You can optionally click "Click to check" again to re-verify the connection.
 4. Click **Done**.
 
-Your TypingMind application is now successfully connected to the MCP connector running locally over a secure HTTPS connection. You can proceed to add MCP servers (as described in `<MODEL_CONTEXT_PROTOCOL_FEATURE>`) and use MCP-powered features. Remember to keep the Terminal window with the connector running in the background while using TypingMind.
+Your TypingMind application is now successfully connected to the MCP connector running locally over a secure HTTPS connection. You can proceed to add MCP servers (as described in `<MODEL_CONTEXT_PROTOCOL>`) and use MCP-powered features. Remember to keep the Terminal window with the connector running in the background while using TypingMind.
 
 </MCP_HTTPS_SETUP_GUIDE>
 
