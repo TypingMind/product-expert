@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-09-16T14:00:00.000Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-11-25T14:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
