@@ -167,7 +167,7 @@ TypingMind offers a lifetime license with three tiers:
 
 - **Standard:** $39 (Basic Features, Unlock AI Agents, Voice Input, Share Chats, Remove Ads/Popups)
 - **Extended:** $79 (Image Generation, Web Search, Text-to-Speech / Vision / Images, Upload Documents)
-- **Premium:** $99 (Unlimited Plugins and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
+- **Premium:** $99 (Unlimited Plugins, Project Folders, Artifacts, Canvas Editor, Free Updates)
 
 There is also a "TypingMind for Teams" option for building custom AI chat portals for teams.
 
@@ -2377,7 +2377,7 @@ This section provides tools for managing the application's data, including expor
 
 *   **You have \[number] saved prompts, \[number] plugins, \[number] custom models, \[number] characters, \[number] folders, \[number] chats with \[number] messages on this device.**: This line of text is a summary of the user's data.
 *   **Export Button:**
-    *   **Function:** Exports all TypingMind data (chats, prompts, models, settings, etc.) to a single file or export selected data like all chats, all AI Agents, or all prompts.
+    *   **Function:** Exports all TypingMind data (chats, prompts, models, settings, etc.) to a single file.
     *   **Workflow:**
         1.  Clicking the "Export" button opens a modal window.
         2.  **Export Selections:** The modal window presents a list of checkboxes, allowing the user to select which data types to include in the export:
@@ -2450,6 +2450,15 @@ This section provides access to general application settings.
     *   **Enabled State:** AI responses are displayed word by word, creating a "typing animation" effect.
     *   **Disabled State:** AI responses are displayed all at once after the AI has finished generating the entire response.
     *   "Cost estimation be less accurate when stream response is enabled.": A note to describe the accuracy.
+*   **Auto generate title for new chats:**
+    *   **Function:** Enables or disables the automatic generation of chat titles.
+    *   **Input Type:** Toggle switch.
+    *   **Enabled State:** TypingMind automatically generates a title for new chats based on the first message.
+        *   "Ask the AI assistant to generate a title based on the first message when starting a new chat. This will consume more tokens used in the first message. (All subsequent message tokens will not be affected.)"
+    *   **Disabled State:** Chat titles must be manually entered by the user.
+    *   **Advanced Settings:** An expandable section is displayed
+        *   **Model For Title Generation:** Has options such as `Auto`, `Ollama / LLava`, `DeepSeek R1`, etc.
+        *   **Instruction**: Provide instructions of the title's role.
 *   **Auto suggest relevant keywords after each message:**
     *   **Function:** Enables or disables the automatic suggestion of relevant keywords.
     *   **Input Type:** Toggle switch.
@@ -2574,49 +2583,7 @@ This section allows users to configure the voice input settings.
 
 ### 3. Advanced Settings
 
-#### a. Internal Prompts
-
-The "Internal Prompts" allows users to manage and customize the underlying prompts used by TypingMind to perform automated tasks such as chat titling and conversation summarization.
-
-- Locate the "Settings" Icon → Navigate to Advanced Settings group → Click "Internal prompts"
-- The guide text "Manage internal prompts used by TypingMind in various features."
-
-##### Auto generate title for new chats
-
-This feature automatically assigns a name to a chat session based on the initial interaction, replacing the default "New Chat" or "(Untitled)" label.
-
-- **Toggle Switch:**
-    - **Purpose:** Enables or disables automatic chat titling.
-    - **Blue (Enabled):** The app will trigger a background request to an LLM to generate a title after the first user message is sent.
-    - **Gray (Disabled):** Chats will remain named "New Chat" until manually renamed by the user.
-- **Feature Description:** "Ask the AI assistant to generate a title based on the first message when starting a new chat. This will consume more tokens used in the first message. (All subsequent message tokens will not be affected)."
-- **Advanced Settings (Collapsible):**
-    - **Model for title generation:** select a model for title generation
-        - **Dropdown Menu:** Allows the user to select the specific AI model used for this task.
-        - **Default Value:**
-        - **Guidance Text:** "By default, the app will select an optimized model for title generation. You can override this setting here." (Note: Choosing "Auto" typically uses a fast, cost-effective model like GPT-4o-mini).
-    - **Instruction (Text Area):**
-        - **Purpose:** The system prompt used to tell the AI how to generate the title.
-        - **Visuals:** A multi-line text box with a scrollbar and a resize handle at the bottom right.
-        - Enter the **custom instruction** for chat title generation.
-- **Re-generate chat title:** To re-generate a chat title, open the specific chat, go to the top-right corner, and click the info (i) icon to view the chat details. Next to the chat title, you’ll find a small button to regenerate the title.
-
-##### Auto summarize long conversations
-
-This feature manages the "Context Window" by creating a condensed summary of past interactions when the model's context limit is reached, allowing the conversation to continue without the AI "forgetting" the beginning or failing due to token limits.
-
-- **Toggle Switch:**
-    - **Purpose:** Enables or disables the automatic summarization logic.
-    - **Blue (Enabled):** When the message history exceeds a certain threshold, TypingMind will summarize the older part of the chat and inject that summary into the context instead of the full raw history.
-- **Feature Description:** "Summarize older messages to keep the conversation within model context limits."
-- **Advanced Settings (Collapsible):**
-    - **Instruction (Text Area):**
-        - **Purpose:** Defines the specific persona and formatting instructions for the AI when performing a summarization task.
-        - **Visuals:** A multi-line text box with a scrollbar.
-        - Provide **Custom Instruction** for Context Summary
-        - **Functionality:** This instruction ensures that the summary captures key facts, decisions, and current state so that the LLM maintains "continuity" even after old messages are removed from its immediate memory buffer.
-
-#### b. Extensions
+#### a. Extensions
 
 The extensions allow users to inject Javascript extension to the apps.
 *   The guide text "Extensions allow you to load custom JavaScript into the application. This can be useful for adding custom functionality or integrating with other services."
@@ -2624,7 +2591,7 @@ The extensions allow users to inject Javascript extension to the apps.
 *   A prompt "Note: Extensions have full access to the application and can read and modify any data. Only install extensions from sources you trust.":
 *   Enter extension URL, click `install`.
 
-#### c. Proxy & Org ID
+#### b. Proxy & Org ID
 
 This section allows users to configure advanced network and proxy settings.
 *   OpenAI Chat Completions Endpoint (V1): Set up proxy. Can click on `Reset Default` to reset default value.
@@ -2640,64 +2607,26 @@ This section allows users to configure advanced network and proxy settings.
 
 TypingMind comes with a range of built-in plugins, each designed to extend the capabilities of the platform. Here is a detailed list:
 
-### 1. Provider tools (Web Search and Code Sandbox)
-Model Tools are native capabilities provided directly by AI model providers (OpenAI, Anthropic, and Google Gemini). Unlike standard plugins that use TypingMind's custom infrastructure or third-party APIs, these tools are executed within the model provider's own proprietary environment.
+### 1. Web Search
 
-#### Accessing Model Tools
+-   **Description:** Searches for information from the internet in real-time using Google Search.
+-   **Functionality:** Allows the AI to access up-to-date information from the web to answer user queries, provide context, or perform research.
+-   **Configuration:**
+    -   Requires a Google Custom Search Engine ID and API Key.
+    -   The overview tab provides two example query: `What's the gold price?`, and `How's the weather at HCMC at the moment?`.
+-   **Settings Tab:**
+    -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
+    -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"get_web_search_results"`.
+    -   `description`: `"Search for information from the internet using Google Search."`.
+    -   The `parameters` consists of properties such as `keyword`, `source` with `type`, and `description`.
 
-- **Navigation:** Click the "Plugins" icon in the far-left workspace sidebar.
-- **Organization:** In the Plugins management sidebar, look for a specific category titled "Model tools (2)".
-- **Default Tools:** This category currently contains the "Web Browser" and "Code Sandbox" tools.
+Beside Web Search, there are plugins that are using for searching purpose:
+- Web search using Serp API (provide more accurate data with structured data like snippets, ads, etc)
+- Perplexity search using Perplexity API
 
-#### Web Browser (Model Tool)
-
-The Web Browser tool enables the AI to browse the live internet to provide up-to-date answers that exceed its training data cutoff date.
-
-- **Functionality:** This tool gives the AI model direct access to web content, search engines, and specific URL retrieval.
-- **Provider-Specific Implementations:**
-    - **Google Gemini:** Uses the native "Google Search" and "URL Content" tools for real-time data retrieval.
-    - **OpenAI:** Utilizes the native "Web Browsing" tool (the same engine used in ChatGPT).
-    - **Anthropic:** Utilizes Anthropic’s built-in "Search" and "Web Fetch" tools.
-- **Costs and Performance:**
-    - Using this tool incurs additional token costs as defined by your model provider's pricing for tool usage and the length of the retrieved web text.
-    - Because these are native tools, they are typically faster and more integrated into the model's reasoning steps than standard third-party search plugins.
-
-#### Code Sandbox (Model Tool)
-
-The Code Sandbox is a native execution environment that allows the AI to write and run Python code to solve complex problems, perform data analysis, or process files.
-
-- **Purpose:** It provides a "think-and-execute" loop where the model can write code, run it, see the output or error messages, and iteratively fix the code until it reaches the correct answer.
-- **Security & Privacy:** The sandbox is provided natively by the AI provider (OpenAI, Anthropic, or Gemini). TypingMind does not execute this code on its own servers or your local device. Data is processed and stored temporarily in the provider's secure environment.
-
-#### Provider Capabilities for Code Sandbox:
-
-**OpenAI Implementation:**
-
-- **Capabilities:** Fully supports running Python code and generating output files (such as charts or processed documents).
-- **File Inputs:** Supports specific file types as input (limited to certain formats).
-- **Persistence:** Features a persistent container that lasts for approximately 20 minutes. This allows the AI to remember variables and reference files created in earlier steps of the same chat session.
-
-**Anthropic Implementation:**
-
-- **Capabilities:** Supports running Python code.
-- **Output Files:** Provides partial support for outputting data.
-- **Input & Persistence:** Does not currently support input files or persistent containers between steps.
-
-**Google Gemini Implementation:**
-
-- **Capabilities:** Supports running Python code and generating output files.
-- **Input & Persistence:** Does not currently support input files or persistent containers.
-
-#### Enabling and Managing Model Tools
-
-- **Global Toggle:** You can enable or disable these tools globally for your workspace within the Plugins menu.
-- **In-Chat Selection:** Use the "Plugin Selector" (the tool/wrench icon) located above the chat input field to enable or disable these tools for a specific conversation session.
-- **Compatibility Note:** If a model tool is enabled but you are using a model that does not support that specific provider's tool (for example, using an open-source model while OpenAI's Web Browser is selected), the tool will be ignored for that message.
-
-
-### 2. Built-in Plugin 
-
-#### 1. DALL-E 3
+### 2. DALL-E 3
 
 -   **Description:** Generates images using DALL-E 3 based on image descriptions. Adheres to guidelines such as English and avoiding specific content.
 -   **Functionality:** Allows users to create unique images directly from text prompts.
@@ -2718,7 +2647,7 @@ Other plugins to generate images:
 
 For native image generation (without using plugins), please consider using Gemini 2.5 Flash model. 
 
-#### 2. Simple Calculator
+### 3. Simple Calculator
 
 -   **Description:** Helps the AI assistant do math calculations more accurately.
 -   **Functionality:** Provides the AI with the ability to perform calculations, ensuring more precise and reliable answers to mathematical queries.
@@ -2730,7 +2659,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `expression` with `type`, and `description`.
     -   The overview tab provides two example query: `What is the total of 2 pi?`, and `What is 2*10?`.
 
-#### 3. Interactive Canvas
+### 4. Interactive Canvas
 
 -   **Description:** Renders an interactive canvas with HTML source to the user interface. The HTML source can include forms, games, visualizations, or any other interactive content.
 -   **Functionality:** Allows the AI to create dynamic and interactive experiences within the chat interface.
@@ -2742,7 +2671,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `htmlSource`, `canvasWidth`, and `canvasHeight` with `type`, and `description`.
     -   The overview tab provides three example query: `create a form with a text Input and a submit button`, `render a simple tictactoe game`, and `render a smiley face in SVG in the interactive canvas`.
 
-#### 4. Render Chart
+### 5. Render Chart
 
 -   **Description:** Generate a Chart.js chart.
 -   **Functionality:** Enables the AI to create and display various types of charts based on data provided in the prompt.
@@ -2754,7 +2683,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `chartType`, `title`, `data`, and `options` with `type`, and `description`.
     -   The overview tab provides two example query: `create a bar chart with the following data: labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"], data: [12, 19, 3, 5, 2, 3]`, and `render a pie chart with these categories: ["Electronics", "Fashion", "Home & Garden", "Toys", "Sports"], values: [25, 15, 20, 10, 30]`.
 
-#### 5. Perplexity Search
+### 6. Perplexity Search
 
 -   **Description:** Search for information from the internet using Perplexity.
 -   **Functionality:** Allows the AI to search for up-to-date information, providing different models.
@@ -2770,7 +2699,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `keyword` with `type`, and `description`.
     -   The overview tab provides two example query: `What's the gold price?`, and `How's the weather at HCMC at the moment?`.
 
-#### 6. Stable Diffusion v2 Image
+### 7. Stable Diffusion v2 Image
 
 -   **Description:** Generate images using Stable Diffusion based on a text description. Adhere to guidelines such as avoiding specific content.
 -   **Functionality:** Allows users to create images with clear instruction.
@@ -2786,7 +2715,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `prompt`, `width`, and `height` with `type`, and `description`.
     -   The overview tab provides three example query: `Create an image of a majestic lion standing proudly on a cliff overlooking a vast savanna at sunset.`, `Generate a vibrant cyberpunk cityscape illuminated by neon signs and bustling with activity.`, and `Draw a photorealistic portrait of a woman with fiery red hair and emerald green eyes.`.
 
-#### 7. Stable Diffusion v3 Image
+### 8. Stable Diffusion v3 Image
 
 -   **Description:** Generate images using Stable Diffusion v3 based on a text description. Adhere to guidelines such as avoiding specific content.
 -   **Functionality:** Allows users to create images with clear instruction.
@@ -2804,8 +2733,37 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `prompt` with `type`, and `description`.
     -   The overview tab provides three example query: `Create an image of a majestic lion standing proudly on a cliff overlooking a vast savanna at sunset.`, `Generate a vibrant cyberpunk cityscape illuminated by neon signs and bustling with activity.`, and `Draw a photorealistic portrait of a woman with fiery red hair and emerald green eyes.`.
 
+### 9. Image Search
 
-#### 8. Market News
+-   **Description:** Search for images from the internet in real-time using Google Search.
+-   **Functionality:** Allows the AI to access image data from the web with user queries, provide more details about the image.
+-   **Configuration:**
+    -   Requires a Google Custom Search Engine ID and API Key.
+-   **Settings Tab:**
+    -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
+    -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"search_images_via_google"`.
+    -   `description`: `"Search for images from the internet in real-time using Google Search."`.
+    -   The `parameters` consists of properties such as `keyword` with `type`, and `description`.
+    -   The overview tab provides one example query: `Show me a cute cat picture`.
+
+### 10. Web Page Reader
+
+-   **Description:** Read the text content from a web URL.
+-   **Functionality:** Read the text in the URL.
+-   **Configuration:**
+    - Requires Plugin Server.
+    -Important notes is displayed: `This plugin requires a plugin server to be set up. Learn how to set up a plugin server here (open-source)`. `Long web pages may results in long response and consume more tokens or exceed the maximum context length. This plugin is best used for short articles or blog posts.
+-   **Settings Tab:**
+    -  **Plugin Server (*):** A text input field to enter Plugin Server.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"read_web_page_content"`.
+    -   `description`: `"Read the content of a web page via its URL."`.
+    -   The `parameters` consists of properties such as `url` with `type`, and `description`.
+    -   The overview tab provides one example query: `summarise this article https://www.cnbc.com/2024/03/15/ceo-of-top-ocean-freight-carrier-hapag-lloyd-on-global-economy-demand.html`.
+
+### 11. Market News
 
 -   **Description:** Fetches market news articles from Alpha Vantage. This plugin automatically displays the fetched news.
 -   **Functionality:** Provides up-to-date financial information.
@@ -2819,7 +2777,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `searchMode`, `searchTerms`, `time_from`, `time_to`, `tickers`, and `topics` with `type`, and `description`.
     -   The overview tab provides three example query: `Give me market news about Apple stock`, `Show me the latest news about Bitcoin`, and `Give me news about the IPO and earnings in the finance sector from last week`.
 
-#### 9. Javascript Interpreter
+### 12. Javascript Interpreter
 
 -   **Description:** Execute a Javascript code snippet that evaluates to a readable value or a Promise. Use this function with caution.
 -   **Functionality:** Provides Javascript interpreter and run the code in the environment.
@@ -2831,7 +2789,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `code` with `type`, and `description`.
     -   The overview tab provides two example query: `Send a request to the GitHub public API`, and `What is the current time?`.
 
-#### 10. Mermaid Diagram
+### 13. Mermaid Diagram
 
 -   **Description:** Generate and render diagrams using the Mermaid.js library (version 10.x). This can be used to render various types of diagrams, including Flowchart, Sequence Diagram, Class Diagram, etc..
 -   **Functionality:** Generate diagrams.
@@ -2843,7 +2801,7 @@ For native image generation (without using plugins), please consider using Gemin
     -   The `parameters` consists of properties such as `title`, and `source` with `type`, and `description`.
     -   The overview tab provides two example query: `render a state diagram of a simple traffic light system`, and `render a sequence diagram of a simple message exchange`.
 
-#### 11. Azure AI Search (Cognitive Search)
+### 14. Azure AI Search (Cognitive Search)
 
 -   **Description:** This plugin connects TypingMind to your training data in Azure AI Search (Cognitive Search).
 -   **Functionality:** Azure AI Search the internal training data for relevant information
@@ -2865,7 +2823,7 @@ For native image generation (without using plugins), please consider using Gemin
 
 Related plugins: use OpenAI File Search if you want to connect your training data in OpenAI to TypingMind
 
-#### 12. Slack Webhook Message Notifier (OAuth)
+### 15. Slack Webhook Message Notifier (OAuth)
 
 -   **Description:** This function sends an authorized user's message to a specific Slack channel via an HTTP action.
 -   **Functionality:** It sends user's message to a Slack channel.
@@ -2880,7 +2838,7 @@ Related plugins: use OpenAI File Search if you want to connect your training dat
     -   `description`: `"This function sends a message to a Slack channel via an incoming webhook"`.
     -   The `parameters` consists of properties such as `message` with `type`, and `description`.
 
-#### 13. Google Calendar (OAuth)
+### 16. Google Calendar (OAuth)
 
 -   **Description:** Return the next 10 events in the current user Google's calendar starting from a specific time.
 -   **Functionality:** Return the events from Google Calendar
@@ -2903,7 +2861,7 @@ Related plugins: use OpenAI File Search if you want to connect your training dat
     -   The `parameters` consists of properties such as `timeMin` and `timeMax` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the GET method.
 
-#### 14. Read Web Page (Firecrawl)
+### 17. Read Web Page (Firecrawl)
 
 -   **Description:** Retrieves the content of a web page by scraping it using the Firecrawl API.
 -   **Functionality:** Firecrawl Web Page.
@@ -2921,7 +2879,60 @@ Related plugins: use OpenAI File Search if you want to connect your training dat
     -   The `parameters` consists of properties such as `pageUrl` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
 
-#### 15. Extract Web Page (Firecrawl)
+### 18. Send email with Zapier
+
+-   **Description:** This plugin allows the AI assistant send email to specific email addresses with custom subject and content using Webhook by Zapier.
+-   **Functionality:** Send email.
+-   **Important Notes:** This plugin requires a webhook URL from Zapier.
+-   **Settings Tab**
+    - A text input field to enter Zapier webhooks, name :Webhooks URL (*)
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"send_email_with_zapier"`.
+    -   `description`: `"Send an email to a specific email address with title and text content using Zapier webhook."`.
+    -   The `parameters` consists of properties such as `email`, `subject`, and `content` with `type`, and `description`.
+-   **HTTP Action Tab:** The tab shows the POST method.
+
+### 19. PowerPoint Generator
+
+-   **Description:** Generate a PowerPoint file and return the URL for downloading it.
+-   **Functionality:** Generate a PowerPoint file.
+-   **Configuration:** No API Keys needed, Requires a plugin server.
+-   Settings Tab
+    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
+    - **Slide Layout** (Dropdown. Default: LAYOUT\_WIDE).
+    - **Title Font Size** ( A textbox here)
+    - **Header Font Size** ( A textbox here)
+    - **Body Font Size** ( A textbox here)
+    - **Font Family** (Dropdown. Default: Calibri)
+    - **Background Color** ( A textbox here)
+    - **How to Deploy Plugins Server on Render**.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"generate_powerpoint_file"`.
+    -   `description`: `"Generate a PowerPoint file and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key"`.
+    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
+-   **HTTP Action Tab:** The tab shows the POST method.
+
+### 20. Word Generator
+
+-   **Description:** Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key.
+-   **Functionality:** Generate a Word document
+-   **Configuration:** No API Keys needed, Requires a plugin server.
+-   Settings Tab
+    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
+    It Supports:
+         -Multiple sections with hierarchical numbering format.
+         -Adding header, footer, and page number.
+         -Adding table.
+         -Adding list with bullet points.
+         -Adding table of content.
+         -Adding page break.
+-   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
+    -   `name`: `"generate_word_file"`.
+    -   `description`: `"Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key."`.
+    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
+-   **HTTP Action Tab:** The tab shows the POST method.
+
+### 19. Extract Web Page (Firecrawl)
 
 -   **Description:**A plugin to extract information from a web page using Firecrawl Extract API.
 
@@ -2936,7 +2947,7 @@ This plugin returns much more concise results compared to reading the whole web 
 -   **Important Notes:** There are rate limits for API requests depending on different pricing plans.
 -   **Functions** tab: display the function using for the plugin, click to Edit the plugin to view the full source code in Javascript.
 
-#### 16. Deep Research
+### 20. Deep Research
 - **Description:** The Deep Research plugin is designed to perform comprehensive research on a specific topic, compile a detailed final report, and can optionally draft a research plan, search the web, and read web pages. This plugin is particularly useful for users needing in-depth information synthesis from multiple online sources.
 - **Functionality:**
     - Conducts web searches using Serp API.
@@ -2979,7 +2990,7 @@ This plugin returns much more concise results compared to reading the whole web 
     -   Users are advised to **monitor token usage closely** to manage costs.
     -   To enhance token efficiency, users can modify the plugin by adding their own optimized tools for web searches and reading web pages, potentially integrating more selective data extraction methods.
 
-#### 17. OpenAI File Search
+### 21. OpenAI File Search
 
 -   **Description:** This plugin enables your system to search internal training data using the OpenAI File Search tool. It retrieves relevant information from a knowledge base of files you've uploaded.
 -   **How to Use:** When the user asks the AI a question but the AI does not have the answer, the AI will query the training data in your OpenAI vector store to find the answer. Sometimes, you need to ask the AI to specifically search from the training data if the AI does not do it automatically.
@@ -2997,7 +3008,7 @@ This plugin returns much more concise results compared to reading the whole web 
     -   `description`: `"Search the internal training data for relevant information. Use this function when the user's question falls outside of the assistant's immediate knowledge. Provide specific keywords or topics (not complete questions) to retrieve the best search results."`.
     -   **HTTP Method:** `POST`.
 
-#### 18. Web Search (Serp)
+### 22. Web Search (Serp)
 
 -   **Description:** This plugin allows the AI assistant to search for information from the internet in real-time using Google Search (via SerpApi).
 -   **Usage Instructions:** A yellow warning box indicates "Serp API Key needed. Click the Settings tab and enter your Serp API Key. To get your API Key, create a Serp account."
@@ -3010,7 +3021,7 @@ This plugin returns much more concise results compared to reading the whole web 
     -   `name`: `"search_via_serpapi"`.
     -   `description`: `"Search for information from the internet in real-time using Google Search via SerpApi."`.
 
-#### 19. Todo List
+### 23. Todo List
 
 -   **Description:** A tool to help AI plan and keep track of long-running tasks more efficiently. This tool is most useful when combined with other tools for deep research and reasoning.
 -   **Settings Tab:** No settings.
@@ -3018,7 +3029,7 @@ This plugin returns much more concise results compared to reading the whole web 
     -   `name`: `"todo_write"`.
     -   `description`: `"A tool to help AI plan and keep track of long-running tasks more efficiently."`.
 
-#### 20. Generate Image Grok
+### 24. Generate Image Grok
 
 -   **Description:** A TypingMind plugin that generates high-quality images using xAI's Grok image generation model.
 -   **Overview:** This plugin integrates xAI's powerful Grok image generation capabilities directly into TypingMind, allowing you to create stunning images from text descriptions with simple natural language commands.
@@ -3035,26 +3046,6 @@ This plugin returns much more concise results compared to reading the whole web 
 -   **Functions tab:** Display `generate_image_grok`.
     -   `name`: `"generate_image_grok"`.
     -   `description`: `"Generate images using xAI's Grok image generation model based on text descriptions."`.
-
-#### 21. GPT Image Editor
-
--   **Description:** A TypingMind plugin that allows for generating new images or editing existing ones using OpenAI's state-of-the-art image generation models.
--   **Overview:** This plugin integrates OpenAI's powerful GPT Image generation and editing capabilities directly into TypingMind. It enables users to create high-quality visuals from text prompts or modify existing images by providing an attachment and specific instructions.
--   **Get your OpenAI API Key:** Instructions to obtain an API key:
-    -   Visit `https://platform.openai.com/account/api-keys`.
-    -   Sign up or log in to your OpenAI platform account.
-    -   Generate a new secret API key.
--   **Example Usages:**
-    -   `"Generate a picture of a cat"`
-    -   `"[Image Attachment] Add a hat to this cat"`
--   **Settings Tab:**
-    -   **OpenAI API Key (Required) (*):** A text input field to enter the OpenAI API Key. The text underneath states: "The images will be generated using this OpenAI API. Get your API key from `https://platform.openai.com/account/api-keys`".
-    -   **Model:** A dropdown menu to select the specific generation engine. Options include: `(Default)`, `gpt-image-1`, `gpt-image-1.5`, and `gpt-image-2`.
-    -   **Resolution:** A dropdown menu to define the image dimensions. Options include: `(Default)`, `auto`, `1024x1024`, `1536x1024`, and `1024x1536`.
-    -   **Quality:** A dropdown menu to control the level of detail and processing. Options include: `(Default)`, `auto`, `high`, `medium`, and `low`.
--   **Functions tab:** Display `gpt_image_editor`.
-    -   **name:** `"gpt_image_editor"`.
-    -   **description:** `"Generate or edit an image with OpenAI's state-of-the-art image generation model GPT Image."`.
 
 </PLUGINS_BUILT_IN>
 
@@ -7033,73 +7024,82 @@ The main section of the interface displays a table of audit log entries, with ea
 </ADMIN_PANEL_AUDIT_LOGS>
 
 <ADMIN_PANEL_BILLING>
-The Billing section in the TypingMind for Teams Admin Panel provides a centralized hub for managing subscriptions, scaling user capacity, and increasing knowledge base training limits. It features a streamlined interface for making real-time adjustments to plan tiers and add-ons.
 
-### 1. Accessing Billing
+The "Billing" section in the Admin Panel allows administrators to manage their TypingMind for Teams subscription, payment information, and add-ons.
 
-1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin account.
-2. **Locate the "Account" Category:** In the left sidebar navigation, click on the "Account" dropdown.
-3. **Click "Billing":** This opens the main Billing management interface.
+### Accessing the Billing Section
 
-### 2. Billing Overview Interface
+1. **Navigate to the Admin Dashboard:** Log in to your TypingMind for Teams Admin Account.
+2. **Locate the "Account" Category:** In the left sidebar, click on the "Account" dropdown to expand the category.
+3. **Click the "Billing" Link:** Click on the "Billing" link within the "Account" category. This will open the Billing management interface.
 
-The main dashboard provides an at-a-glance summary of the current workspace status.
+### Billing Interface Overview
 
-- **Subscriptions Header Section:**
-    - **PLAN:** Displays the current active plan tier (e.g., "Pro"). Includes a "Change plan →" shortcut link.
-    - **SEAT LIMIT:** Displays the current maximum number of users allowed in the workspace (e.g., "5 seats"). Includes an "Add more seats →" shortcut link.
-    - **TRAINING DATA LIMIT:** Displays the current character limit for the Knowledge Base (e.g., "1M chars"). Includes an "Add more data →" shortcut link.
-- **Current Status Card:**
-    - **Status Badge:** A blue label indicating the current status (e.g., "Trailing" for trial periods).
-    - **Plan Details:** Displays the plan name and any applied modifiers (e.g., "Pro Plan", "Discount applied").
-    - **Billing Cycle Info:** Text showing the next billing date or trial expiration date (e.g., "Billed monthly - Free trial until May 12, 2026").
-    - **Cost Preview:** Displays the current recurring cost per cycle on the far right (e.g., "$299/month").
-- **Action Buttons:**
-    - **Update Plan / Add-ons:** Opens the unified configuration dialog to adjust the plan tier, seats, or training data.
-    - **Manage Billing:** Redirects to the Stripe Customer Portal for managing payment methods, viewing invoice history, and updating tax/billing addresses.
-- **Past / Inactive Subscriptions:** A collapsible section at the bottom that lists previous plans or canceled add-ons.
+The Billing interface is organized to provide a clear overview of the current subscription, add-ons, and options for managing payment information.  It includes the following key sections:
 
-### 3. Update Plan & Add-ons Dialog
+- **Page Title:** "Billing" (clearly indicates the page's purpose)
+- **Page Description:** "Manage your payment info and subscriptions" (explains the functionality of the section.
 
-Clicking "Update Plan / Add-ons" (or any of the shortcut links) triggers a modal window that allows for granular configuration of the workspace resources.
+**Subscriptions Section:**
 
-### Plan and Billing Configuration
+- **Heading:** "Subscriptions" (clearly labels the section)
+- **Current Plan:** Displays the name of the current subscription plan (e.g., "Your instance is on the **Pro** plan.").
+- **Plan Status Indicators:** Visual indicators (colored labels) show the status of different subscription components:
+    - **"Active" (Green):** Indicates an active and paid-for subscription or add-on.
+    - **"Canceled" (Gray):** Indicates a canceled subscription or add-on.
+    - **"Ended on [Date]"**: Indicates when subscription has ended.
+    - **“Expired”** indicates when subscription has expired
+    
+    **Subscription display:**
+    
+    - Your current plan name
+    - Your current plan subscription
+    - Your current Add-ons including Add Seat and Training Characters.
+    - **"Manage Billing" Button (Blue):** A prominent button allowing administrators to access the Stripe billing portal for detailed management.
+        - **Functionality:** Clicking this button opens a new tab or window, redirecting the user to the Stripe customer portal.
+        - **Stripe Portal Actions:** Within the Stripe portal, administrators can:
+            - Update or Cancel current subscription
+            - Update Payment Method: Add, remove, or update credit card information.
+            - View Billing Information: Access name and email details associated with the billing account.
+            - View Invoice History: See a list of past invoices, with options to download them as PDFs.
+            - Update information such as Name or Email.
 
-- **Plan Selection Dropdown:** Allows the Admin to switch between available subscription tiers (e.g., "Professional Plan ($299/month)").
-- **Billing Frequency Toggle:** Two buttons to switch between "Monthly" and "Yearly" billing.
-    - **Yearly Benefit:** Selecting "Yearly" typically updates the prices to reflect a discounted annual rate (e.g., plan price changes from monthly to a single annual sum like $2,990/year).
+**Add-on: Extra Seats: $8/user seat/month**
 
-### Add-ons Management
+- **Heading:** "Addon: Extra Seats" (identifies the add-on type)
+- **Current Seat Limit:** Displays the current maximum number of users allowed for the instance (e.g., "Your instance seat limit is: **5** seats.").
+- **"Buy More Seats" Button (Blue):** Allows administrators to purchase additional user seats.
+    - **Clicking "Buy More Seats":** Opens a popup dialog:
+        - **Title:** "Buy More Seats"
+        - **"Extra seats to add:" Field:** A numeric input field allows the administrator to specify the number of extra seats they want to purchase.
+            - Input Value: Typing in a numeric value.
+            - Up/Down Arrows: Increment or decrement the value using arrow controls.
+        - **"Cost" Information:** Displays the cost per extra seat (e.g., "$8/seat/month").
+        - **"Summary" Section:** Provides a summary of the purchase:
+            - **Extra seats:** The number of seats being added.
+            - **Total seats:** The new total number of seats after the purchase.
+            - **Total cost:** The updated total monthly cost.
+        - **"Checkout" Button (Blue):** Proceeds to the Stripe checkout process to complete the purchase.
+        - **"Cancel" Button:** Closes the dialog without purchasing additional seats.
 
-- **Seats add-on: ($8/seat/month)**
-    - **Purpose:** Increase the number of team members who can access the workspace.
-    - **Toggle:** A checkbox on the right to enable/disable the add-on.
-    - **Counter:** A + / - input field to specify the exact number of extra seats.
-    - **Dynamic Pricing:** Displays the cost per seat and the total calculated cost for the selected quantity (e.g., "80/year" per seat).
-- **Training data add-on: ($10/1M training characters)**
-    - **Purpose:** Expand the character limit for the Knowledge Base (RAG).
-    - **Unit Description:** "Each unit adds 1 million more training data characters."
-    - **Toggle:** A checkbox on the right to enable/disable the add-on.
-    - **Counter:** A + / - input field to specify the number of 1M-character units.
-    - **Dynamic Pricing:** Displays the cost per unit and the total calculated cost (e.g., "100/year" per 1M characters).
+**Add-on: Training Data Characters: $10/1M Training Characters/Month**
 
-### 4. Update Summary & Confirmation
+- **Heading:** "Addon: Training Data Characters" (identifies the add-on type)
+- **Current Character Limit:** Displays the current limit for training data characters (e.g., "Your training data limit is: **1,000,000** characters.").
+- **"Increase Characters Limit" Button (Blue):** Allows administrators to purchase additional training data characters.
+- **Clicking "Increase Characters Limit":** Opens a popup dialog:
+    - **Title:** "Buy More Training Data Characters"
+    - **"Extra characters to add:" Field:** A dropdown allowing the user to select an option for the amount of characters:
+        - Input Value: Typing in a numeric value.
+        - Dropdown menu: Admins can choose from a list of increments (e.g., 1M characters, 2M characters, 5M characters, ..., to 50M characters).
+    - **"Cost" Information:** Displays the cost per extra character (e.g., "$10/1M characters/month").
+    - **"Summary" Section:** Provides a summary of the purchase:
+        - **Total training data characters:** The new total number of training data characters after the purchase.
+        - **Total cost:** The updated total monthly cost.
+    - **"Checkout" Button (Blue):** Proceeds to the Stripe checkout process to complete the purchase.
+    - **"Cancel" Button:** Closes the dialog without purchasing additional characters.
 
-After clicking **"Continue"** in the configuration dialog, a final summary screen appears before changes are applied.
-
-- **Title:** "Update summary"
-- **Cycle Indicator:** Shows the plan name and chosen frequency (e.g., "Professional Plan - Billed monthly").
-- **Line Item Breakdown:**
-    - **Plan Tier:** Shows the base price of the selected plan.
-    - **Add-on: Seats:** Shows the recurring cost for the additional seats.
-    - **Add-on: Training Data:** Shows the recurring cost for the additional character units.
-- **Total per billing cycle:** The final calculated sum to be charged periodically.
-- **Trial Notice:** If the workspace is currently in a free trial, a notice specifies: "You are currently on a free trial. The updated amount will be charged at the end of your current trial period on [Date]".
-- **Final Actions:**
-    - **Back:** Returns to the previous configuration screen.
-    - **Update subscription:** Commits the changes. If immediate payment is required, this may trigger a Paddle checkout; otherwise, it updates the upcoming invoice.
-
-### **Danger Zone:**
+**Danger Zone:**
 
 - **Heading:** "Danger Zone" (clearly indicates the potential for irreversible actions).
 - **"Delete This Instance" Button (Red):** Allows administrators to permanently delete the entire team chat instance.
@@ -7889,13 +7889,11 @@ TypingMind places a high priority on data privacy and security for its users, pa
 
 <MODEL_CONTEXT_PROTOCOL>
 
-## Model Context Protocol (MCP) 
+## Model Context Protocol (MCP)
 
 Model Context Protocol (MCP) is a [**standard protocol](https://modelcontextprotocol.io/)** created by Anthropic to allow LLMs to connect with external tools and services.
 
 TypingMind supports connecting to all MCP servers that follow the standard protocol. You can connect TypingMind to remote MCP servers via streaming HTTP or servers that run locally via a terminal command like `npx`, `uvx`, or Docker.
-
-Each MCP server setup can be considered as a plugin on TypingMind where you can easily enable/disbale and manage tools.
 
 Some available MCP Servers: https://github.com/modelcontextprotocol/servers
 
