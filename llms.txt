@@ -167,7 +167,7 @@ TypingMind offers a lifetime license with three tiers:
 
 - **Standard:** $39 (Basic Features, Unlock AI Agents, Voice Input, Share Chats, Remove Ads/Popups)
 - **Extended:** $79 (Image Generation, Web Search, Text-to-Speech / Vision / Images, Upload Documents)
-- **Premium:** $99 (Unlimited Plugins and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
+- **Premium:** $99 (Unlimited Plugins, and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
 
 There is also a "TypingMind for Teams" option for building custom AI chat portals for teams.
 
