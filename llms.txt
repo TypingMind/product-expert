@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-11-25T14:00:00.000Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2026-10-07T00:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -37,7 +37,7 @@ This document contains a publicly accessible product knowledge map in a structur
 Here's an in-depth look at TypingMind's features:
 
 - **Multi AI Chat Models:**
-    - Support 20+ providers natively including: OpenAI, Anthropic, Google, OpenRouter, xAI, DeepSeek, Mistral, Moonshot, Z.AI, Groq, Perplexity, Fireworks AI, DeepInfra, Vercel AI Gateway, Chutes, Alibaba Cloud, MiniMax, Xiaomi, Novita, OpenCode Go, Ollama Cloud and Sakana (and more).
+    - Support 20+ providers natively including: OpenAI, Anthropic, Google, OpenRouter, xAI, DeepSeek, Mistral, Moonshot, Z.AI, Groq, Perplexity, Fireworks AI, DeepInfra, Vercel AI Gateway, Chutes, Alibaba Cloud, MiniMax, Xiaomi, Novita, OpenCode Go, Ollama Cloud, Meta and Sakana (and more).
     - Enables seamless switching between models within the same chat interface.
     - Allows users to compare the performance of different models on the same task.
 - **No Monthly Fee, No Usage Limit:**
@@ -60,7 +60,7 @@ Here's an in-depth look at TypingMind's features:
     - Enables voice input for hands-free interaction with AI.
     - Supports multi-language text-to-speech for receiving AI responses in various languages.
     - Offers customizable voice options and settings.
-- **Web Search, Vision, DALL-E:**
+- **Web Search, Vision, GPT-Image, Nano Banana:**
     - Integrates web search functionality to access real-time information from the internet within the chat interface.
     - Supports image analysis through AI vision capabilities, allowing the AI to understand and respond to images.
     - Enables image generation using DALL-E, allowing users to create images from text descriptions.
@@ -69,10 +69,12 @@ Here's an in-depth look at TypingMind's features:
         - Temperature (influences the randomness of the AI's responses)
         - Streaming (enables real-time streaming of AI responses)
     - Provides granular control over the AI's behavior and output.
-- **Use Unlimited Plugins:**
-    - Supports a wide range of plugins that extend the platform's functionality.
-    - Allows users to explore and install plugins from a plugin marketplace (coming soon).
-    - Enables users to build their own custom plugins to integrate with other applications or services.
+- **Plugins, Skills, and MCP Tools:**
+    - Extend the AI's capabilities with plugins, reusable skills, and connected MCP tools.
+    - Browse and install available integrations from the Plugins section.
+    - Import or create custom plugins to connect additional applications and services.
+    - Enable tools for individual chats or assign plugins to AI agents.
+    - Save combinations of plugins, skills, and MCP servers as named Plugin Presets.
 - **Upload Documents:**
     - Allows users to upload documents (e.g., PDF, DOCX) and ask the AI questions about their content.
     - Enables the AI to extract information, summarize, or analyze the uploaded documents.
@@ -101,6 +103,19 @@ Here's an in-depth look at TypingMind's features:
     - Enable any plugins for the AI such as Web Search, DALL-E 3, and more.
 - **Mention other AI agents in the chat:**
     - Call other AI agents for help in the same conversation.
+- **Memory:**
+    - Lets the AI remember facts and notes about you, your preferences and the way you work across chats, so you don't have to repeat yourself in every new chat.
+    - Three scopes: Global memory (every chat), Agent scoped memory (private to each AI agent) and Project scoped memory (private to each project folder).
+    - Manage it from the **Memory** icon in the workspace sidebar (tabs: Saved Memories and Settings). See the MEMORY_FEATURE section.
+- **Temporary Chat:**
+    - Quick conversations that are not saved to chat history, useful for testing ideas and one-off queries. Also available when chatting with AI agents.
+    - Started with the dashed speech-bubble icon in the top-right corner of the chat area (tooltip "Temporary chat", shortcut ⌘⌥T on Mac).
+- **Plugin Presets:**
+    - Save favorite plugins, skills and MCP servers into named presets (e.g., Frequently Used, Coding, Support, Sales, Research) and switch between them with one click.
+    - Includes plugin search, a "disable all plugins" action, and export/import of presets across devices.
+    - Found in the Plugins popup (the plugin button above the message input field), where the **New preset** button creates a preset.
+- **Side Chat ("Ask..."):**
+    - Highlight text inside a chat and choose **Ask...** to open a side chat about that selection. The model used by the side chat can be chosen in a setting or directly from the side chat popup. You can select a model for side-chat as you prefer.
 
 ## 3. Additional Details
 
@@ -138,23 +153,48 @@ Here's an in-depth look at TypingMind's features:
 **Integrations:**
 
 - **MacOS App (PWA):** Progressive Web App for macOS.
-- **Web Search & Live Data:** Access real-time information from the web.
+- **Web Search & Live Data:** Access real-time information from the web (Google, Kagi, Brave).
+- **MCP Servers:** Connect external tools and services (Figma, GitHub, GitLab, Redis, Make, Apify and more).
+- **Knowledge Base Sources:** GitHub, Notion, Google Drive.
 - **Search Keyword Suggestions:** Get suggestions for search keywords.
 - **Domain Check Integration:** Integrate with domain checking services.
 - **CodePen Integration:** Integrate with CodePen.
+- **Speech:** ElevenLabs and OpenAI text-to-speech; Azure Whisper, Groq Whisper or local Whisper for speech-to-text.
 
 ## 4. Plugins
 
 TypingMind offers a variety of plugins to extend its functionality:
-
-- **Web Search:** Search the internet using Google Search.
+ 
+- **Web Browser**: search the Internet for latest information.
+- **Code Sandbox**: code execution tool that enables the model to generate and run Python code. The model can then learn iteratively from the code execution results until it arrives at a final output.
 - **Perplexity Search:** Search for information from the internet using Perplexity.
+- **Deep Research:** Plan, search, extract and verify sources, then generate a detailed research report.
+- **GPT Image Editor (GPT Image 2.5):** Generate and edit images. It can edit any image available in the current chat, not only images in the latest message; the AI selects the relevant images automatically. Quality options include xhigh and max, with 4K landscape (3840x2160) and portrait (2160x3840) resolutions.
 - **DALL-E 3:** Generate images using DALL-E 3 based on image descriptions.
 - **Stable Diffusion v3 Image:** Generate images using Stable Diffusion v3 based on a text description.
 - **Image Search:** Search for images from the internet using Google Search.
-- **Interactive Canvas:** Render an interactive canvas with HTML source to the user interface.
+- **Interactive Canvas (Artifacts) / Web App Builder:** Render interactive canvases and web apps from HTML source in the interface. They can use images directly from the chat, and images shown inside an artifact are included when the artifact is shared.
+- **Render Chart:** Visualize data by rendering charts.
+- **Render HTML:** Render custom HTML content.
+- **Mermaid Diagram:** Generate diagrams using Mermaid.js.
 - **Web Page Reader:** Read the content of a web page via its URL.
-- **Any Custom Plugins:** Create your plugins such as Azure AI Search, Sound Effect Generator, and more.
+- **Firecrawl Web Page Reader:** Retrieve web page content using Firecrawl.
+- **JavaScript Interpreter:** Run JavaScript code snippets.
+- **Simple Calculator:** Perform quick calculations.
+- **Market News:** Get the latest market news and trends.
+- **Slack Message Notifier:** Send Slack notifications.
+- **Azure AI Search:** Search with Azure AI-powered search.
+- **Zapier:** Integrate workflows across popular services.
+- **Any Custom Plugins:** Create your own plugins such as Sound Effect Generator and more.
+ 
+**Plugin developer notes (for custom plugins):**
+- Plugins can receive chat files using the `typingmind-attachment` parameter type together with the `read_chat_attachments` permission.
+- Image cards support an `image.filename` field; base64 images returned by cards are saved automatically as chat files.
+- Chat files can be referenced in plugin output as `tm-attachment://<id>` (HTML) or `#tm-attachment:<id>` (Markdown).
+- For GitHub-hosted plugins, JavaScript functions can be stored in separate files with the `codeFile` field.
+- `previousRunOutput` does not include output from `respond_to_ai`.
+- Importing a plugin from a private GitHub repository uses the `main` branch by default.
+ 
 
 ## 5. Pricing
 
@@ -162,9 +202,9 @@ TypingMind offers a lifetime license with three tiers:
 
 - **Standard:** $39 (Basic Features, Unlock AI Agents, Voice Input, Share Chats, Remove Ads/Popups)
 - **Extended:** $79 (Image Generation, Web Search, Text-to-Speech / Vision / Images, Upload Documents)
-- **Premium:** $99 (Unlimited Plugins, and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
+- **Premium-currently at 50% OFF** $99 (Multi-model Parallel chats, Unlimited Plugins, and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
 
-There is also a "TypingMind for Teams" option for building custom AI chat portals for teams.
+There is also a "TypingMind Teams" option for building custom AI chat portals for teams.
 
 ## 6. Security
 
@@ -196,6 +236,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
     - **Plugins:** Navigates to the Plugin Marketplace/Management.
     - **Models:** Navigates to model and API keys management
     - **KB:** Navigates to Knowledge Base management.
+    - **Memory:** Navigates to Memory management (Saved Memories and Settings tabs).
     - **Teams:** Navigates to team management features
     - **Settings:** Navigates to the application settings.
 - **Chat List:** Occupies the majority of the sidebar space. It displays a list of recent chats and chat folders.
@@ -214,19 +255,17 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 - **Top Bar:**
     - **Back Arrow:** Navigates back to the chat list (only visible when a chat is open).
     - **Chat-Specific Action Icons (Left to Right):**
-        - **Minimap:** Toggles a minimap view of the conversation. Icon looks like search icon. This also allows you to search a specific message within a chat.
+        - **Search in chat:** Magnifying glass icon. Toggles a minimap view of the conversation and lets you search for a specific message within the chat.
         - **Share:** Opens the chat sharing options popup. Icon is a standard share symbol.
-        - **Reset Chat (⌘⇧R):** Clears the current chat history. Icon is often a refresh or circular arrow. Tooltip shows the keyboard shortcut.
-        - **Clear Context (⌘⇧J):** Resets the AI's memory without deleting messages. Icon might be a broom or eraser. Tooltip shows the keyboard shortcut.
-    - **Cost Indicator:** Shows the estimated cost for the current session (e.g., "$0.0016").
+        - **Reset Chat:** Clears the current chat history. Icon is an arrow. Tooltip shows the keyboard shortcut (⌘⌥R).
+        - **Clear Context:** Resets the AI's memory without deleting messages. Icon is an eraser. Tooltip shows the keyboard shortcut (⌘⌥J).
+        - **Toggle select mode:** Checklist icon. Switches the chat into a mode for selecting multiple messages.
+    - **Cost Indicator:** Shows the estimated cost for the current session (e.g., "$0.2436") with an (i) icon that explains the cost.
     - **Profile Icon (Top Right):** Displays the current user's profile icon/avatar, likely providing access to profile switching or settings.
-    - **More Actions (Three Dots Icon - Top Right):** --> Opens a dropdown menu containing additional chat-level actions:
-        - **Minimap:** (Duplicate access) Toggles the minimap view.
-        - **Share (⌘S):** (Duplicate access) Opens sharing options. Includes pin/unpin action button (bell icon).
-        - **Reset chat (⌘⇧R):** (Duplicate access) Clears chat history. Includes pin/unpin action button (bell icon).
-        - **Clear context (⌘⇧J):** (Duplicate access) Resets AI memory. Includes pin/unpin action button (bell icon).
-        - **About this chat:** Opens the Chat Info dialog (showing tokens, model, timestamps, etc.). Includes pin/unpin action button (bell icon).
-        - **Pin/Unpin Action Buttons (Bell Icons):** Small bell icons next to each action in the dropdown allow pinning/unpinning these specific actions to/from the main top bar for quicker access.
+    - **More Actions (Chevron Button - Top Right):** Opens a dropdown menu containing the chat-level actions:
+        - **Search in chat**, **Share (⌘⌥S)**, **Reset chat (⌘⌥R)**, **Clear context (⌘⌥J)**, **Toggle select mode** (some items have an (i) icon that explains the action).
+        - **About this chat:** Opens the chat info as a **side panel** on the right, so the conversation stays visible (easier to view artifacts on both desktop and mobile). The panel has four tabs: **Details**, **Files**, **Settings** and **History**, and a close (X) button at the top right.
+        - **Pin icon:** Each item has a pin icon on its right. Clicking it pins or unpins that action on the main top bar for quicker access.
 - **Chat Message Display Area:** Shows the conversation history between the user and the AI.
 - **Model and Plugin Selection Bar (Above Input Field):**
     - **Model Selector:** Dropdown to choose the active AI model(s).
@@ -325,12 +364,43 @@ If a model is available via multiple providers (e.g., Llama 3 via Groq vs. Llama
             - Includes a pin/unpin bell icon.
     - **Pin/Unpin Action Buttons (Bell Icons):**
         - **Function:** Clicking the bell icon next to an action in the dropdown menu toggles its visibility as a direct icon in the main top bar. Pinned actions appear directly in the top bar; unpinned actions are only accessible via the dropdown.
+- **About this chat:** Opens the chat info as a **side panel** on the right, so the conversation stays visible (easier to view artifacts on both desktop and mobile). The panel has four tabs: **Details** - view token usage and estimated cost, **Files** - manage and download uploaded/generated files in chat, **Settings** and **History**, and a close (X) button at the top right. Each item in the More Actions menu has a pin icon on the right to pin or unpin it on the top bar.
 
-### Model and Plugin Selection Bar
+### Model Selector
 
 - **Placement:** Directly above the message input field.
-- **Components:** Model Selector dropdown, Plugin Selector button/indicator.
-- **Functionality:** Select AI model(s), manage enabled plugins for the current chat session. (See previous description for popup details).
+- **Components:** Model Selector dropdown
+- **Functionality:** Select AI model(s) for the current chat session. (See previous description for popup details).
+
+### Plugin Selector (Plugins popup)
+
+- **Placement:** In the Model and Plugin Selection Bar above the message input field, to the right of the model selector. The button shows small round icons of the enabled plugins/tools, a count such as "+1" and a dropdown chevron.
+- **Function:** Click the button to open the Plugins popup, where the plugins, tools and presets of the current chat are managed.
+- **Popup contents (top to bottom):**
+    - **Search Bar:** Placeholder "Search". Filters presets, tools, MCP servers and plugins by name. For example, typing "web" lists Web App Builder, Jina Web Reader, Web Search, Web Search (Serp), Jina Web Search, Extract Web Page and Read Web Page (Firecrawl). A clear "x" button appears while searching, and results are grouped under a header with a count (e.g., "Plugins (10)").
+    - **"Disable all plugins" Button:** A round minus icon to the right of the search bar. Tooltip: "Disable all plugins". Turns off every enabled plugin, tool and MCP server in one click.
+    - **"New preset" Button:** A square plus icon to the right of the minus icon. Tooltip: "New preset". Opens the "New plugin preset" dialog.
+    - **Presets Section:** A collapsible group labeled "Presets (N)". Each preset row shows an icon, the preset name, small icons of the items it contains with a "+N" count, a blue check mark and a pencil icon.
+    - **Model tools Section:** A collapsible group labeled "Model tools (N)" with built-in provider tools such as Web Browser and Code Sandbox, each with an on/off toggle.
+    - **MCP Section:** A collapsible group labeled "MCP (N)" with the connected MCP servers (e.g., Firecrawl, Notion, GitHub), each with an on/off toggle.
+    - **Plugins Section:** A collapsible group labeled "Plugins (N)" with the installed plugins, each with an on/off toggle.
+    - **"Plugins" Master Switch (footer):** A gear icon, the label "Plugins", the keyboard shortcut ⌘⌥P and a toggle that turns plugin use on or off for the chat.
+
+### Plugin Presets
+
+- **Purpose:** Group plugins, skills and MCP servers into named presets for different workflows (e.g., Frequently Used, Coding, Support, Sales, Research) and switch between them with a single click.
+- **Where to use it:** In the Plugins popup (the plugin button above the message input field).
+- **Create a preset:**
+    1. Open the Plugins popup and click the **New preset** button (square plus icon).
+    2. In the **New plugin preset** dialog (subtitle: "Select plugins, skills, or MCPs for this preset."), type a name in the name field (pre-filled with a default such as "Preset 2").
+    3. Use the search field ("Search plugins, skills, MCP...") to find items, and tick the checkbox next to each plugin, skill or MCP server to include (e.g., Web Browser, GPT Image 2.5, Web App Builder, Interactive Canvas, Code Sandbox, Firecrawl, Notion, GitHub).
+    4. The counter at the bottom left shows how many are selected (e.g., "4 plugins selected").
+    5. Click **Save** to create the preset, or **Cancel** to discard it.
+- **Switch preset:** Open the Plugins popup and click a preset row under "Presets". The enabled plugins change to that preset's selection. A blue check mark on the row shows the applied preset. [VERIFY check mark meaning]
+- **Edit a preset:** Click the pencil icon on the preset row. [VERIFY]
+- **Search plugins:** Use the Search bar at the top of the Plugins popup.
+- **Disable all plugins:** Click the minus icon ("Disable all plugins") next to the search bar.
+- **Export / import presets across devices:** 
 
 ### Message Input Field
 
@@ -378,6 +448,30 @@ If a model is available via multiple providers (e.g., Llama 3 via Groq vs. Llama
     - **Regenerate:**
         - **Icon/Button:** Often a prominent blue button.
         - **Function:** Instructs the AI to generate a new response to the *user's last message*.
+
+### Rendered Result Buttons (Artifacts, HTML, Code)
+ 
+- **Placement:** On rendered artifacts, HTML previews and code blocks inside AI messages.
+- **Function:** Action buttons on rendered results are designed for clear use on both desktop and mobile. Artifacts can also be opened and viewed in the side panel.
+- **Chat card:** When Web App Builder or Interactive Canvas renders a result, the chat shows a tool row (for example "Web App Builder Render") and a card with the plugin name and a **View in Artifacts** link that opens the result in the side panel.
+- **Artifact side panel:** Opens on the right of the chat. The header has a title dropdown (for example "Web App Builder") on the left and, on the right, a **Preview** / **Code** toggle followed by small icon buttons for copy, open in a new tab, copy link/share, and a device or full-size view.
+- **Images in artifacts:** Interactive Canvas and Web App Builder can use images that are already in the chat (for example an image made by GPT Image 2.5) directly inside the page they build. When you share an artifact, the images displayed inside it are included in the shared artifact.
+ 
+### Temporary Chat
+ 
+- **Purpose:** Start a conversation that will not appear in your chat history.
+- **Behavior:** A banner reads "This chat won't appear in your history". Also supported when using AI agents.
+- **Use cases:** Testing prompts and ideas, one-off questions.
+- **Placement:** Top-right corner of the chat area, on the new chat screen and inside chats.
+- **Icon:** A speech bubble drawn with a dashed (dotted) outline. On hover, the tooltip reads "Temporary chat" with its keyboard shortcut (⌘⌥T on Mac).
+- **Function:** Click the icon (or press the shortcut) to switch to a temporary chat.
+ 
+### Side Chat/Quote chat (Quote or "Ask...")
+ 
+- **Activation:** Highlight text inside any message. A small floating toolbar appears with **Quote**, **Ask...** and a three-dots menu. 
+- **Ask...** Opens a side chat so you can ask a follow-up about the selected text without disturbing the main conversation.
+- **Quote**: reply to a specific part of the response 
+- **Model selection:** Choose the model used for side chat either in a setting or directly from the side chat popup.
 </CHAT_FEATURES_OVERVIEW>
 
 <CHAT_THREAD_FEATURE>
@@ -547,30 +641,41 @@ The sidebar in TypingMind provides the primary navigation and chat management to
 
 - **Placement:** Located at the left edge of the app as a long narrow workspace navigation.
 - **Function:** Allow the user to switch between the main tabs of the app, including “Chat”, “Agents”, “Prompts”, “Plugins”, etc.
+- **Items (top to bottom):** Chats, Agents, Prompts, Plugins, Models, KB, Memory, Teams, Settings. Each item is an icon with a text label underneath. The active item has a rounded grey background.
+    - **Memory:** Opens the Memory page (Saved Memories and Settings tabs).
 
 ### "Chat" tab
 
 - **Icon:** A speech bubble icon.
-- **State:** Highlighted (in blue in the screenshot), indicating the active view.
+- **Label:** "Chats".
+- **State:** Highlighted (with a rounded grey background), indicating the active view.
 - **Function:** Confirms that the user is currently viewing the chat interface. Clicking it again will refresh the chat interface.
 
 ### "New Chat" Button
 
 - **Icon:** A speech bubble icon with a "+" sign.
-- **Text:** "New Chat"
+- **Text:** "New chat"
+- **Appearance:** A wide blue button at the top of the chat panel.
 - **Function:** Initiates a new, blank chat session.
     - When clicked, a new chat is created and added to the chat list.
     - The main content area switches to the new chat, ready for user input.
 
 ### User Profile Icon
 
-- **Shape:** Circular.
-- **Content:** Displays the user's avatar or profile image. If no image is set, it may show default initials or a generic user icon.
+- **Shape:** Square with rounded corners.
+- **Placement:** To the right of the "New chat" button, and also at the bottom of the workspace bar.
+- **Content:** Displays the user's avatar or profile image. If no image is set, it shows the user's initial on a colored background (e.g., a green "N") or a generic user icon.
 - **Function:** Clicking this icon typically opens a user profile menu or settings panel, allowing users to:
     - Manage their account information.
     - Change their profile picture.
     - Access application settings.
     - Log out.
+
+### Collapse Sidebar Icon
+
+- **Placement:** At the right end of the first row of the chat panel, next to the profile icon.
+- **Icon:** An arrow pointing left with horizontal lines.
+- **Function:** Collapses the chat panel (the chat list) to give the conversation more width. [VERIFY]
 
 ### Search Bar
 
@@ -584,15 +689,16 @@ The sidebar in TypingMind provides the primary navigation and chat management to
 
 ### Chat Management Tools
 
-These icons are located to the right of the Search bar, offering quick access to organizational features:
+The Sort and Filter icons are located to the right of the Search bar. The Create Folder icon is located in the "Folders" header row of the chat list. These icons offer quick access to organizational features:
 
 - **Create Folder:**
     - **Icon:** A folder icon with a "+" sign.
+    - **Placement:** At the right side of the "Folders" header row.
     - **Function:** Allows users to create new folders or folders within folders to organize their chats.
         - Clicking the icon opens a small input field where the user can type the name of the new folder.
         - After entering the name and pressing "Enter" (or clicking a "Save" button), the new folder is created and added to the chat list.
 - **Sort:**
-    - **Icon:** An icon with 3 horizontal line, sorted.
+    - **Icon:** An icon with 3 horizontal line, sorted. 
     - **Function:** Allows users to sort chats with several options
         - Clicking the icon opens a popup where the user can choose the sort by options
             - **Recent Chats First:** Sort the list of chats with the latest updated chats on top.
@@ -616,10 +722,13 @@ These icons are located to the right of the Search bar, offering quick access to
 
 - **Function:** Displays a list of recent chats and chat folders, providing access to existing conversations.
 - **Folders:**
+    - **Folders header row:** A collapsible header with an arrow, the label "Folders" and the number of folders (e.g., "Folders 5"). Clicking it expands or collapses the whole folder list. At the right side of the header are the Create Folder icon and a three-dots icon for more folder options. [VERIFY three-dots menu items]
     - Represented by a folder icon and the folder name.
-    - The number of chats within the folder is displayed in parentheses (e.g., "IMAP (10)").
+    - The number of chats within the folder is displayed as a grey badge next to the name (e.g., "Model comparison 9").
     - Clicking a folder expands or collapses it to show or hide the chats within.
-    - **Folder actions**: To the right of each folder is "+" (add to folder), a pencil icon (edit), and a trash can icon (delete).
+    - Folders can contain subfolders.
+    - Folders with project settings can show small round indicator icons after the chat count (for example a tag, a model or agent logo and a document icon) to show what is configured for the project. [VERIFY meaning of each icon]
+    - **Folder actions**: When hovering a folder, a "+" (add chat to folder) and a three-dots icon appear to the right of the folder name. The three-dots menu contains **New Subfolder**, **Project Settings**, **Rename**, **Move To Folder** and **Delete**.
 - **Individual Chats:**
     - Each chat is displayed with:
         - **AI Avatar:** An icon or image representing the AI agent used in the conversation.
@@ -657,7 +766,7 @@ These icons are located to the right of the Search bar, offering quick access to
 
 ### 9. Bottom Section (User Avatar)
 
-- **Content:** Displays the user's avatar or profile picture.
+- **Content:** Displays the user's avatar or profile picture (a square avatar with the user's initial, at the bottom of the workspace bar).
 - **Function:** Clicking this area may:
     - Open the user profile settings.
     - Display account information.
@@ -1104,12 +1213,11 @@ TypingMind offers two main versions of its platform: one tailored for individual
 
 - **TypingMind for Individuals:**
     - Supports a range of plugins to extend functionality.
-- **TypingMind for Teams:**
+- **TypingMind Teams:**
     - Offers advanced integration and extensibility options:
         - API access: Integrate TypingMind with other internal systems and workflows.
         - Custom plugins: Build custom plugins tailored to the organization's specific needs.
         - Webhooks: Receive real-time notifications about events within the platform.
-        - Embed as chat widget: Embed the chat interface into your website, blog, or CMS.
 
 ### 7. Pricing and Licensing
 
@@ -1128,6 +1236,66 @@ TypingMind offers two main versions of its platform: one tailored for individual
     - Ideal for companies looking to build internal AI platforms or integrate AI into their existing workflows.
 
 </TEAM_VS_PERSONAL>
+
+<MEMORY_FEATURE>
+
+## Memory
+
+Memory lets the AI retain selected facts, preferences, and notes across chats, reducing the need to repeat the same information in each conversation. Saved memories are separate from the current chat's conversation history.
+
+### Accessing Memory
+
+1. Click the **Memory** icon in the workspace sidebar, between **KB** and **Teams**.
+2. If memory is not enabled, click **Enable Memory**.
+3. The Memory page contains two tabs: **Saved Memories** and **Settings**, plus a **How it works** button.
+
+### Memory Scopes
+
+- **Global:** Included in every chat, including chats without an assigned agent or project.
+- **Agent:** Private to a specific AI agent and used in chats with that agent, alongside applicable global memories.
+- **Project:** Shared across chats within a specific project, alongside applicable global memories.
+
+### Reviewing Saved Memories
+
+In the **Saved Memories** tab:
+
+- Use **Find memories** to search by keyword.
+- Filter by **All memories**, **Global**, **Agent**, or **Project**.
+- Each entry displays its title, scope, last updated time, and a **Delete** button.
+- Click an entry to open its full content in a popup.
+- Click **Close** to dismiss the popup.
+- Click **Delete** to remove the saved entry. Manage memories here rather than assuming that deleting a chat also removes its saved memories.
+
+### Configuring Memory
+
+The **Settings** tab provides separate toggles for:
+
+- **Global memory**
+- **Agent scoped memory**
+- **Project scoped memory**
+
+Additional controls are available within agents and projects:
+
+- **AI Agent editor:** Expand **Memory** in the **Knowledge** group and configure **Use memory for this agent**.
+- **Project Settings:** Configure **Use memory for this project**, then click **Save** to apply changes or **Discard changes** to cancel.
+
+Memory usage controls and deletion of saved entries are separate actions.
+
+### Using Memory in Chat
+
+- Share relevant facts or preferences in a normal message, such as your role, preferred language, or response format.
+- The AI can save and update this information as memories.
+- Memory activity may appear within the response as steps such as **Saving to global memory**, **Reading memory details**, or **Editing memory details**.
+- Saved memories are used in later chats according to their scope and enabled settings.
+- Memory retains selected information; it is not a complete archive of previous conversations.
+
+### Storage and Privacy
+
+- Memories are stored locally by default.
+- Optional cloud sync allows memories to sync across devices.
+- Memories used in a response become part of the context supplied to the selected AI provider.
+
+</MEMORY_FEATURE>
 
 <ADD_CUSTOM_MODEL_FEATURE>
 
@@ -1584,14 +1752,37 @@ The AI Agents interface is organized to provide an intuitive overview of availab
 
 ### Skills Section
 
-- **Plugins:**
-    - Functionality: Allow user to define the plugins of this AI Agent.
-- **Assign plugins for this AI agent**
-    - Function: Allows users to assign specified plugins to the AI Agent.
-    - Input Type: Toggle switch.
-    - Functionality: When enabled, the AI Agent will always use the selected plugins and users cannot change it.
-    - Requirement: Optional. If disabled, the plugins to use will be decided by the user.
-    - Plugin Settings: All Plugin settings will be displayed as described above.
+AI Agents can use skills and plugins to help complete tasks.
+
+- **Skills:** Reusable instructions packaged in a `SKILL.md` file, optionally with supporting resources. Skills guide how the AI approaches a task.
+- **Plugins:** Tools the AI can call to perform actions, retrieve information, or interact with external services.
+- **MCP Servers:** External tools connected through Model Context Protocol.
+
+### Installing Skills
+
+1. Go to **Plugins → Skills**.
+2. Choose the option to add or install skills.
+3. Select an import method:
+    - **From GitHub URL:** Paste a public GitHub repository or folder URL containing one or more skills.
+    - **From local files:** Import a `.skill` archive, `.zip` archive, or `SKILL.md` file.
+4. Follow the import prompts to finish installation.
+5. Enable the installed skill in the chat where you want to use it.
+
+Skills imported from GitHub are stored locally with their supporting resource files.
+
+### Assigning Plugins to an AI Agent
+
+- **Assign plugins for this AI agent:**
+    - When enabled, the agent uses the selected plugins, and users cannot change that selection in the chat.
+    - When disabled, users choose which plugins to enable.
+    - Configure any required plugin settings, credentials, or authentication before using the agent.
+
+### Using Skills, Plugins, and MCP Servers in Chat
+
+- Open the **Plugins** popup above the message input to select available skills, plugins, and MCP tools.
+- Use **Plugin Presets** to save named combinations for different workflows.
+- Installing a skill or plugin does not automatically enable it in every chat.
+- Tools may require additional API keys, authentication, or an active MCP connection.
 
 ### Text-to-speech Section
 
@@ -2591,28 +2782,36 @@ This section allows users to configure advanced network and proxy settings.
 </APP_SETTINGS>
 
 <PLUGINS_BUILT_IN>
-## Built-in Plugins
+## Tools and Built-in Plugins
 
-TypingMind comes with a range of built-in plugins, each designed to extend the capabilities of the platform. Here is a detailed list:
+TypingMind comes with a range of tools and built-in plugins, each designed to extend the capabilities of the platform. Here is a detailed list:
 
-### 1. Web Search
+### 1. Tools
 
--   **Description:** Searches for information from the internet in real-time using Google Search.
--   **Functionality:** Allows the AI to access up-to-date information from the web to answer user queries, provide context, or perform research.
--   **Configuration:**
-    -   Requires a Google Custom Search Engine ID and API Key.
-    -   The overview tab provides two example query: `What's the gold price?`, and `How's the weather at HCMC at the moment?`.
--   **Settings Tab:**
-    -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
-    -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"get_web_search_results"`.
-    -   `description`: `"Search for information from the internet using Google Search."`.
-    -   The `parameters` consists of properties such as `keyword`, `source` with `type`, and `description`.
+- Model tools are built-in tools provided directly by the AI model provider (OpenAI, Gemini, Anthropic). They appear in their own group, **Model tools (N)**, at the top of the Installed list on the Plugins page, and in the **Model tools** section of the Plugins popup above the message input field.
+- **Where to use it:** Open the Plugins page, find the group **Model tools** under **Installed**, click a tool, and use the toggle at the top of the detail pane to turn it on or off. The same tools can be switched per chat from the Plugins popup.
+- **Cost note:** Model tools run on the provider's side, so using them incurs additional costs from the model provider for tool usage and search API calls.
 
-Beside Web Search, there are plugins that are using for searching purpose:
-- Web search using Serp API (provide more accurate data with structured data like snippets, ads, etc)
-- Perplexity search using Perplexity API
+#### Web Browser
+
+- **Detail page:** Toggle, globe-with-magnifier icon and the title "Web Browser", with an **Overview** tab titled "Search and browse the web".
+- **Function:** Gives the AI model direct access to real-time web content, so it can answer questions with up-to-date information beyond its knowledge cutoff.
+- **Powered by (depends on the model provider):**
+    - **Gemini:** Grounding with Google Search and the URL Context tool.
+    - **OpenAI:** The Web Browsing tool.
+    - **Anthropic:** Anthropic's Web Search and Web Fetch tool.
+
+#### Code Sandbox
+
+- **Detail page:** Toggle, code-brackets icon and the title "Code Sandbox", with an **Overview** tab titled "Run and execute code in a secure sandbox".
+- **Function:** A code execution tool that lets the model generate and run Python code, then learn iteratively from the execution results until it reaches a final output.
+- **Features and limitations:**
+    - The sandbox is provided natively by the AI provider, so data is only stored and processed in the provider.
+    - Each provider has its own features and limitations; check the provider's official documentation (a **Docs** link is given per provider).
+- **Provider comparison table (columns: Provider, Run Code, Output Files, Input Files, Persistent Container, Documentation):**
+    - **OpenAI:** Run code Yes; output files Yes; input files Yes (limited file types); persistent container limited to 20 minutes.
+    - **Anthropic:** Run code Yes; output files Partial support; input files No; persistent container No.
+    - **Gemini:** Run code Yes; output files Yes; input files No; persistent container No.
 
 ### 2. DALL-E 3
 
@@ -2629,8 +2828,7 @@ Beside Web Search, there are plugins that are using for searching purpose:
     -   The `parameters` consists of properties such as `prompt`, `quality`, `resolution`, `n`, `size` with `type`, and `description`.
 
 Other plugins to generate images:
-- GPT Image Editor to generate image using OpenAI API 
-- Generate Image Grok to generate image using Grok API
+- GPT Image Editor to generate image using latest OpenAI GPT-Image API
 - Stable Diffusion v2/v3 to generate image using Stable Diffusion API
 
 For native image generation (without using plugins), please consider using Gemini 2.5 Flash model. 
@@ -2880,46 +3078,6 @@ Related plugins: use OpenAI File Search if you want to connect your training dat
     -   The `parameters` consists of properties such as `email`, `subject`, and `content` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
 
-### 19. PowerPoint Generator
-
--   **Description:** Generate a PowerPoint file and return the URL for downloading it.
--   **Functionality:** Generate a PowerPoint file.
--   **Configuration:** No API Keys needed, Requires a plugin server.
--   Settings Tab
-    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
-    - **Slide Layout** (Dropdown. Default: LAYOUT\_WIDE).
-    - **Title Font Size** ( A textbox here)
-    - **Header Font Size** ( A textbox here)
-    - **Body Font Size** ( A textbox here)
-    - **Font Family** (Dropdown. Default: Calibri)
-    - **Background Color** ( A textbox here)
-    - **How to Deploy Plugins Server on Render**.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"generate_powerpoint_file"`.
-    -   `description`: `"Generate a PowerPoint file and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key"`.
-    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
--   **HTTP Action Tab:** The tab shows the POST method.
-
-### 20. Word Generator
-
--   **Description:** Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key.
--   **Functionality:** Generate a Word document
--   **Configuration:** No API Keys needed, Requires a plugin server.
--   Settings Tab
-    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
-    It Supports:
-         -Multiple sections with hierarchical numbering format.
-         -Adding header, footer, and page number.
-         -Adding table.
-         -Adding list with bullet points.
-         -Adding table of content.
-         -Adding page break.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"generate_word_file"`.
-    -   `description`: `"Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key."`.
-    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
--   **HTTP Action Tab:** The tab shows the POST method.
-
 ### 19. Extract Web Page (Firecrawl)
 
 -   **Description:**A plugin to extract information from a web page using Firecrawl Extract API.
@@ -3017,23 +3175,6 @@ This plugin returns much more concise results compared to reading the whole web 
     -   `name`: `"todo_write"`.
     -   `description`: `"A tool to help AI plan and keep track of long-running tasks more efficiently."`.
 
-### 24. Generate Image Grok
-
--   **Description:** A TypingMind plugin that generates high-quality images using xAI's Grok image generation model.
--   **Overview:** This plugin integrates xAI's powerful Grok image generation capabilities directly into TypingMind, allowing you to create stunning images from text descriptions with simple natural language commands.
--   **Get your xAI API Key:** Instructions provided to obtain an API key:
-    -   Visit `https://console.x.ai`.
-    -   Sign up or log in to your xAI account.
-    -   Generate an API key.
--   **Example Usages:**
-    -   `"Create an image of a cozy coffee shop"`
-    -   `"Generate a picture of a golden retriever"`
--   **Settings Tab:**
-    -   **xAI API Key (Required) (*):** A text input field to enter the xAI API Key. The text underneath states: "The images will be generated using this xAI API. Get your API key from `https://console.x.ai`".
-    -   **Default Image Count:** A numeric input field (with up/down arrows) for the "Number of images to generate by default (1-4)." The placeholder is `Default Image Count`.
--   **Functions tab:** Display `generate_image_grok`.
-    -   `name`: `"generate_image_grok"`.
-    -   `description`: `"Generate images using xAI's Grok image generation model based on text descriptions."`.
 
 </PLUGINS_BUILT_IN>
 
@@ -3051,6 +3192,7 @@ The "Chat with Documents" feature in TypingMind allows users to upload documents
 4. **Select Files:** Browse your computer and select the document(s) you want to upload. TypingMind typically supports a variety of file types, including:
     - PDF (.pdf)
     - DOCX (.docx)
+    - Powerpoint (.pptx)
     - TXT (.txt)
 5. **Click "Open":** After selecting the file(s), click the "Open" button in the file dialog.
 6. **File Upload and Display:** TypingMind will upload the selected document(s) and display them in the chat interface as attachments.
@@ -3075,7 +3217,7 @@ The "Chat with Documents" feature in TypingMind allows users to upload documents
     - The AI may cite specific passages from the document to support its answer.
 4. **Example Interaction:**
     - **User:** "what's the refund policy?"
-    - **AI:** "Based on the Terms of Service document, here is the refund policy for TypingMind: All purchases are refundable within 14 days of purchase, no questions asked. This applies to: Regular TypingMind purchases, Custom Deployment subscriptions..."
+    - **AI:** "Based on the Terms of Service document, here is the refund policy for TypingMind: Individual license purchases are refundable within 14 days of purchase, no questions asked. 
 
 ### Additional Details
 
@@ -3637,7 +3779,6 @@ The interface generally consists of the following elements:
 - **"Your Chat URL(s)" Section:**
     - Displays the URL for accessing the team chat portal.
     - **Copy Button:** An icon (typically a clipboard icon) allows users to copy the chat portal URL to the clipboard. The color of the copy button is blue.
-    - **Embed Widget Button:** A blue button to generate the embed code. When click, a popup will be displayed with the code, with a `Copy Code` button and a `Close` button.
 - **"Overview" Section:**
     - Provides a high-level overview of key metrics for the chat portal:
         - **Members:** Displays the number of active members in the chat portal, with the format "\[Number of Active Members] / \[Total Number of Seats]". A small user icon is displayed on the left of the text.
@@ -3663,7 +3804,6 @@ The interface generally consists of the following elements:
         - **Prompt Library:** Navigates to the prompt library management section, where admins can create and manage a library of pre-written prompts for users to use. The description for this option is "Create a prompt library for your users".
         - **Knowledge Base:** Navigates to the knowledge base management section, where admins can upload and manage documents to build the knowledge base. The description for this option is "Upload and manage documents in your knowledge base".
         - **System Prompts:** Navigates to the system prompts settings, where admins can set global system instructions and related prompts. The description for this option is "Set global system instructions and related prompts".
-        - **Chat Widget:** Navigates to the chat widget settings, where admins can embed chat widget instance to website. The description for this option is "Embed your chat instance to website/blog/CMS".
         - **API Integration:** Navigates to the API Integration page, where admins can generate the API keys for TypingMind to integrate the app with external parties. The description for this option is "Generate your API Keys to integrate with TypingMind API".
         - **Users:** Navigates to the user management section, where admins can manage list of users and the user details. The description for this option is "List of users who can use your chat instance".
         - **Groups:** Navigates to the group management section, where admins can create groups of users, assign roles, and manage group membership. The description for this option is "Create groups of users, assign roles, and manage group membership".
@@ -4227,10 +4367,13 @@ To "Open chat with this AI agent", it will show content which allow to share cha
     - **Purpose:** To share with the public so they can chat with a single AI agent in TypingMind.
     - Functionality: A URL will create for the selected AI agent in the chat instance such as `https://yourbrandname.typingcloud.com?agent=a-66276c67-d53d-4e4a-b624-9dc9e8faae74`. This allows your users to open directly the AI Agent and chat with that Agent.
     - Embed this on your website / internal app to offer specific AI Agents to users.
-- **Code to embed chat widget with this specific AI agent**
-    - **Function:** The user can copy the entire JS script
-    - Example code shows  `<script defer src="<https://yourbrandname.typingcloud.com/widget.js>"></script>`
-    - **Code Copy Button:** By click to copy the source code, it allows the code copy completely. The copy button text is `Copy Code`
+- **Chat via Public API**
+    - Purpose: Integrate the selected AI agent into external applications or automated workflows.
+    - Functionality: Displays a generated cURL example containing the agent’s API endpoint, request headers, and a JSON request body with a sample messages array.
+    - Authentication: Replace your-typingmind-api-key in the X-API-KEY header with your actual TypingMind integration API key.
+    - Message Content: Replace the sample "hello" message with the content you want to send to the agent.
+    - Copy code: Copies the generated API example to the clipboard.
+    - View API documentation: Opens the API reference for request options and response formats.
 
 Click **Save** on the top right corner of the app to save all AI Agent settings.
 
@@ -5211,94 +5354,17 @@ The interface is organized into distinct sections for different types of prompts
 
 </ADMIN_PANEL_SYSTEM_PROMPTS>
 
-<ADMIN_PANEL_CHAT_WIDGET>
-
-The Chat Widget feature within TypingMind for Teams allows administrators to embed a customizable chat interface directly into their websites, providing a seamless way for users to interact with the organization's AI capabilities.
-
-### Accessing the Chat Widget Settings
-
-1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Integrations" Category:** In the left sidebar, click on the "Integrations" dropdown to expand the category.
-3. **Click the "Chat Widget" Link:** Click on the "Chat Widget" link within the "Integrations" category. This will open the Chat Widget configuration interface.
-
-### Chat Widget Interface Overview
-
-The Chat Widget interface is organized to provide a clear overview of widget settings and embedding options. It includes the following key sections:
-
-- **Page Title:** Chat Widget
-- **Page Description:** Embed your chat instance to website...
-
-The interface provides:
-
-- **Enable widget embedding:** By default, the widget will be enabled
-    - **Toggle On/Off:** Allows administrators to enable or disable the chat widget functionality.
-        - **Enabled State:** The toggle is switched to the right (typically displayed with a blue color). The rest of the settings on this page become relevant and active.
-        - **Disabled State:** The toggle is switched to the left (typically displayed in gray). The widget will not be available for embedding.
-- **Instructions:**
-    - **To add the widget to your webpages:**
-        1. Copy the entire contents of the text box below.
-        2. Paste it after the opening `<head>` tag on the page you want to add this widget.
-- **Embed Code:**
-    - **Purpose:** Provides the JavaScript code snippet that needs to be added to the website's HTML to embed the chat widget.
-    - **Display:** The code snippet is displayed in a read-only text box.
-    - **Example Code:** The code typically looks like this (with a placeholder URL):
-        
-        ```html
-        <script defer src="<https://www.your-instance-name.typingcloud.com/widget.js>"></script>
-        ```
-        
-        Where `https://www.your-instance-url.typingcloud.com` would be replaced with the actual URL of your TypingMind for Teams instance.
-        
-    - **"Copy Code" Button:** A button labeled "Copy Code" is located next to the text box. Clicking this button copies the entire code snippet to the clipboard. The active color is blue.
-- **Widget Appearance & Settings:** Allows admins to define how the chat widget looks and behaves.
-    - **Whitelist Domains:**
-        - **Purpose:** Specifies the domains where the chat widget is allowed to be displayed. This is a security measure to prevent unauthorized use of the widget on other websites.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank to allow all domains. Separate multiple URLs with a comma."
-        - **Example Input:** `https://your-domain.com, <https://another-domain.com`>
-        - **Functionality:** If domains are listed, the widget will *only* function on those specific domains. If the field is left blank, the widget can theoretically be embedded on any website (though the API key and user authentication would still be required for it to function).
-    - **Widget Text:**
-        - **Purpose:** Sets the text displayed on the chat launcher button (the button users click to open the chat window).
-        - **Input Type:** Toggle switch and text field
-            - **Default Value:** "Questions? Chat with our AI!" This default text is shown as a suggestion in light grey.
-        - **Customization:** The administrator can replace the default text with a custom message, such as "Chat with Support," "Ask a Question," or any other relevant call to action.
-    - **Widget Width:**
-        - **Purpose:** Sets the width of the chat widget window.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank for automatic settings. Default unit is 'px' but can adjust by appending preferred unit, e.g. 50%."
-        - **Example Input:** `e.g., 100` (for 100 pixels), `50%` (for 50% of the screen width).
-    - **Widget Height:**
-        - **Purpose:** Sets the height of the chat widget window.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank for automatic settings. Default unit is 'px' but can adjust by appending preferred unit, e.g. 50%."
-        - **Example Input:** `e.g., 200` (for 200 pixels), `75%` (for 75% of the screen height).
-    - **Position:**
-        - **Purpose:** Determines the position of the chat launcher button on the webpage.
-        - **Input Type:** Two radio buttons: "Left" and "Right".
-        - **Options:**
-            - **Left:** Positions the chat launcher button on the left side of the screen.
-            - **Right:** Positions the chat launcher button on the right side of the screen.
-    - **Show chat widget by default:**
-        - **Purpose:** Controls whether the chat widget is initially open or closed when the page loads.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** The chat widget is automatically open when the page loads.
-        - **Disabled State:** The chat widget is initially minimized, and the user must click the launcher button to open it.
-- **Preview and Save Buttons:**
-    - **"Preview" Button:** Opens a preview of the chat widget with the current settings. The color of the button is in green.
-        - **Functionality:** Allows administrators to see how the widget will look and behave on their website before saving the changes.
-        - **Preview:** Displays the website as example with the chat widget for you to preview.
-    - **"Save" Button:** Saves the current chat widget settings. The color of the button is in blue.
-        - **Action:** Applies the changes to the chat widget configuration. A confirmation message ("Saved!") appears briefly at the top of the page.
-
-### Open Chat Widget for AI Agent
-
-**Open Chat Widget** for specific AI Agent can be found at <ADMIN_PANEL_AI_AGENTS>
-
-</ADMIN_PANEL_CHAT_WIDGET>
-
 <ADMIN_PANEL_API_INTEGRATION>
 
 The "API Integration" section in the Admin Panel (within the "Integrations" category) allows administrators of a TypingMind for Teams instance to generate and manage custom API keys. These keys are specifically for integrating the team's TypingMind instance with *other* internal platforms or systems. This is distinct from the API keys used to connect TypingMind to AI model providers (like OpenAI, Anthropic, etc.).
+
+### Integration API Key Permissions
+
+- **Account owners and admins:** Can generate new integration API keys.
+- **Other roles with access to API Integration:** Can view and revoke existing integration API keys, but cannot generate new keys.
+- Revoking a key invalidates it. Applications using that key must switch to a valid key to continue accessing the API.
+
+These permissions apply to TypingMind integration API keys, which external applications use to access the Teams instance. AI provider API keys are managed separately.
 
 ### Accessing the API Integration Section
 
@@ -5633,24 +5699,33 @@ The API Integration interface is focused on managing the API keys used to integr
         - `401 Unauthorized`: API Key is missing or invalid.
         - `500 Internal Server Error`: An unexpected server error occurred.
     
-    ## Chat
     
-    ### Create a model response for the given chat conversation
-    
-    - **Endpoint:** `POST /v1/chat/completions`
-    - **Authorizations:** ApiKeyAuth
-    - **Request Body Schema:** `application/json` (required)
-        - Find more information about the request body here:
-            - [OpenAI API Reference](https://platform.openai.com/docs/api-reference/chat)
-            - [Anthropic API Reference](https://docs.anthropic.com/claude/reference/messages_post)
-            - [Google Gemini API Reference](https://ai.google.dev/api/rest/v1beta/models/generateContent)
-        - For additional configuration options, refer to the properties below:
-            - activatedCharacterID: AI character for this completion
-    - **Responses:**
-        - `200 OK`: Successful response. Returns a chat completion object.
-        - `401 Unauthorized`: API Key is missing or invalid.
-        - `500 Internal Server Error`: An unexpected server error occurred.
-    
+    ## Chat — Agent Chat API
+
+    The Agent Chat API lets external applications interact with AI agents configured in a TypingMind Teams instance.
+
+    ### Endpoint
+
+    - **Method:** POST
+    - **URL:** `https://<your-instance-domain>/api/v2/agents/{agent_id}/chat`
+    - Replace `<your-instance-domain>` with your Teams instance domain.
+    - Replace `{agent_id}` with the ID of the AI agent to call.
+    - Authenticate using a TypingMind integration API key.
+
+    ### Supported Features
+
+    The Agent Chat API supports:
+    - Plugin execution.
+    - Knowledge Base lookup across models.
+    - Interactions with configured AI agents.
+
+    ### Setup
+
+    1. Configure the AI agent in the Admin Panel, including its model, instructions, plugins, and knowledge sources.
+    2. Generate an integration API key under **Integrations → API Integration**.
+    3. Follow the current API reference for authentication headers, request fields, response formats, and examples:
+    https://api.typingmind.com/docs
+        
     ## Chatlogs
     
     ### Get chat logs in your chat instance
@@ -6011,7 +6086,7 @@ TypingMind for Teams comes with pre-defined roles:
         - **Portal Settings:** Full access to manage Portal Settings (branding, domain, chat features, etc.).
         - **Prompt Library:** Full access to manage Prompt Library.
         - **System Prompts:** Full access to manage Global System Instruction, Global Few-shot Prompting, etc.
-        - **Integrations**: Full access to manage integrations (Chat Widget, API integration)
+        - **Integrations**: Full access to manage integrations (API integration)
 4. **Click "Save"**: The selected role will be created.
 
 ### Editing an Existing Role
@@ -6446,19 +6521,9 @@ TypingMind provides documentation and a video walkthrough for setting up JumpClo
         <https://chat.yourcompany.com/?externalAuthCode=YOUR_JWT_TOKEN_HERE>
         
         ```
+    
         
-    - **Chat Widget (`data-external-auth-code` attribute):** If you're embedding TypingMind as a chat widget on your website, add the JWT as the value of the `data-external-auth-code` attribute in the widget's `<script>` tag:
-        
-        ```html
-        <script
-          defer
-          data-external-auth-code="YOUR_JWT_TOKEN_HERE"
-          src="<https://chat.yourcompany.com/widget.js>"
-        ></script>
-        
-        ```
-        
-5. **TypingMind Verification and Login:** When TypingMind receives the JWT (either via the URL or the widget attribute), it will:
+5. **TypingMind Verification and Login:** When TypingMind receives the JWT (via the URL), it will:
     - **Verify the Signature:** Use the JWT Secret to verify that the token was indeed signed by your system and hasn't been tampered with.
     - **Check Expiration:** Check the `exp` claim (if present) to ensure the token hasn't expired.
     - **Extract User Information:** Extract the `id` (and optionally `email` or `user` object) from the payload.
@@ -6507,7 +6572,7 @@ The Usage Limits interface is divided into several key areas:
     - **Input Type:** Toggle switch.
     - **Enabled State:** Displays a message below the chat input field, informing users of their current usage and remaining limits.
     - **Disabled State:** Hides usage limit information from users.
-- **Tabs Navigation:** Tabs on the top with content below: `Global Limits`, `Model Limits`, `AI Agent Limits`, `User Limits`
+- **Tabs Navigation:** Tabs on the top with content below: `Global Limits`, `Model Limits`, `AI Agent Limits`, `Plugin Limit`, `User Limits`
 - **"Limit Groups" Section:**
     - **Heading:** "Limit Groups"
     - **Purpose:** Allows administrators to define pre-configured sets of usage limits that can be easily applied to different users, AI agents, or models. This simplifies the process of managing limits and ensures consistency.
@@ -6531,6 +6596,7 @@ The Usage Limits interface is divided into several key areas:
         - **Message Limits:** Controls the *number* of messages a user/agent/model can send within a defined time period.
         - **Character Limits Per Message:** Restricts the *length* (in characters) of individual messages.
         - **Character Limits Per Time Period:** Limits the total number of characters that can be sent/processed within a defined time period.
+        - **Token Limits Per Time Period** Counts tokens across all chat turns, including tool calls and definitions. Token accounting works best for models and providers that return usage data in their responses. Non-reporting models still work, but estimates may be used.
     - **"+ Add Limit" Button (per category):** Each category has a "+ Add Limit" button. Clicking this button adds a new, specific limit within that category. You can add multiple limits within each category.
     - **Limit Configuration (per limit entry):** When you add a limit within a category, you'll configure:
         - **Quantity:** A numeric input field (e.g., "100" messages, "2000" characters).
@@ -6549,7 +6615,7 @@ The Usage Limits interface is divided into several key areas:
 6. Set "1000" characters every "1" day.
 7. Click "Save".
 
-### Applying Limits (Global, Model, AI Agent, User)
+### Applying Limits (Global, Model, AI Agent, Plugin, User)
 
 Once Limit Groups are defined, they can be applied at different levels:
 
@@ -6584,6 +6650,16 @@ Once Limit Groups are defined, they can be applied at different levels:
 - **"+ Add Limit" Button:** Adds a new AI Agent-specific limit.
 - **Limit Configuration:** For each AI Agent limit:
     - **AI Agent:** Select the AI Agent from the dropdown menu.
+    - **Limit Group:** Select a pre-defined Limit Group or directly add a new limit group right within the drop-down box.
+    - **Apply For Users:** Choose the scope (All users, specific groups, or all except specific groups).
+    - **Remove:** Remove the current limit.
+
+### 4. Plugin limits
+- **Purpose:** Sets usage limits that apply to specific plugins. 
+- **"Plugin Limits" Tab:** Select this tab.
+- **"+ Add Limit" Button:** Adds a new Plugin-specific limit.
+- **Limit Configuration:** For each Plugin limit:
+    - **Plugin:** Select the Plugin from the dropdown menu.
     - **Limit Group:** Select a pre-defined Limit Group or directly add a new limit group right within the drop-down box.
     - **Apply For Users:** Choose the scope (All users, specific groups, or all except specific groups).
     - **Remove:** Remove the current limit.
@@ -6639,8 +6715,6 @@ The Access Mode interface is designed to be straightforward, providing a clear s
     - **Options:**
         - **Private Mode:** The most restrictive mode. Only users explicitly added by an administrator via the "Members" page can access the chat instance. These users, and any users with emails from domains pre-approved by the administrator, can log in; no one else can sign up.
         - **Authorized Mode:** Allows anyone to use the chat instance, but they *must* sign up for an account with their email address first. This provides a middle ground between private and completely open access.
-        - **Public Mode:** The most open mode. Anyone can use the chat instance *without* needing to create an account. Anonymous users in Public Mode are limited to temporary chats (no persistent chat history, search, folders, tags, etc.).
-
 ### Detailed Descriptions of Access Modes
 
 The interface provides detailed descriptions of each Access Mode below the dropdown and toggle switches:
@@ -6662,35 +6736,6 @@ The interface provides detailed descriptions of each Access Mode below the dropd
             - **Placeholder Text:** "Enter a domain (e.g., [yourdomain.com](http://yourdomain.com/))"
             - **Functionality:** When "Allow sign-ups using company email" is enabled, administrators can enter a domain (like "[example.com](http://example.com/)") here. Users with email addresses from that domain (e.g., "[user@example.com](mailto:user@example.com)") will be allowed to sign up for an account.
 - **Authorized Mode:** "Anyone can use the Chat instance but they need to sign-up an account with their email first. You can see the list of users in the Members page." There is also a clickable hyperlink for `Members` that redirects to User Management.
-- **Public Mode:** "Anyone can use the Chat instance without an account. Anonymous users using your chat instance in Public Mode can only have temporary chats (no chat history, search, folders, tags, etc.). Optionally, you can still allow existing members to login and new members to signup."
-
-### Public Mode Controls
-
-When "Public Mode" is selected, additional configuration options become available:
-
-- **Warning: Public Mode is enabled.**
-    - Make sure to set an appropriate message limit in the Usage & Limits page to avoid your API key being abused.
-    - Usage from anonymous users will be displayed as "Public User" in the ID column for you to keep track.
-    - Anonymous users can only have temporary chats (no chat history, search, folders, tags, etc.)
-- **"Allow member login" Toggle Switch:**
-    - **Purpose:** Determines whether existing, registered members can still log in to their accounts while the chat portal is in Public Mode.
-    - **Input Type:** Toggle switch.
-    - **Enabled State:** Existing members can log in as usual, retaining access to their saved chats, AI agents, and other personalized features.
-    - **Disabled State:** The "Login" button is *completely hidden* from the user interface. Existing members *cannot* log in. This is useful if you want *strictly* anonymous, temporary use.
-- **"Allow anyone to signup" Toggle Switch:**
-    - **Purpose:** Controls whether new users can create accounts while the chat portal is in Public Mode.
-    - **Input Type:** Toggle switch.
-    - **Enabled State:** New users can sign up for an account using their email address. If this option is disabled, new users can only be added via the Admin Panel -> Members.
-    - **Disabled State:** New user registration is disabled. The signup option will be removed from user interface.
-- **Save button**: To save the current setting.
-
-### Important Considerations and Behaviors
-
-- **Sidebar Behavior (Public Mode):** In Public Mode, *without* a user logged in, the sidebar (with options like "Agents," "Prompts," etc.) is *hidden*. This is to limit the interface to the core chat functionality for anonymous users. The sidebar will reappear when the user logs in (if allowed by the "Allow member login" setting).
-- **Login Process:**
-    - If `Allow member login` and `Allow anyone to signup` is turned on, user can click on `Login/Signup` button to view the Login popup. The popup will show the input field for Email, and also a button to `Login with email` or your chosen login method
-    - If `Allow member login` is turned on, `Allow anyone to signup` is disabled. When user click on the `Login` button, it will show the Login popup.
-    - If `Allow member login` is turned off, and `Allow anyone to signup` is turned on, the Login button is completely hidden.
 
 </ADMIN_PANEL_ACCESS_MODE>
 
@@ -6701,107 +6746,125 @@ The Analytics section in the Admin Panel of TypingMind for Teams provides admini
 ### Accessing the Analytics Section
 
 1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Reporting" Category:** In the left sidebar, click on the "Reporting" dropdown to expand the category.
-3. **Click the "Analytics" Link:** Click on the "Analytics" link within the "Reporting" category. This will open the main Analytics dashboard.
+2. **Locate "Analytics" in the left sidebar:** Click **Analytics**. It appears in the **Shortcuts** group of the left sidebar, and also under the "Reporting" category.
+3. **Open the dashboard:** The Analytics page opens with two tabs at the top: **Overview** and **Exploration**.
 
 ### Analytics Dashboard Interface Overview
 
-The Analytics dashboard is designed to provide a quick and informative overview of key usage metrics.  It's structured with clear visual elements and interactive components.
+The Analytics page is organized in two tabs, **Overview** and **Exploration**. The page header shows the title "Analytics" with the description "View usage statistics and analytics", a **View Live** selector with the portal domain (with an open-in-new-window icon and a dropdown chevron) and a **Profile** button.
 
-- **Page Title:** "Analytics" (clearly indicates the page's purpose).
-- **Page Description:** "View usage statistics and analytics" (explains the functionality of the page).
-- **Date Range Selector (Top Right):**
-    - **Default Range:** Initially displays a pre-selected date range (e.g., "2025-02-16 — 2025-03-18").
+- **Date Range Selector (top right of each tab):**
+    - **Default Range:** Initially displays a pre-selected date range (e.g., "2026-09-08 ~ 2026-10-07").
     - **"x" (Clear) Button:** Allows users to clear the currently selected date range.
     - **Interactive Calendar:** Clicking the date range opens a calendar interface for custom date selection.
         - **Navigation:**
             - Left and Right Arrows: Navigate between months.
-            - Month and Year Dropdowns: Allow for quick selection of specific months and years.
-        - **Predefined Ranges:** Provides quick-select options for common timeframes:
+            - The current month and year are shown at the top of the calendar.
+        - **Predefined Ranges (list on the left of the calendar):** Provides quick-select options for common timeframes:
             - Last 3 days
             - Last 7 days
-            - Last 15 days
+            - Last 14 days
             - Last 30 days
             - Last 60 days
             - Last 90 days
+            - This Month
+            - This Year
         - **Day Selection:** Clicking on a specific date in the calendar selects that date as either the start or end date of the range.
-            - Visual Feedback: Selected dates are highlighted (e.g., with a blue background).
+            - Visual Feedback: Selected dates are highlighted (e.g., with a blue background). Dates in the future are disabled (struck through).
             - The calendar remains open after you select the first day, so click on the second day to finalize the range.
             - If the selection is incorrect, you can click on a new starting date and repeat the selection
         - **Clear the selection:** Clicking the close icon `x` will clear the custom selection.
 
-### **Overview Cards (Top Row):**
+### Overview Tab
+
+#### **Overview Cards (Top Row):**
 
 Presents high-level summaries of key metrics. Each metric is displayed in a separate card.
 
 **Common Elements (per card):**
 
-- **Title:** A clear label indicating the metric including "Active Users," "Estimated Tokens," "Messages Sent").
-- **Main Value:** The primary numerical value of the metric (e.g., "1", "41,826", "95"). This is prominently displayed.
-- **Percentage Change (Optional):** If applicable, displays the percentage change compared to a previous period (e.g., "0.00%", "-44.48%", "+26.67%").
-    - Positive changes are typically indicated in green.
-    - Negative changes are typically indicated in red.
-    - **Icon:** A relevant icon is displayed next to the title (e.g., a user icon for "Active Users," a chart icon for "Estimated Tokens," a speech bubble icon for "Messages Sent").
+- **Title:** A clear label indicating the metric ("Active users", "Estimated tokens", "Messages", "Characters").
+- **Main Value:** The primary numerical value of the metric (e.g., "2", "133.7M", "1.1K", "9.7M"). This is prominently displayed.
+- **Percentage Change:** Displays the percentage change compared to a previous period (e.g., "0.0%", "+12.6%", "-20.4%", "+3096.8%").
+    - Positive changes are indicated in green with an up arrow.
+    - Negative changes are indicated in red with a down arrow.
+- **Icon:** A relevant icon is displayed to the left of the title (e.g., a group of users icon for "Active users", a coins icon for "Estimated tokens", a speech bubble icon for "Messages", a text document icon for "Characters").
 - **Specific Overview Cards:**
-    - **Active Users:**
-        - Title: "Active Users"
+    - **Active users:**
         - Main Value: Number of active users within the selected date range.
-    - **Estimated Tokens:**
-        - Title: "Estimated Tokens"
+    - **Estimated tokens:**
         - Main Value: Total estimated tokens consumed within the selected date range.
-    - **Messages Sent:**
-        - Title: "Messages Sent"
+    - **Messages:**
         - Main Value: Total number of messages sent within the selected date range.
+    - **Characters:**
+        - Main Value: Total number of characters within the selected date range.
 
-### **Chart Area**
+#### **Chart Area**
 
-Displays interactive line charts visualizing trends over time for key metrics.
+Displays interactive charts visualizing trends over time for key metrics.
 
 **Common Chart Elements:**
 
-- **Title:** The metric being visualized (e.g., "Active Users," "Messages Sent").
+- **Title:** The metric being visualized (e.g., "Active users", "Messages").
 - **Y-Axis:** Represents the quantity of the metric (e.g., number of users, number of messages).
 - **X-Axis:** Represents time (dates within the selected range).
-- **Data Points:** Points on the line graph represent the metric's value for each date.
-- **Interactive Tooltip:** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Active_Users: 1").
+- **Data Points:** Each bar or point on the chart represents the metric's value for each date.
+- **Interactive Tooltip:** Hovering the mouse over a bar or data point displays a tooltip with the specific date and corresponding metric value (e.g., "Sep 19 — Active Users: 1").
 - **Download button** (Top Right Corner): Allows the user to export and download the current data in CSV format. Clicking the button will automatically trigger a download.
 
 **Specific Charts:**
 
-- **Active Users:** Visualizes the number of active users over time.
-    - **Y-Axis Label:** "Active_Users"
-- **Messages Sent:** Visualizes the number of messages sent over time.
-    - **Y-Axis Label:** "Messages"
-- **Total Conversations:** A line chart showing the total number of conversations over time.
-    - **Y-Axis Label:** "Conversations"
-    - **Tooltip** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Conversations: 1").
-- **Total Token Usage (Estimated):** A line chart showing the total estimated token usage over time.
-    - **Y-Axis Label:** "Tokens"
-    - **Tooltip** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Tokens: 19,002").
-- **Token Usage by Users (Estimated):** A bar chart showing the estimated token usage for each individual user.
-    - **Y-Axis Label:** No display.
+- **Active users:** A bar chart with one bar per day showing the number of active users over time. An (i) icon next to the title explains the metric.
+    - **Y-Axis Label:** Number of users.
+- **Messages, Conversations, Estimated tokens, Characters:** A row of four smaller charts below the Active users chart. Each one has its own title and download icon, and shows the trend of that metric over time.
+    - **Tooltip:** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value.
+- **Estimated tokens by users:** A bar chart showing the estimated token usage for each individual user over time. It has a magnifier icon and a download icon at the top right.
+    - **Y-Axis Label:** Number of tokens (e.g., 3.5M, 7M, 10.5M, 14M).
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
-        - **User:** The email address of the user.
-        - **Estimated Tokens:** The total estimated tokens consumed by that user.
-- **Messages by Users:** A bar chart showing the number of messages sent by each individual user.
-    - **Y-Axis Label:** No display.
+        - **User:** The email address of the user. Anonymous visitors of a public chat are grouped as "[Public Users]". Each row has a color marker matching the chart.
+        - **Estimated tokens:** The total estimated tokens consumed by that user.
+- **Messages by users:** A bar chart showing the number of messages sent by each individual user over time. It has a magnifier icon and a download icon at the top right.
+    - **Y-Axis Label:** Number of messages.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **User:** The email address of the user.
         - **Messages:** The total number of messages sent by that user.
-- **Token Usage by Models (Estimated):** A bar chart showing the estimated token usage for each AI model used.
-    - **Y-Axis Label:** No display.
+- **Estimated tokens by models:** A bar chart showing the estimated token usage for each AI model used. It has a magnifier icon and a download icon at the top right.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **Model:** The name of the AI model (e.g., "Claude 3.5 Sonnet," "O3 Mini").
-        - **Estimated Tokens:** The total estimated tokens consumed by that model.
-- **Messages by AI Agents:** A stacked bar chart showing the number of messages attributed to each AI Agent.
-    - **Y-Axis Label:** No display.
+        - **Estimated tokens:** The total estimated tokens consumed by that model.
+- **Messages by AI agents:** A stacked bar chart showing the number of messages attributed to each AI Agent. It has a magnifier icon and a download icon at the top right.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **AI Agent:** The name of the AI Agent (e.g., "Marketing Assistant," "Content Writer").
         - **Messages:** The total number of messages associated with that AI Agent.
+
+### Exploration Tab
+
+The Exploration tab lets administrators build a custom chart by choosing a filter, a metric and how to group the data. A row of dropdown filters is displayed at the top, with the date range selector (same as the Overview tab) below it.
+
+- **All users (dropdown):**
+    - **Function:** Filters the chart to a specific user.
+    - Opens a list with a **Search by email...** field at the top and the list of users (including "anonymous"). The default value is "All users".
+- **All groups (dropdown):**
+    - **Function:** Filters the chart to a specific user group.
+    - Opens a list with a **Search groups...** field at the top and the list of user groups (e.g., "Admin", "Public"). The default value is "All groups".
+- **Metric (dropdown):**
+    - **Function:** Chooses what to measure. The selected option shows a check mark.
+    - **Options:** Messages, Conversations, Estimated tokens, Characters.
+    - The default value is "Metric: Messages".
+- **Group by (dropdown):**
+    - **Function:** Chooses how the data is split in the chart.
+    - **Options:** Users, Models, AI Agents, User Groups.
+    - The default value is "Group by: Users".
+- **Chart:**
+    - **Title:** Follows the selected options (e.g., "Messages by Users").
+    - **Loading:** A loading spinner is displayed while the data is loading.
+    - **Bar chart:** A bar chart over the selected dates, with the Y-axis showing the metric value and the X-axis showing dates.
+    - **Download button** (Top Right Corner): Exports the data of the chart in CSV format.
+    - **Summary Table (Below Chart):** Lists each group and its total (e.g., **Users** / **Messages**), with a color marker matching the chart.
 
 ### Token Estimation Algorithm
 
@@ -6813,7 +6876,7 @@ Displays interactive line charts visualizing trends over time for key metrics.
 
 You can export each chart to CSV to easily view your data in sheet and import to your own analytic tools (if any):
 
-- Clicking on the Download icon next to each chart to export to CSV
+- Clicking on the Download icon next to each chart (in the Overview tab or the Exploration tab) to export to CSV
 
 </ADMIN_PANEL_ANALYTICS>
 
@@ -6845,7 +6908,7 @@ The Chat Logs interface is designed to present a clear and organized view of cha
 - **Filtering Options (Top of Table):** Provides controls for narrowing down the displayed chat logs:
     - **User Filter:** A dropdown menu labeled "All users."
         - **Default:** "All users" (shows logs from all users).
-        - **Options:** a drop-down list of all users (and potentially an "anonymous" option for public users) associated with the chat portal.
+        - **Options:** a drop-down list of all users (and potentially an "anonymous" option) associated with the chat portal.
         - **Functionality:** Selecting a specific user filters the chat logs to show only conversations involving that user.
     - **Time Filter:** A dropdown menu labeled "All time."
         - **Default:** "All time" (shows logs from all time periods).
@@ -6993,7 +7056,7 @@ The main section of the interface displays a table of audit log entries, with ea
         - Plugin name: Indicates an update was made to a plugin
         - Model limits (under Limits): Indicates changes were made to model usage limits.
         - Model settings (under Models): Indicates changes were made to general model configurations.
-        - Access mode (under Access & Limits): Indicates modifications to the instance's access mode settings (e.g., Private, Authorized, Public).
+        - Access mode (under Access & Limits): Indicates modifications to the instance's access mode settings (e.g., Private, Authorized).
         - Email login (under Login Method): Indicates a user logged in via email.
         - ngoc@typingmind.com (under Users): Indicates an action related to a specific user account.
         - Deleted user (under Users): Indicates an action related to a deleted user.
@@ -7149,190 +7212,6 @@ The Billing interface is organized to provide a clear overview of the current su
     - Maintain record of requested features
     - Update users on feature implementation status
 </RECENT_COMMON_TECHNICAL_ISSUES_FOR_SUPPORT>
-
-<RESELLER_PROGRAM>
-
-TypingMind Reseller Program is designed for partners who want to bring TypingMind's AI platform to businesses in their local markets.
-
-### 1. Program Overview
-
-- **Goal:** To collaborate with Resell Partners to implement TypingMind as the technical platform for businesses, enabling them to leverage generative AI.
-- **Target:** Businesses, especially in local markets with less exposure to generative AI technologies.
-- **Product Applied:** TypingMind Team version at ****https://custom.typingmind.com/
-- **Global Presence:** TypingMind has successful reseller partners in various countries, including Germany, Canada, and Thailand.
-
-**Note:** As of now, there’s no option to resell TypingMind License version at [typingmind.com](http://typingmind.com), Resellers need to use TypingMind Team version at [custom.typingmind.com](https://custom.typingmind.com/) to resell the app.
-
-### 2. Why Partner with TypingMind?
-
-- **Industry Leader:** Leading provider of internal AI chat portals for businesses, trusted by 18,824+ customers.
-- **Support All Top AI Models:** Integrates with GPT-4 (OpenAI), Claude (Anthropic), Gemini (Google), and other open-source or custom models via compatible APIs.
-- **Private and Secure:** Built with advanced security protocols (SOC 2 Certified, GDPR Compliant) to protect customer data.
-- **Brandable, Customizable, Scalable:** Adaptable for various use cases, businesses, and industries. Offers white-labeling options.
-- **Profitable & Flexible Pricing:** Commission structure designed for partner profitability.
-- **Flexible Hosting & Deployment:** Options include cloud hosting (US/EU servers) or self-hosting on customer infrastructure.
-
-### 3. Reseller Benefits
-
-- **Earn Profits, No Maximum Cap!** Grow your business by earning profits for each new customer acquired.
-- **Partner Recognition (Optional):** Inclusion in the reseller directory and authorization with partner badges.
-- **Access To Free Demo Chat Instance:** Receive a demo chat instance with 50 user seats available for FREE to support marketing and sales efforts.
-    - This free demo instance provides access for 50 users. Among them, 3 are permanent seats with Admin privileges. The remaining 47 are temporary seats that can access the app interface for up to 14 days. After that, their access to the demo chat workspace will expire.
-- **Dedicated Partner Support:** Access to dedicated support for technical and product inquiries.
-
-### 4. Ideal Reseller Profile
-
-Resellers are expected to have:
-
-- **Local Market Expertise:** Experience and access to local businesses.
-- **AI Technical Understanding:** Knowledge of generative AI, prompt engineering, AI agents, RAG, plugins, API integration, etc.
-- **TypingMind Product Knowledge:** A good understanding of the TypingMind system and its features.
-- **Value-Added Service Capability:** Ability to offer services beyond the platform, such as:
-    - AI consulting, training, and workshops.
-    - Helping businesses apply generative AI to specific domains/workflows.
-    - Building custom prompt and AI agent libraries.
-    - Assisting with internal data integration for RAG.
-    - Educating employees on using TypingMind for daily tasks.
-- **Passion for AI:** Enthusiasm for AI and its potential to benefit local businesses.
-
-### 5. How the Program Works (Process)
-
-1. **Research & Apply:** Understand TypingMind and the Reseller Program, then apply if it's a good fit.
-2. **Initial Contact:** Engage with the TypingMind team for mutual understanding.
-3. **Agree on Terms:** Finalize workflow, pricing, payment terms, and other specifics.
-4. **Get Reseller License and Access to Demo account:** Get a Reseller License and access to demo instances for sales/marketing.
-5. **Customer Onboarding:** Onboard new customers to the TypingMind platform.
-6. **Payment:** once customers commit to pay:
-    - Set up a separate chat instance so they can have long-term access
-    - Charge them via your own payment system with custom pricing. Then add them to the chat instance.
-7. **Ongoing Support:** Maintain contact with customers for support and feedback (depending on the agreed structure).
-
-### 6. Target Customers
-
-- **Preferred Profiles:**
-    - Businesses of all sizes (SMBs to enterprises).
-    - Universities or educational institutions.
-- **Other Customer Types:** Proposals for other customer groups should be discussed with TypingMind first.
-
-### 7. Roles and Definitions
-
-- **Software Platform Provider:** TypingMind (Devuap LLC) - Builds and maintains the technical platform, handles data, security, and updates. Referred to as "technical partner" or "software manufacturer."
-- **Reseller/Agency:** The partner (You) - Implements TypingMind locally, provides value-added services (consulting, training).
-- **Customers:** Paying entities (Companies, Universities) - Purchase the product and services.
-- **End-users:** Employees/Students - Use the TypingMind platform daily.
-- **Admin Users:** Elected end-users with access to the TypingMind Admin Panel - Manage members, customize the instance, create shared content (prompts, agents), connect data, etc.
-
-### 8. Marketing Materials
-
-Resellers can utilize official TypingMind marketing resources:
-
-- **Main Marketing Page:** https://custom.typingmind.com/
-- **Documentation:** https://docs.typingmind.com/
-- **Blog:** https://blog.typingmind.com/
-- **YouTube:** https://www.youtube.com/@TypingMind
-
-### 10. AI Provider Relationship
-
-- **TypingMind Role:** TypingMind is an interface, *not* an AI provider. It connects to external AI services.
-- **Customer Responsibility:** Customers must choose their own AI provider(s) (e.g., OpenAI, Anthropic, Google) and pay for AI usage directly via API keys.
-- **Compatibility:** TypingMind supports connection to multiple AI providers simultaneously and any AI model with a compatible API.
-
-### 11. User Documentation
-
-- **Primary Resource:** All user documentation is hosted online at https://docs.typingmind.com/.
-- **Accessibility:** Links to guides are embedded within the TypingMind product.
-- **Custom Guides:** TypingMind does not provide custom-hosted guides. Resellers can add custom URLs to their documents within the Admin Panel if they wish to host separate guides.
-
-### 12. Partnership Structure Options
-
-The partnership structure is flexible. Key factors to agree upon:
-
-- **12.1 Resell Type:**
-    - **Seat Resell:** Reseller creates one instance under their brand and sells individual seat licenses. Customers access only the end-user interface.
-    - **Instance Resell:** Reseller creates a private instance for each customer, granting them Admin Panel access for customization.
-- **12.2 Branding:**
-    - **Option 1 – Branded Instance:** Reseller advertises TypingMind under their brand, disclosing TypingMind as the technical partner. Admin panel shows a badge like "TypingMind - Licensed by [Your Brand Name]".
-    - **Option 2 – Unbranded Instance:** Reseller advertises TypingMind as provided by TypingMind, distributed by the reseller.
-- **12.3 Customer Support:**
-    - **Option 1 – Included (Branded):** Reseller provides basic support (billing, general questions). TypingMind assists with technical issues/bugs/features via a private channel.
-    - **Option 2 – Not Included (Unbranded):** Customers contact TypingMind support directly.
-- **12.4 AI Providers and API Cost:**
-    - **Option 1 – Reseller Pay:** Reseller uses their own API keys and pays AI providers. Requires accounts with OpenAI, Anthropic, Google AI, etc.
-    - **Option 2 – Customer Pay:** Reseller helps setup; customer uses their own API keys and pays AI providers directly.
-- **12.5 Deployment:**
-    - **Cloud Host (Recommended):** Hosted in TypingMind's secure US (Virginia) or EU (Frankfurt) data centers. Offers convenience and seamless updates.
-    - **Self-host on Customer's Infrastructure:** Deployed on the customer's servers. Requires a technical team for setup/maintenance. Has more limitations (See: https://custom.typingmind.com/self-host).
-    - **Self-host on Reseller's Infrastructure:** Reseller hosts TypingMind privately. Reseller is responsible for hosting, data protection, setup, and maintenance. Requires a technical team.
-- **12.6 Payment:**
-    - **Standard Model:** Reseller buys licenses from TypingMind and resells at a markup based on added value. Customers pay the reseller directly.
-    - **Alternative Structures:** Open to discussion based on specific situations.
-- **12.7 Product Content (Prompts, Agents, Data):**
-    - **Option 1 – Customer Create:** Customer creates their own content using TypingMind documentation.
-    - **Option 2 – Reseller Create:** Reseller provides AI consulting, understands customer workflows, proposes suitable content, and offers training.
-- **12.8 Partnership Structure Examples:**
-    - **Example 1:** Both Seat & Instance Resell, Branded, Included Support, Reseller Pays API Costs, Cloud Host, Reseller Creates Content.
-    - **Example 2:** Seat Resell, Branded, Included Support, Customer Pays API Costs, Self-host on Reseller Infra, Customer Creates Content.
-
-### 13. Handling Feature Requests
-
-- **Process:** Forward all customer feature requests and feedback to TypingMind.
-- **Evaluation:** TypingMind evaluates requests for inclusion in the roadmap.
-- **Roadmap:** Public roadmap available at https://typingmind.com/ideas (Private roadmap also exists).
-- **ETA:** Do not promise specific ETAs for requested features.
-
-### 14. Communication Guidelines
-
-- **Honesty:** Advise customers truthfully about generative AI capabilities and practical use cases.
-- **Feature Requests:** Discuss feature requests with TypingMind before making commitments to customers.
-- **Clarity:** Ensure customers understand the terms of service, privacy policy, and what they are purchasing.
-- **Consultation:** Discuss any doubts regarding the product with TypingMind.
-
-### 15. Region of Operation
-
-- **Designated Location:** Resellers are only allowed to approach customers within their agreed-upon geographic location.
-- **Competition:** This policy avoids unnecessary competition in markets where TypingMind already has a presence.
-- **Exclusivity:** Potential for exclusive agreements based on partnership performance over time.
-
-### 16. Intellectual Property
-
-- **User Content:** All content created within TypingMind (prompts, AI agents, uploaded training data) belongs to the creator. TypingMind does not claim copyright.
-- **TypingMind Usage:** TypingMind retains the right to use the content solely for the purpose of providing the service.
-
-### 17. How to Sign Up
-
-- **Signup Link:** Apply for the Reseller Program at https://custom.typingmind.com/reseller-signup
-
-### 18. Further Questions
-
-- **Contact:** For additional questions about the Reseller Program, contact [support@typingmind.com](mailto:support@typingmind.com).
-
-### 19. Reseller Program Q&A
-
-- **Q: Is it possible for my customers to purchase directly on the TypingMind app with my custom pricing?**
-    - **A:** As of now, this is not directly supported. Resellers need to build their own payment system to handle customer payments based on their custom pricing and packages. User management (adding purchased seats/users to the TypingMind instance) can then be automated using the TypingMind API integration (<ADMIN_PANEL_API_INTEGRATION>).
-- **Q: How is pricing determined for my customers?**
-    - **A:** Resellers have the freedom to set the final price for their customers. This price should reflect the value of the TypingMind platform combined with any additional consulting services, training, or custom content provided by the reseller. TypingMind charges the reseller based on the Public Price listed on the official website (https://custom.typingmind.com/).
-- **Q: What hosting options are available for my customers?**
-    - **A:** TypingMind offers flexibility. You can choose:
-        - **Cloud Hosting:** Hosted on TypingMind's secure infrastructure in the US (Virginia) or EU (Frankfurt). Recommended for ease of use and seamless updates.
-        - **Self-Hosting:** Deployed on the customer's own infrastructure or the reseller's infrastructure. Requires technical expertise for setup and maintenance. (See Deployment section 12.5 for more details).
-- **Q: Are there volume discounts available for resellers?**
-    - **A:** Yes, TypingMind offers volume discounts for purchasing a large number of user seats to support large-scale deployments and reseller growth. For specific discount tiers and details, please contact TypingMind support at [support@typingmind.com](mailto:support@typingmind.com) with the expected number of users you plan to purchase.
-- **Q: How is customer support handled in the reseller model?**
-    - **A:** The reseller's team is responsible for providing **Tier 1 support**. This includes handling basic inquiries such as general product questions, billing/payment issues related to the reseller's package, and initial troubleshooting. TypingMind provides **Tier 2 support** for more complex technical issues, bugs, or advanced product questions escalated by the reseller. The specific support structure can be further defined in the partnership agreement (See Customer Support section 12.3).
-
-### 20. Reseller Monetization Strategies
-
-Leverage TypingMind's platform by adding value through these strategies:
-
-1. **Combine with Consulting:** Bundle TypingMind access with your existing professional services (marketing, business consulting, etc.). Charge standard rates plus a fee for the customized TypingMind instance and support.
-2. **Sell Custom AI Solutions:** Develop and sell access (subscriptions) to specialized AI Agents, prompts, or plugins that automate tasks or solve specific industry problems (e.g., financial analysis, e-commerce descriptions).
-3. **Launch Training Courses:** Create courses teaching AI skills (writing, coding, marketing) using TypingMind as the hands-on tool. Charge for the course, including TypingMind access.
-4. **Offer White-Label Solutions:** Rebrand and customize TypingMind for clients who want a ready-made, branded AI tool without in-house development. Charge setup/customization fees plus recurring fees for support/maintenance.
-5. **Provide AI Chatbot Services:** Build and manage AI-powered customer service chatbots for businesses using TypingMind. Offer as a subscription service, potentially priced per user or volume.
-6. **Create Membership Communities:** Build a paid community offering exclusive access to a customized TypingMind instance, unique AI tools, and other resources (webinars, forums) for a recurring membership fee (potentially tiered).
-
-</RESELLER_PROGRAM>
 
 <COMPANY_POLICY>
 
@@ -8576,7 +8455,7 @@ The Thinking Mode feature in TypingMind enhances the user experience by providin
     - The time shows for how long the AI agent thought.
     - The bubble also has a dropdown icon that, when clicked, displays a full explanation about the process and reasoning.
 3. Models Support
-    - Currently, Claude 3.7 Sonnet is the only AI Model that supports this function.
+    - Go to Model list and select specific model to check if it supports Thinking or not.
 
 ### Use Case Example
 
