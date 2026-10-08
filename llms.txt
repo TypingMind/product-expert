@@ -1,4 +1,4 @@
-<PRODUCT_KNOWLEDGE_MAP lastUpdated="2025-11-25T14:00:00.000Z">
+<PRODUCT_KNOWLEDGE_MAP lastUpdated="2026-10-07T00:00:00.000Z">
 
 This document contains a publicly accessible product knowledge map in a structured text format designed for consumption by Large Language Models (LLMs)
 
@@ -37,7 +37,7 @@ This document contains a publicly accessible product knowledge map in a structur
 Here's an in-depth look at TypingMind's features:
 
 - **Multi AI Chat Models:**
-    - Support 20+ providers natively including: OpenAI, Anthropic, Google, OpenRouter, xAI, DeepSeek, Mistral, Moonshot, Z.AI, Groq, Perplexity, Fireworks AI, DeepInfra, Vercel AI Gateway, Chutes, Alibaba Cloud, MiniMax, Xiaomi, Novita, OpenCode Go, Ollama Cloud and Sakana (and more).
+    - Support 20+ providers natively including: OpenAI, Anthropic, Google, OpenRouter, xAI, DeepSeek, Mistral, Moonshot, Z.AI, Groq, Perplexity, Fireworks AI, DeepInfra, Vercel AI Gateway, Chutes, Alibaba Cloud, MiniMax, Xiaomi, Novita, OpenCode Go, Ollama Cloud, Meta and Sakana (and more).
     - Enables seamless switching between models within the same chat interface.
     - Allows users to compare the performance of different models on the same task.
 - **No Monthly Fee, No Usage Limit:**
@@ -60,7 +60,7 @@ Here's an in-depth look at TypingMind's features:
     - Enables voice input for hands-free interaction with AI.
     - Supports multi-language text-to-speech for receiving AI responses in various languages.
     - Offers customizable voice options and settings.
-- **Web Search, Vision, DALL-E:**
+- **Web Search, Vision, GPT-Image, Nano Banana:**
     - Integrates web search functionality to access real-time information from the internet within the chat interface.
     - Supports image analysis through AI vision capabilities, allowing the AI to understand and respond to images.
     - Enables image generation using DALL-E, allowing users to create images from text descriptions.
@@ -69,17 +69,19 @@ Here's an in-depth look at TypingMind's features:
         - Temperature (influences the randomness of the AI's responses)
         - Streaming (enables real-time streaming of AI responses)
     - Provides granular control over the AI's behavior and output.
-- **Use Unlimited Plugins:**
-    - Supports a wide range of plugins that extend the platform's functionality.
-    - Allows users to explore and install plugins from a plugin marketplace (coming soon).
-    - Enables users to build their own custom plugins to integrate with other applications or services.
+- **Plugins, Skills, and MCP Tools:**
+    - Extend the AI's capabilities with plugins, reusable skills, and connected MCP tools.
+    - Browse and install available integrations from the Plugins section.
+    - Import or create custom plugins to connect additional applications and services.
+    - Enable tools for individual chats or assign plugins to AI agents.
+    - Save combinations of plugins, skills, and MCP servers as named Plugin Presets.
 - **Upload Documents:**
     - Allows users to upload documents (e.g., PDF, DOCX) and ask the AI questions about their content.
     - Enables the AI to extract information, summarize, or analyze the uploaded documents.
 - **Control Context Limit:**
     - Allows users to define the amount of conversation history that the AI remembers.
     - Helps to manage token usage and improve the AI's performance by limiting the context window.
-- **Dynamic Context via API (New):**
+- **Dynamic Context via API:**
     - Enables users to integrate live data from external APIs or their own data sources (using Retrieval-Augmented Generation or RAG) into the AI conversations.
     - Allows the AI to access and utilize real-time information to provide more relevant and accurate responses.
 - **Chats Sync and Backup:**
@@ -101,6 +103,19 @@ Here's an in-depth look at TypingMind's features:
     - Enable any plugins for the AI such as Web Search, DALL-E 3, and more.
 - **Mention other AI agents in the chat:**
     - Call other AI agents for help in the same conversation.
+- **Memory:**
+    - Lets the AI remember facts and notes about you, your preferences and the way you work across chats, so you don't have to repeat yourself in every new chat.
+    - Three scopes: Global memory (every chat), Agent scoped memory (private to each AI agent) and Project scoped memory (private to each project folder).
+    - Manage it from the **Memory** icon in the workspace sidebar (tabs: Saved Memories and Settings). See the MEMORY_FEATURE section.
+- **Temporary Chat:**
+    - Quick conversations that are not saved to chat history, useful for testing ideas and one-off queries. Also available when chatting with AI agents.
+    - Started with the dashed speech-bubble icon in the top-right corner of the chat area (tooltip "Temporary chat", shortcut ⌘⌥T on Mac).
+- **Plugin Presets:**
+    - Save favorite plugins, skills and MCP servers into named presets (e.g., Frequently Used, Coding, Support, Sales, Research) and switch between them with one click.
+    - Includes plugin search, a "disable all plugins" action, and export/import of presets across devices.
+    - Found in the Plugins popup (the plugin button above the message input field), where the **New preset** button creates a preset.
+- **Side Chat ("Ask..."):**
+    - Highlight text inside a chat and choose **Ask...** to open a side chat about that selection. The model used by the side chat can be chosen in a setting or directly from the side chat popup. You can select a model for side-chat as you prefer.
 
 ## 3. Additional Details
 
@@ -138,23 +153,48 @@ Here's an in-depth look at TypingMind's features:
 **Integrations:**
 
 - **MacOS App (PWA):** Progressive Web App for macOS.
-- **Web Search & Live Data:** Access real-time information from the web.
+- **Web Search & Live Data:** Access real-time information from the web (Google, Kagi, Brave).
+- **MCP Servers:** Connect external tools and services (Figma, GitHub, GitLab, Redis, Make, Apify and more).
+- **Knowledge Base Sources:** GitHub, Notion, Google Drive.
 - **Search Keyword Suggestions:** Get suggestions for search keywords.
 - **Domain Check Integration:** Integrate with domain checking services.
 - **CodePen Integration:** Integrate with CodePen.
+- **Speech:** ElevenLabs and OpenAI text-to-speech; Azure Whisper, Groq Whisper or local Whisper for speech-to-text.
 
 ## 4. Plugins
 
 TypingMind offers a variety of plugins to extend its functionality:
-
-- **Web Search:** Search the internet using Google Search.
+ 
+- **Web Browser**: search the Internet for latest information.
+- **Code Sandbox**: code execution tool that enables the model to generate and run Python code. The model can then learn iteratively from the code execution results until it arrives at a final output.
 - **Perplexity Search:** Search for information from the internet using Perplexity.
+- **Deep Research:** Plan, search, extract and verify sources, then generate a detailed research report.
+- **GPT Image Editor (GPT Image 2.5):** Generate and edit images. It can edit any image available in the current chat, not only images in the latest message; the AI selects the relevant images automatically. Quality options include xhigh and max, with 4K landscape (3840x2160) and portrait (2160x3840) resolutions.
 - **DALL-E 3:** Generate images using DALL-E 3 based on image descriptions.
 - **Stable Diffusion v3 Image:** Generate images using Stable Diffusion v3 based on a text description.
 - **Image Search:** Search for images from the internet using Google Search.
-- **Interactive Canvas:** Render an interactive canvas with HTML source to the user interface.
+- **Interactive Canvas (Artifacts) / Web App Builder:** Render interactive canvases and web apps from HTML source in the interface. They can use images directly from the chat, and images shown inside an artifact are included when the artifact is shared.
+- **Render Chart:** Visualize data by rendering charts.
+- **Render HTML:** Render custom HTML content.
+- **Mermaid Diagram:** Generate diagrams using Mermaid.js.
 - **Web Page Reader:** Read the content of a web page via its URL.
-- **Any Custom Plugins:** Create your plugins such as Azure AI Search, Sound Effect Generator, and more.
+- **Firecrawl Web Page Reader:** Retrieve web page content using Firecrawl.
+- **JavaScript Interpreter:** Run JavaScript code snippets.
+- **Simple Calculator:** Perform quick calculations.
+- **Market News:** Get the latest market news and trends.
+- **Slack Message Notifier:** Send Slack notifications.
+- **Azure AI Search:** Search with Azure AI-powered search.
+- **Zapier:** Integrate workflows across popular services.
+- **Any Custom Plugins:** Create your own plugins such as Sound Effect Generator and more.
+ 
+**Plugin developer notes (for custom plugins):**
+- Plugins can receive chat files using the `typingmind-attachment` parameter type together with the `read_chat_attachments` permission.
+- Image cards support an `image.filename` field; base64 images returned by cards are saved automatically as chat files.
+- Chat files can be referenced in plugin output as `tm-attachment://<id>` (HTML) or `#tm-attachment:<id>` (Markdown).
+- For GitHub-hosted plugins, JavaScript functions can be stored in separate files with the `codeFile` field.
+- `previousRunOutput` does not include output from `respond_to_ai`.
+- Importing a plugin from a private GitHub repository uses the `main` branch by default.
+ 
 
 ## 5. Pricing
 
@@ -162,9 +202,9 @@ TypingMind offers a lifetime license with three tiers:
 
 - **Standard:** $39 (Basic Features, Unlock AI Agents, Voice Input, Share Chats, Remove Ads/Popups)
 - **Extended:** $79 (Image Generation, Web Search, Text-to-Speech / Vision / Images, Upload Documents)
-- **Premium:** $99 (Unlimited Plugins, and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
+- **Premium-currently at 50% OFF** $99 (Multi-model Parallel chats, Unlimited Plugins, and Model Context Protocol (MCP), Project Folders, Artifacts, Canvas Editor, Free Updates)
 
-There is also a "TypingMind for Teams" option for building custom AI chat portals for teams.
+There is also a "TypingMind Teams" option for building custom AI chat portals for teams.
 
 ## 6. Security
 
@@ -196,6 +236,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
     - **Plugins:** Navigates to the Plugin Marketplace/Management.
     - **Models:** Navigates to model and API keys management
     - **KB:** Navigates to Knowledge Base management.
+    - **Memory:** Navigates to Memory management (Saved Memories and Settings tabs).
     - **Teams:** Navigates to team management features
     - **Settings:** Navigates to the application settings.
 - **Chat List:** Occupies the majority of the sidebar space. It displays a list of recent chats and chat folders.
@@ -214,19 +255,17 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 - **Top Bar:**
     - **Back Arrow:** Navigates back to the chat list (only visible when a chat is open).
     - **Chat-Specific Action Icons (Left to Right):**
-        - **Minimap:** Toggles a minimap view of the conversation. Icon looks like search icon. This also allows you to search a specific message within a chat.
+        - **Search in chat:** Magnifying glass icon. Toggles a minimap view of the conversation and lets you search for a specific message within the chat.
         - **Share:** Opens the chat sharing options popup. Icon is a standard share symbol.
-        - **Reset Chat (⌘⇧R):** Clears the current chat history. Icon is often a refresh or circular arrow. Tooltip shows the keyboard shortcut.
-        - **Clear Context (⌘⇧J):** Resets the AI's memory without deleting messages. Icon might be a broom or eraser. Tooltip shows the keyboard shortcut.
-    - **Cost Indicator:** Shows the estimated cost for the current session (e.g., "$0.0016").
+        - **Reset Chat:** Clears the current chat history. Icon is an arrow. Tooltip shows the keyboard shortcut (⌘⌥R).
+        - **Clear Context:** Resets the AI's memory without deleting messages. Icon is an eraser. Tooltip shows the keyboard shortcut (⌘⌥J).
+        - **Toggle select mode:** Checklist icon. Switches the chat into a mode for selecting multiple messages.
+    - **Cost Indicator:** Shows the estimated cost for the current session (e.g., "$0.2436") with an (i) icon that explains the cost.
     - **Profile Icon (Top Right):** Displays the current user's profile icon/avatar, likely providing access to profile switching or settings.
-    - **More Actions (Three Dots Icon - Top Right):** --> Opens a dropdown menu containing additional chat-level actions:
-        - **Minimap:** (Duplicate access) Toggles the minimap view.
-        - **Share (⌘S):** (Duplicate access) Opens sharing options. Includes pin/unpin action button (bell icon).
-        - **Reset chat (⌘⇧R):** (Duplicate access) Clears chat history. Includes pin/unpin action button (bell icon).
-        - **Clear context (⌘⇧J):** (Duplicate access) Resets AI memory. Includes pin/unpin action button (bell icon).
-        - **About this chat:** Opens the Chat Info dialog (showing tokens, model, timestamps, etc.). Includes pin/unpin action button (bell icon).
-        - **Pin/Unpin Action Buttons (Bell Icons):** Small bell icons next to each action in the dropdown allow pinning/unpinning these specific actions to/from the main top bar for quicker access.
+    - **More Actions (Chevron Button - Top Right):** Opens a dropdown menu containing the chat-level actions:
+        - **Search in chat**, **Share (⌘⌥S)**, **Reset chat (⌘⌥R)**, **Clear context (⌘⌥J)**, **Toggle select mode** (some items have an (i) icon that explains the action).
+        - **About this chat:** Opens the chat info as a **side panel** on the right, so the conversation stays visible (easier to view artifacts on both desktop and mobile). The panel has four tabs: **Details**, **Files**, **Settings** and **History**, and a close (X) button at the top right.
+        - **Pin icon:** Each item has a pin icon on its right. Clicking it pins or unpins that action on the main top bar for quicker access.
 - **Chat Message Display Area:** Shows the conversation history between the user and the AI.
 - **Model and Plugin Selection Bar (Above Input Field):**
     - **Model Selector:** Dropdown to choose the active AI model(s).
@@ -243,7 +282,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 
 - The UI maintains a clean, two-column layout.
 - Core chat functionalities (model/plugin selection, input actions) are grouped near the message input area.
-- Chat-level management actions (Share, Reset, Clear Context, Minimap, Info) are now consolidated in the top bar, accessible via direct icons or the "More Actions" menu.
+- Chat-level management actions (Share, Reset, Clear Context, Minimap, Info) are consolidated in the top bar, accessible via direct icons or the "More Actions" menu.
 - The top bar allows customization by pinning/unpinning frequently used actions.
 </MAIN_INTERFACE>
 
@@ -325,12 +364,43 @@ If a model is available via multiple providers (e.g., Llama 3 via Groq vs. Llama
             - Includes a pin/unpin bell icon.
     - **Pin/Unpin Action Buttons (Bell Icons):**
         - **Function:** Clicking the bell icon next to an action in the dropdown menu toggles its visibility as a direct icon in the main top bar. Pinned actions appear directly in the top bar; unpinned actions are only accessible via the dropdown.
+- **About this chat:** Opens the chat info as a **side panel** on the right, so the conversation stays visible (easier to view artifacts on both desktop and mobile). The panel has four tabs: **Details** - view token usage and estimated cost, **Files** - manage and download uploaded/generated files in chat, **Settings** and **History**, and a close (X) button at the top right. Each item in the More Actions menu has a pin icon on the right to pin or unpin it on the top bar.
 
-### Model and Plugin Selection Bar
+### Model Selector
 
 - **Placement:** Directly above the message input field.
-- **Components:** Model Selector dropdown, Plugin Selector button/indicator.
-- **Functionality:** Select AI model(s), manage enabled plugins for the current chat session. (See previous description for popup details).
+- **Components:** Model Selector dropdown
+- **Functionality:** Select AI model(s) for the current chat session. (See previous description for popup details).
+
+### Plugin Selector (Plugins popup)
+
+- **Placement:** In the Model and Plugin Selection Bar above the message input field, to the right of the model selector. The button shows small round icons of the enabled plugins/tools, a count such as "+1" and a dropdown chevron.
+- **Function:** Click the button to open the Plugins popup, where the plugins, tools and presets of the current chat are managed.
+- **Popup contents (top to bottom):**
+    - **Search Bar:** Placeholder "Search". Filters presets, tools, MCP servers and plugins by name. For example, typing "web" lists Web App Builder, Jina Web Reader, Web Search, Web Search (Serp), Jina Web Search, Extract Web Page and Read Web Page (Firecrawl). A clear "x" button appears while searching, and results are grouped under a header with a count (e.g., "Plugins (10)").
+    - **"Disable all plugins" Button:** A round minus icon to the right of the search bar. Tooltip: "Disable all plugins". Turns off every enabled plugin, tool and MCP server in one click.
+    - **"New preset" Button:** A square plus icon to the right of the minus icon. Tooltip: "New preset". Opens the "New plugin preset" dialog.
+    - **Presets Section:** A collapsible group labeled "Presets (N)". Each preset row shows an icon, the preset name, small icons of the items it contains with a "+N" count, a blue check mark and a pencil icon.
+    - **Model tools Section:** A collapsible group labeled "Model tools (N)" with built-in provider tools such as Web Browser and Code Sandbox, each with an on/off toggle.
+    - **MCP Section:** A collapsible group labeled "MCP (N)" with the connected MCP servers (e.g., Firecrawl, Notion, GitHub), each with an on/off toggle.
+    - **Plugins Section:** A collapsible group labeled "Plugins (N)" with the installed plugins, each with an on/off toggle.
+    - **"Plugins" Master Switch (footer):** A gear icon, the label "Plugins", the keyboard shortcut ⌘⌥P and a toggle that turns plugin use on or off for the chat.
+
+### Plugin Presets
+
+- **Purpose:** Group plugins, skills and MCP servers into named presets for different workflows (e.g., Frequently Used, Coding, Support, Sales, Research) and switch between them with a single click.
+- **Where to use it:** In the Plugins popup (the plugin button above the message input field).
+- **Create a preset:**
+    1. Open the Plugins popup and click the **New preset** button (square plus icon).
+    2. In the **New plugin preset** dialog (subtitle: "Select plugins, skills, or MCPs for this preset."), type a name in the name field (pre-filled with a default such as "Preset 2").
+    3. Use the search field ("Search plugins, skills, MCP...") to find items, and tick the checkbox next to each plugin, skill or MCP server to include (e.g., Web Browser, GPT Image 2.5, Web App Builder, Interactive Canvas, Code Sandbox, Firecrawl, Notion, GitHub).
+    4. The counter at the bottom left shows how many are selected (e.g., "4 plugins selected").
+    5. Click **Save** to create the preset, or **Cancel** to discard it.
+- **Switch preset:** Open the Plugins popup and click a preset row under "Presets". The enabled plugins change to that preset's selection. A blue check mark on the row shows the applied preset. 
+- **Edit a preset:** Click the pencil icon on the preset row. 
+- **Search plugins:** Use the Search bar at the top of the Plugins popup.
+- **Disable all plugins:** Click the minus icon ("Disable all plugins") next to the search bar.
+- **Export / import presets across devices:** 
 
 ### Message Input Field
 
@@ -378,6 +448,30 @@ If a model is available via multiple providers (e.g., Llama 3 via Groq vs. Llama
     - **Regenerate:**
         - **Icon/Button:** Often a prominent blue button.
         - **Function:** Instructs the AI to generate a new response to the *user's last message*.
+
+### Rendered Result Buttons (Artifacts, HTML, Code)
+ 
+- **Placement:** On rendered artifacts, HTML previews and code blocks inside AI messages.
+- **Function:** Action buttons on rendered results are designed for clear use on both desktop and mobile. Artifacts can also be opened and viewed in the side panel.
+- **Chat card:** When Web App Builder or Interactive Canvas renders a result, the chat shows a tool row (for example "Web App Builder Render") and a card with the plugin name and a **View in Artifacts** link that opens the result in the side panel.
+- **Artifact side panel:** Opens on the right of the chat. The header has a title dropdown (for example "Web App Builder") on the left and, on the right, a **Preview** / **Code** toggle followed by small icon buttons for copy, open in a new tab, copy link/share, and a device or full-size view.
+- **Images in artifacts:** Interactive Canvas and Web App Builder can use images that are already in the chat (for example an image made by GPT Image 2.5) directly inside the page they build. When you share an artifact, the images displayed inside it are included in the shared artifact.
+ 
+### Temporary Chat
+ 
+- **Purpose:** Start a conversation that will not appear in your chat history.
+- **Behavior:** A banner reads "This chat won't appear in your history". Also supported when using AI agents.
+- **Use cases:** Testing prompts and ideas, one-off questions.
+- **Placement:** Top-right corner of the chat area, on the new chat screen and inside chats.
+- **Icon:** A speech bubble drawn with a dashed (dotted) outline. On hover, the tooltip reads "Temporary chat" with its keyboard shortcut (⌘⌥T on Mac).
+- **Function:** Click the icon (or press the shortcut) to switch to a temporary chat.
+ 
+### Side Chat/Quote chat (Quote or "Ask...")
+ 
+- **Activation:** Highlight text inside any message. A small floating toolbar appears with **Quote**, **Ask...** and a three-dots menu. 
+- **Ask...** Opens a side chat so you can ask a follow-up about the selected text without disturbing the main conversation.
+- **Quote**: reply to a specific part of the response 
+- **Model selection:** Choose the model used for side chat either in a setting or directly from the side chat popup.
 </CHAT_FEATURES_OVERVIEW>
 
 <CHAT_THREAD_FEATURE>
@@ -452,14 +546,14 @@ The Chat Thread feature allows users to view, switch between, and continue chatt
     - **Outcome:** Creates a distinct copy of the conversation for taking it in a significantly different direction, preserving a snapshot, or creating a clean starting point based on a previous state.
     - **Sidebar:** Creates a *new chat entry* in the sidebar list.
 
-**7. FAQs (Based on provided text):**
+**7. FAQs:**
 
 - **Q: Does editing delete the original message?**
     - **A:** No. Editing creates a new version/thread while preserving the original.
 - **Q: Can I continue conversations from different versions?**
     - **A:** Yes. Each version acts as an independent starting point for continuing the conversation.
 - **Q: How many versions can I have?**
-    - **A:** There isn't a strict limit imposed by the feature itself for most users. However, very old or inactive branches *might* be subject to archiving in the future depending on system implementation (this needs confirmation on exact behavior).
+    - **A:** There isn't a strict limit imposed by the feature itself for most users.
 
 </CHAT_THREAD_FEATURE>
 
@@ -547,30 +641,41 @@ The sidebar in TypingMind provides the primary navigation and chat management to
 
 - **Placement:** Located at the left edge of the app as a long narrow workspace navigation.
 - **Function:** Allow the user to switch between the main tabs of the app, including “Chat”, “Agents”, “Prompts”, “Plugins”, etc.
+- **Items (top to bottom):** Chats, Agents, Prompts, Plugins, Models, KB, Memory, Teams, Settings. Each item is an icon with a text label underneath. The active item has a rounded grey background.
+    - **Memory:** Opens the Memory page (Saved Memories and Settings tabs).
 
 ### "Chat" tab
 
 - **Icon:** A speech bubble icon.
-- **State:** Highlighted (in blue in the screenshot), indicating the active view.
+- **Label:** "Chats".
+- **State:** Highlighted (with a rounded grey background), indicating the active view.
 - **Function:** Confirms that the user is currently viewing the chat interface. Clicking it again will refresh the chat interface.
 
 ### "New Chat" Button
 
 - **Icon:** A speech bubble icon with a "+" sign.
-- **Text:** "New Chat"
+- **Text:** "New chat"
+- **Appearance:** A wide blue button at the top of the chat panel.
 - **Function:** Initiates a new, blank chat session.
     - When clicked, a new chat is created and added to the chat list.
     - The main content area switches to the new chat, ready for user input.
 
 ### User Profile Icon
 
-- **Shape:** Circular.
-- **Content:** Displays the user's avatar or profile image. If no image is set, it may show default initials or a generic user icon.
+- **Shape:** Square with rounded corners.
+- **Placement:** To the right of the "New chat" button, and also at the bottom of the workspace bar.
+- **Content:** Displays the user's avatar or profile image. If no image is set, it shows the user's initial on a colored background (e.g., a green "N") or a generic user icon.
 - **Function:** Clicking this icon typically opens a user profile menu or settings panel, allowing users to:
     - Manage their account information.
     - Change their profile picture.
     - Access application settings.
     - Log out.
+
+### Collapse Sidebar Icon
+
+- **Placement:** At the right end of the first row of the chat panel, next to the profile icon.
+- **Icon:** An arrow pointing left with horizontal lines.
+- **Function:** Collapses the chat panel (the chat list) to give the conversation more width. 
 
 ### Search Bar
 
@@ -584,15 +689,16 @@ The sidebar in TypingMind provides the primary navigation and chat management to
 
 ### Chat Management Tools
 
-These icons are located to the right of the Search bar, offering quick access to organizational features:
+The Sort and Filter icons are located to the right of the Search bar. The Create Folder icon is located in the "Folders" header row of the chat list. These icons offer quick access to organizational features:
 
 - **Create Folder:**
     - **Icon:** A folder icon with a "+" sign.
+    - **Placement:** At the right side of the "Folders" header row.
     - **Function:** Allows users to create new folders or folders within folders to organize their chats.
         - Clicking the icon opens a small input field where the user can type the name of the new folder.
         - After entering the name and pressing "Enter" (or clicking a "Save" button), the new folder is created and added to the chat list.
 - **Sort:**
-    - **Icon:** An icon with 3 horizontal line, sorted.
+    - **Icon:** An icon with 3 horizontal line, sorted. 
     - **Function:** Allows users to sort chats with several options
         - Clicking the icon opens a popup where the user can choose the sort by options
             - **Recent Chats First:** Sort the list of chats with the latest updated chats on top.
@@ -616,10 +722,13 @@ These icons are located to the right of the Search bar, offering quick access to
 
 - **Function:** Displays a list of recent chats and chat folders, providing access to existing conversations.
 - **Folders:**
+    - **Folders header row:** A collapsible header with an arrow, the label "Folders" and the number of folders (e.g., "Folders 5"). Clicking it expands or collapses the whole folder list. At the right side of the header are the Create Folder icon and a three-dots icon for more folder options like Project folder settings.
     - Represented by a folder icon and the folder name.
-    - The number of chats within the folder is displayed in parentheses (e.g., "IMAP (10)").
+    - The number of chats within the folder is displayed as a grey badge next to the name (e.g., "Model comparison 9").
     - Clicking a folder expands or collapses it to show or hide the chats within.
-    - **Folder actions**: To the right of each folder is "+" (add to folder), a pencil icon (edit), and a trash can icon (delete).
+    - Folders can contain subfolders.
+    - Folders with project settings can show small round indicator icons after the chat count (for example a tag, a model or agent logo and a document icon) to show what is configured for the project. 
+    - **Folder actions**: When hovering a folder, a "+" (add chat to folder) and a three-dots icon appear to the right of the folder name. The three-dots menu contains **New Subfolder**, **Project Settings**, **Rename**, **Move To Folder** and **Delete**.
 - **Individual Chats:**
     - Each chat is displayed with:
         - **AI Avatar:** An icon or image representing the AI agent used in the conversation.
@@ -657,7 +766,7 @@ These icons are located to the right of the Search bar, offering quick access to
 
 ### 9. Bottom Section (User Avatar)
 
-- **Content:** Displays the user's avatar or profile picture.
+- **Content:** Displays the user's avatar or profile picture (a square avatar with the user's initial, at the bottom of the workspace bar).
 - **Function:** Clicking this area may:
     - Open the user profile settings.
     - Display account information.
@@ -1060,18 +1169,17 @@ TypingMind offers two main versions of its platform: one tailored for individual
 - **TypingMind for Individuals:**
     - Features a clean and intuitive interface designed for single-user operation.
     - Allows for basic UI customization, such as theme selection and avatar personalization.
-- **TypingMind for Teams:**
+- **TypingMind Teams:**
     - Offers advanced customization options, including:
         - Custom branding (logo, colors, tagline) to align with the organization's identity.
         - Customizable chat features (e.g., enabling/disabling specific functionalities).
         - Custom domain support to access the chat interface through the organization's own domain or subdomain.
-        - Custom email templates for notifications and communications.
 
 ### 3. Collaboration Features
 
 - **TypingMind for Individuals:**
     - Limited collaboration capabilities, primarily through chat sharing (exporting chats as text, JSON, HTML, or creating secret links).
-- **TypingMind for Teams:**
+- **TypingMind Teams:**
     - Provides robust collaboration features, including:
         - Shared AI agents and prompts: Teams can create and share AI agents and prompt libraries, ensuring consistency and best practices across the organization.
         - Centralized knowledge base: Team members can contribute to a shared knowledge base that the AI can access, improving the accuracy and relevance of its responses.
@@ -1104,12 +1212,11 @@ TypingMind offers two main versions of its platform: one tailored for individual
 
 - **TypingMind for Individuals:**
     - Supports a range of plugins to extend functionality.
-- **TypingMind for Teams:**
+- **TypingMind Teams:**
     - Offers advanced integration and extensibility options:
         - API access: Integrate TypingMind with other internal systems and workflows.
         - Custom plugins: Build custom plugins tailored to the organization's specific needs.
         - Webhooks: Receive real-time notifications about events within the platform.
-        - Embed as chat widget: Embed the chat interface into your website, blog, or CMS.
 
 ### 7. Pricing and Licensing
 
@@ -1128,6 +1235,66 @@ TypingMind offers two main versions of its platform: one tailored for individual
     - Ideal for companies looking to build internal AI platforms or integrate AI into their existing workflows.
 
 </TEAM_VS_PERSONAL>
+
+<MEMORY_FEATURE>
+
+## Memory
+
+Memory lets the AI retain selected facts, preferences, and notes across chats, reducing the need to repeat the same information in each conversation. Saved memories are separate from the current chat's conversation history.
+
+### Accessing Memory
+
+1. Click the **Memory** icon in the workspace sidebar, between **KB** and **Teams**.
+2. If memory is not enabled, click **Enable Memory**.
+3. The Memory page contains two tabs: **Saved Memories** and **Settings**, plus a **How it works** button.
+
+### Memory Scopes
+
+- **Global:** Included in every chat, including chats without an assigned agent or project.
+- **Agent:** Private to a specific AI agent and used in chats with that agent, alongside applicable global memories.
+- **Project:** Shared across chats within a specific project, alongside applicable global memories.
+
+### Reviewing Saved Memories
+
+In the **Saved Memories** tab:
+
+- Use **Find memories** to search by keyword.
+- Filter by **All memories**, **Global**, **Agent**, or **Project**.
+- Each entry displays its title, scope, last updated time, and a **Delete** button.
+- Click an entry to open its full content in a popup.
+- Click **Close** to dismiss the popup.
+- Click **Delete** to remove the saved entry. Manage memories here rather than assuming that deleting a chat also removes its saved memories.
+
+### Configuring Memory
+
+The **Settings** tab provides separate toggles for:
+
+- **Global memory**
+- **Agent scoped memory**
+- **Project scoped memory**
+
+Additional controls are available within agents and projects:
+
+- **AI Agent editor:** Expand **Memory** in the **Knowledge** group and configure **Use memory for this agent**.
+- **Project Settings:** Configure **Use memory for this project**, then click **Save** to apply changes or **Discard changes** to cancel.
+
+Memory usage controls and deletion of saved entries are separate actions.
+
+### Using Memory in Chat
+
+- Share relevant facts or preferences in a normal message, such as your role, preferred language, or response format.
+- The AI can save and update this information as memories.
+- Memory activity may appear within the response as steps such as **Saving to global memory**, **Reading memory details**, or **Editing memory details**.
+- Saved memories are used in later chats according to their scope and enabled settings.
+- Memory retains selected information; it is not a complete archive of previous conversations.
+
+### Storage and Privacy
+
+- Memories are stored locally by default.
+- Optional cloud sync allows memories to sync across devices.
+- Memories used in a response become part of the context supplied to the selected AI provider.
+
+</MEMORY_FEATURE>
 
 <ADD_CUSTOM_MODEL_FEATURE>
 
@@ -1247,7 +1414,7 @@ This section delves into the technical aspects of the "Add Custom Model" feature
 **Q: My custom model is not working. What should I do?**
 
 1. **Verify the Endpoint URL:** Double-check that the endpoint URL is correct and that the API is running and accessible. Use tools like `curl` or `Postman` to test the endpoint directly.
-2. **Check the API Type:** Ensure that you have selected the correct API Type (for example: "OpenAI Compatible API" for OpenAI-like models, or for the new OpenAI Response API, Claude via Bedrock, Gemini API).
+2. **Check the API Type:** Ensure that you have selected the correct API Type (for example: "OpenAI Compatible API" for OpenAI-like models, or for the OpenAI Response API, Claude via Bedrock, Gemini API).
 3. **Review Custom Headers & Body Parameters:** Make sure that any custom headers or body parameters are correctly configured. Typos or incorrect values can cause API requests to fail.
 4. **Inspect the Request/Response:** Use your browser's developer tools (Network tab) to inspect the actual requests being sent to your custom model and the responses being returned. Look for any error messages or unexpected data.
 5. **Examine the Model's Logs:** Check your custom model's logs for any errors or exceptions that might be occurring. This can provide valuable insights into what's going wrong.
@@ -1584,14 +1751,37 @@ The AI Agents interface is organized to provide an intuitive overview of availab
 
 ### Skills Section
 
-- **Plugins:**
-    - Functionality: Allow user to define the plugins of this AI Agent.
-- **Assign plugins for this AI agent**
-    - Function: Allows users to assign specified plugins to the AI Agent.
-    - Input Type: Toggle switch.
-    - Functionality: When enabled, the AI Agent will always use the selected plugins and users cannot change it.
-    - Requirement: Optional. If disabled, the plugins to use will be decided by the user.
-    - Plugin Settings: All Plugin settings will be displayed as described above.
+AI Agents can use skills and plugins to help complete tasks.
+
+- **Skills:** Reusable instructions packaged in a `SKILL.md` file, optionally with supporting resources. Skills guide how the AI approaches a task.
+- **Plugins:** Tools the AI can call to perform actions, retrieve information, or interact with external services.
+- **MCP Servers:** External tools connected through Model Context Protocol.
+
+### Installing Skills
+
+1. Go to **Plugins → Skills**.
+2. Choose the option to add or install skills.
+3. Select an import method:
+    - **From GitHub URL:** Paste a public GitHub repository or folder URL containing one or more skills.
+    - **From local files:** Import a `.skill` archive, `.zip` archive, or `SKILL.md` file.
+4. Follow the import prompts to finish installation.
+5. Enable the installed skill in the chat where you want to use it.
+
+Skills imported from GitHub are stored locally with their supporting resource files.
+
+### Assigning Plugins to an AI Agent
+
+- **Assign plugins for this AI agent:**
+    - When enabled, the agent uses the selected plugins, and users cannot change that selection in the chat.
+    - When disabled, users choose which plugins to enable.
+    - Configure any required plugin settings, credentials, or authentication before using the agent.
+
+### Using Skills, Plugins, and MCP Servers in Chat
+
+- Open the **Plugins** popup above the message input to select available skills, plugins, and MCP tools.
+- Use **Plugin Presets** to save named combinations for different workflows.
+- Installing a skill or plugin does not automatically enable it in every chat.
+- Tools may require additional API keys, authentication, or an active MCP connection.
 
 ### Text-to-speech Section
 
@@ -2199,7 +2389,7 @@ The Knowledge Base interface is designed to be user-friendly and provides a clea
 
 1. **Click the "+ Add Data Source" Button:** This opens the "Add Data Source" dialog, presenting the available data source options.
 2. **"Add Data Source" Dialog:** This dialog displays a list of supported data source types.
-3. **Data Source Options:** as of now, only File Upload is available for data connection. Other sources will be added soon.
+3. **Data Source Options:** 
     - **File Uploads:**
         1. Select Add Data Source and select file upload
         2. You will need to create a folder for file upload first. Enter the folder name and click Create
@@ -2591,28 +2781,36 @@ This section allows users to configure advanced network and proxy settings.
 </APP_SETTINGS>
 
 <PLUGINS_BUILT_IN>
-## Built-in Plugins
+## Tools and Built-in Plugins
 
-TypingMind comes with a range of built-in plugins, each designed to extend the capabilities of the platform. Here is a detailed list:
+TypingMind comes with a range of tools and built-in plugins, each designed to extend the capabilities of the platform. Here is a detailed list:
 
-### 1. Web Search
+### 1. Tools
 
--   **Description:** Searches for information from the internet in real-time using Google Search.
--   **Functionality:** Allows the AI to access up-to-date information from the web to answer user queries, provide context, or perform research.
--   **Configuration:**
-    -   Requires a Google Custom Search Engine ID and API Key.
-    -   The overview tab provides two example query: `What's the gold price?`, and `How's the weather at HCMC at the moment?`.
--   **Settings Tab:**
-    -   **Search Engine ID (*):** This is the unique identifier for your Google Custom Search Engine. User can follow this pattern `03b41cca8970b5458c`.
-    -   **Search Engine API Key (*):** This is your Google Custom Search API key. A long string of alphanumeric characters. For instance, `AIzaSyDIaJqTfPYwGsGCwUvdQkQ-08o9z24`.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"get_web_search_results"`.
-    -   `description`: `"Search for information from the internet using Google Search."`.
-    -   The `parameters` consists of properties such as `keyword`, `source` with `type`, and `description`.
+- Model tools are built-in tools provided directly by the AI model provider (OpenAI, Gemini, Anthropic). They appear in their own group, **Model tools (N)**, at the top of the Installed list on the Plugins page, and in the **Model tools** section of the Plugins popup above the message input field.
+- **Where to use it:** Open the Plugins page, find the group **Model tools** under **Installed**, click a tool, and use the toggle at the top of the detail pane to turn it on or off. The same tools can be switched per chat from the Plugins popup.
+- **Cost note:** Model tools run on the provider's side, so using them incurs additional costs from the model provider for tool usage and search API calls.
 
-Beside Web Search, there are plugins that are using for searching purpose:
-- Web search using Serp API (provide more accurate data with structured data like snippets, ads, etc)
-- Perplexity search using Perplexity API
+#### Web Browser
+
+- **Detail page:** Toggle, globe-with-magnifier icon and the title "Web Browser", with an **Overview** tab titled "Search and browse the web".
+- **Function:** Gives the AI model direct access to real-time web content, so it can answer questions with up-to-date information beyond its knowledge cutoff.
+- **Powered by (depends on the model provider):**
+    - **Gemini:** Grounding with Google Search and the URL Context tool.
+    - **OpenAI:** The Web Browsing tool.
+    - **Anthropic:** Anthropic's Web Search and Web Fetch tool.
+
+#### Code Sandbox
+
+- **Detail page:** Toggle, code-brackets icon and the title "Code Sandbox", with an **Overview** tab titled "Run and execute code in a secure sandbox".
+- **Function:** A code execution tool that lets the model generate and run Python code, then learn iteratively from the execution results until it reaches a final output.
+- **Features and limitations:**
+    - The sandbox is provided natively by the AI provider, so data is only stored and processed in the provider.
+    - Each provider has its own features and limitations; check the provider's official documentation (a **Docs** link is given per provider).
+- **Provider comparison table (columns: Provider, Run Code, Output Files, Input Files, Persistent Container, Documentation):**
+    - **OpenAI:** Run code Yes; output files Yes; input files Yes (limited file types); persistent container limited to 20 minutes.
+    - **Anthropic:** Run code Yes; output files Partial support; input files No; persistent container No.
+    - **Gemini:** Run code Yes; output files Yes; input files No; persistent container No.
 
 ### 2. DALL-E 3
 
@@ -2629,8 +2827,7 @@ Beside Web Search, there are plugins that are using for searching purpose:
     -   The `parameters` consists of properties such as `prompt`, `quality`, `resolution`, `n`, `size` with `type`, and `description`.
 
 Other plugins to generate images:
-- GPT Image Editor to generate image using OpenAI API 
-- Generate Image Grok to generate image using Grok API
+- GPT Image Editor to generate image using latest OpenAI GPT-Image API
 - Stable Diffusion v2/v3 to generate image using Stable Diffusion API
 
 For native image generation (without using plugins), please consider using Gemini 2.5 Flash model. 
@@ -2880,46 +3077,6 @@ Related plugins: use OpenAI File Search if you want to connect your training dat
     -   The `parameters` consists of properties such as `email`, `subject`, and `content` with `type`, and `description`.
 -   **HTTP Action Tab:** The tab shows the POST method.
 
-### 19. PowerPoint Generator
-
--   **Description:** Generate a PowerPoint file and return the URL for downloading it.
--   **Functionality:** Generate a PowerPoint file.
--   **Configuration:** No API Keys needed, Requires a plugin server.
--   Settings Tab
-    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
-    - **Slide Layout** (Dropdown. Default: LAYOUT\_WIDE).
-    - **Title Font Size** ( A textbox here)
-    - **Header Font Size** ( A textbox here)
-    - **Body Font Size** ( A textbox here)
-    - **Font Family** (Dropdown. Default: Calibri)
-    - **Background Color** ( A textbox here)
-    - **How to Deploy Plugins Server on Render**.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"generate_powerpoint_file"`.
-    -   `description`: `"Generate a PowerPoint file and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key"`.
-    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
--   **HTTP Action Tab:** The tab shows the POST method.
-
-### 20. Word Generator
-
--   **Description:** Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key.
--   **Functionality:** Generate a Word document
--   **Configuration:** No API Keys needed, Requires a plugin server.
--   Settings Tab
-    - **Plugin Server (*)** A text input field to enter the URL of the plugin server
-    It Supports:
-         -Multiple sections with hierarchical numbering format.
-         -Adding header, footer, and page number.
-         -Adding table.
-         -Adding list with bullet points.
-         -Adding table of content.
-         -Adding page break.
--   **Functions** tab: display the number of functions using for the plugin, click to Edit the plugin to view the full source code in Javascript:
-    -   `name`: `"generate_word_file"`.
-    -   `description`: `"Generate a Word document based on the given sections, title, header, and footer, and return the URL for downloading it. If the download url is not present, it means something is wrong with the plugin server's API key."`.
-    -   The `parameters` consists of properties such as `sections` with `type`, and `description`.
--   **HTTP Action Tab:** The tab shows the POST method.
-
 ### 19. Extract Web Page (Firecrawl)
 
 -   **Description:**A plugin to extract information from a web page using Firecrawl Extract API.
@@ -3017,23 +3174,6 @@ This plugin returns much more concise results compared to reading the whole web 
     -   `name`: `"todo_write"`.
     -   `description`: `"A tool to help AI plan and keep track of long-running tasks more efficiently."`.
 
-### 24. Generate Image Grok
-
--   **Description:** A TypingMind plugin that generates high-quality images using xAI's Grok image generation model.
--   **Overview:** This plugin integrates xAI's powerful Grok image generation capabilities directly into TypingMind, allowing you to create stunning images from text descriptions with simple natural language commands.
--   **Get your xAI API Key:** Instructions provided to obtain an API key:
-    -   Visit `https://console.x.ai`.
-    -   Sign up or log in to your xAI account.
-    -   Generate an API key.
--   **Example Usages:**
-    -   `"Create an image of a cozy coffee shop"`
-    -   `"Generate a picture of a golden retriever"`
--   **Settings Tab:**
-    -   **xAI API Key (Required) (*):** A text input field to enter the xAI API Key. The text underneath states: "The images will be generated using this xAI API. Get your API key from `https://console.x.ai`".
-    -   **Default Image Count:** A numeric input field (with up/down arrows) for the "Number of images to generate by default (1-4)." The placeholder is `Default Image Count`.
--   **Functions tab:** Display `generate_image_grok`.
-    -   `name`: `"generate_image_grok"`.
-    -   `description`: `"Generate images using xAI's Grok image generation model based on text descriptions."`.
 
 </PLUGINS_BUILT_IN>
 
@@ -3051,6 +3191,7 @@ The "Chat with Documents" feature in TypingMind allows users to upload documents
 4. **Select Files:** Browse your computer and select the document(s) you want to upload. TypingMind typically supports a variety of file types, including:
     - PDF (.pdf)
     - DOCX (.docx)
+    - Powerpoint (.pptx)
     - TXT (.txt)
 5. **Click "Open":** After selecting the file(s), click the "Open" button in the file dialog.
 6. **File Upload and Display:** TypingMind will upload the selected document(s) and display them in the chat interface as attachments.
@@ -3075,7 +3216,7 @@ The "Chat with Documents" feature in TypingMind allows users to upload documents
     - The AI may cite specific passages from the document to support its answer.
 4. **Example Interaction:**
     - **User:** "what's the refund policy?"
-    - **AI:** "Based on the Terms of Service document, here is the refund policy for TypingMind: All purchases are refundable within 14 days of purchase, no questions asked. This applies to: Regular TypingMind purchases, Custom Deployment subscriptions..."
+    - **AI:** "Based on the Terms of Service document, here is the refund policy for TypingMind: Individual license purchases are refundable within 14 days of purchase, no questions asked. 
 
 ### Additional Details
 
@@ -3637,7 +3778,6 @@ The interface generally consists of the following elements:
 - **"Your Chat URL(s)" Section:**
     - Displays the URL for accessing the team chat portal.
     - **Copy Button:** An icon (typically a clipboard icon) allows users to copy the chat portal URL to the clipboard. The color of the copy button is blue.
-    - **Embed Widget Button:** A blue button to generate the embed code. When click, a popup will be displayed with the code, with a `Copy Code` button and a `Close` button.
 - **"Overview" Section:**
     - Provides a high-level overview of key metrics for the chat portal:
         - **Members:** Displays the number of active members in the chat portal, with the format "\[Number of Active Members] / \[Total Number of Seats]". A small user icon is displayed on the left of the text.
@@ -3663,7 +3803,6 @@ The interface generally consists of the following elements:
         - **Prompt Library:** Navigates to the prompt library management section, where admins can create and manage a library of pre-written prompts for users to use. The description for this option is "Create a prompt library for your users".
         - **Knowledge Base:** Navigates to the knowledge base management section, where admins can upload and manage documents to build the knowledge base. The description for this option is "Upload and manage documents in your knowledge base".
         - **System Prompts:** Navigates to the system prompts settings, where admins can set global system instructions and related prompts. The description for this option is "Set global system instructions and related prompts".
-        - **Chat Widget:** Navigates to the chat widget settings, where admins can embed chat widget instance to website. The description for this option is "Embed your chat instance to website/blog/CMS".
         - **API Integration:** Navigates to the API Integration page, where admins can generate the API keys for TypingMind to integrate the app with external parties. The description for this option is "Generate your API Keys to integrate with TypingMind API".
         - **Users:** Navigates to the user management section, where admins can manage list of users and the user details. The description for this option is "List of users who can use your chat instance".
         - **Groups:** Navigates to the group management section, where admins can create groups of users, assign roles, and manage group membership. The description for this option is "Create groups of users, assign roles, and manage group membership".
@@ -4227,10 +4366,13 @@ To "Open chat with this AI agent", it will show content which allow to share cha
     - **Purpose:** To share with the public so they can chat with a single AI agent in TypingMind.
     - Functionality: A URL will create for the selected AI agent in the chat instance such as `https://yourbrandname.typingcloud.com?agent=a-66276c67-d53d-4e4a-b624-9dc9e8faae74`. This allows your users to open directly the AI Agent and chat with that Agent.
     - Embed this on your website / internal app to offer specific AI Agents to users.
-- **Code to embed chat widget with this specific AI agent**
-    - **Function:** The user can copy the entire JS script
-    - Example code shows  `<script defer src="<https://yourbrandname.typingcloud.com/widget.js>"></script>`
-    - **Code Copy Button:** By click to copy the source code, it allows the code copy completely. The copy button text is `Copy Code`
+- **Chat via Public API**
+    - Purpose: Integrate the selected AI agent into external applications or automated workflows.
+    - Functionality: Displays a generated cURL example containing the agent’s API endpoint, request headers, and a JSON request body with a sample messages array.
+    - Authentication: Replace your-typingmind-api-key in the X-API-KEY header with your actual TypingMind integration API key.
+    - Message Content: Replace the sample "hello" message with the content you want to send to the agent.
+    - Copy code: Copies the generated API example to the clipboard.
+    - View API documentation: Opens the API reference for request options and response formats.
 
 Click **Save** on the top right corner of the app to save all AI Agent settings.
 
@@ -4503,63 +4645,6 @@ The Custom Domain interface is designed to guide administrators through the proc
 - Once setting up the Domain Ownership, after 24 hours, it should be verified to have green tick on top.
 
 </ADMIN_PANEL_CUSTOM_DOMAIN>
-
-<ADMIN_PANEL_EMAILS_SETTINGS>
-
-### Emails Section
-
-The "Emails" section in the Admin Dashboard allows administrators to customize the email templates used for communicating with users of the team chat portal, ensuring consistent branding and messaging across all communications.
-
-### Accessing the Emails Section
-
-1. **Navigate to the Admin Dashboard:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Portal Settings" Category:** In the left sidebar, click on the "Portal Settings" dropdown to expand the category.
-3. **Click the "Emails" Link:** Click on the "Emails" link within the "Portal Settings" category. This will open the Emails settings interface.
-
-### Emails Interface Overview
-
-The Emails interface is designed to provide a centralized location for customizing email templates. It includes the following key sections:
-
-- **Page Title:** Emails
-- **Page Description:** Customize emails sent to your users.
-- **Email Sender Section:**
-    - **Description:** By default, emails sent to your users will be sent from `no-reply@typingmind.com` under your **Admin Name** (\[Admin Name]) and the **Brand Name** (\[Brand Name]), the reply-to header is set to your **Admin Email** (\[Admin Email]). You can change these values in the Branding page. Enable custom email sender to send emails from a different domain.
-    - **Enable custom email sender via SMTP:**
-        - **Purpose:** Allow administrators to use their own SMTP server to send emails, enabling greater control over email delivery and branding.
-        - **Input Type:** Toggle switch.
-        - **Configuration Options (Displayed when enabled):** When enabled, the "All fields are required" is displayed.
-        - **Setup Custom Email Sender via SMTP:** The text is a link that will direct user to the setup page.
-            - If click on `Setup Custom Email Sender via SMTP` link, the linked page will show the instruction to:
-                - Set up a custom email sender: Obtain SMTP credentials from an online service. The page also provides recommendations such as Gmail, Mailgun, SendGrid, and Amazon SES.
-                - Guideline:  https://docs.typingmind.com/typingmind-custom/branding-and-customizations/setup-custom-email-sender-via-smtp
-            - SMTP Hostname:**A text input field, with the example such as `smtp.example.com`.
-            - **Port:** A number input field, with the number 465 as example.
-            - **Use secure protocol (TLS):** Enable if you are using port 465 or your SMTP server requires it.
-                - Toggles to on or off.
-            - **SMTP Username:** The text input field for user name.
-            - **SMTP Password:** The text input field for password.
-            - **Sender Email Address:** The text input field for Sender email address.
-            - **Sender Name:** The text input field for Sender name.
-            - **Reply-To Email Address:** Set this in the Branding page.
-                - Ensure you make to configure your email service provider properly to avoid your emails hitting the spam folder. Some email services will require you to verify your sender’s email address.
-            - **Send a test email:** Type the email for testing purpose to confirm.
-                - To confirm with the `Send Test` button.
-            - The content above is related to set up your own SMTP.
-        - **Save Button:**
-            - **Function:** Saves the custom settings of the email. The current setting for the Email Sender is disabled, a prompt shows: `Click "Send test" before saving.`.
-- **Email Template Sections:**
-    - Provide customizable email templates for:
-        - **Login Email Template:** Customize the login email content users receive when logging in.
-            - "You can only change the email template when using your own Email Sender via SMTP": A note is displayed.
-            - Use `{{code}}` to indicate the OTP (One-Time Password) the system provided for users to login.
-            - **Subject (customizable):** Login to \[Workplace Name]
-            - **Body (customizable):** Includes email to provide the login code to the user, and say the code is validated for 5 minutes. It will end up with Thanks note from the account admin.
-        - **Invitation Email Template:** Change the invitation email content sent to new users.
-            - "You can only change the email template when using your own Email Sender via SMTP": A note is displayed.
-            - **Subject (customizable):** You have been invited to \[Workplace Name].
-            - **Body (customizable):** Includes email to navigate user to login the workplace via a link to login and provide the regards from the admins.
-
-</ADMIN_PANEL_EMAILS_SETTINGS>
 
 <ADMIN_PANEL_WELCOME_MESSAGE>
 
@@ -5211,94 +5296,17 @@ The interface is organized into distinct sections for different types of prompts
 
 </ADMIN_PANEL_SYSTEM_PROMPTS>
 
-<ADMIN_PANEL_CHAT_WIDGET>
-
-The Chat Widget feature within TypingMind for Teams allows administrators to embed a customizable chat interface directly into their websites, providing a seamless way for users to interact with the organization's AI capabilities.
-
-### Accessing the Chat Widget Settings
-
-1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Integrations" Category:** In the left sidebar, click on the "Integrations" dropdown to expand the category.
-3. **Click the "Chat Widget" Link:** Click on the "Chat Widget" link within the "Integrations" category. This will open the Chat Widget configuration interface.
-
-### Chat Widget Interface Overview
-
-The Chat Widget interface is organized to provide a clear overview of widget settings and embedding options. It includes the following key sections:
-
-- **Page Title:** Chat Widget
-- **Page Description:** Embed your chat instance to website...
-
-The interface provides:
-
-- **Enable widget embedding:** By default, the widget will be enabled
-    - **Toggle On/Off:** Allows administrators to enable or disable the chat widget functionality.
-        - **Enabled State:** The toggle is switched to the right (typically displayed with a blue color). The rest of the settings on this page become relevant and active.
-        - **Disabled State:** The toggle is switched to the left (typically displayed in gray). The widget will not be available for embedding.
-- **Instructions:**
-    - **To add the widget to your webpages:**
-        1. Copy the entire contents of the text box below.
-        2. Paste it after the opening `<head>` tag on the page you want to add this widget.
-- **Embed Code:**
-    - **Purpose:** Provides the JavaScript code snippet that needs to be added to the website's HTML to embed the chat widget.
-    - **Display:** The code snippet is displayed in a read-only text box.
-    - **Example Code:** The code typically looks like this (with a placeholder URL):
-        
-        ```html
-        <script defer src="<https://www.your-instance-name.typingcloud.com/widget.js>"></script>
-        ```
-        
-        Where `https://www.your-instance-url.typingcloud.com` would be replaced with the actual URL of your TypingMind for Teams instance.
-        
-    - **"Copy Code" Button:** A button labeled "Copy Code" is located next to the text box. Clicking this button copies the entire code snippet to the clipboard. The active color is blue.
-- **Widget Appearance & Settings:** Allows admins to define how the chat widget looks and behaves.
-    - **Whitelist Domains:**
-        - **Purpose:** Specifies the domains where the chat widget is allowed to be displayed. This is a security measure to prevent unauthorized use of the widget on other websites.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank to allow all domains. Separate multiple URLs with a comma."
-        - **Example Input:** `https://your-domain.com, <https://another-domain.com`>
-        - **Functionality:** If domains are listed, the widget will *only* function on those specific domains. If the field is left blank, the widget can theoretically be embedded on any website (though the API key and user authentication would still be required for it to function).
-    - **Widget Text:**
-        - **Purpose:** Sets the text displayed on the chat launcher button (the button users click to open the chat window).
-        - **Input Type:** Toggle switch and text field
-            - **Default Value:** "Questions? Chat with our AI!" This default text is shown as a suggestion in light grey.
-        - **Customization:** The administrator can replace the default text with a custom message, such as "Chat with Support," "Ask a Question," or any other relevant call to action.
-    - **Widget Width:**
-        - **Purpose:** Sets the width of the chat widget window.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank for automatic settings. Default unit is 'px' but can adjust by appending preferred unit, e.g. 50%."
-        - **Example Input:** `e.g., 100` (for 100 pixels), `50%` (for 50% of the screen width).
-    - **Widget Height:**
-        - **Purpose:** Sets the height of the chat widget window.
-        - **Input Type:** Text field.
-        - **Instructions:** "Optional, leave blank for automatic settings. Default unit is 'px' but can adjust by appending preferred unit, e.g. 50%."
-        - **Example Input:** `e.g., 200` (for 200 pixels), `75%` (for 75% of the screen height).
-    - **Position:**
-        - **Purpose:** Determines the position of the chat launcher button on the webpage.
-        - **Input Type:** Two radio buttons: "Left" and "Right".
-        - **Options:**
-            - **Left:** Positions the chat launcher button on the left side of the screen.
-            - **Right:** Positions the chat launcher button on the right side of the screen.
-    - **Show chat widget by default:**
-        - **Purpose:** Controls whether the chat widget is initially open or closed when the page loads.
-        - **Input Type:** Toggle switch.
-        - **Enabled State:** The chat widget is automatically open when the page loads.
-        - **Disabled State:** The chat widget is initially minimized, and the user must click the launcher button to open it.
-- **Preview and Save Buttons:**
-    - **"Preview" Button:** Opens a preview of the chat widget with the current settings. The color of the button is in green.
-        - **Functionality:** Allows administrators to see how the widget will look and behave on their website before saving the changes.
-        - **Preview:** Displays the website as example with the chat widget for you to preview.
-    - **"Save" Button:** Saves the current chat widget settings. The color of the button is in blue.
-        - **Action:** Applies the changes to the chat widget configuration. A confirmation message ("Saved!") appears briefly at the top of the page.
-
-### Open Chat Widget for AI Agent
-
-**Open Chat Widget** for specific AI Agent can be found at <ADMIN_PANEL_AI_AGENTS>
-
-</ADMIN_PANEL_CHAT_WIDGET>
-
 <ADMIN_PANEL_API_INTEGRATION>
 
 The "API Integration" section in the Admin Panel (within the "Integrations" category) allows administrators of a TypingMind for Teams instance to generate and manage custom API keys. These keys are specifically for integrating the team's TypingMind instance with *other* internal platforms or systems. This is distinct from the API keys used to connect TypingMind to AI model providers (like OpenAI, Anthropic, etc.).
+
+### Integration API Key Permissions
+
+- **Account owners and admins:** Can generate new integration API keys.
+- **Other roles with access to API Integration:** Can view and revoke existing integration API keys, but cannot generate new keys.
+- Revoking a key invalidates it. Applications using that key must switch to a valid key to continue accessing the API.
+
+These permissions apply to TypingMind integration API keys, which external applications use to access the Teams instance. AI provider API keys are managed separately.
 
 ### Accessing the API Integration Section
 
@@ -5633,24 +5641,33 @@ The API Integration interface is focused on managing the API keys used to integr
         - `401 Unauthorized`: API Key is missing or invalid.
         - `500 Internal Server Error`: An unexpected server error occurred.
     
-    ## Chat
     
-    ### Create a model response for the given chat conversation
-    
-    - **Endpoint:** `POST /v1/chat/completions`
-    - **Authorizations:** ApiKeyAuth
-    - **Request Body Schema:** `application/json` (required)
-        - Find more information about the request body here:
-            - [OpenAI API Reference](https://platform.openai.com/docs/api-reference/chat)
-            - [Anthropic API Reference](https://docs.anthropic.com/claude/reference/messages_post)
-            - [Google Gemini API Reference](https://ai.google.dev/api/rest/v1beta/models/generateContent)
-        - For additional configuration options, refer to the properties below:
-            - activatedCharacterID: AI character for this completion
-    - **Responses:**
-        - `200 OK`: Successful response. Returns a chat completion object.
-        - `401 Unauthorized`: API Key is missing or invalid.
-        - `500 Internal Server Error`: An unexpected server error occurred.
-    
+    ## Chat — Agent Chat API
+
+    The Agent Chat API lets external applications interact with AI agents configured in a TypingMind Teams instance.
+
+    ### Endpoint
+
+    - **Method:** POST
+    - **URL:** `https://<your-instance-domain>/api/v2/agents/{agent_id}/chat`
+    - Replace `<your-instance-domain>` with your Teams instance domain.
+    - Replace `{agent_id}` with the ID of the AI agent to call.
+    - Authenticate using a TypingMind integration API key.
+
+    ### Supported Features
+
+    The Agent Chat API supports:
+    - Plugin execution.
+    - Knowledge Base lookup across models.
+    - Interactions with configured AI agents.
+
+    ### Setup
+
+    1. Configure the AI agent in the Admin Panel, including its model, instructions, plugins, and knowledge sources.
+    2. Generate an integration API key under **Integrations → API Integration**.
+    3. Follow the current API reference for authentication headers, request fields, response formats, and examples:
+    https://api.typingmind.com/docs
+        
     ## Chatlogs
     
     ### Get chat logs in your chat instance
@@ -6011,7 +6028,7 @@ TypingMind for Teams comes with pre-defined roles:
         - **Portal Settings:** Full access to manage Portal Settings (branding, domain, chat features, etc.).
         - **Prompt Library:** Full access to manage Prompt Library.
         - **System Prompts:** Full access to manage Global System Instruction, Global Few-shot Prompting, etc.
-        - **Integrations**: Full access to manage integrations (Chat Widget, API integration)
+        - **Integrations**: Full access to manage integrations (API integration)
 4. **Click "Save"**: The selected role will be created.
 
 ### Editing an Existing Role
@@ -6446,19 +6463,9 @@ TypingMind provides documentation and a video walkthrough for setting up JumpClo
         <https://chat.yourcompany.com/?externalAuthCode=YOUR_JWT_TOKEN_HERE>
         
         ```
+    
         
-    - **Chat Widget (`data-external-auth-code` attribute):** If you're embedding TypingMind as a chat widget on your website, add the JWT as the value of the `data-external-auth-code` attribute in the widget's `<script>` tag:
-        
-        ```html
-        <script
-          defer
-          data-external-auth-code="YOUR_JWT_TOKEN_HERE"
-          src="<https://chat.yourcompany.com/widget.js>"
-        ></script>
-        
-        ```
-        
-5. **TypingMind Verification and Login:** When TypingMind receives the JWT (either via the URL or the widget attribute), it will:
+5. **TypingMind Verification and Login:** When TypingMind receives the JWT (via the URL), it will:
     - **Verify the Signature:** Use the JWT Secret to verify that the token was indeed signed by your system and hasn't been tampered with.
     - **Check Expiration:** Check the `exp` claim (if present) to ensure the token hasn't expired.
     - **Extract User Information:** Extract the `id` (and optionally `email` or `user` object) from the payload.
@@ -6507,7 +6514,7 @@ The Usage Limits interface is divided into several key areas:
     - **Input Type:** Toggle switch.
     - **Enabled State:** Displays a message below the chat input field, informing users of their current usage and remaining limits.
     - **Disabled State:** Hides usage limit information from users.
-- **Tabs Navigation:** Tabs on the top with content below: `Global Limits`, `Model Limits`, `AI Agent Limits`, `User Limits`
+- **Tabs Navigation:** Tabs on the top with content below: `Global Limits`, `Model Limits`, `AI Agent Limits`, `Plugin Limit`, `User Limits`
 - **"Limit Groups" Section:**
     - **Heading:** "Limit Groups"
     - **Purpose:** Allows administrators to define pre-configured sets of usage limits that can be easily applied to different users, AI agents, or models. This simplifies the process of managing limits and ensures consistency.
@@ -6531,6 +6538,7 @@ The Usage Limits interface is divided into several key areas:
         - **Message Limits:** Controls the *number* of messages a user/agent/model can send within a defined time period.
         - **Character Limits Per Message:** Restricts the *length* (in characters) of individual messages.
         - **Character Limits Per Time Period:** Limits the total number of characters that can be sent/processed within a defined time period.
+        - **Token Limits Per Time Period** Counts tokens across all chat turns, including tool calls and definitions. Token accounting works best for models and providers that return usage data in their responses. Non-reporting models still work, but estimates may be used.
     - **"+ Add Limit" Button (per category):** Each category has a "+ Add Limit" button. Clicking this button adds a new, specific limit within that category. You can add multiple limits within each category.
     - **Limit Configuration (per limit entry):** When you add a limit within a category, you'll configure:
         - **Quantity:** A numeric input field (e.g., "100" messages, "2000" characters).
@@ -6549,7 +6557,7 @@ The Usage Limits interface is divided into several key areas:
 6. Set "1000" characters every "1" day.
 7. Click "Save".
 
-### Applying Limits (Global, Model, AI Agent, User)
+### Applying Limits (Global, Model, AI Agent, Plugin, User)
 
 Once Limit Groups are defined, they can be applied at different levels:
 
@@ -6584,6 +6592,16 @@ Once Limit Groups are defined, they can be applied at different levels:
 - **"+ Add Limit" Button:** Adds a new AI Agent-specific limit.
 - **Limit Configuration:** For each AI Agent limit:
     - **AI Agent:** Select the AI Agent from the dropdown menu.
+    - **Limit Group:** Select a pre-defined Limit Group or directly add a new limit group right within the drop-down box.
+    - **Apply For Users:** Choose the scope (All users, specific groups, or all except specific groups).
+    - **Remove:** Remove the current limit.
+
+### 4. Plugin limits
+- **Purpose:** Sets usage limits that apply to specific plugins. 
+- **"Plugin Limits" Tab:** Select this tab.
+- **"+ Add Limit" Button:** Adds a new Plugin-specific limit.
+- **Limit Configuration:** For each Plugin limit:
+    - **Plugin:** Select the Plugin from the dropdown menu.
     - **Limit Group:** Select a pre-defined Limit Group or directly add a new limit group right within the drop-down box.
     - **Apply For Users:** Choose the scope (All users, specific groups, or all except specific groups).
     - **Remove:** Remove the current limit.
@@ -6639,8 +6657,6 @@ The Access Mode interface is designed to be straightforward, providing a clear s
     - **Options:**
         - **Private Mode:** The most restrictive mode. Only users explicitly added by an administrator via the "Members" page can access the chat instance. These users, and any users with emails from domains pre-approved by the administrator, can log in; no one else can sign up.
         - **Authorized Mode:** Allows anyone to use the chat instance, but they *must* sign up for an account with their email address first. This provides a middle ground between private and completely open access.
-        - **Public Mode:** The most open mode. Anyone can use the chat instance *without* needing to create an account. Anonymous users in Public Mode are limited to temporary chats (no persistent chat history, search, folders, tags, etc.).
-
 ### Detailed Descriptions of Access Modes
 
 The interface provides detailed descriptions of each Access Mode below the dropdown and toggle switches:
@@ -6662,35 +6678,6 @@ The interface provides detailed descriptions of each Access Mode below the dropd
             - **Placeholder Text:** "Enter a domain (e.g., [yourdomain.com](http://yourdomain.com/))"
             - **Functionality:** When "Allow sign-ups using company email" is enabled, administrators can enter a domain (like "[example.com](http://example.com/)") here. Users with email addresses from that domain (e.g., "[user@example.com](mailto:user@example.com)") will be allowed to sign up for an account.
 - **Authorized Mode:** "Anyone can use the Chat instance but they need to sign-up an account with their email first. You can see the list of users in the Members page." There is also a clickable hyperlink for `Members` that redirects to User Management.
-- **Public Mode:** "Anyone can use the Chat instance without an account. Anonymous users using your chat instance in Public Mode can only have temporary chats (no chat history, search, folders, tags, etc.). Optionally, you can still allow existing members to login and new members to signup."
-
-### Public Mode Controls
-
-When "Public Mode" is selected, additional configuration options become available:
-
-- **Warning: Public Mode is enabled.**
-    - Make sure to set an appropriate message limit in the Usage & Limits page to avoid your API key being abused.
-    - Usage from anonymous users will be displayed as "Public User" in the ID column for you to keep track.
-    - Anonymous users can only have temporary chats (no chat history, search, folders, tags, etc.)
-- **"Allow member login" Toggle Switch:**
-    - **Purpose:** Determines whether existing, registered members can still log in to their accounts while the chat portal is in Public Mode.
-    - **Input Type:** Toggle switch.
-    - **Enabled State:** Existing members can log in as usual, retaining access to their saved chats, AI agents, and other personalized features.
-    - **Disabled State:** The "Login" button is *completely hidden* from the user interface. Existing members *cannot* log in. This is useful if you want *strictly* anonymous, temporary use.
-- **"Allow anyone to signup" Toggle Switch:**
-    - **Purpose:** Controls whether new users can create accounts while the chat portal is in Public Mode.
-    - **Input Type:** Toggle switch.
-    - **Enabled State:** New users can sign up for an account using their email address. If this option is disabled, new users can only be added via the Admin Panel -> Members.
-    - **Disabled State:** New user registration is disabled. The signup option will be removed from user interface.
-- **Save button**: To save the current setting.
-
-### Important Considerations and Behaviors
-
-- **Sidebar Behavior (Public Mode):** In Public Mode, *without* a user logged in, the sidebar (with options like "Agents," "Prompts," etc.) is *hidden*. This is to limit the interface to the core chat functionality for anonymous users. The sidebar will reappear when the user logs in (if allowed by the "Allow member login" setting).
-- **Login Process:**
-    - If `Allow member login` and `Allow anyone to signup` is turned on, user can click on `Login/Signup` button to view the Login popup. The popup will show the input field for Email, and also a button to `Login with email` or your chosen login method
-    - If `Allow member login` is turned on, `Allow anyone to signup` is disabled. When user click on the `Login` button, it will show the Login popup.
-    - If `Allow member login` is turned off, and `Allow anyone to signup` is turned on, the Login button is completely hidden.
 
 </ADMIN_PANEL_ACCESS_MODE>
 
@@ -6701,107 +6688,125 @@ The Analytics section in the Admin Panel of TypingMind for Teams provides admini
 ### Accessing the Analytics Section
 
 1. **Navigate to the Admin Panel:** Log in to your TypingMind for Teams Admin Account.
-2. **Locate the "Reporting" Category:** In the left sidebar, click on the "Reporting" dropdown to expand the category.
-3. **Click the "Analytics" Link:** Click on the "Analytics" link within the "Reporting" category. This will open the main Analytics dashboard.
+2. **Locate "Analytics" in the left sidebar:** Click **Analytics**. It appears in the **Shortcuts** group of the left sidebar, and also under the "Reporting" category.
+3. **Open the dashboard:** The Analytics page opens with two tabs at the top: **Overview** and **Exploration**.
 
 ### Analytics Dashboard Interface Overview
 
-The Analytics dashboard is designed to provide a quick and informative overview of key usage metrics.  It's structured with clear visual elements and interactive components.
+The Analytics page is organized in two tabs, **Overview** and **Exploration**. The page header shows the title "Analytics" with the description "View usage statistics and analytics", a **View Live** selector with the portal domain (with an open-in-new-window icon and a dropdown chevron) and a **Profile** button.
 
-- **Page Title:** "Analytics" (clearly indicates the page's purpose).
-- **Page Description:** "View usage statistics and analytics" (explains the functionality of the page).
-- **Date Range Selector (Top Right):**
-    - **Default Range:** Initially displays a pre-selected date range (e.g., "2025-02-16 — 2025-03-18").
+- **Date Range Selector (top right of each tab):**
+    - **Default Range:** Initially displays a pre-selected date range (e.g., "2026-09-08 ~ 2026-10-07").
     - **"x" (Clear) Button:** Allows users to clear the currently selected date range.
     - **Interactive Calendar:** Clicking the date range opens a calendar interface for custom date selection.
         - **Navigation:**
             - Left and Right Arrows: Navigate between months.
-            - Month and Year Dropdowns: Allow for quick selection of specific months and years.
-        - **Predefined Ranges:** Provides quick-select options for common timeframes:
+            - The current month and year are shown at the top of the calendar.
+        - **Predefined Ranges (list on the left of the calendar):** Provides quick-select options for common timeframes:
             - Last 3 days
             - Last 7 days
-            - Last 15 days
+            - Last 14 days
             - Last 30 days
             - Last 60 days
             - Last 90 days
+            - This Month
+            - This Year
         - **Day Selection:** Clicking on a specific date in the calendar selects that date as either the start or end date of the range.
-            - Visual Feedback: Selected dates are highlighted (e.g., with a blue background).
+            - Visual Feedback: Selected dates are highlighted (e.g., with a blue background). Dates in the future are disabled (struck through).
             - The calendar remains open after you select the first day, so click on the second day to finalize the range.
             - If the selection is incorrect, you can click on a new starting date and repeat the selection
         - **Clear the selection:** Clicking the close icon `x` will clear the custom selection.
 
-### **Overview Cards (Top Row):**
+### Overview Tab
+
+#### **Overview Cards (Top Row):**
 
 Presents high-level summaries of key metrics. Each metric is displayed in a separate card.
 
 **Common Elements (per card):**
 
-- **Title:** A clear label indicating the metric including "Active Users," "Estimated Tokens," "Messages Sent").
-- **Main Value:** The primary numerical value of the metric (e.g., "1", "41,826", "95"). This is prominently displayed.
-- **Percentage Change (Optional):** If applicable, displays the percentage change compared to a previous period (e.g., "0.00%", "-44.48%", "+26.67%").
-    - Positive changes are typically indicated in green.
-    - Negative changes are typically indicated in red.
-    - **Icon:** A relevant icon is displayed next to the title (e.g., a user icon for "Active Users," a chart icon for "Estimated Tokens," a speech bubble icon for "Messages Sent").
+- **Title:** A clear label indicating the metric ("Active users", "Estimated tokens", "Messages", "Characters").
+- **Main Value:** The primary numerical value of the metric (e.g., "2", "133.7M", "1.1K", "9.7M"). This is prominently displayed.
+- **Percentage Change:** Displays the percentage change compared to a previous period (e.g., "0.0%", "+12.6%", "-20.4%", "+3096.8%").
+    - Positive changes are indicated in green with an up arrow.
+    - Negative changes are indicated in red with a down arrow.
+- **Icon:** A relevant icon is displayed to the left of the title (e.g., a group of users icon for "Active users", a coins icon for "Estimated tokens", a speech bubble icon for "Messages", a text document icon for "Characters").
 - **Specific Overview Cards:**
-    - **Active Users:**
-        - Title: "Active Users"
+    - **Active users:**
         - Main Value: Number of active users within the selected date range.
-    - **Estimated Tokens:**
-        - Title: "Estimated Tokens"
+    - **Estimated tokens:**
         - Main Value: Total estimated tokens consumed within the selected date range.
-    - **Messages Sent:**
-        - Title: "Messages Sent"
+    - **Messages:**
         - Main Value: Total number of messages sent within the selected date range.
+    - **Characters:**
+        - Main Value: Total number of characters within the selected date range.
 
-### **Chart Area**
+#### **Chart Area**
 
-Displays interactive line charts visualizing trends over time for key metrics.
+Displays interactive charts visualizing trends over time for key metrics.
 
 **Common Chart Elements:**
 
-- **Title:** The metric being visualized (e.g., "Active Users," "Messages Sent").
+- **Title:** The metric being visualized (e.g., "Active users", "Messages").
 - **Y-Axis:** Represents the quantity of the metric (e.g., number of users, number of messages).
 - **X-Axis:** Represents time (dates within the selected range).
-- **Data Points:** Points on the line graph represent the metric's value for each date.
-- **Interactive Tooltip:** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Active_Users: 1").
+- **Data Points:** Each bar or point on the chart represents the metric's value for each date.
+- **Interactive Tooltip:** Hovering the mouse over a bar or data point displays a tooltip with the specific date and corresponding metric value (e.g., "Sep 19 — Active Users: 1").
 - **Download button** (Top Right Corner): Allows the user to export and download the current data in CSV format. Clicking the button will automatically trigger a download.
 
 **Specific Charts:**
 
-- **Active Users:** Visualizes the number of active users over time.
-    - **Y-Axis Label:** "Active_Users"
-- **Messages Sent:** Visualizes the number of messages sent over time.
-    - **Y-Axis Label:** "Messages"
-- **Total Conversations:** A line chart showing the total number of conversations over time.
-    - **Y-Axis Label:** "Conversations"
-    - **Tooltip** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Conversations: 1").
-- **Total Token Usage (Estimated):** A line chart showing the total estimated token usage over time.
-    - **Y-Axis Label:** "Tokens"
-    - **Tooltip** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value (e.g., "2/24/2025, Tokens: 19,002").
-- **Token Usage by Users (Estimated):** A bar chart showing the estimated token usage for each individual user.
-    - **Y-Axis Label:** No display.
+- **Active users:** A bar chart with one bar per day showing the number of active users over time. An (i) icon next to the title explains the metric.
+    - **Y-Axis Label:** Number of users.
+- **Messages, Conversations, Estimated tokens, Characters:** A row of four smaller charts below the Active users chart. Each one has its own title and download icon, and shows the trend of that metric over time.
+    - **Tooltip:** Hovering the mouse over a data point displays a tooltip with the specific date and corresponding metric value.
+- **Estimated tokens by users:** A bar chart showing the estimated token usage for each individual user over time. It has a magnifier icon and a download icon at the top right.
+    - **Y-Axis Label:** Number of tokens (e.g., 3.5M, 7M, 10.5M, 14M).
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
-        - **User:** The email address of the user.
-        - **Estimated Tokens:** The total estimated tokens consumed by that user.
-- **Messages by Users:** A bar chart showing the number of messages sent by each individual user.
-    - **Y-Axis Label:** No display.
+        - **User:** The email address of the user. Anonymous visitors of a public chat are grouped as "[Public Users]". Each row has a color marker matching the chart.
+        - **Estimated tokens:** The total estimated tokens consumed by that user.
+- **Messages by users:** A bar chart showing the number of messages sent by each individual user over time. It has a magnifier icon and a download icon at the top right.
+    - **Y-Axis Label:** Number of messages.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **User:** The email address of the user.
         - **Messages:** The total number of messages sent by that user.
-- **Token Usage by Models (Estimated):** A bar chart showing the estimated token usage for each AI model used.
-    - **Y-Axis Label:** No display.
+- **Estimated tokens by models:** A bar chart showing the estimated token usage for each AI model used. It has a magnifier icon and a download icon at the top right.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **Model:** The name of the AI model (e.g., "Claude 3.5 Sonnet," "O3 Mini").
-        - **Estimated Tokens:** The total estimated tokens consumed by that model.
-- **Messages by AI Agents:** A stacked bar chart showing the number of messages attributed to each AI Agent.
-    - **Y-Axis Label:** No display.
+        - **Estimated tokens:** The total estimated tokens consumed by that model.
+- **Messages by AI agents:** A stacked bar chart showing the number of messages attributed to each AI Agent. It has a magnifier icon and a download icon at the top right.
     - **X-Axis Label:** Dates.
     - **Summary Table (Below Chart):** Provides a tabular breakdown:
         - **AI Agent:** The name of the AI Agent (e.g., "Marketing Assistant," "Content Writer").
         - **Messages:** The total number of messages associated with that AI Agent.
+
+### Exploration Tab
+
+The Exploration tab lets administrators build a custom chart by choosing a filter, a metric and how to group the data. A row of dropdown filters is displayed at the top, with the date range selector (same as the Overview tab) below it.
+
+- **All users (dropdown):**
+    - **Function:** Filters the chart to a specific user.
+    - Opens a list with a **Search by email...** field at the top and the list of users (including "anonymous"). The default value is "All users".
+- **All groups (dropdown):**
+    - **Function:** Filters the chart to a specific user group.
+    - Opens a list with a **Search groups...** field at the top and the list of user groups (e.g., "Admin", "Public"). The default value is "All groups".
+- **Metric (dropdown):**
+    - **Function:** Chooses what to measure. The selected option shows a check mark.
+    - **Options:** Messages, Conversations, Estimated tokens, Characters.
+    - The default value is "Metric: Messages".
+- **Group by (dropdown):**
+    - **Function:** Chooses how the data is split in the chart.
+    - **Options:** Users, Models, AI Agents, User Groups.
+    - The default value is "Group by: Users".
+- **Chart:**
+    - **Title:** Follows the selected options (e.g., "Messages by Users").
+    - **Loading:** A loading spinner is displayed while the data is loading.
+    - **Bar chart:** A bar chart over the selected dates, with the Y-axis showing the metric value and the X-axis showing dates.
+    - **Download button** (Top Right Corner): Exports the data of the chart in CSV format.
+    - **Summary Table (Below Chart):** Lists each group and its total (e.g., **Users** / **Messages**), with a color marker matching the chart.
 
 ### Token Estimation Algorithm
 
@@ -6813,7 +6818,7 @@ Displays interactive line charts visualizing trends over time for key metrics.
 
 You can export each chart to CSV to easily view your data in sheet and import to your own analytic tools (if any):
 
-- Clicking on the Download icon next to each chart to export to CSV
+- Clicking on the Download icon next to each chart (in the Overview tab or the Exploration tab) to export to CSV
 
 </ADMIN_PANEL_ANALYTICS>
 
@@ -6845,7 +6850,7 @@ The Chat Logs interface is designed to present a clear and organized view of cha
 - **Filtering Options (Top of Table):** Provides controls for narrowing down the displayed chat logs:
     - **User Filter:** A dropdown menu labeled "All users."
         - **Default:** "All users" (shows logs from all users).
-        - **Options:** a drop-down list of all users (and potentially an "anonymous" option for public users) associated with the chat portal.
+        - **Options:** a drop-down list of all users (and potentially an "anonymous" option) associated with the chat portal.
         - **Functionality:** Selecting a specific user filters the chat logs to show only conversations involving that user.
     - **Time Filter:** A dropdown menu labeled "All time."
         - **Default:** "All time" (shows logs from all time periods).
@@ -6993,7 +6998,7 @@ The main section of the interface displays a table of audit log entries, with ea
         - Plugin name: Indicates an update was made to a plugin
         - Model limits (under Limits): Indicates changes were made to model usage limits.
         - Model settings (under Models): Indicates changes were made to general model configurations.
-        - Access mode (under Access & Limits): Indicates modifications to the instance's access mode settings (e.g., Private, Authorized, Public).
+        - Access mode (under Access & Limits): Indicates modifications to the instance's access mode settings (e.g., Private, Authorized).
         - Email login (under Login Method): Indicates a user logged in via email.
         - ngoc@typingmind.com (under Users): Indicates an action related to a specific user account.
         - Deleted user (under Users): Indicates an action related to a deleted user.
@@ -7150,541 +7155,348 @@ The Billing interface is organized to provide a clear overview of the current su
     - Update users on feature implementation status
 </RECENT_COMMON_TECHNICAL_ISSUES_FOR_SUPPORT>
 
-<RESELLER_PROGRAM>
-
-TypingMind Reseller Program is designed for partners who want to bring TypingMind's AI platform to businesses in their local markets.
-
-### 1. Program Overview
-
-- **Goal:** To collaborate with Resell Partners to implement TypingMind as the technical platform for businesses, enabling them to leverage generative AI.
-- **Target:** Businesses, especially in local markets with less exposure to generative AI technologies.
-- **Product Applied:** TypingMind Team version at ****https://custom.typingmind.com/
-- **Global Presence:** TypingMind has successful reseller partners in various countries, including Germany, Canada, and Thailand.
-
-**Note:** As of now, there’s no option to resell TypingMind License version at [typingmind.com](http://typingmind.com), Resellers need to use TypingMind Team version at [custom.typingmind.com](https://custom.typingmind.com/) to resell the app.
-
-### 2. Why Partner with TypingMind?
-
-- **Industry Leader:** Leading provider of internal AI chat portals for businesses, trusted by 18,824+ customers.
-- **Support All Top AI Models:** Integrates with GPT-4 (OpenAI), Claude (Anthropic), Gemini (Google), and other open-source or custom models via compatible APIs.
-- **Private and Secure:** Built with advanced security protocols (SOC 2 Certified, GDPR Compliant) to protect customer data.
-- **Brandable, Customizable, Scalable:** Adaptable for various use cases, businesses, and industries. Offers white-labeling options.
-- **Profitable & Flexible Pricing:** Commission structure designed for partner profitability.
-- **Flexible Hosting & Deployment:** Options include cloud hosting (US/EU servers) or self-hosting on customer infrastructure.
-
-### 3. Reseller Benefits
-
-- **Earn Profits, No Maximum Cap!** Grow your business by earning profits for each new customer acquired.
-- **Partner Recognition (Optional):** Inclusion in the reseller directory and authorization with partner badges.
-- **Access To Free Demo Chat Instance:** Receive a demo chat instance with 50 user seats available for FREE to support marketing and sales efforts.
-    - This free demo instance provides access for 50 users. Among them, 3 are permanent seats with Admin privileges. The remaining 47 are temporary seats that can access the app interface for up to 14 days. After that, their access to the demo chat workspace will expire.
-- **Dedicated Partner Support:** Access to dedicated support for technical and product inquiries.
-
-### 4. Ideal Reseller Profile
-
-Resellers are expected to have:
-
-- **Local Market Expertise:** Experience and access to local businesses.
-- **AI Technical Understanding:** Knowledge of generative AI, prompt engineering, AI agents, RAG, plugins, API integration, etc.
-- **TypingMind Product Knowledge:** A good understanding of the TypingMind system and its features.
-- **Value-Added Service Capability:** Ability to offer services beyond the platform, such as:
-    - AI consulting, training, and workshops.
-    - Helping businesses apply generative AI to specific domains/workflows.
-    - Building custom prompt and AI agent libraries.
-    - Assisting with internal data integration for RAG.
-    - Educating employees on using TypingMind for daily tasks.
-- **Passion for AI:** Enthusiasm for AI and its potential to benefit local businesses.
-
-### 5. How the Program Works (Process)
-
-1. **Research & Apply:** Understand TypingMind and the Reseller Program, then apply if it's a good fit.
-2. **Initial Contact:** Engage with the TypingMind team for mutual understanding.
-3. **Agree on Terms:** Finalize workflow, pricing, payment terms, and other specifics.
-4. **Get Reseller License and Access to Demo account:** Get a Reseller License and access to demo instances for sales/marketing.
-5. **Customer Onboarding:** Onboard new customers to the TypingMind platform.
-6. **Payment:** once customers commit to pay:
-    - Set up a separate chat instance so they can have long-term access
-    - Charge them via your own payment system with custom pricing. Then add them to the chat instance.
-7. **Ongoing Support:** Maintain contact with customers for support and feedback (depending on the agreed structure).
-
-### 6. Target Customers
-
-- **Preferred Profiles:**
-    - Businesses of all sizes (SMBs to enterprises).
-    - Universities or educational institutions.
-- **Other Customer Types:** Proposals for other customer groups should be discussed with TypingMind first.
-
-### 7. Roles and Definitions
-
-- **Software Platform Provider:** TypingMind (Devuap LLC) - Builds and maintains the technical platform, handles data, security, and updates. Referred to as "technical partner" or "software manufacturer."
-- **Reseller/Agency:** The partner (You) - Implements TypingMind locally, provides value-added services (consulting, training).
-- **Customers:** Paying entities (Companies, Universities) - Purchase the product and services.
-- **End-users:** Employees/Students - Use the TypingMind platform daily.
-- **Admin Users:** Elected end-users with access to the TypingMind Admin Panel - Manage members, customize the instance, create shared content (prompts, agents), connect data, etc.
-
-### 8. Marketing Materials
-
-Resellers can utilize official TypingMind marketing resources:
-
-- **Main Marketing Page:** https://custom.typingmind.com/
-- **Documentation:** https://docs.typingmind.com/
-- **Blog:** https://blog.typingmind.com/
-- **YouTube:** https://www.youtube.com/@TypingMind
-
-### 10. AI Provider Relationship
-
-- **TypingMind Role:** TypingMind is an interface, *not* an AI provider. It connects to external AI services.
-- **Customer Responsibility:** Customers must choose their own AI provider(s) (e.g., OpenAI, Anthropic, Google) and pay for AI usage directly via API keys.
-- **Compatibility:** TypingMind supports connection to multiple AI providers simultaneously and any AI model with a compatible API.
-
-### 11. User Documentation
-
-- **Primary Resource:** All user documentation is hosted online at https://docs.typingmind.com/.
-- **Accessibility:** Links to guides are embedded within the TypingMind product.
-- **Custom Guides:** TypingMind does not provide custom-hosted guides. Resellers can add custom URLs to their documents within the Admin Panel if they wish to host separate guides.
-
-### 12. Partnership Structure Options
-
-The partnership structure is flexible. Key factors to agree upon:
-
-- **12.1 Resell Type:**
-    - **Seat Resell:** Reseller creates one instance under their brand and sells individual seat licenses. Customers access only the end-user interface.
-    - **Instance Resell:** Reseller creates a private instance for each customer, granting them Admin Panel access for customization.
-- **12.2 Branding:**
-    - **Option 1 – Branded Instance:** Reseller advertises TypingMind under their brand, disclosing TypingMind as the technical partner. Admin panel shows a badge like "TypingMind - Licensed by [Your Brand Name]".
-    - **Option 2 – Unbranded Instance:** Reseller advertises TypingMind as provided by TypingMind, distributed by the reseller.
-- **12.3 Customer Support:**
-    - **Option 1 – Included (Branded):** Reseller provides basic support (billing, general questions). TypingMind assists with technical issues/bugs/features via a private channel.
-    - **Option 2 – Not Included (Unbranded):** Customers contact TypingMind support directly.
-- **12.4 AI Providers and API Cost:**
-    - **Option 1 – Reseller Pay:** Reseller uses their own API keys and pays AI providers. Requires accounts with OpenAI, Anthropic, Google AI, etc.
-    - **Option 2 – Customer Pay:** Reseller helps setup; customer uses their own API keys and pays AI providers directly.
-- **12.5 Deployment:**
-    - **Cloud Host (Recommended):** Hosted in TypingMind's secure US (Virginia) or EU (Frankfurt) data centers. Offers convenience and seamless updates.
-    - **Self-host on Customer's Infrastructure:** Deployed on the customer's servers. Requires a technical team for setup/maintenance. Has more limitations (See: https://custom.typingmind.com/self-host).
-    - **Self-host on Reseller's Infrastructure:** Reseller hosts TypingMind privately. Reseller is responsible for hosting, data protection, setup, and maintenance. Requires a technical team.
-- **12.6 Payment:**
-    - **Standard Model:** Reseller buys licenses from TypingMind and resells at a markup based on added value. Customers pay the reseller directly.
-    - **Alternative Structures:** Open to discussion based on specific situations.
-- **12.7 Product Content (Prompts, Agents, Data):**
-    - **Option 1 – Customer Create:** Customer creates their own content using TypingMind documentation.
-    - **Option 2 – Reseller Create:** Reseller provides AI consulting, understands customer workflows, proposes suitable content, and offers training.
-- **12.8 Partnership Structure Examples:**
-    - **Example 1:** Both Seat & Instance Resell, Branded, Included Support, Reseller Pays API Costs, Cloud Host, Reseller Creates Content.
-    - **Example 2:** Seat Resell, Branded, Included Support, Customer Pays API Costs, Self-host on Reseller Infra, Customer Creates Content.
-
-### 13. Handling Feature Requests
-
-- **Process:** Forward all customer feature requests and feedback to TypingMind.
-- **Evaluation:** TypingMind evaluates requests for inclusion in the roadmap.
-- **Roadmap:** Public roadmap available at https://typingmind.com/ideas (Private roadmap also exists).
-- **ETA:** Do not promise specific ETAs for requested features.
-
-### 14. Communication Guidelines
-
-- **Honesty:** Advise customers truthfully about generative AI capabilities and practical use cases.
-- **Feature Requests:** Discuss feature requests with TypingMind before making commitments to customers.
-- **Clarity:** Ensure customers understand the terms of service, privacy policy, and what they are purchasing.
-- **Consultation:** Discuss any doubts regarding the product with TypingMind.
-
-### 15. Region of Operation
-
-- **Designated Location:** Resellers are only allowed to approach customers within their agreed-upon geographic location.
-- **Competition:** This policy avoids unnecessary competition in markets where TypingMind already has a presence.
-- **Exclusivity:** Potential for exclusive agreements based on partnership performance over time.
-
-### 16. Intellectual Property
-
-- **User Content:** All content created within TypingMind (prompts, AI agents, uploaded training data) belongs to the creator. TypingMind does not claim copyright.
-- **TypingMind Usage:** TypingMind retains the right to use the content solely for the purpose of providing the service.
-
-### 17. How to Sign Up
-
-- **Signup Link:** Apply for the Reseller Program at https://custom.typingmind.com/reseller-signup
-
-### 18. Further Questions
-
-- **Contact:** For additional questions about the Reseller Program, contact [support@typingmind.com](mailto:support@typingmind.com).
-
-### 19. Reseller Program Q&A
-
-- **Q: Is it possible for my customers to purchase directly on the TypingMind app with my custom pricing?**
-    - **A:** As of now, this is not directly supported. Resellers need to build their own payment system to handle customer payments based on their custom pricing and packages. User management (adding purchased seats/users to the TypingMind instance) can then be automated using the TypingMind API integration (<ADMIN_PANEL_API_INTEGRATION>).
-- **Q: How is pricing determined for my customers?**
-    - **A:** Resellers have the freedom to set the final price for their customers. This price should reflect the value of the TypingMind platform combined with any additional consulting services, training, or custom content provided by the reseller. TypingMind charges the reseller based on the Public Price listed on the official website (https://custom.typingmind.com/).
-- **Q: What hosting options are available for my customers?**
-    - **A:** TypingMind offers flexibility. You can choose:
-        - **Cloud Hosting:** Hosted on TypingMind's secure infrastructure in the US (Virginia) or EU (Frankfurt). Recommended for ease of use and seamless updates.
-        - **Self-Hosting:** Deployed on the customer's own infrastructure or the reseller's infrastructure. Requires technical expertise for setup and maintenance. (See Deployment section 12.5 for more details).
-- **Q: Are there volume discounts available for resellers?**
-    - **A:** Yes, TypingMind offers volume discounts for purchasing a large number of user seats to support large-scale deployments and reseller growth. For specific discount tiers and details, please contact TypingMind support at [support@typingmind.com](mailto:support@typingmind.com) with the expected number of users you plan to purchase.
-- **Q: How is customer support handled in the reseller model?**
-    - **A:** The reseller's team is responsible for providing **Tier 1 support**. This includes handling basic inquiries such as general product questions, billing/payment issues related to the reseller's package, and initial troubleshooting. TypingMind provides **Tier 2 support** for more complex technical issues, bugs, or advanced product questions escalated by the reseller. The specific support structure can be further defined in the partnership agreement (See Customer Support section 12.3).
-
-### 20. Reseller Monetization Strategies
-
-Leverage TypingMind's platform by adding value through these strategies:
-
-1. **Combine with Consulting:** Bundle TypingMind access with your existing professional services (marketing, business consulting, etc.). Charge standard rates plus a fee for the customized TypingMind instance and support.
-2. **Sell Custom AI Solutions:** Develop and sell access (subscriptions) to specialized AI Agents, prompts, or plugins that automate tasks or solve specific industry problems (e.g., financial analysis, e-commerce descriptions).
-3. **Launch Training Courses:** Create courses teaching AI skills (writing, coding, marketing) using TypingMind as the hands-on tool. Charge for the course, including TypingMind access.
-4. **Offer White-Label Solutions:** Rebrand and customize TypingMind for clients who want a ready-made, branded AI tool without in-house development. Charge setup/customization fees plus recurring fees for support/maintenance.
-5. **Provide AI Chatbot Services:** Build and manage AI-powered customer service chatbots for businesses using TypingMind. Offer as a subscription service, potentially priced per user or volume.
-6. **Create Membership Communities:** Build a paid community offering exclusive access to a customized TypingMind instance, unique AI tools, and other resources (webinars, forums) for a recurring membership fee (potentially tiered).
-
-</RESELLER_PROGRAM>
-
 <COMPANY_POLICY>
 
-<PRIVACY_POLICY_LICENSE_VERSION>
-## Privacy Policy for [TypingMind.com](http://typingmind.com/) (License Version)
-
-This section details how user data is handled for the [TypingMind.com](http://typingmind.com/) static chat application, covering both free and paid users, as well as related services like TypingMind Cloud and the Setapp integration.
+<PRIVACY_POLICY>
+**Last Updated:** September 19, 2026
 
-### 1. Data Handling for Free Users
+## 1. Introduction
 
-- **Local Storage:** All user data, including API keys, chat history, and messages, is stored locally within the user's browser using Local Storage and IndexedDB technologies.
-- **Static Website Architecture:** [TypingMind.com](http://typingmind.com/) operates as a static website. There is no backend server collecting user data directly from the app interface.
-- **Direct API Communication (OpenAI):** When a message is sent using an OpenAI model, the application sends the request directly from the user's browser to the OpenAI API endpoints.
-    - **Security:** Communication uses the secure HTTPS protocol.
-    - **Privacy:** No intermediary server intercepts or logs these requests or responses.
-- **Proxied Communication (Anthropic):**
-    - **Reason:** Anthropic's API does not permit direct requests from web browsers due to CORS (Cross-Origin Resource Sharing) policies.
-    - **Process:** Requests to Anthropic models are routed through a TypingMind proxy server.
-    - **Privacy Commitment:** This proxy server *does not* log or store any data from the requests. Its sole function is to forward the request securely to Anthropic's servers.
-    - **Self-Proxy Option:** For maximum privacy, users can configure their own proxy server for Anthropic models via: Settings → Advanced Settings → Anthropic Chat Completions Endpoint.
-- **No External JavaScript:** The application strictly avoids running external JavaScript code to maintain control and security.
+Your privacy is critically important to us. This privacy policy explains how [typingmind.com](http://typingmind.com) acting as the personal data controller ("we," "us," or "our"), collects, processes, and protects your personal data when you use the TypingMind application, including personal license products, self-hosted versions, TypingMind Cloud Services, our website ([typingmind.com](http://typingmind.com)), and related services (collectively, the "Services").
 
-### 2. Data Handling for Paid Users (License Holders)
+We recognize trust as a key value of our business practice. We have designed TypingMind to give you maximum control over your data, offering a fully local, privacy-first experience by default, alongside convenient, opt-in cloud features.
 
-The privacy policy for paid users includes all points mentioned for free users, with the following additions related to licensing:
+If you have any doubts or questions, please contact us at [**support@typingmind.com**](mailto:support@typingmind.com).
 
-- **License Purchase Data:** When purchasing a license key, TypingMind stores the user's email address and the associated license key in its database.
-    - **Purpose:** This information is used solely for delivering the license key and verifying its authenticity when activated within the TypingMind application.
-- **License Verification Process:** When a user enters a license key to unlock premium features, [TypingMind.com](http://typingmind.com/) sends a request from the user's browser to a dedicated TypingMind License Server.
-    - **Purpose:** This request verifies the license key's validity and retrieves basic owner information (like the associated email) to display within the app for confirmation.
-- **Update Notifications:** Paid users may receive email notifications about new application versions, features, and updates.
-    - **Opt-Out:** Users can unsubscribe from these notification emails at any time.
+## 2. Local vs. Cloud
 
-### 3. Third-Party Services Used
+How your data is handled depends entirely on how you choose to use the app:
 
-[TypingMind.com](http://typingmind.com/) utilizes the following third-party services:
+- **A. Local / Static Mode (Default):** By default, TypingMind operates as a static web application. All of your data—including API keys, chat history, prompts, and messages—is stored **locally** on your device's browser using Local Storage and IndexedDB. We do not have a backend server that reads or collects this local data. We have no ability to access, view, or recover any data stored locally on your device. Data is stored per browser — using different browsers or devices results in separate, independent data sets.
+- **B. Self-Hosted Deployments:** If you download and deploy the self-hostable version of TypingMind on your own server or infrastructure, the application runs entirely within your environment. No data from self-hosted deployments is transmitted to or accessible by us. You are solely responsible for the security, backup, and management of data within your self-hosted instance.
+- **C. TypingMind Cloud Services (Opt-in & SaaS):** If you actively opt-in to TypingMind Cloud (for Sync, Backup, or Sharing) or use our multi-tenant SaaS features (TypingMind Team), we must process and store your data on our servers to provide those services.
 
-- [**Vercel.com](http://vercel.com/):** Hosts the static website infrastructure.
-- **Vercel Analytics (by [Vercel.com](http://vercel.com/)):** Collects anonymous usage analytics (e.g., daily visitor counts).
-    - **Scope:** Data collection is limited to the [TypingMind.com](http://typingmind.com/) website and *does not* apply to self-hosted versions.
-- **Sentry (by [Sentry.io](http://sentry.io/)):** Collects anonymous crash logs and error reports.
-    - **Purpose:** Helps identify and fix bugs to improve application stability.
-- [**LemonSqueezy.com](http://lemonsqueezy.com/):** Processes payments for premium features and license keys.
-    - **Data Handling:** TypingMind *does not* store any user payment data (credit card numbers, etc.). Payment processing is handled entirely by Lemon Squeezy.
-- **Stripe:** Processes payments for premium features and license keys.
-    - **Data Handling:** TypingMind *does not* store any user payment data (credit card numbers, etc.). Payment processing is handled entirely by Stripe.
+## 3. How AI Requests and Proxies Work
 
-### 4. TypingMind Cloud 
+Certain Services require or allow you to provide your own API keys from third-party AI providers. We do not sell, provide, or broker API keys. Your API keys are stored locally on your device and are never transmitted to our servers.
 
-TypingMind Cloud is an optional, opt-in service providing features like sharing conversations via public links, cross-device chat synchronization, and data backup.
+By default, requests to AI providers (like OpenAI or Anthropic) — including your prompts, messages, and any attached content — are sent directly from your device's browser to the AI provider's server. We do not have any intermediate server to look at the requests or log the responses.
 
-- **Opt-In Requirement:** Cloud features are only activated when a user explicitly chooses to use Share/Sync/Backup features and selects "TypingMind Cloud" as the provider. Users must explicitly agree to use the service.
-- **Alternative Options:** Using TypingMind Cloud is not mandatory; users can utilize other methods or services for sharing and syncing data.
-- **Data Storage (Sharing):** When sharing chats, plugins, or AI agents via a TypingMind Cloud link:
-    - The specific data being shared is stored on TypingMind Cloud servers.
-    - A secret, publicly accessible link is generated.
-    - Search engine indexing of these links is actively prevented.
-    - Only the shared items are stored; no API keys, license keys, or other private chats are uploaded.
-- **Data Storage (Sync & Backup):** If Cloud Sync & Backup is enabled:
-    - **Data Stored:** All chats, prompts, messages, AI agents, and bookmarks are stored on TypingMind Cloud servers.
-    - **Security:** Communication with the server uses HTTPS encryption. Data is stored securely in cloud databases (provided by AWS) and is encrypted at rest.
-- **Cookie Usage (Sync & Backup):** If Cloud Sync & Backup is enabled, a cookie is used to maintain the user's logged-in state for seamless synchronization.
-    - **Expiration:** The login cookie expires after 30 days of inactivity (no sync activity).
+If an AI provider does not accept direct browser requests, you may opt to use our built-in proxy server. This feature is entirely opt-in only. If you use our proxy, we simply pass the request through as-is; we do not look at, read, or log any of your requests or responses.
 
-### 5. TypingMind via Setapp
+Data sent to any AI providers is governed by their respective privacy policies. We are not responsible for how third-party AI providers handle your data.
 
-This section applies specifically to users accessing TypingMind through the Setapp platform (https://setapp.com/apps/typingmind).
+## 4. What Data We Collect
 
-- **Application Version:** The Setapp version is identical to the standard [TypingMind.com](http://typingmind.com/) application.
-- **Included Model (Setapp GPT-3.5):**
-    - **Benefit:** Setapp subscribers get free access to a GPT-3.5 model, displayed as "Setapp (GPT-3.5)" within the app.
-    - **No API Key Needed:** Users do not need their own OpenAI API key to use this specific model.
-    - **Proxy Mechanism:** Requests using the "Setapp (GPT-3.5)" model are proxied through TypingMind's and Setapp's servers.
-        - **Purpose:** The proxy secures the underlying API key used by Setapp and implements rate limiting for security and abuse prevention.
-        - **Data Logging:** TypingMind *does not* log or store chat data processed through this proxy.
-        - **Setapp Policy:** Users should refer to Setapp's own privacy policy for details on how Setapp handles data for this model.
-- **Other Models (Non-Setapp):** When using any model *other* than "Setapp (GPT-3.5)," requests are sent directly from the user's local device to the respective AI provider (OpenAI, Anthropic, etc.) without TypingMind or Setapp proxy servers involved (following the standard data handling procedures described in sections 1 & 2).
+When you use TypingMind in Local/Static Mode or via a self-hosted deployment, we do not collect or have access to your chat conversations, prompts, AI-generated outputs, API keys, or any other content you create or store within the application.
 
-### 6. General Policies
+We only collect personal information when you directly provide it to us (e.g., by purchasing a license or opting into Cloud services) or automatically through necessary website operations. The data we may collect includes:
 
-- **Commitment to Privacy:** User privacy is a priority for [TypingMind.com](http://typingmind.com/).
-- **Data Collection:** Personal information is requested only when necessary to provide a service. Collection is fair, lawful, and transparent, with clear communication about purpose and usage.
-- **Data Retention:** Information is retained only as long as needed to provide the requested service.
-- **Data Protection:** Commercially acceptable security measures are employed to protect stored data against loss, theft, unauthorized access, disclosure, copying, use, or modification.
-- **Data Sharing:** Personally identifying information is not shared publicly or with third parties, except when required by law.
-- **External Links:** [TypingMind.com](http://typingmind.com/) may link to external sites not operated by TypingMind. TypingMind has no control over and assumes no responsibility for the content or privacy practices of these external sites.
-- **User Choice:** Users are free to refuse requests for personal information, understanding that this may limit access to certain services.
-- **Acceptance:** Continued use of the website is considered acceptance of these privacy practices.
-- **Contact:** Questions about data handling can be directed to the TypingMind support team.
-- **Effective Date:** This policy is effective as of June 30, 2023.
+- **Account & Contact Data:** Email address, first name, and last name.
+- **License Data:** Your purchased license key(s).
+- **Cloud Data (Opt-in only):** If you use TypingMind Cloud, we store your selected chats, prompts, messages, AI agents, and bookmarks.
+- **Technical Data:** IP address, anonymous crash logs, and aggregated website analytics (visitor counts).
+- **Payment Data:** Processed entirely by our payment processor/merchant of record. We do not collect or store your full credit card information.
 
-</PRIVACY_POLICY_LICENSE_VERSION>
+## 5. How and On What Legal Ground We Use Your Data
 
-<PRIVACY_POLICY_TEAM_VERSION>
+We use the personal data we collect strictly for the purposes for which we received it. Under the General Data Protection Regulation (GDPR), we process your data on the following legal grounds:
 
-We at TypingMind (“we”, “us”, “our”) value your privacy and are committed to protecting your Personal Data, which is a responsibility that we take very seriously.
+- **Performance of a Contract (Art. 6(1)(b) GDPR):** To verify your license key, provide access to premium features, sync your data across devices via TypingMind Cloud, and generally provide the Services you requested.
+- **Your Consent (Art. 6(1)(a) GDPR):** To send you newsletters, product updates, or to process specific data when you explicitly opt-in (e.g., generating public share links for your chats). You have the right to withdraw your consent at any time without affecting the lawfulness of processing based on consent before its withdrawal.
+- **Legitimate Interests (Art. 6(1)(f) GDPR):** To monitor application stability via anonymous crash logs, maintain website security, prevent fraud, and handle customer support inquiries or dispute resolution.
 
-This Privacy Policy explains how TypingMind may use the Personal Data we collect when you visit our website [custom.typingmind.com](http://custom.typingmind.com/) and other sites we own and operate (“Website”), inquire about our products, or use our product (“product” or “TypingMind”). It also explains how we comply with EU legislation related to personal data protection (EU General Data Protection “GDPR”) and what your rights are under this legal framework.
+## 6. How We Store and Protect Your Data
 
-**Data Controller:** Devuap LLC is the data controller of the services offered through this website. Our registered office is at Ste 1200, 1309 Coffeen Avenue, 82801 Sheridan, United States.
+We store your data securely using electronic means only. We have adopted reasonable and appropriate physical, technical, and administrative procedures designed to prevent unauthorized access, maintain data accuracy, and ensure appropriate use of the information.
 
-### 1. What type of Personal Data do we collect from you?
+- All communication with our servers is encrypted using HTTPS.
+- Data stored on our cloud databases (provided by AWS) is encrypted at rest.
+- For locally stored data, the application offers an optional encryption feature that allows you to encrypt sensitive information (such as API keys) on your device using industry-standard encryption. This encryption is performed entirely on your device — we have no access to your encryption password or encrypted data.
+- We store your data only for the period of time needed to realize the purpose for which it was collected. Once that period expires (or upon your deletion request), we delete or securely anonymize the data.
+- If you do not have a paid subscription with us and your account has had no activity for the last 90 days, we will delete your data and will notify you in advance.
 
-Personal Data means any information relating to you which allows us to identify you, either directly from that data or because we combine that information with other data about you.
+## 7. Who We Share Data With
 
-When you use our Website, including to create an account with us and purchase products from us, or we interact with you in relation to our products and services, or subscribe to our marketing communications, you may provide us with your Personal Data, or we may obtain Personal Data about you.
+Since we operate worldwide, we may transfer collected data outside your country of residence. We transfer data only to countries or entities assuring adequate levels of protection (such as those utilizing EU Standard Contractual Clauses).
 
-We may process the following Personal Data:
+We may share your information with:
 
-- **Contact details and personal identifiers:** such as your name, email address, billing address, name of your chat instance, username;
-- **Purchase data:** data on the products you have asked us to provide to you, such as date and time of purchase, customer number, purchase number, invoice number, tax identification number;
-- **Records of your interactions with us:** such as any inquiries, information about purchases, questions you have, or content of any other interactions with us;
-- **Internet information:** including your use of and movements through our Website, the date and time of your visit or use of our Website, passwords, personal identification numbers, IP addresses, geolocation, usernames, device information such as type of browser, operating system, platform, and search engine used and other IT system identifying information.
-- **Professional data:** such as the company where you work
-- **Account data:** such as your OpenAI API and Anthropic API key;
-- **Your marketing preferences:** so that we know whether and how we should contact you.
+- **Service Providers (Subprocessors):** We retain trusted third-party providers for hosting, cloud infrastructure, analytics, crash reporting, and payment processing. They may use the information solely in conjunction with the specific services they provide for us. For a complete, up-to-date list of our providers, please refer to our Subprocessors List.
+- **For Legal Purposes:** We may disclose information to respond to duly authorized requests of police and governmental authorities, comply with any law or court order, investigate fraud or security threats, or protect the rights and safety and our users.
 
-You can stop receiving our marketing communications at any time, free of charge, through the methods displayed as part of any communication such as the unsubscribe link in our emails. Or further information on this please see the section below on Direct Marketing.
+## 8. Cookies
 
-### 2. Where do we collect your Personal Data from?
+Cookies are small text files placed on your device to collect standard internet log information and visitor behavior.
 
-We will collect Personal Data from several sources. These include the following:
+- **How we use them:** If you enable TypingMind Cloud for Sync and Backup, we use cookies strictly to store your logged-in state. This provides a seamless sync experience without requiring you to repeatedly log in. Our authentication cookie expires after 30 days of inactivity.
+- **Managing Cookies:** You can set your browser to refuse cookies. However, if you do so, the TypingMind Cloud Sync features will not function properly.
 
-- **Directly from you:** when you use our Website, purchase our products, create an account, contact us by email or communicate with us directly in some other way.
-- **Our website:** provides us with information about how you use it and the devices that you use to connect to our Website. Like many other Websites, we use so-called “cookies”. Cookies are small text files that are stored on your device (laptop, tablet, smartphone, etc.) when you visit our Website.
-    - **Strictly Necessary Cookies:** We only use strictly necessary cookies. Necessary cookies are essential for the website to function properly. They enable core functionality such as security, network management, and accessibility. Essential cookies will be provided by us. These types of cookies are always enabled. You may disable these by changing your browser settings, but this may affect the functionality of our website. We process your Personal Data through strictly necessary cookies as it is necessary for the functionality and security of our website. It helps us prevent fraud, detect and mitigate potential security threats. This processing is based on our legitimate interest.
+## 9. Representative
 
-### 3. Why do we collect your Personal Data and on what legal basis?
+We value your privacy and your rights as a data subject and have therefore appointed Prighter Group with its local partners as our privacy representative and your point of contact for the following regions:
 
-We process your Personal Data for several main purposes, each with a specific legal basis:
+- European Union (EU)
 
-- **Providing our website:** To ensure our website functions correctly, we process your IP address, browser type, device ID, and geolocation based on our legitimate interest.
-- **Improving security and monitoring:** For website security, bug tracking, and security monitoring, we process your IP address, visit timestamps, and device information based on our legitimate interest in securing our systems.
-- **Invoicing and payment:** To invoice you and receive payments, we process your name, email address, billing address, customer number, invoice number, tax ID, and other payment data. This is necessary to fulfill our contract with you.
-- **Account creation and management:** To create and manage your account, we process your name, email address, and chat instance name. This is necessary to fulfil our contract with you.
-- **Marketing relevant products:** To inform you about products potentially of interest, we process your name, email address, and marketing preferences based on our legitimate interest. If legitimate interest is not applicable, we will obtain your consent.
-- **Newsletters:** To send you newsletters, we process your name, email address, and marketing preferences, but only if you have given us your explicit consent.
-- **Handling inquiries:** To deal with your inquiries and communications, we process your name and email address. This is necessary to fulfil our contract with you.
-- **Legal and regulatory compliance:** To comply with legal and regulatory requirements, we process contact details, invoice numbers, and tax identification numbers based on our legal obligations.
-- **Record keeping:** To store records relating to you and our business operations, we process all the personal data we collect. This serves multiple bases: managing and fulfilling our contract with you, complying with legal/regulatory obligations, and pursuing our legitimate interest in maintaining proper records.
+Prighter gives you an easy way to exercise your privacy-related rights (e.g. requests to access or erase personal data). If you want to contact us via our representative, Prighter or make use of your data subject rights, please visit the following website: https://app.prighter.com/portal/15850336186
 
-Some of your Personal Data may be required due to legal, contractual, or other obligations. Failure to provide this data may impact our ability to fulfil our contract with you or comply with relevant legal obligations. For other Personal Data, whilst you may not be under an obligation to provide it to us, if you do not provide it, we may not be able to properly perform our services for you. Without your Personal Data, you may be unable to complete purchases or register an account on our Website.
+## 10. Changes to This Privacy Policy
 
-Providing Personal Data for marketing and newsletters is optional. Refusal to provide this data has no negative consequences but means that we cannot offer personalised marketing messages. If you gave us your consent for marketing purposes, you can revoke your consent or object the processing at any time by utilizing the following website: https://prighter.com/q/18105413056 or by following the information in section “Contact Information”.
+If we modify this Privacy Policy, we will post the revised statement on this page with an updated revision date. If we make significant changes that materially alter our privacy practices, we may also notify you by other means, such as an email or an in-app notice. Your continued use of the Services after changes take effect indicates your acceptance of the updated policy.
 
-### 4. Who we share your Personal Data with?
+## 11. Contact Us
 
-In order to operate our Website and provide you with the products you have ordered we may need to share your Personal Data with third parties. This includes sharing your Personal Data companies engaged by us to manage our relationship with you and provide you the services described above.
+If you have comments, questions, or concerns regarding our collection and use of your personal data, please email us at [**support@typingmind.com**](mailto:support@typingmind.com). We treat your concerns confidentially and will aim to resolve them in a timely and appropriate manner.
 
-We may share your personal data with the following recipients:
+Should you wish to report a complaint or feel that we have not addressed your concern in a satisfactory manner, you retain the right to lodge a complaint with your national or local Data Protection Authority (DPA).
 
-- **Sub-contractors:** such as our service technology providers, cloud service providers, payment service providers, and other sub-contractors.
+</PRIVACY_POLICY>
 
-We do not disclose Personal Data to anyone else except as set out above unless we have your consent, or we are legally obliged to do so. These recipients will only process your Personal Data to perform tasks and duties on our behalf and in compliance with this Privacy Policy and governing data protection laws.
+<TERMS_OF_SERVICE>
 
-Our website may link to external sites that are not operated by us. Please be aware that we have no control over the content and practices of these sites and cannot accept responsibility or liability for their respective privacy policies.
+Last updated: September 17, 2026
 
-### 5. Direct Marketing
+**1. Introduction**
 
-From time to time, we may contact you by email with information about products they believe you may be interested in.
+Please read these Terms of Service carefully before using our Services. These Terms of Service govern your use of all products and services provided by Typing Technology Co. Ltd. (”TypingMind”, "we," "us," or "our"), including but not limited to all features, functionalities, tools, platforms, subscriptions, add-ons, personal license products, self-hosted versions, and any other services made available through the TypingMind platform, application, website, or any associated domains (collectively, "Services"). It is extremely important that you understand your rights and responsibilities so our cooperation goes smoothly and you are satisfied with our Services. You may use our Services if you satisfy the conditions referred to in these Terms of Service, in particular if you have the full legal capacity to enter into binding contracts; then you are a "User." Acceptance of these Terms of Service is voluntary, but it is a prerequisite for accessing and using the Services. By creating an account ("Account"), submitting an order via our order form, using any of our Services, or accessing any of our websites, you are agreeing to be bound by and comply with these Terms of Service. If you do not agree to these terms, do not use the Services.
 
-Marketing emails and newsletters will only be sent to you based on the preferences you set when you tell us that you wish to receive marketing related messages or when you have purchased similar products from us previously.
+**2. Services**
 
-You can opt out any time if you do not wish to receive any marketing messages by clicking on the unsubscribe link in any marketing email you receive to unsubscribe from future marketing communications.
+The specific scope, features, limitations, and descriptions of each Service are presented within the user interface of the applicable Service at the time of your use or purchase. The Services may include, but are not limited to: Client-side applications that run locally in your browser or on your device; Downloadable, self-hostable versions of the application; Cloud-based  synchronization across devices; Online, cloud-hosted SaaS platforms for individual or team use; Subscription management and add-on purchases (e.g., additional seats, increased usage limits, storage, or other configurable options); Team administration and member management; Integration with third-party AI models and APIs. The Services are provided to You either as downloadable software for installation and use on your team devices and infrastructure or as a cloud-hosted application accessible through a supported web browser. You acknowledge and agree that: We may introduce new Services, modify existing Services, or discontinue Services from time to time, with or without notice; The description of each Service as presented in the user interface at the time of your use or purchase shall be considered part of this Agreement; Your continued use of any Service after such changes constitutes your acceptance of the updated scope of that Service; We make no guarantee that any particular feature or functionality will remain available indefinitely.
 
-### 6. International data transfers
+**3. Account Registration and Requirements**
 
-In the course of our operations, it may be necessary to transfer your Personal Data to recipients located outside the European Union (EU), European Economic Area (EEA). These transfers may be to our service providers who are located in regions with differing data protection laws than those in your country. When transferring your Personal Data internationally we implement appropriate safeguards to ensure the security and confidentiality of your data. These safeguards may include for example Standard Contractual Clauses (SCCs) approved by the European Commission or applicable supervisory authority.
+3.1 Eligibility: To use our Services you must be a natural person or legal entity with full legal capacity, provide your valid email address and any other information requested during signup, and agree to these Terms of Service.
 
-### 7. How long do we keep Personal Data for?
+3.2 Individual Accounts: Unless otherwise specified for a particular Service, your Account can only be used by one individual. A single login shared by multiple users is not permitted.
 
-Generally, we will retain your Personal Data for as long as we need it for the purposes for which it was collected. The duration for which we retain your Personal Data will differ depending on the type of information and the reason why we collected it from you. However, in some cases Personal Data may be retained on a long-term basis: for example, Personal Data that we need to retain for legal purposes will normally be retained in accordance with usual commercial practice and regulatory requirements.
+3.3 Team and Multi-User Accounts: Certain Services may offer team or multi-user functionality. Where applicable: A team account is created by an organization or individual (the "Team Administrator") who manages the team workspace; The Team Administrator is responsible for managing team members, seats, add-ons, and configurations within the team workspace; Each team member must have their own individual seat, determined by the number of seats purchased under the applicable Plan.
 
-In addition, we may be allowed to retain Personal Data whenever you have given consent to such processing (e.g. subscription to our newsletter), as long as such consent is not withdrawn.
+3.4 Account Security: You are responsible for maintaining the security of your Account, and you are fully responsible for all activities that occur under your Account. You must immediately notify us at support@typingmind.com of any unauthorized uses of your Account or any other breaches of security. We will not be liable for any acts or omissions by you, including any damages of any kind incurred as a result of such acts or omissions.
 
-### 8. Data security
+**4. Payments and Billing**
 
-We take the security of your information very seriously and only handle Personal Data as permitted by data protection regulations. We use a variety of technical and organizational measures to help protect your Personal Data from unauthorized access, disclosure, modification, loss or destruction in accordance with applicable data protection laws. When handling Personal Data, our employees are obliged to comply with the regulations of the EU GDPR.
+4.1 Fees and Pricing: You may view the fees for the Services ("Fees") in the pricing available on our website or within the user interface of the applicable Service ("Pricing"). The Pricing determines the plans ("Plan"), which define the scope of the Services and their duration. You agree that, at the time of your purchase, you have received the full and complete Services that we provide to you, including the current version of the downloadable software, digital content, user guides, documents, and related services that we grant access to you via email and our website.
 
-### 9. Your rights in relation to your Personal Data
+4.2 Personal License Terms: A personal license grants you the right to use the personal version of TypingMind, including the online version hosted on typingmind.com and the downloadable static self-host version. A personal license is valid forever and does not require renewal. The features unlocked by the personal license are based on the plan you selected and are described on our pricing page. The personal version is limited to one user and a limited number of devices, depending on the plan you selected, as defined on our pricing page. Personal license fees are paid in advance and are refundable within 14 days of purchase, except for specific rights granted to Consumers by mandatory law.
 
-You have the following rights in relation to your Personal Data under GDPR:
+4.3 Team License Terms: A team license grants you the right to use the team version of TypingMind for a limited term and automatically renews at the end of the license period. The team version of TypingMind includes the online, cloud-hosted version on typingmind.com and the downloadable, self-hosted team version provided after purchase. Pricing for the team version varies based on the plan and the add-ons you select from our pricing page. All purchases in the team version are non-refundable, except for specific rights granted to Consumers by mandatory law.
 
-- **Right of Access:** you have the right to be informed about how we are using your Personal Data and the right to access that data that we hold about you.
-- **Right to Erasure or "Right to be Forgotten":** you have the right to ask us to delete your Personal Data provided that there are no valid grounds for us to keep it, for example we may have to keep some or all of the Personal Data to comply with legal obligation or in respect of any legal claims.
-- **Right to Data Portability:** you have the right to receive the Personal Data you have provided to us in a digital format or in certain circumstances and where technically feasible the right to ask us to transmit the data to another organization.
-- **Right of Rectification:** you have the right to ask us to amend the Personal Data that we hold about you where believe it is inaccurate or incomplete.
-- **Right to Object:** in certain circumstances, you have the right to object to the processing of your Personal Data and to ask us to block, erase and restrict our use of your personal data.
-- **Automated Decision Making:** we may process your Personal Data by solely automated means (without human intervention), including for profiling. Where such processing may have a legal or similarly significant effect on you, you have the right not to remain subject to any decisions based on such automatic processing, except as otherwise provided by law. You have the right to understand when and how automated decisions are made about you, and the factors involved and you have the right to challenge these decisions, request human intervention, express your point of view, and seek a review of the decision.
-- **Right to Withdraw Consent or Right of Opposition:** if you have provided your consent to the collection, processing and transfer of your personal data, you have the right to fully or partly withdraw your consent. Once we have received notification that you have withdrawn your consent, we will no longer process your information for the purpose(s) to which you originally consented unless there is another legal ground for the processing.
-- **Right of Limitation:** you have the right to request the limitation of the Processing of your Personal Data, in the form of: (i) suspension of Processing or (ii) limitation of the scope of Processing to certain categories of Personal Data or purposes of Processing.
-- **Right to complain:** you have the right to complain to the supervisory authority, in addition to us.
+4.4 Self-host License Terms: A self-host instance license allows you to use the Team version of TypingMind in your self-host environment for the agreed amount of time at the price set out in your order form with us. A self-host instance is defined by a set of deployment URLs along with the users and data associated with that instance. Each self-host instance comes with 5 seats by default, and each seat can be used by one user at a time. You can purchase additional instances and seat add-on licenses at any time via our order form at a quoted price.
 
-The period for handling a request is 30 days unless it is a particularly complex request.
+4.5 Non-Payment: If you fail to pay the Fee, we may block your Account. If you fail to settle the amounts due within a subsequent period set by us, we have the right to terminate the Agreement, delete your Account, and permanently remove your Content. We may also downgrade your Plan to a free version (if available) and delete data that exceeds the free Plan's limits.
 
-Once our specified retention period has expires we shall delete the relevant Personal Data. Therefore, the right to access, the right to erasure, the right to rectification and the right to data portability cannot be enforced after the expiration of such retention period.
+4.6 Pricing Changes: We may amend the Pricing. Such changes will not affect your current Subscription Term but will become binding at the commencement of your next Subscription Term unless you cancel your subscription.
 
-### 10. Processing data in relation to children
+4.7 Payment Method and Merchant of Record: You agree to pay the Fees directly to us via authorized secure payment processors, bank wire transfer, or via our merchant of record.
 
-Our services are not intended for and shall not be used by individuals under the age of 16. TypingMind does not knowingly collect Personal Data from persons under 16 or allow them to register. If it comes to our attention that we have collected or processed Personal Data from such a person, we may delete this information without notice. If you have reason to believe that this has occurred, please contact us using the following link: https://prighter.com/q/18105413056
+4.8 Trade Discounts and Discount Policy: We may offer trade discounts or other discounts at our discretion, including based on purchase volume, subscription term, or individual agreements. Eligibility, amounts, duration, and conditions will be specified in the applicable offer, at checkout, or agreed in writing. Unless otherwise stated, discounts cannot be combined and do not apply retroactively or automatically carry over to renewals. We may change or discontinue discount offers at any time without affecting discounts already agreed for confirmed purchases.
 
-### 11. Changes to our data protection provisions
+**5. Content and Acceptable Use**
 
-We may need to make changes to this Privacy Policy to ensure that it complies with current legal requirements or to implement changes to the services detailed in the Privacy Policy, e.g., when introducing new services and products. In this case, your future visits to our Website will be subject to the updated Privacy Policy.
+5.1 User Content: "Content" means every electronic file, data, text, conversation, configuration, prompt, output, or other material that you upload, store, generate, transmit, or process through the Services. You retain ownership of your Content, but you are entirely responsible for it.
 
-### 12. Contact Information
+5.2 Prohibited Use: You are prohibited from using the Services to store, share, or process Content that: Is illegal, racist, offensive, pornographic, libelous, or defamatory; Infringes the intellectual property, privacy, or personal rights of any third party; Contains viruses, malware, trojan horses, or destructive code; Constitutes spam, phishing, or misleading commercial content.
 
-If you have any questions or comments about this Privacy Policy, the ways in which we collect and use your Personal Data, or your choices and rights regarding such use please do not hesitate to contact us by:
+5.3 Our Rights: We have the right (though not the obligation) to, in our sole discretion: (i) refuse or remove any Content that violates these Terms or is otherwise objectionable; and (ii) suspend or terminate access to the Services for any User who violates these rules, without refund or prior notice.
 
-- **Email:** [support@devuap.com](mailto:support@devuap.com)
-- **Post:** Ste 1200, 1309 Coffeen Avenue, 82801 Sheridan, United States
+**6. AI-Generated Content and Third-Party Services**
 
-**Data Subject Requests from EU Data Subjects according to the GDPR:**
+6.1 AI Content Disclaimer: The Services may facilitate access to third-party AI models. You acknowledge and agree that: We do not warrant or assume responsibility for the accuracy, reliability, completeness, or suitability of any AI-generated output; AI outputs may contain errors, inaccuracies, biases, or misleading information. You agree not to rely on such outputs without independent human verification; You are solely responsible for how you use, distribute, or act upon any AI-generated content.
 
-We value your Data Subject Rights under EU GDPR and have therefore appointed Prighter as representative according to Art 27 EU GDPR. We provide you with an easy way to submit a privacy related request like a request to access or erase your personal data by visiting: https://app.prighter.com/portal/18105413056
+6.2 Third-Party Integrations: The Services may include links to, or integrations with, third-party APIs, libraries, payment processors, or websites. We are not responsible for these Third-Party Services. You access and use them at your own risk, subject to the third party's terms and conditions.
 
-**Last Updated:** 20 December 2024
+6.3 Bring-Your-Own API Keys: Certain Services may require or allow you to provide your own API keys from third-party providers (e.g., OpenAI, Anthropic, Google, or others). When you use your own API keys: (a) you are solely responsible for obtaining, managing, and securing those keys in accordance with the third-party provider's terms; (b) all usage charges from the third-party provider are your sole responsibility — we do not sell, resell, or broker API keys; (c) API requests made using your keys may be sent directly from your device to the third-party provider without passing through our servers; and (d) we are not liable for any costs, service interruptions, or issues arising from your use of third-party API keys.
 
-</PRIVACY_POLICY_TEAM_VERSION>
+**7. Data Backup and Assumption of Risk**
 
-<TERMS_OF_SERVICE_TYPINGMIND_LICENSE>
+7.1 Not a Primary Backup: Where the Services provide data storage, backup, or synchronization, this is provided as a convenience and is **not** a primary or sole data storage solution. You are solely responsible for maintaining independent backups of all your Content. We shall have no liability for any loss, corruption, or destruction of data, regardless of the cause.
 
-## Terms of Service for [TypingMind.com](http://typingmind.com/) & Self-host Static App
+7.2 Assumption of Risk: You expressly acknowledge that your use of the Services is at your sole risk. You assume full responsibility for any damages to your computer systems, loss of data, or other harm resulting from your use of the Services.
 
-This section outlines the terms and conditions governing the use of [TypingMind.com](http://typingmind.com/) (the web application) and the self-hosted static app version, specifically for users who have purchased a license key.
+7.3 Not for Critical Use: The Services are not designed or authorized for use in environments requiring fail-safe performance (e.g., medical, legal, financial, nuclear, aviation, or safety-critical applications) where failure could lead to death, injury, or severe financial or environmental damage. We disclaim all liability arising from such use.
 
-### 1. License Grant and Scope
+7.4 Automatic Data Deletion: If you have no active paid subscription with us and your Account has no activity for ninety (90) consecutive days, we may automatically delete your Content and Account data. You are solely responsible for exporting or backing up your Content before any such deletion.
 
-- **Lifetime License:** Your purchased license key grants you a lifetime license to use [TypingMind.com](http://typingmind.com/) and the self-hosted static app. The license does not expire.
-- **Usage:** The license allows you to use the software as long as you wish.
-- **Future Updates:**
-    - By default, all future upgrades and new features for [TypingMind.com](http://typingmind.com/) are provided free of charge to license holders.
-    - However, TypingMind reserves the right to potentially offer significant future upgrades as separate purchases if deemed reasonable.
-- **Self-Hosting:**
-    - License holders can download a self-hostable version of the static app.
-    - This allows users to host the application on their own servers, ensuring continued access even if [TypingMind.com](http://typingmind.com/) ceases operations.
-    - The self-hosted app works independently and requires no backend server from TypingMind.
+7.5 Client-Side Data Storage: Certain Services store data locally on your device (e.g., in your browser's local storage). Such locally stored data — including but not limited to chat conversations, settings, API keys, and configurations — is under your sole custody and control. We have no ability to access, recover, or restore locally stored data. You are solely responsible for backing up any locally stored Content, and we shall have no liability for loss of data due to device failure, browser data clearing, or any other cause.
 
-### 2. License Key Usage and Restrictions
+**8. Intellectual Property**
 
-- **No Sharing:** You are strictly prohibited from sharing your license key with anyone else.
-- **Device Limit:**
-    - Each license key can be actively used on a maximum of **5 devices** simultaneously. This limit is generally sufficient for a single user.
-    - A "device" is counted based on each instance where the license key is entered and chat history is stored for continuous use (e.g., Chrome on a laptop is one device, Safari on a phone is another). Using different browsers on the same machine counts as separate devices.
-- **Managing Devices:**
-    - If you reach the 5-device limit and need to use the license on a new device, you must first unlink the license key from a previous device using the License Manager. Access to the previous device is not required to unlink it.
-    - This limit exists to prevent license abuse and piracy.
-- **Adding More Devices:** If you need to use the license on more than 5 devices concurrently, you must either purchase additional license keys or buy additional seats for your existing license key.
+8.1 Ownership: The Services, including software, layouts, trademarks, logos, databases, texts, and graphics, are our intellectual property (or that of our licensors) and are protected by law. Using the Services does not grant you any ownership rights to our intellectual property.
 
-### 3. Refund Policy
+8.2 Self-Hosted and Downloadable Versions: Where we provide a downloadable or self-hostable version of the Services, your license grants you the right to use and deploy the provided compiled code only. You may not modify, reverse-engineer, decompile, disassemble, or redistribute the code. The source code is proprietary and is not made available to licensees. Any unauthorized use, copying, or distribution of the software constitutes a violation of these Terms and applicable intellectual property laws.
 
-- **14-Day Guarantee:** All purchases are refundable within 14 days of the purchase date, no questions asked.
-- **Requesting a Refund:** If unsatisfied, contact TypingMind support within the 14-day period to request a refund.
+8.3 Copyright Complaints: If you believe material on the Services violates your copyright, please notify us at support@typingmind.com. We will respond by removing or disabling access to infringing material where appropriate.
 
-### 4. Service Availability and Feature Changes
+**9. Disclaimer of Warranties**
 
-- **Feature Modifications:** [TypingMind.com](http://typingmind.com/)'s features may change over time. This includes adding or removing features, changing the features available in free/paid plans, or potentially open source some parts or all of the app source code. Such changes do not qualify for refunds outside the initial 14-day period (unless your purchase is still within the 14-day refund period).
-- **Service Uptime:** While TypingMind strives to maintain service availability for [TypingMind.com](http://typingmind.com/), uptime is not guaranteed. Events like natural disasters, changes in ownership, dependency outages, or other uncontrollable factors may impact service. No refunds will be provided for service unavailability outside the 14-day refund period.
-- **Self-Hosting Option:** Users concerned about service availability can utilize the self-hosting option for full control.
+9.1 No Warranty: THE SERVICES ARE PROVIDED "AS IS" AND "AS AVAILABLE." WE DO NOT REPRESENT OR WARRANT THAT THE OPERATION OF THE SERVICES (OR ANY PORTION THEREOF) WILL BE UNINTERRUPTED OR ERROR-FREE, OR THAT THE SERVICES (OR ANY PORTION THEREOF) WILL OPERATE IN COMBINATION WITH OTHER HARDWARE, SOFTWARE, SYSTEMS, OR DATA NOT PROVIDED BY US. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, WE AND OUR AFFILIATES, SUPPLIERS, AND LICENSORS HEREBY EXPRESSLY DISCLAIM AND EXCLUDE ANY AND ALL EXPRESS OR IMPLIED REPRESENTATIONS OR WARRANTIES, WHETHER UNDER COMMON LAW, STATUTE, OR OTHERWISE, INCLUDING WITHOUT LIMITATION ANY AND ALL WARRANTIES AS TO MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, SATISFACTORY QUALITY, TITLE, NON-INFRINGEMENT OF THIRD-PARTY RIGHTS, AND ANY WARRANTIES ARISING FROM COURSE OF DEALING OR USAGE OF TRADE.
 
-### 5. Legal Information
+9.2 Trial and Free-Tier Disclaimer: Without limiting the generality of Section 9.1, if you are accessing or making use of the Services on a trial, beta, or free-tier basis, you acknowledge and agree that such access is made available on an "as-is" basis without support, warranty, or indemnification, and we shall have no liability or obligation with respect to any such trial or free-tier use.
 
-- **Legal Entity:** [TypingMind.com](http://typingmind.com/) is a product of Devuap LLC.
-- **Registered Address:** Ste 1200, 1309 Coffeen Avenue, Sheridan, WY, Sheridan, US, 82801.
+9.3 Assumption of Risk: You expressly acknowledge that your use of the Services is at your sole risk. You assume full responsibility for any damages to your computer systems, loss of data, or other harm resulting from your use of the Services.
 
-### 6. Terms Specific to TypingMind Cloud (for License Users)
+**10. Limitation of Liability**
 
-TypingMind Cloud is an **optional, opt-in service** available to [TypingMind.com](http://typingmind.com/) users for sharing, syncing, and backing up chat data.
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE OR OUR SUPPLIERS BE LIABLE FOR ANY LOST PROFITS, LOSS OF DATA, BUSINESS INTERRUPTION, REPLACEMENT SERVICE, OR OTHER SPECIAL, INCIDENTAL, CONSEQUENTIAL, PUNITIVE, OR INDIRECT DAMAGES, HOWEVER CAUSED AND REGARDLESS OF THEORY OF LIABILITY, WHETHER ARISING OUT OF OR RELATING TO: (A) YOUR ACCESS TO OR USE OF OR INABILITY TO ACCESS OR USE THE SERVICES; (B) ANY CONDUCT OR CONTENT OF ANY THIRD PARTY ON THE SERVICES; (C) UNAUTHORIZED ACCESS, USE, OR ALTERATION OF YOUR TRANSMISSIONS OR CONTENT; OR (D) ANY OTHER MATTER RELATING TO THE SERVICES. OUR TOTAL CUMULATIVE LIABILITY FOR ALL CLAIMS ARISING UNDER OR IN CONNECTION WITH THESE TERMS, WHETHER IN CONTRACT, TORT, OR OTHERWISE, SHALL NOT EXCEED THE AMOUNT OF FEES ACTUALLY PAID BY YOU FOR THE SERVICES DURING THE TWELVE (12) MONTH PERIOD PRECEDING THE EVENT GIVING RISE TO THE CLAIM. THESE LIMITATIONS APPLY EVEN IF WE HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES AND EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE. THE LIMITATIONS IN THIS SECTION 10 SHALL APPLY NOTWITHSTANDING ANY FAILURE OF ESSENTIAL PURPOSE OF ANY LIMITED REMEDY PROVIDED HEREIN.
 
-- **Activation:** TypingMind Cloud is only used when you explicitly select it for Share/Sync/Backup features and agree to its terms.
-- **Free Tier:** A free tier is available, offering **10 MB** of data storage per user.
-    - License key holders automatically qualify for this 10 MB free storage limit.
-- **Availability & Data Integrity:** Service availability is not guaranteed, and TypingMind does not guarantee data will never be lost. Users are encouraged to maintain their own backups.
-- **Paid Upgrades:** Users can purchase subscriptions to increase their cloud storage limit beyond the free 50 MB. Pricing details are available within the app.
-- **Bandwidth Policy:** A fair use bandwidth policy applies (typically 10GB/month per 100MB storage). Contact support if higher bandwidth is needed.
-- **Not Mandatory:** Using TypingMind Cloud is optional; other sharing/syncing methods can be used.
-- **Self-Host Integration:** Users of the self-hosted app can still *choose* to use TypingMind Cloud for sync/backup. If selected, data will be sent to `cloud.typingmind.com`. The TypingMind Cloud *service itself* is not part of the self-host download.
+**11. Indemnification**
 
-### 7. General Terms and Conditions (Applies to [TypingMind.com](http://typingmind.com/) & Self-host App)
+11.1 Indemnification by You: You will defend, indemnify, and hold TypingMind, its affiliates, suppliers, and licensors harmless, and each of their respective officers, directors, employees, and representatives, from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to any third-party claim with respect to: (a) your Content; (b) breach of these Terms of Service or violation of applicable law by you; (c) alleged infringement or misappropriation of a third party's intellectual property rights resulting from your Content; or (d) your use of or access to the Services in violation of these Terms.
 
-1. **Introduction:** By using [typingmind.com](http://typingmind.com/), you accept these terms and conditions.
-2. **Agreement:** This Agreement begins when you first use the [typingmind.com](http://typingmind.com/) application.
-3. **Premium Features:** A purchased license key unlocks premium features detailed on the pricing page.
-4. **Product Updates:** By using [typingmind.com](http://typingmind.com/), you agree to receive important product updates via email (linked to your payment or registration email). You can unsubscribe anytime.
-5. **Disclaimer:** [TypingMind.com](http://typingmind.com/) is provided "as is." It's not warranted that it will meet all requirements or be error-free. All implied warranties are excluded to the extent permitted by law. This doesn't affect statutory rights.
-6. **Warranties and Limitation of Liability:** TypingMind provides no warranties regarding the software's quality or fitness for purpose. TypingMind is not liable for indirect, special, or consequential losses, damages, costs, or claims (including loss of profit, data corruption, business interruption) arising from the service, except where liability cannot be excluded by law. Liability is limited to the amount actually paid by the user for the services or software. Users release TypingMind from obligations or claims exceeding this limit. Liability limitations do not apply in cases of fraudulent representation. Delays or failures due to causes beyond reasonable control do not constitute a breach of contract.
-7. **Governing Law:** This Agreement is governed by the laws of Wyoming, United States.
-8. **Relationship:** No joint venture, partnership, employment, or agency relationship exists between the user and [TypingMind.com](http://typingmind.com/). Users agree not to represent themselves as agents or employees of [TypingMind.com](http://typingmind.com/).
-9. **Last Updated:** December 5, 2024.
+11.2 Notice of Claim and Indemnity Procedure: In the event of a claim for which a party seeks indemnity or reimbursement under this Section 11 (the "Indemnified Party"), the Indemnified Party shall, as conditions of the indemnity: (a) notify the indemnifying party in writing as soon as practicable, but in no event later than thirty (30) days after receipt of such claim, together with such further information as is necessary for the indemnifying party to evaluate such claim; and (b) allow the indemnifying party to assume full control of the defense of the claim, including retaining counsel of its own choosing. Upon the assumption by the indemnifying party of the defense of a claim with counsel of its choosing, the indemnifying party will not be liable for the fees and expenses of additional counsel retained by any Indemnified Party. The Indemnified Party shall cooperate with the indemnifying party in the defense of any such claim. The indemnifying party shall have no obligation to indemnify or reimburse for any losses, damages, costs, disbursements, expenses, settlement liability of a claim, or other sums paid by any Indemnified Party voluntarily, and without the indemnifying party's prior written consent, to settle a claim.
 
-</TERMS_OF_SERVICE_LICENSE_VERSION>
+11.3 Entire Indemnification Understanding: Subject to the maximum liability set forth in Section 10, the provisions of this Section 11 constitute the entire understanding of the parties regarding indemnification liability, including but not limited to infringement claims and related claims for breach of warranty, and each party's sole obligation to indemnify and reimburse any Indemnified Party.
 
-<TERMS_OF_SERVICE_TEAM_VERSION>
+**12. Time Limitation on Claims**
 
-## Terms of Service for TypingMind for Teams
+To the maximum extent permitted by applicable law, any cause of action or claim you may have arising out of or relating to these Terms of Service or the Services must be commenced within one (1) year after the cause of action accrues. Otherwise, such cause of action or claim is permanently barred.
 
-This section outlines the terms and conditions governing the use of the TypingMind for Teams service (accessed via [custom.typingmind.com](http://custom.typingmind.com/) or a custom domain) and the associated self-hosted instances.
+**13. Dispute Resolution and Arbitration**
 
-**(Note: For the License Version/Personal Use terms, see `<TERMS_OF_SERVICE_TYPINGMIND_LICENSE>`)**
+13.1 For Non-Consumer Users: Any dispute, controversy, or claim arising out of or relating to these Terms of Service, or the breach, termination, or invalidity thereof, shall be settled by binding arbitration in accordance with the arbitration rules of the Singapore International Arbitration Centre. The language of arbitration shall be English. You agree that any dispute resolution proceedings will be conducted only on an individual basis and not in a class, consolidated, or representative action. You waive any right to participate in a class action lawsuit or class-wide arbitration against us.
 
-TypingMind Team is a software as a service that allows you to create an AI chat portal for your team.
+13.2 For Consumers: A Consumer may take advantage of alternative dispute resolution (ADR) methods, including mediation or arbitration. EU Consumers may submit complaints through the EU ODR platform at https://ec.europa.eu/consumers/odr. If a Consumer declines ADR, disputes will be settled by a competent court with jurisdiction determined according to mandatory consumer protection laws applicable to the Consumer.
 
-Glossary: "The product" means the TypingMind Custom product; "Chat Instance" means the AI Chat interface you created when using the product. "You”/”the admin" the people who create a new chat instance and have the permission to config and customize the chat instance; "Your users" means the people who uses the Chat instance, sending messages and use the chat features on your chat instance, this could be your teammate, your users, your community members, etc.
+**14. Term, Termination, and Cancellation**
 
-# **For Cloud-hosted instances**
+We may terminate or suspend your access to the Services immediately, without prior notice or liability, for any reason, including without limitation if you breach these Terms of Service. You may terminate your Agreement with us at any time by ceasing to use the Services and deleting your Account. Upon termination, your right to use the Services will immediately cease, and your Content may be permanently deleted. All provisions of these Terms which by their nature should survive termination (including ownership provisions, warranty disclaimers, indemnity, and limitations of liability) shall survive.
 
-- All purchases are non-refundable. If you don’t want to be charged, please cancel your subscription within the 14-days free trial.
-- The subscription fee for the hosted version is fixed and includes access for 5 users. Additional users can be added at a set one-time licensing fee per user. For the most current pricing, please contact sales or visit [**https://custom.typingmind.com/pricing**](https://custom.typingmind.com/pricing).
-- Upon subscribing to TypingMind Custom, including the Early Access version, your account will be immediately charged for the first month. Subsequent charges will occur on the same day of each following month.
-- By becoming a subscriber of TypingMind Custom, including the Early Access version, you acknowledge that you are acquiring the product in its present form. You understand the product is under continuous development and its features may change. Furthermore, there may be bugs or errors, and you agree to report such issues to us.
-- Once users are added to your chat instance via the Admin Panel, they can use the interface as they would on [**TypingMind.com**](http://typingmind.com/). Every user will have individual chat history, custom prompts, AI characters, and bookmarks stored on their device. Users can log into your chat instance from any device they want.
-- The product is designed for a finite number of user seats. If you need to accommodate more users, you will need to purchase additional user seat licenses. One seat is available for only one user (person), this person can use the product on multiple devices. You are not allowed to share a seat with multiple people.
-- Advertised upcoming features or items on our product roadmap may not necessarily be included in the final product. Early subscribers acknowledging that they benefit from a discounted price, accept the product as-is.
-- As we add more features and services, we anticipate a rise in the product's price. Generally, price changes will only affect new customers, while current customers will continue with their initial subscription price. However, there may be circumstances where a price change is necessary for all customers.
-- We aim to maintain a 24/7 uptime of the hosted version of the product, although 100% availability cannot be guaranteed. In the event of scheduled downtime for maintenance or the like, we will attempt to notify you in advance.
+**15. Consumer Rights**
 
-# **For Self-hosted instances**
+A "Consumer" means any natural person who enters into transactions for purposes outside their trade, business, craft, or profession. We respect consumer rights. Any provisions of these Terms of Service that are less favorable to a Consumer than the mandatory laws of the Consumer's jurisdiction shall be deemed invalid and replaced by those statutory provisions. Specifically, exclusions or severe limitations of liability for intentional misconduct or gross negligence do not apply to Consumers where prohibited by law.
 
-- All purchases are final and not refundable, unless specified in the custom contract we have with you.
-- You will be provided with the source code and/or installation package for self-hosting the TypingMind Custom at your own servers or infrastructure.
-- Upon purchase, you will receive a self-host "Instance Key". This key is required during the setup process and will be used to validate your purchase. An Instance Key can be used on exactly one self-host instance. An "instance" is defined as one setup of the self-host software, this means one chat interface, with the same set of configurations: name, tagline, logo, prompt library, and other data associated with the chat interface. You can buy multiple instance keys to setup multiple chat instances on your infrastructure.
-- You will be responsible for setting up, managing, and maintaining your own hosting environment. This includes, but is not limited to, installing and updating software, monitoring server performance, handling backups, and managing server security.
-- While we provide the option for self-hosting, we do not provide free technical support for server setup or maintenance. However, we offer a separate support package for customers needing help with their server setup and maintenance.
-- Payment for the self-hosted version of the product is required in advance and covers a minimum term of one year from the date of purchase. After this one-year period, you have the option to renew your subscription to continue receiving updates and support. If you choose not to renew, you may continue using the latest version of the product that you have indefinitely, but you will not receive further updates or support from us after your subscription ends.
-- For self-hosted instances, we offer standard customer and technical support through our official support channel at [**support@typingmind.com**](mailto:support@typingmind.com). This includes basic help with installation, configuration, troubleshooting, and product related questions. If you require a higher level of support and SLA/SLO , we offer premium support packages that can be purchased separately.
-- The source code or installation package that you receive for self-hosting the AI chat instance is exclusively for your use and should not be shared, sold, modified, or distributed to third parties without our prior consent.
-- Just like with the hosted version, the product is sold as-is and may still be in continuous development. By purchasing a self-hosted license you understand and accept that all features of the product may change in the future and the product may contain bugs and errors.
-- The product is designed for a finite number of user seats. If you need to accommodate more users, you will need to purchase additional user seat licenses. One seat is available for only one user (person), this person can use the product on multiple devices. You are not allowed to share a seat with multiple people.
-- The self-hosted versions of TypingMind Custom rely on external services, such as OpenAI API and Anthropic API, for some of their functionalities. While we strive to ensure the seamless integration of these services, we do not control these third-party services, and hence, cannot guarantee their availability or functionality. We provide no warranty or assurance regarding the uninterrupted service of external dependencies. In case of any disruptions, your experience with the self-hosted versions of TypingMind Custom may be affected. It's suggested to monitor the status of these third-party services independently and adjust your usage of the product accordingly.
-- **Update Responsibility**: You, as the self-hosted user, are responsible for updating the software with new patches or versions released by us. We are not liable for issues arising from the use of outdated versions.
-- **Indemnification**: You agree to indemnify, defend, and hold harmless TypingMind Custom and its licensees, affiliates, officers, employees, and agents from and against any claims, liabilities, damages, judgments, losses, costs, expenses, or fees, including reasonable attorneys' fees, arising out of or relating to your use or misuse of the software or any violation of these terms.
-- **Alteration and Modification**: Any unauthorized alterations, modifications, or use of the software beyond its intended purpose, including hacking or misuse, negates our responsibility for any damage, loss, or legal complications that may arise as a result.
-- **Reverse Engineering and Source Code Usage**: You agree not to attempt to reverse engineer the software or exploit the provided source code in any manner not explicitly allowed by these terms.
-- **Security**: You, as a self-hosting user, are solely responsible for securing the self-hosted instance of TypingMind Custom, protecting the stored data, and ensuring compliance with applicable privacy laws.
-- **Licensing Restrictions**: The self-hosted software should only be used in accordance with these terms and its recommended usage. Any sublicensing, resale, or redistribution of the software is prohibited unless explicitly agreed upon by us in writing.
+**16. General Provisions**
 
-# **General terms**
+16.1 Governing Law: These Terms of Service shall be governed by and construed in accordance with the laws of Singapore, without regard to its conflict of law provisions. Where mandatory consumer protection laws of your jurisdiction provide a higher level of protection, those laws shall apply.
 
-- **Privacy Policy**: By using our product, you agree to our Privacy Policy, which outlines how we collect, store, use, and protect your information. You can view our Privacy Policy at [**https://custom.typingmind.com/privacy**](https://custom.typingmind.com/privacy).
-- **Intellectual Property**: All intellectual property rights of the TypingMind Custom software, its design, logos, text, graphics, and all software compilations and underlying source code shall remain our property. Users are not permitted to use or reproduce our trademarks, logos or brand names without our prior written consent.
-- **Intellectual Property of User Generated Content**: You retain all ownership rights to the content generated by you on our platform. By using our product, you grant TypingMind Custom a non-exclusive, worldwide, royalty-free right to use, copy, store, transmit, distribute, display, and make derivative works of this content, solely to the extent and for the purpose of providing the product and services to you and your users. We do not claim any ownership rights to your content and will not use your content for any purpose other than as described above without your prior consent.
-- **User Obligations**: As a user, you agree to use our product lawfully and not to use it for any illicit activities. You also agree not to try and disrupt or manipulate our product, or to harm other users.
-- **Termination**: We reserve the right to suspend or terminate your access to the service in case of any breach of these terms.
-- **Modification of Terms**: We reserve the right to alter these terms of service at our discretion. We will notify you of any major changes, and your continued use of our service after such modifications will constitute your acceptance of the modified terms.
-- **Product usage:** By using [**typingmind.com**](http://typingmind.com/), you agree to receive important product updates from [**TypingMind.com**](http://typingmind.com/) via the email linked with your payment account or the email you used to register your account. You can opt-out of this product updates anytime by clicking to the "Unsubscribe" link at the bottom of each email. We only send important product updates.
-- **Disclaimer:** It is not warranted that [**typingmind.com**](http://typingmind.com/) will meet your requirements or that its operation will be uninterrupted or error free. All express and implied warranties or conditions not stated in this Agreement (including without limitation, loss of profits, loss or corruption of data, business interruption or loss of contracts), so far as such exclusion or disclaimer is permitted under the applicable law are excluded and expressly disclaimed. This Agreement does not affect your statutory rights.
-- **Warranties and Limitation of Liability:** [**typingmind.com**](http://typingmind.com/) does not give any warranty, guarantee or other term as to the quality, fitness for purpose or otherwise of the software. [**typingmind.com**](http://typingmind.com/) shall not be liable to you by reason of any representation (unless fraudulent), or any implied warranty, condition or other term, or any duty at common law, for any loss of profit or any indirect, special or consequential loss, damage, costs, expenses or other claims (whether caused by [**typingmind.com**](http://typingmind.com/)'s negligence or the negligence of its servants or agents or otherwise) which arise out of or in connection with the provision of any goods or services by [**typingmind.com**](http://typingmind.com/). [**typingmind.com**](http://typingmind.com/) shall not be liable or deemed to be in breach of contract by reason of any delay in performing, or failure to perform, any of its obligations if the delay or failure was due to any cause beyond its reasonable control. Notwithstanding contrary clauses in this Agreement, in the event that [**typingmind.com**](http://typingmind.com/) are deemed liable to you for breach of this Agreement, you agree that [**typingmind.com**](http://typingmind.com/)'s liability is limited to the amount actually paid by you for your services or software, which amount calculated in reliance upon this clause. You hereby release [**typingmind.com**](http://typingmind.com/) from any and all obligations, liabilities and claims in excess of this limitation.
-- **General Terms and Law:** This Agreement is governed by the laws of Wyoming, United States. You acknowledge that no joint venture, partnership, employment, or agency relationship exists between you and [**typingmind.com**](http://typingmind.com/) as a result of your use of these services. You agree not to hold yourself out as a representative, agent or employee of [**typingmind.com**](http://typingmind.com/). You agree that [**typingmind.com**](http://typingmind.com/) will not be liable by reason of any representation, act or omission to act by you.
+16.2 Force Majeure: We shall not be liable for any failure or delay in performance due to circumstances beyond our reasonable control, including acts of God, natural disasters, pandemics, war, terrorism, government actions, internet outages, or failures of third-party AI providers.
 
-Last Updated: 11 Jun 2023
+16.3 Export Compliance: You agree to comply with all applicable export and re-export control laws, including those of the EU and the USA. You warrant you are not located in a comprehensively sanctioned country or on any restricted parties list.
 
-</TERMS_OF_SERVICE_TEAM_VERSION>
+16.4 Privacy: Your use of the Services is subject to our Privacy Policy and Data Processing Addendum, which govern how we collect and process your personal data.
+
+16.5 Severability & Waiver: If any provision of these Terms is held to be unenforceable, the remaining provisions will remain in full force. Our failure to enforce any right or provision will not be considered a waiver of those rights.
+
+16.6 Amendments: We reserve the right to modify these Terms at any time due to legal, technical, or operational reasons. We will notify you of material changes through the Services. Continued use of the Services after changes become effective constitutes acceptance.
+
+16.7 Assignment: You may not assign or transfer your rights under these Terms without our prior written consent. We may freely assign our rights and obligations.
+
+16.8 Entire Agreement: These Terms of Service constitute the entire agreement between you and us regarding the Services and supersede all prior agreements.
+
+</TERMS_OF_SERVICE>
+
+<VULNERABILITY_DISCLOSURE_POLICY>
+October 2, 2026
+
+## Introduction
+
+TypingMind is committed to the security of our users and their data. This policy gives security researchers clear guidelines for finding vulnerabilities in our systems and tells you how we want you to report them to us.
+
+This policy describes which systems and types of research it covers, how to send us vulnerability reports, and how long we ask you to wait before you disclose a vulnerability publicly.
+
+We encourage you to contact us to report potential vulnerabilities in our systems.
+
+## Authorization
+
+If you make a good faith effort to comply with this policy during your security research, we will consider your research to be authorized, we will work with you to understand and resolve the issue quickly, and TypingMind will not recommend or pursue legal action related to your research. Should legal action be initiated by a third party against you for activities that were conducted in accordance with this policy, we will make this authorization known.
+
+## Guidelines
+
+Under this policy, "research" means activities in which you:
+
+- Notify us as soon as possible after you discover a real or potential security issue.
+- Make every effort to avoid privacy violations, degradation of user experience, disruption to production systems, and destruction or manipulation of data.
+- Use only accounts, team workspaces, and installations that you own or have explicit permission to test. Do not access or change the data of other users.
+- Only use exploits to the extent necessary to confirm a vulnerability's presence. Do not use an exploit to compromise or exfiltrate data, establish persistent command line access, or use the exploit to pivot to other systems.
+- Provide us a reasonable amount of time to resolve the issue before you disclose it publicly.
+- Do not submit a high volume of low-quality reports.
+
+Once you've established that a vulnerability exists or encounter any sensitive data (including personally identifiable information, financial information, chat content, API keys, or proprietary information or trade secrets of any party), you must stop your test, notify us immediately, and not disclose this data to anyone else.
+
+## Test methods
+
+The following test methods are not authorized:
+
+- Network denial of service (DoS or DDoS) tests or other tests that impair access to or damage a system or data. This includes automated scans that send a high volume of requests.
+- Physical testing (e.g. office access, open doors, tailgating), social engineering (e.g. phishing, vishing), or any other non-technical vulnerability testing.
+- Spam or abuse of features that send email or messages to other people.
+
+## Scope
+
+This policy applies to the following systems and services:
+
+- `typingmind.com`
+- `www.typingmind.com`
+- `cloud.typingmind.com`
+- `eu.typingmind.com`
+- `api.typingmind.com`
+- `api.eu.typingmind.com`
+- `custom.typingmind.com`
+- `*.typingcloud.com`
+
+The following are out of scope and are not authorized for testing:
+
+- Any subdomain of `typingmind.com` that is not listed above, such as our documentation, status, trust, feedback, store, and checkout sites. Third-party vendors operate these sites.
+- Team workspaces on custom domains or self-hosted installations that our customers operate. Report issues in the software itself to us, but do not test against customer systems.
+- Plugins, agents, MCP servers, and other content that users create and share.
+- Third-party services that TypingMind connects to. Report vulnerabilities in vendor systems directly to the vendor, according to their disclosure policy (if any).
+
+Any service not expressly listed above, such as any connected services, are excluded from scope and are not authorized for testing. If you aren't sure whether a system is in scope or not, contact us at [security@typingmind.com](mailto:security@typingmind.com) before starting your research.
+
+Though we develop and maintain other internet-accessible systems or services, we ask that active research and testing only be conducted on the systems and services covered by the scope of this document. If there is a particular system not in scope that you think merits testing, please contact us to discuss it first. We will increase the scope of this policy over time.
+
+### Findings we do not accept
+
+These findings usually have no security impact. We will close them unless you show a clear exploit with real impact:
+
+- Missing security headers, or clickjacking on pages with no sensitive actions
+- Missing or weak SPF, DKIM, or DMARC records
+- Self-XSS, or attacks that need the victim to paste code into their own browser
+- Lack of rate limiting on endpoints that do not affect security
+- Software version disclosure or banner information
+- Issues that affect only outdated or unsupported browsers
+- Results from automated scanners without a proof of concept
+- AI model output issues (such as jailbreaks or incorrect answers), unless they cause data access or actions across accounts
+
+## Reporting a vulnerability
+
+Information submitted under this policy will be used for defensive purposes only – to mitigate or remediate vulnerabilities. If your findings include newly discovered vulnerabilities that affect all users of a product or service and not solely TypingMind, we may share your report with the affected vendor or with a coordinating organization such as the Cybersecurity and Infrastructure Security Agency (CISA), where it will be handled under their coordinated vulnerability disclosure process. We will not share your name or contact information without express permission.
+
+We accept vulnerability reports via [security@typingmind.com](mailto:security@typingmind.com). Reports may be submitted anonymously. If you share contact information, we will acknowledge receipt of your report within 3 business days.
+
+We do not support PGP-encrypted emails. Do not include sensitive data that you found (such as other users' data or credentials) in your report. Describe the data instead, and we will ask for more details if we need them.
+
+By submitting a vulnerability, you acknowledge that you have no expectation of payment and that you expressly waive any future pay claims against TypingMind related to your submission.
+
+## What we would like to see from you
+
+In order to help us triage and prioritize submissions, we recommend that your reports:
+
+- Describe the location the vulnerability was discovered and the potential impact of exploitation.
+- Offer a detailed description of the steps needed to reproduce the vulnerability (proof of concept scripts or screenshots are helpful).
+- Be in English, if possible.
+
+## What you can expect from us
+
+When you choose to share your contact information with us, we commit to coordinating with you as openly and as quickly as possible.
+
+- Within 3 business days, we will acknowledge that your report has been received.
+- To the best of our ability, we will confirm the existence of the vulnerability to you and be as transparent as possible about what steps we are taking during the remediation process, including on issues or challenges that may delay resolution.
+- We will maintain an open dialogue to discuss issues.
+
+## Questions
+
+Questions regarding this policy may be sent to [security@typingmind.com](mailto:security@typingmind.com). We also invite you to contact us with suggestions for improving this policy.
+
+## Document change history
+
+| Version | Date | Description |
+| --- | --- | --- |
+| 1.0 | October 2, 2026 | First issuance. |
+
+</VULNERABILITY_DISCLOSURE_POLICY>
+
 
 <GDPR_STATEMENT>
 We take our responsibility to protect the data of our customers very seriously. Europe’s General Data Protection Regulation (GDPR) came into effect on 25 May 2018. This broad reaching regulation is designed to ensure the privacy, security, and confidentiality of data.
@@ -7731,7 +7543,7 @@ TypingMind primarily provides the interface and management system for interactin
 
 Below is a summary of the policies for the major AI providers commonly used with TypingMind. **It is crucial to consult the official privacy policies of each provider for the most accurate and up-to-date information.**
 
-### 1. OpenAI (Models like GPT-4, GPT-3.5)
+### 1. OpenAI 
 
 - **No Training on API Data:** OpenAI explicitly states that data submitted through their API is **not** used to train their models.
 - **Data Retention for Abuse Monitoring:** OpenAI retains API inputs and outputs for up to **30 days**. This retention is solely for identifying potential abuse and ensuring service operation.
@@ -8448,13 +8260,28 @@ Your TypingMind application is now successfully connected to the MCP connector r
         - Reason: Centralization of customer support
         - Current Support: support@typingmind.com
 
-4. **SetApp Integration:**
+    - **Reseller Program:**
+        - Status: Discontinued
+        - All paid users can be a reseller to resell the TypingMind Teams version of the app.
+
+2. **SetApp Integration:**
     - **Access Methods:**
         - Web App: Access through Setapp > TypingMind > "Open Web App"
         - Native App: Continued support for existing installations
     - **Authentication:**
         - Requires Setapp account credentials
         - Seamless integration with SetApp ecosystem
+
+3. TypingMind Teams
+    - **Chat Widget**
+        - Satus: Discontinued
+        - Date: June, 2026
+    
+    - **Custom Email Sender**
+        - Status: Discontinued
+        - New organizations cannot enable Custom Email Sender.
+        - Existing organizations that had not enabled the feature cannot enable it.
+        - Organizations with Custom Email Sender already enabled can continue sending emails through their configured SMTP service.
 </PLATFORM_DETAILS_AND_UPDATES>
 
 
@@ -8491,17 +8318,6 @@ Your TypingMind application is now successfully connected to the MCP connector r
     - **Data Usage Policy:**
         - API Data: Not used for model training
         - OpenAI Compliance: Adheres to OpenAI's data usage guidelines
-
-4. **Model-Specific Technical Details:**
-    - **Access Requirements:**
-        - o1/o3 Models: Usage Tier 3-5 minimum
-        - Plugin Support: Model-dependent
-        - Video Processing: Supported by Gemini models
-    
-    - **API Limitations:**
-        - o1-preview and o1-mini: No plugin support
-        - Grok 3: API access pending
-        - Custom Models: OpenAI-compatible API endpoint required
 
 5. **Performance Optimization:**
     - **Sync Optimization:**
@@ -8576,7 +8392,7 @@ The Thinking Mode feature in TypingMind enhances the user experience by providin
     - The time shows for how long the AI agent thought.
     - The bubble also has a dropdown icon that, when clicked, displays a full explanation about the process and reasoning.
 3. Models Support
-    - Currently, Claude 3.7 Sonnet is the only AI Model that supports this function.
+    - Go to Model list and select specific model to check if it supports Thinking or not.
 
 ### Use Case Example
 
