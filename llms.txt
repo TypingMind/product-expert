@@ -81,7 +81,7 @@ Here's an in-depth look at TypingMind's features:
 - **Control Context Limit:**
     - Allows users to define the amount of conversation history that the AI remembers.
     - Helps to manage token usage and improve the AI's performance by limiting the context window.
-- **Dynamic Context via API (New):**
+- **Dynamic Context via API:**
     - Enables users to integrate live data from external APIs or their own data sources (using Retrieval-Augmented Generation or RAG) into the AI conversations.
     - Allows the AI to access and utilize real-time information to provide more relevant and accurate responses.
 - **Chats Sync and Backup:**
@@ -282,7 +282,7 @@ The TypingMind interface is divided into two main sections: a sidebar on the lef
 
 - The UI maintains a clean, two-column layout.
 - Core chat functionalities (model/plugin selection, input actions) are grouped near the message input area.
-- Chat-level management actions (Share, Reset, Clear Context, Minimap, Info) are now consolidated in the top bar, accessible via direct icons or the "More Actions" menu.
+- Chat-level management actions (Share, Reset, Clear Context, Minimap, Info) are consolidated in the top bar, accessible via direct icons or the "More Actions" menu.
 - The top bar allows customization by pinning/unpinning frequently used actions.
 </MAIN_INTERFACE>
 
@@ -396,8 +396,8 @@ If a model is available via multiple providers (e.g., Llama 3 via Groq vs. Llama
     3. Use the search field ("Search plugins, skills, MCP...") to find items, and tick the checkbox next to each plugin, skill or MCP server to include (e.g., Web Browser, GPT Image 2.5, Web App Builder, Interactive Canvas, Code Sandbox, Firecrawl, Notion, GitHub).
     4. The counter at the bottom left shows how many are selected (e.g., "4 plugins selected").
     5. Click **Save** to create the preset, or **Cancel** to discard it.
-- **Switch preset:** Open the Plugins popup and click a preset row under "Presets". The enabled plugins change to that preset's selection. A blue check mark on the row shows the applied preset. [VERIFY check mark meaning]
-- **Edit a preset:** Click the pencil icon on the preset row. [VERIFY]
+- **Switch preset:** Open the Plugins popup and click a preset row under "Presets". The enabled plugins change to that preset's selection. A blue check mark on the row shows the applied preset. 
+- **Edit a preset:** Click the pencil icon on the preset row. 
 - **Search plugins:** Use the Search bar at the top of the Plugins popup.
 - **Disable all plugins:** Click the minus icon ("Disable all plugins") next to the search bar.
 - **Export / import presets across devices:** 
@@ -546,14 +546,14 @@ The Chat Thread feature allows users to view, switch between, and continue chatt
     - **Outcome:** Creates a distinct copy of the conversation for taking it in a significantly different direction, preserving a snapshot, or creating a clean starting point based on a previous state.
     - **Sidebar:** Creates a *new chat entry* in the sidebar list.
 
-**7. FAQs (Based on provided text):**
+**7. FAQs:**
 
 - **Q: Does editing delete the original message?**
     - **A:** No. Editing creates a new version/thread while preserving the original.
 - **Q: Can I continue conversations from different versions?**
     - **A:** Yes. Each version acts as an independent starting point for continuing the conversation.
 - **Q: How many versions can I have?**
-    - **A:** There isn't a strict limit imposed by the feature itself for most users. However, very old or inactive branches *might* be subject to archiving in the future depending on system implementation (this needs confirmation on exact behavior).
+    - **A:** There isn't a strict limit imposed by the feature itself for most users.
 
 </CHAT_THREAD_FEATURE>
 
@@ -675,7 +675,7 @@ The sidebar in TypingMind provides the primary navigation and chat management to
 
 - **Placement:** At the right end of the first row of the chat panel, next to the profile icon.
 - **Icon:** An arrow pointing left with horizontal lines.
-- **Function:** Collapses the chat panel (the chat list) to give the conversation more width. [VERIFY]
+- **Function:** Collapses the chat panel (the chat list) to give the conversation more width. 
 
 ### Search Bar
 
@@ -722,12 +722,12 @@ The Sort and Filter icons are located to the right of the Search bar. The Create
 
 - **Function:** Displays a list of recent chats and chat folders, providing access to existing conversations.
 - **Folders:**
-    - **Folders header row:** A collapsible header with an arrow, the label "Folders" and the number of folders (e.g., "Folders 5"). Clicking it expands or collapses the whole folder list. At the right side of the header are the Create Folder icon and a three-dots icon for more folder options. [VERIFY three-dots menu items]
+    - **Folders header row:** A collapsible header with an arrow, the label "Folders" and the number of folders (e.g., "Folders 5"). Clicking it expands or collapses the whole folder list. At the right side of the header are the Create Folder icon and a three-dots icon for more folder options like Project folder settings.
     - Represented by a folder icon and the folder name.
     - The number of chats within the folder is displayed as a grey badge next to the name (e.g., "Model comparison 9").
     - Clicking a folder expands or collapses it to show or hide the chats within.
     - Folders can contain subfolders.
-    - Folders with project settings can show small round indicator icons after the chat count (for example a tag, a model or agent logo and a document icon) to show what is configured for the project. [VERIFY meaning of each icon]
+    - Folders with project settings can show small round indicator icons after the chat count (for example a tag, a model or agent logo and a document icon) to show what is configured for the project. 
     - **Folder actions**: When hovering a folder, a "+" (add chat to folder) and a three-dots icon appear to the right of the folder name. The three-dots menu contains **New Subfolder**, **Project Settings**, **Rename**, **Move To Folder** and **Delete**.
 - **Individual Chats:**
     - Each chat is displayed with:
@@ -1415,7 +1415,7 @@ This section delves into the technical aspects of the "Add Custom Model" feature
 **Q: My custom model is not working. What should I do?**
 
 1. **Verify the Endpoint URL:** Double-check that the endpoint URL is correct and that the API is running and accessible. Use tools like `curl` or `Postman` to test the endpoint directly.
-2. **Check the API Type:** Ensure that you have selected the correct API Type (for example: "OpenAI Compatible API" for OpenAI-like models, or for the new OpenAI Response API, Claude via Bedrock, Gemini API).
+2. **Check the API Type:** Ensure that you have selected the correct API Type (for example: "OpenAI Compatible API" for OpenAI-like models, or for the OpenAI Response API, Claude via Bedrock, Gemini API).
 3. **Review Custom Headers & Body Parameters:** Make sure that any custom headers or body parameters are correctly configured. Typos or incorrect values can cause API requests to fail.
 4. **Inspect the Request/Response:** Use your browser's developer tools (Network tab) to inspect the actual requests being sent to your custom model and the responses being returned. Look for any error messages or unexpected data.
 5. **Examine the Model's Logs:** Check your custom model's logs for any errors or exceptions that might be occurring. This can provide valuable insights into what's going wrong.
@@ -2390,7 +2390,7 @@ The Knowledge Base interface is designed to be user-friendly and provides a clea
 
 1. **Click the "+ Add Data Source" Button:** This opens the "Add Data Source" dialog, presenting the available data source options.
 2. **"Add Data Source" Dialog:** This dialog displays a list of supported data source types.
-3. **Data Source Options:** as of now, only File Upload is available for data connection. Other sources will be added soon.
+3. **Data Source Options:** 
     - **File Uploads:**
         1. Select Add Data Source and select file upload
         2. You will need to create a folder for file upload first. Enter the folder name and click Create
@@ -8327,13 +8327,22 @@ Your TypingMind application is now successfully connected to the MCP connector r
         - Reason: Centralization of customer support
         - Current Support: support@typingmind.com
 
-4. **SetApp Integration:**
+    - **Reseller Program:**
+        - Status: Discontinued
+        - All paid users can be a reseller to resell the TypingMind Teams version of the app.
+
+2. **SetApp Integration:**
     - **Access Methods:**
         - Web App: Access through Setapp > TypingMind > "Open Web App"
         - Native App: Continued support for existing installations
     - **Authentication:**
         - Requires Setapp account credentials
         - Seamless integration with SetApp ecosystem
+
+3. TypingMind Teams
+    - **Chat Widget**
+        - Satus: Discontinued
+        - Date: June, 2026
 </PLATFORM_DETAILS_AND_UPDATES>
 
 
@@ -8370,17 +8379,6 @@ Your TypingMind application is now successfully connected to the MCP connector r
     - **Data Usage Policy:**
         - API Data: Not used for model training
         - OpenAI Compliance: Adheres to OpenAI's data usage guidelines
-
-4. **Model-Specific Technical Details:**
-    - **Access Requirements:**
-        - o1/o3 Models: Usage Tier 3-5 minimum
-        - Plugin Support: Model-dependent
-        - Video Processing: Supported by Gemini models
-    
-    - **API Limitations:**
-        - o1-preview and o1-mini: No plugin support
-        - Grok 3: API access pending
-        - Custom Models: OpenAI-compatible API endpoint required
 
 5. **Performance Optimization:**
     - **Sync Optimization:**
